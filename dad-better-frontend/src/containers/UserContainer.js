@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserCard from '../components/UserCard';
+import {connect} from "react-redux"
 
 class UserContainer extends Component {
     render() {
@@ -11,4 +12,11 @@ class UserContainer extends Component {
     }
 }
 
-export default UserContainer
+const mapStateToProps = (state) => {
+    return {
+      users: state.usersReducer.users,
+      quote: state.quotesReducer.quotes.data
+    }
+  }
+
+export default connect(mapStateToProps)(UserContainer)

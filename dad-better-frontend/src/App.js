@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import {connect} from "react-redux";
 import {fetchUsers} from "./actions/userActions";
+import {fetchQuotes} from "./actions/quoteActions"
 import LoginContainer from "./containers/LoginContainer";
 import UserContainer from "./containers/UserContainer";
 import BadgeContainer from "./containers/BadgeContainer";
@@ -14,6 +15,7 @@ class App extends Component {
   
   componentDidMount(){
     this.props.fetchUsers()
+    this.props.fetchQuotes()
   }
   
   render() {
@@ -38,9 +40,9 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    users: state.users,
-    loading: state.loading
+    users: state.usersReducer.users,
+    quote: state.quotesReducer.quotes.data
   }
 }
 
-export default connect(mapStateToProps, {fetchUsers})(App);
+export default connect(mapStateToProps, {fetchUsers, fetchQuotes})(App);

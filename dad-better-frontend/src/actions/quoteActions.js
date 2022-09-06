@@ -3,6 +3,6 @@ export const fetchQuotes = () => {
         dispatch({type: 'LOADING_QUOTES'});
         fetch("http://localhost:3000/quotes")
         .then ((response) => {return response.json()})
-        .then((responseJSON) => {dispatch({type: "ADD_QUOTES", users: responseJSON})})
+        .then((responseJSON) => {dispatch({type: "ADD_QUOTES", quotes: responseJSON})})
     }
 }
