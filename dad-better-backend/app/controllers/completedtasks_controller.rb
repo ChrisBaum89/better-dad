@@ -1,0 +1,2 @@
+class CompletedtasksController < ApplicationController
+end
