@@ -4,11 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import thunk from 'redux-thunk'
-import usersReducer from "./reducers/usersReducer.js"
+import rootReducer from "./reducers/indexReducer.js"
 import { Provider } from 'react-redux'
 import { applyMiddleware, createStore } from "redux";
 
-const store = createStore(usersReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -1,4 +1,4 @@
-const userReducer = (state = { users: [], loading: false}, action) => {
+const usersReducer = (state = { users: [], loading: false}, action) => {
     switch (action.type) {
         case "LOADING_USERS":
             return { 
@@ -16,4 +16,4 @@ const userReducer = (state = { users: [], loading: false}, action) => {
     }
 }
 
-export default userReducer
+export default usersReducer
