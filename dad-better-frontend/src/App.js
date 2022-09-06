@@ -1,13 +1,14 @@
 import React, {Component} from 'react'
 import logo from './logo.svg';
 import './App.css';
-import {connect} from "react-redux"
-import {fetchUsers} from "./actions/userActions"
-import LoginContainer from "./containers/LoginContainer"
-import UserContainer from "./containers/UserContainer"
-import BadgeContainer from "./containers/BadgeContainer"
-import QuoteContainer from "./containers/QuoteContainer"
+import {connect} from "react-redux";
+import {fetchUsers} from "./actions/userActions";
+import LoginContainer from "./containers/LoginContainer";
+import UserContainer from "./containers/UserContainer";
+import BadgeContainer from "./containers/BadgeContainer";
+import QuoteContainer from "./containers/QuoteContainer";
 import TaskContainer from './containers/TaskContainer';
+import NavigationContainer from './containers/NavigationContainer';
 
 class App extends Component {
   
@@ -29,6 +30,9 @@ class App extends Component {
       <QuoteContainer />
       <TaskContainer />
       </body>
+      <footer>
+        <NavigationContainer />
+      </footer>
     </div>
 )}}
 
