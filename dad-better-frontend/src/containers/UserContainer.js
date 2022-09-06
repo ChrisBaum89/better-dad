@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import UserCard from '../components/UserCard';
 
 class UserContainer extends Component {
-    render(){
+    render() {
         return (
             <div>
-                User Container
+                <UserCard />
             </div>
         )
     }

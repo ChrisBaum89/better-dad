@@ -5,3 +5,5 @@ const TaskCard = (props) => {
         TaskCard
     </div>
 }
+
+export default TaskCard
