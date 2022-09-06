@@ -12,14 +12,22 @@ user1 = User.create(
     username: "ChrisBaum89",
     name: "Chris",
     email: "c@gmail.com",
-    badge_id: [1]
+    password_digest: "password",
+    birthday: "09/03/1989",
+    score: 0,
+    beer_drinker: true
+    
 )
 
 user2 = User.create(
-    username: "BritB90",
-    name: "Brit",
+    username: "Bob90",
+    name: "Bob",
     email: "b@gmail.com",
-    badge_id: [2, 3]
+    password_digest: "password",
+    birthday: "01/24/1990",
+    score: 0,
+    beer_drinker: true
+
 )
 
 child1 = Child.create(
@@ -111,4 +119,19 @@ completedtask3 = Completedtask.create(
     task_id: 2,
     completed: true,
     date: "09/05/2022"
+)
+
+favorite1 = Favorite.create(
+    user_id: 1,
+    task_id: 2
+)
+
+favorite2 = Favorite.create(
+    user_id: 1,
+    task_id: 4
+)
+
+favorite3 = Favorite.create(
+    user_id: 2,
+    task_id: 3
 )

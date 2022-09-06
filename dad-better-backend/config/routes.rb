@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :favorites
   resources :completedtasks
   resources :tasks
   resources :achievements

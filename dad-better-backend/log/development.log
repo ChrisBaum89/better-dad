@@ -1381,3 +1381,430 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 31ms (Views: 18.3ms | ActiveRecord: 2.5ms | Allocations: 28299)
 
 
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220906003734)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "name" varchar, "email" varchar, "badge_id" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906003734"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateChildren (20220906010146)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "children" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "birthday" varchar, "gender" varchar, "user_id" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906010146"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBadges (20220906012447)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "badges" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" varchar, "score_threshold" integer, "image" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906012447"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAchievements (20220906020304)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "achievements" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "badge_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906020304"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTasks (20220906022431)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "value" integer, "category" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906022431"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCompletedtasks (20220906022546)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "completedtasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "task_id" integer, "completed" boolean, "date" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906022546"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFavorites (20220906024129)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "task_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906024129"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-09-06 02:47:04.813514"], ["updated_at", "2022-09-06 02:47:04.813514"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "badge_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "ChrisBaum89"], ["name", "Chris"], ["email", "c@gmail.com"], ["badge_id", "[1]"], ["created_at", "2022-09-06 02:47:08.242188"], ["updated_at", "2022-09-06 02:47:08.242188"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "badge_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "BritB90"], ["name", "Brit"], ["email", "b@gmail.com"], ["badge_id", "[2, 3]"], ["created_at", "2022-09-06 02:47:08.245102"], ["updated_at", "2022-09-06 02:47:08.245102"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Steve"], ["birthday", "09/03/2018"], ["gender", "male"], ["user_id", "1"], ["created_at", "2022-09-06 02:47:08.254882"], ["updated_at", "2022-09-06 02:47:08.254882"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChild Create (0.1ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Owen"], ["birthday", "09/20/2019"], ["gender", "male"], ["user_id", "1"], ["created_at", "2022-09-06 02:47:08.257307"], ["updated_at", "2022-09-06 02:47:08.257307"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mChild Create (0.1ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Stacey"], ["birthday", "03/20/2019"], ["gender", "female"], ["user_id", "2"], ["created_at", "2022-09-06 02:47:08.259508"], ["updated_at", "2022-09-06 02:47:08.259508"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (2.5ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "New Balance Shoes"], ["description", "The only choice of footwear for a dad.  The more grass stains on it the better."], ["score_threshold", 500], ["image", "www.testimage1.com"], ["created_at", "2022-09-06 02:47:08.265599"], ["updated_at", "2022-09-06 02:47:08.265599"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (0.1ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Bud Light"], ["description", "No fancy beer for you. You are a father that doesn't have the time or money for that nonsense."], ["score_threshold", 300], ["image", "www.testimage2.com"], ["created_at", "2022-09-06 02:47:08.270064"], ["updated_at", "2022-09-06 02:47:08.270064"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (0.1ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Thick Face Eating Glasses"], ["description", "You need to see and it needs to be everything.  Can't have the frame impeding your view!"], ["score_threshold", 200], ["image", "www.testimage3.com"], ["created_at", "2022-09-06 02:47:08.271782"], ["updated_at", "2022-09-06 02:47:08.271782"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBadge Load (0.1ms)[0m  [1m[34mSELECT "badges".* FROM "badges" WHERE "badges"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAchievement Create (0.2ms)[0m  [1m[32mINSERT INTO "achievements" ("user_id", "badge_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["badge_id", 2], ["created_at", "2022-09-06 02:47:08.279420"], ["updated_at", "2022-09-06 02:47:08.279420"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Tell dad joke 1"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 02:47:08.295860"], ["updated_at", "2022-09-06 02:47:08.295860"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Tell dad joke 2"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 02:47:08.298097"], ["updated_at", "2022-09-06 02:47:08.298097"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Take out the trash"], ["value", 20], ["category", "goal"], ["created_at", "2022-09-06 02:47:08.299775"], ["updated_at", "2022-09-06 02:47:08.299775"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Play with children without looking at phone for 30 minutes"], ["value", 30], ["category", "goal"], ["created_at", "2022-09-06 02:47:08.301388"], ["updated_at", "2022-09-06 02:47:08.301388"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.2ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 1], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 02:47:08.308941"], ["updated_at", "2022-09-06 02:47:08.308941"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.2ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 2], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 02:47:08.312499"], ["updated_at", "2022-09-06 02:47:08.312499"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.1ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["task_id", 2], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 02:47:08.315373"], ["updated_at", "2022-09-06 02:47:08.315373"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.2ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 2], ["created_at", "2022-09-06 02:47:08.321535"], ["updated_at", "2022-09-06 02:47:08.321535"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.1ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 4], ["created_at", "2022-09-06 02:47:08.324562"], ["updated_at", "2022-09-06 02:47:08.324562"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.1ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 2], ["task_id", 3], ["created_at", "2022-09-06 02:47:08.327184"], ["updated_at", "2022-09-06 02:47:08.327184"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/users/2" for ::1 at 2022-09-05 22:47:15 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "2"]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "achievements" ON "badges"."id" = "achievements"."badge_id" WHERE "achievements"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completedtasks" ON "tasks"."id" = "completedtasks"."task_id" WHERE "completedtasks"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[36mBadge Load (0.1ms)[0m  [1m[34mSELECT "badges".* FROM "badges" INNER JOIN "achievements" ON "badges"."id" = "achievements"."badge_id" WHERE "achievements"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[36mChild Load (0.1ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "2"]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" INNER JOIN "completedtasks" ON "tasks"."id" = "completedtasks"."task_id" WHERE "completedtasks"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 2]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 2]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+Completed 200 OK in 75ms (Views: 46.2ms | ActiveRecord: 3.6ms | Allocations: 39761)
+
+
+Started GET "/users" for ::1 at 2022-09-05 22:48:04 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "1"]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "achievements" ON "badges"."id" = "achievements"."badge_id" WHERE "achievements"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completedtasks" ON "tasks"."id" = "completedtasks"."task_id" WHERE "completedtasks"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mBadge Load (0.2ms)[0m  [1m[34mSELECT "badges".* FROM "badges" INNER JOIN "achievements" ON "badges"."id" = "achievements"."badge_id" WHERE "achievements"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "achievements" ON "users"."id" = "achievements"."user_id" WHERE "achievements"."badge_id" = ?[0m  [["badge_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mChild Load (0.1ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "1"]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" INNER JOIN "completedtasks" ON "tasks"."id" = "completedtasks"."task_id" WHERE "completedtasks"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "2"]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "achievements" ON "badges"."id" = "achievements"."badge_id" WHERE "achievements"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completedtasks" ON "tasks"."id" = "completedtasks"."task_id" WHERE "completedtasks"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mBadge Load (0.0ms)[0m  [1m[34mSELECT "badges".* FROM "badges" INNER JOIN "achievements" ON "badges"."id" = "achievements"."badge_id" WHERE "achievements"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mChild Load (0.0ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "2"]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" INNER JOIN "completedtasks" ON "tasks"."id" = "completedtasks"."task_id" WHERE "completedtasks"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+Completed 200 OK in 55ms (Views: 50.6ms | ActiveRecord: 3.8ms | Allocations: 20165)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220906003734)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "name" varchar, "email" varchar, "badge_id" varchar, "password_digest" varchar, "birthday" varchar, "score" integer, "beer_drinker" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906003734"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateChildren (20220906010146)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "children" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "birthday" varchar, "gender" varchar, "user_id" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906010146"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBadges (20220906012447)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "badges" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" varchar, "score_threshold" integer, "image" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906012447"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAchievements (20220906020304)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "achievements" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "badge_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906020304"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTasks (20220906022431)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "value" integer, "category" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906022431"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCompletedtasks (20220906022546)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "completedtasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "task_id" integer, "completed" boolean, "date" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906022546"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFavorites (20220906024129)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "task_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906024129"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-09-06 02:56:41.514225"], ["updated_at", "2022-09-06 02:56:41.514225"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (10.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "birthday", "score", "beer_drinker", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "ChrisBaum89"], ["name", "Chris"], ["email", "c@gmail.com"], ["password_digest", "password"], ["birthday", "09/03/1989"], ["score", 0], ["beer_drinker", 1], ["created_at", "2022-09-06 02:57:00.100522"], ["updated_at", "2022-09-06 02:57:00.100522"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "birthday", "score", "beer_drinker", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "Bob90"], ["name", "Bob"], ["email", "b@gmail.com"], ["password_digest", "password"], ["birthday", "01/24/1990"], ["score", 0], ["beer_drinker", 1], ["created_at", "2022-09-06 02:57:00.103384"], ["updated_at", "2022-09-06 02:57:00.103384"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChild Create (0.1ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Steve"], ["birthday", "09/03/2018"], ["gender", "male"], ["user_id", "1"], ["created_at", "2022-09-06 02:57:00.112713"], ["updated_at", "2022-09-06 02:57:00.112713"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChild Create (0.1ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Owen"], ["birthday", "09/20/2019"], ["gender", "male"], ["user_id", "1"], ["created_at", "2022-09-06 02:57:00.115057"], ["updated_at", "2022-09-06 02:57:00.115057"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Stacey"], ["birthday", "03/20/2019"], ["gender", "female"], ["user_id", "2"], ["created_at", "2022-09-06 02:57:00.125085"], ["updated_at", "2022-09-06 02:57:00.125085"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (0.5ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "New Balance Shoes"], ["description", "The only choice of footwear for a dad.  The more grass stains on it the better."], ["score_threshold", 500], ["image", "www.testimage1.com"], ["created_at", "2022-09-06 02:57:00.131928"], ["updated_at", "2022-09-06 02:57:00.131928"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (0.2ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Bud Light"], ["description", "No fancy beer for you. You are a father that doesn't have the time or money for that nonsense."], ["score_threshold", 300], ["image", "www.testimage2.com"], ["created_at", "2022-09-06 02:57:00.135240"], ["updated_at", "2022-09-06 02:57:00.135240"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (0.1ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Thick Face Eating Glasses"], ["description", "You need to see and it needs to be everything.  Can't have the frame impeding your view!"], ["score_threshold", 200], ["image", "www.testimage3.com"], ["created_at", "2022-09-06 02:57:00.137029"], ["updated_at", "2022-09-06 02:57:00.137029"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBadge Load (0.0ms)[0m  [1m[34mSELECT "badges".* FROM "badges" WHERE "badges"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAchievement Create (0.2ms)[0m  [1m[32mINSERT INTO "achievements" ("user_id", "badge_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["badge_id", 2], ["created_at", "2022-09-06 02:57:00.144088"], ["updated_at", "2022-09-06 02:57:00.144088"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Tell dad joke 1"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 02:57:00.149767"], ["updated_at", "2022-09-06 02:57:00.149767"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Tell dad joke 2"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 02:57:00.156053"], ["updated_at", "2022-09-06 02:57:00.156053"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Take out the trash"], ["value", 20], ["category", "goal"], ["created_at", "2022-09-06 02:57:00.159711"], ["updated_at", "2022-09-06 02:57:00.159711"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Play with children without looking at phone for 30 minutes"], ["value", 30], ["category", "goal"], ["created_at", "2022-09-06 02:57:00.162940"], ["updated_at", "2022-09-06 02:57:00.162940"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.2ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 1], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 02:57:00.180786"], ["updated_at", "2022-09-06 02:57:00.180786"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.2ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 2], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 02:57:00.187794"], ["updated_at", "2022-09-06 02:57:00.187794"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.2ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["task_id", 2], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 02:57:00.193657"], ["updated_at", "2022-09-06 02:57:00.193657"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.3ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 2], ["created_at", "2022-09-06 02:57:00.216592"], ["updated_at", "2022-09-06 02:57:00.216592"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.1ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 4], ["created_at", "2022-09-06 02:57:00.220128"], ["updated_at", "2022-09-06 02:57:00.220128"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.2ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 2], ["task_id", 3], ["created_at", "2022-09-06 02:57:00.223586"], ["updated_at", "2022-09-06 02:57:00.223586"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/users" for ::1 at 2022-09-05 22:57:06 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "1"]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "achievements" ON "badges"."id" = "achievements"."badge_id" WHERE "achievements"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completedtasks" ON "tasks"."id" = "completedtasks"."task_id" WHERE "completedtasks"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mBadge Load (0.2ms)[0m  [1m[34mSELECT "badges".* FROM "badges" INNER JOIN "achievements" ON "badges"."id" = "achievements"."badge_id" WHERE "achievements"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "achievements" ON "users"."id" = "achievements"."user_id" WHERE "achievements"."badge_id" = ?[0m  [["badge_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mChild Load (0.1ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "1"]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" INNER JOIN "completedtasks" ON "tasks"."id" = "completedtasks"."task_id" WHERE "completedtasks"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "2"]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "achievements" ON "badges"."id" = "achievements"."badge_id" WHERE "achievements"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completedtasks" ON "tasks"."id" = "completedtasks"."task_id" WHERE "completedtasks"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mBadge Load (0.0ms)[0m  [1m[34mSELECT "badges".* FROM "badges" INNER JOIN "achievements" ON "badges"."id" = "achievements"."badge_id" WHERE "achievements"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mChild Load (0.0ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "2"]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" INNER JOIN "completedtasks" ON "tasks"."id" = "completedtasks"."task_id" WHERE "completedtasks"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+Completed 200 OK in 97ms (Views: 87.6ms | ActiveRecord: 3.1ms | Allocations: 54127)
+
+
+Started GET "/users" for ::1 at 2022-09-05 22:58:10 -0400
+Processing by UsersController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "1"]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "achievements" ON "badges"."id" = "achievements"."badge_id" WHERE "achievements"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completedtasks" ON "tasks"."id" = "completedtasks"."task_id" WHERE "completedtasks"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mBadge Load (0.1ms)[0m  [1m[34mSELECT "badges".* FROM "badges" INNER JOIN "achievements" ON "badges"."id" = "achievements"."badge_id" WHERE "achievements"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "achievements" ON "users"."id" = "achievements"."user_id" WHERE "achievements"."badge_id" = ?[0m  [["badge_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mChild Load (0.1ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "1"]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" INNER JOIN "completedtasks" ON "tasks"."id" = "completedtasks"."task_id" WHERE "completedtasks"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "2"]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "achievements" ON "badges"."id" = "achievements"."badge_id" WHERE "achievements"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completedtasks" ON "tasks"."id" = "completedtasks"."task_id" WHERE "completedtasks"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mBadge Load (0.0ms)[0m  [1m[34mSELECT "badges".* FROM "badges" INNER JOIN "achievements" ON "badges"."id" = "achievements"."badge_id" WHERE "achievements"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mChild Load (0.0ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "2"]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" INNER JOIN "completedtasks" ON "tasks"."id" = "completedtasks"."task_id" WHERE "completedtasks"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+Completed 200 OK in 43ms (Views: 36.5ms | ActiveRecord: 2.8ms | Allocations: 47336)
+
+
