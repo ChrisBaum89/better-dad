@@ -18,8 +18,6 @@ class TasksController < ApplicationController
             )
             create_task(response.body)
        }
-       binding.pry
-        
     end
 
     def create_task(response)
