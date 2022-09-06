@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import {fetchUsers} from "..actions/fetchUsers";
 
 function App() {
   return (
