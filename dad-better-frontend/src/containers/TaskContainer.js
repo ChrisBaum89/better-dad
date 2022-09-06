@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import TaskCard from '../components/TaskCard';
 
 class TaskContainer extends Component {
     render(){
         return (
             <div>
-                Task Container
+                <TaskCard />
             </div>
         )
     }

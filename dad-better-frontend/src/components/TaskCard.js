@@ -1,9 +1,11 @@
 import React from "react";
 
 const TaskCard = (props) => {
-    <div>
-        TaskCard
-    </div>
+    return (
+        <div>
+            TaskCard
+        </div>
+    )
 }
 
 export default TaskCard
