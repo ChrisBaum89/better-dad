@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import QuoteCard from '../components/QuoteCard';
 
 class QuoteContainer extends Component {
     render(){
         return (
             <div>
-                Quote Container
+                <QuoteCard />
             </div>
         )
     }
