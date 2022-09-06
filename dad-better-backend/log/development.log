@@ -4138,3 +4138,104 @@ Processing by TasksController#create_tasks_from_jokes as HTML
 Completed 204 No Content in 58881ms (ActiveRecord: 27.0ms | Allocations: 130666)
 
 
+Started GET "/tasks" for ::1 at 2022-09-06 12:39:38 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 1]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 1]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 2]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 2]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 3]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 3]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 4]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 4]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 5]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 5]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 6]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 6]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 7]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 7]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 8]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 8]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 9]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 9]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 10]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 10]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 11]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 11]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 12]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 12]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 13]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 13]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 14]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 14]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 15]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 15]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 16]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 16]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 17]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 17]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 18]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 18]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 19]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 19]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 20]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 20]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 21]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 21]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 22]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 22]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 23]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 23]]
+  ↳ app/controllers/tasks_controller.rb:9:in `index'
+Completed 200 OK in 117ms (Views: 93.4ms | ActiveRecord: 9.8ms | Allocations: 59655)
+
+
