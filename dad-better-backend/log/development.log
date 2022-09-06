@@ -1979,3 +1979,2162 @@ Processing by TasksController#get_joke as HTML
 Completed 200 OK in 202ms (Views: 0.4ms | Allocations: 912)
 
 
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220906003734)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "name" varchar, "email" varchar, "password_digest" varchar, "birthday" varchar, "score" integer, "beer_drinker" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906003734"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateChildren (20220906010146)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "children" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "birthday" varchar, "gender" varchar, "user_id" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906010146"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBadges (20220906012447)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "badges" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" varchar, "score_threshold" integer, "image" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906012447"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAchievements (20220906020304)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "achievements" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "badge_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906020304"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTasks (20220906022431)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "value" integer, "category" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906022431"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCompletedtasks (20220906022546)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "completedtasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "task_id" integer, "completed" boolean, "date" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906022546"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFavorites (20220906024129)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "task_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906024129"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-09-06 14:27:55.501633"], ["updated_at", "2022-09-06 14:27:55.501633"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "birthday", "score", "beer_drinker", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "ChrisBaum89"], ["name", "Chris"], ["email", "c@gmail.com"], ["password_digest", "password"], ["birthday", "09/03/1989"], ["score", 0], ["beer_drinker", 1], ["created_at", "2022-09-06 14:27:59.958797"], ["updated_at", "2022-09-06 14:27:59.958797"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "birthday", "score", "beer_drinker", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "Bob90"], ["name", "Bob"], ["email", "b@gmail.com"], ["password_digest", "password"], ["birthday", "01/24/1990"], ["score", 0], ["beer_drinker", 1], ["created_at", "2022-09-06 14:27:59.961860"], ["updated_at", "2022-09-06 14:27:59.961860"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Steve"], ["birthday", "09/03/2018"], ["gender", "male"], ["user_id", "1"], ["created_at", "2022-09-06 14:27:59.972253"], ["updated_at", "2022-09-06 14:27:59.972253"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChild Create (0.1ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Owen"], ["birthday", "09/20/2019"], ["gender", "male"], ["user_id", "1"], ["created_at", "2022-09-06 14:27:59.975133"], ["updated_at", "2022-09-06 14:27:59.975133"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mChild Create (0.1ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Stacey"], ["birthday", "03/20/2019"], ["gender", "female"], ["user_id", "2"], ["created_at", "2022-09-06 14:27:59.977513"], ["updated_at", "2022-09-06 14:27:59.977513"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (1.7ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "New Balance Shoes"], ["description", "The only choice of footwear for a dad.  The more grass stains on it the better."], ["score_threshold", 500], ["image", "www.testimage1.com"], ["created_at", "2022-09-06 14:27:59.983434"], ["updated_at", "2022-09-06 14:27:59.983434"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (0.1ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Bud Light"], ["description", "No fancy beer for you. You are a father that doesn't have the time or money for that nonsense."], ["score_threshold", 300], ["image", "www.testimage2.com"], ["created_at", "2022-09-06 14:27:59.987115"], ["updated_at", "2022-09-06 14:27:59.987115"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (0.2ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Thick Face Eating Glasses"], ["description", "You need to see and it needs to be everything.  Can't have the frame impeding your view!"], ["score_threshold", 200], ["image", "www.testimage3.com"], ["created_at", "2022-09-06 14:27:59.989039"], ["updated_at", "2022-09-06 14:27:59.989039"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBadge Load (0.1ms)[0m  [1m[34mSELECT "badges".* FROM "badges" WHERE "badges"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAchievement Create (0.2ms)[0m  [1m[32mINSERT INTO "achievements" ("user_id", "badge_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["badge_id", 2], ["created_at", "2022-09-06 14:27:59.996962"], ["updated_at", "2022-09-06 14:27:59.996962"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Tell dad joke 1"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 14:28:00.002990"], ["updated_at", "2022-09-06 14:28:00.002990"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Tell dad joke 2"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 14:28:00.005415"], ["updated_at", "2022-09-06 14:28:00.005415"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Take out the trash"], ["value", 20], ["category", "goal"], ["created_at", "2022-09-06 14:28:00.007355"], ["updated_at", "2022-09-06 14:28:00.007355"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Play with children without looking at phone for 30 minutes"], ["value", 30], ["category", "goal"], ["created_at", "2022-09-06 14:28:00.009033"], ["updated_at", "2022-09-06 14:28:00.009033"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.2ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 1], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 14:28:00.028111"], ["updated_at", "2022-09-06 14:28:00.028111"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.2ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 2], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 14:28:00.054135"], ["updated_at", "2022-09-06 14:28:00.054135"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.1ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["task_id", 2], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 14:28:00.057565"], ["updated_at", "2022-09-06 14:28:00.057565"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.1ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 2], ["created_at", "2022-09-06 14:28:00.063893"], ["updated_at", "2022-09-06 14:28:00.063893"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.1ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 4], ["created_at", "2022-09-06 14:28:00.066679"], ["updated_at", "2022-09-06 14:28:00.066679"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.1ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 2], ["task_id", 3], ["created_at", "2022-09-06 14:28:00.069311"], ["updated_at", "2022-09-06 14:28:00.069311"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2022-09-06 10:33:38 -0400
+  [1m[35m (7.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chrisbaum/.rvm/gems/ruby-2.6.1/gems/railties-6.1.6.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chrisbaum/.rvm/gems/ruby-2.6.1/gems/railties-6.1.6.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 16.4ms | Allocations: 453)
+Completed 200 OK in 23ms (Views: 18.1ms | ActiveRecord: 0.0ms | Allocations: 2755)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 10:33:41 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+Completed 200 OK in 315560ms (Views: 1.2ms | ActiveRecord: 1.5ms | Allocations: 52147)
+
+
+Started GET "/" for ::1 at 2022-09-06 10:39:32 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chrisbaum/.rvm/gems/ruby-2.6.1/gems/railties-6.1.6.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chrisbaum/.rvm/gems/ruby-2.6.1/gems/railties-6.1.6.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 21.2ms | Allocations: 475)
+Completed 200 OK in 31ms (Views: 23.9ms | ActiveRecord: 0.0ms | Allocations: 2725)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 10:39:36 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+Completed 500 Internal Server Error in 271ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 2543)
+
+
+  
+NameError (undefined local variable or method `json' for #<TasksController:0x007f89e0040828>
+Did you mean?  JSON):
+  
+app/controllers/tasks_controller.rb:31:in `create_tasks'
+app/controllers/tasks_controller.rb:27:in `create_tasks_from_jokes'
+Started GET "/jokes" for ::1 at 2022-09-06 10:40:17 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+Completed 200 OK in 114435ms (Views: 0.5ms | Allocations: 18927)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 10:42:24 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+Completed 200 OK in 551513ms (Views: 0.7ms | Allocations: 20902)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 10:51:43 -0400
+  
+SyntaxError (/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:31: syntax error, unexpected ','
+...ts = JSON.parse(json_response., object_class: OpenStruct)
+...                              ^):
+  
+app/controllers/tasks_controller.rb:31: syntax error, unexpected ','
+app/controllers/tasks_controller.rb:31: syntax error, unexpected ','
+Started GET "/jokes" for ::1 at 2022-09-06 10:51:52 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTask Create (5.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Me: You and me both!"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 14:51:53.004793"], ["updated_at", "2022-09-06 14:51:53.004793"]]
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "What kind of monster would do this to an advent calendar!?"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 14:51:53.015010"], ["updated_at", "2022-09-06 14:51:53.015010"]]
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "All his feathers are combed to one side"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 14:51:53.018301"], ["updated_at", "2022-09-06 14:51:53.018301"]]
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "He got twelve months"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 14:51:53.021206"], ["updated_at", "2022-09-06 14:51:53.021206"]]
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Fucks with her hay-fever."], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 14:51:53.023681"], ["updated_at", "2022-09-06 14:51:53.023681"]]
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/tasks_controller.rb:35:in `create_tasks'
+Completed 200 OK in 46843ms (Views: 0.6ms | ActiveRecord: 11.9ms | Allocations: 62759)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 10:54:05 -0400
+  
+SyntaxError (/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:33: syntax error, unexpected ')', expecting end
+..., value: 10, category: "joke"))
+...                              ^):
+  
+app/controllers/tasks_controller.rb:33: syntax error, unexpected ')', expecting end
+app/controllers/tasks_controller.rb:33: syntax error, unexpected ')', expecting end
+Started GET "/jokes" for ::1 at 2022-09-06 10:54:17 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "There's only one thing that keeps me from breaking you in half....-I just don't want 2 of you around."], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 14:54:17.411014"], ["updated_at", "2022-09-06 14:54:17.411014"]]
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTask Create (0.5ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "I'm so hungry right now I could boil a hyena!-But I'd only make myself a laughing stock."], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 14:54:17.420057"], ["updated_at", "2022-09-06 14:54:17.420057"]]
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTask Create (0.4ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Do you know the reason all the bat boys in major league baseball are replaced when they turn 18?-Because otherwise you'd have to call him Batman."], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 14:54:17.424297"], ["updated_at", "2022-09-06 14:54:17.424297"]]
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "How do you get a fat chick into bed?-Piece of cake."], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 14:54:17.428108"], ["updated_at", "2022-09-06 14:54:17.428108"]]
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Let me tell you the story about the chicken that breaths throught it's asshole...-One day, it sat on a rock and died.The end."], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 14:54:17.431372"], ["updated_at", "2022-09-06 14:54:17.431372"]]
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in create_tasks'
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/tasks_controller.rb:35:in `create_tasks'
+Started GET "/jokes" for ::1 at 2022-09-06 10:57:44 -0400
+Completed 200 OK in 211436ms (Views: 0.7ms | ActiveRecord: 9.4ms | Allocations: 79217)
+
+
+Processing by TasksController#create_tasks_from_jokes as HTML
+Completed 500 Internal Server Error in 125ms (Views: 0.2ms | Allocations: 5282)
+
+
+  
+JSON::ParserError (767: unexpected token at '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="description" content="The largest collection of dad jokes on the internet" />
+<meta name="author" content="C653 Labs" />
+<meta name="keywords" content="dad,joke,funny,slack,alexa" />
+<meta property="og:site_name" content="icanhazdadjoke" />
+<meta property="og:title" content="icanhazdadjoke" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://icanhazdadjoke.com/j/HYgiVDAscFd" />
+<meta property="og:description" content="People are making apocalypse jokes like there’s no tomorrow." />
+<meta property="og:image:url" content="https://icanhazdadjoke.com/j/HYgiVDAscFd.png" />
+<meta property="og:image:secure_url" content="https://icanhazdadjoke.com/j/HYgiVDAscFd.png" />
+<meta property="og:image:secure_url" content="https://icanhazdadjoke.com/static/smile.png" />
+<meta property="og:image:type" content="image/png" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@icanhazdadjoke">
+<meta name="twitter:title" content="icanhzdadjoke">
+<meta name="twitter:description" content="People are making apocalypse jokes like there’s no tomorrow.">
+<meta name="twitter:image" content="https://icanhazdadjoke.com/static/smile.png">
+<meta name="twitter:url" content="https://icanhazdadjoke.com/j/HYgiVDAscFd" />
+<link rel="canonical" href="https://icanhazdadjoke.com/j/HYgiVDAscFd">
+<link rel="amphtml" href="https://icanhazdadjoke.com/j/HYgiVDAscFd/amp">
+<title>icanhazdadjoke</title>
+<link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/static/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/static/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/static/manifest.json">
+<link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#1fc8db">
+<link rel="shortcut icon" href="/static/favicon.ico">
+<meta name="msapplication-config" content="/static/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="slack-app-id" content="A214NCJF2">
+<link rel="stylesheet" href="/static/dist/style.css?55f4ea12">
+
+<script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://icanhazdadjoke.com/",
+        "name": "icanhazdadjoke",
+        "description": "The largest collection of dad jokes on the internet",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://icanhazdadjoke.com/search?term={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+<script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "https://icanhazdadjoke.com/",
+        "logo": "https://icanhazdadjoke.com/static/smile.png",
+        "name": "icanhazdadjoke",
+        "description": "The largest collection of dad jokes on the internet",
+        "email": "support@icanhazdadjoke.com"
+      }
+    </script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+      (adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-3200991035275362", enable_page_level_ads: true});
+    </script>
+</head>
+<body>
+<nav class="nav has-shadow">
+<div class="container">
+<div class="nav-left">
+<a class="nav-item is-brand" href="/">
+<img src="/static/smile.svg" alt="icanhazdadjoke logo" />
+<span class="subtitle pushhalf--left">
+icanhazdadjoke
+</span>
+</a>
+</div>
+<span id="nav-toggle" class="nav-toggle">
+<span></span>
+<span></span>
+<span></span>
+</span>
+<div id="nav-menu" class="nav-right nav-menu">
+<a class="nav-item is-tab" href="/">
+<span class="icon is-small">
+<i class="fa fa-random"></i>
+</span>
+<span class="pushquarter--left">
+Random joke
+</span>
+</a>
+<a class="nav-item is-tab" href="/search">
+<span class="icon is-small">
+<i class="fa fa-search"></i>
+</span>
+<span class="pushquarter--left">
+Search jokes
+</span>
+</a>
+<a class="nav-item is-tab" href="/submit">
+<span class="icon is-small">
+<i class="fa fa-pencil-square-o"></i>
+</span>
+<span class="pushquarter--left">
+Submit new joke
+</span>
+</a>
+<div class="nav-item">
+<a href="/slack-add" style="height:40px; max-width:139px">
+<img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" style="width:139px; height:40px; max-height: 40px" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
+</a>
+</div>
+<div class="nav-item">
+<a class="button" target="_blank" href="https://www.amazon.com/Brett-Langdon-icanhazdadjoke/dp/B01N6CQ3NZ/" style="background-color: #ffffff; color: #5ebfe4; border-radius: 6px; font-weight: 500; height:40px; width:139px; max-width:139px">
+<img src="/static/alexa-logo.png" style="margin-left: -0.5em;">
+Add to <strong style="margin-left: 0.25em">Alexa</strong>
+</a>
+</div>
+</div>
+</div>
+</nav>
+<section class="section">
+<div class="container">
+<div class="level">
+<div class="level-left">
+<div class="content level-item">
+<h1>Random dad joke:</h1>
+</div>
+</div>
+<div class="level-right">
+<a class="button is-primary level-item" href="/">
+<span class="icon is-small">
+<i class="fa fa-random"></i>
+</span>
+<span>
+New joke
+</span>
+</a>
+</div>
+</div>
+<div class="content">
+<div class="card">
+<div class="card-content">
+<p class="subtitle">People are making apocalypse jokes like there’s no tomorrow.</p>
+</div>
+<footer class="card-footer">
+<a class="card-footer-item" href="/j/HYgiVDAscFd">
+<span class="icon is-small">
+<i class="fa fa-chain"></i>
+</span>
+<span class="pushquarter--left">
+Permalink
+</span>
+</a>
+<a class="card-footer-item" target="_blank" href="https://twitter.com/intent/tweet?url=https://icanhazdadjoke.com%2Fj%2FHYgiVDAscFd%2Famp&text=Check+out+this+%23dadjoke&via=icanhazdadjoke">
+<span class="icon is-small">
+<i class="fa fa-twitter"></i>
+</span>
+<span class="pushquarter--left">
+Share on Twitter
+</span>
+</a>
+</footer>
+</div>
+</div>
+<div class="content pushwhole--top">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3200991035275362" data-ad-slot="5324903139" data-ad-format="auto"></ins>
+</div>
+<script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+</div>
+</section>
+<footer class="footer">
+<div class="container">
+<div class="columns">
+<div class="column is-5">
+<div class="content">
+<p>
+<strong>icanhazdadjoke.com</strong> by <a href="https://c653labs.com/">C653 Labs</a>.
+</p>
+<p>
+<i>icanhazdadjoke.com</i> is the largest selection of dad jokes on the internet.
+Now supporting many different integrations to ensure you can access the dad jokes that you need wherever you are.
+</p>
+</div>
+</div>
+<div class="column is-3"></div>
+<div class="column is-2">
+<aside class="menu">
+<ul class="menu-list">
+<li><a href="/cdn-cgi/l/email-protection#8bf8fefbfbe4f9ffcbe2e8eae5e3eaf1efeaefe1e4e0eea5e8e4e6" target="_blank">Contact</a></li>
+<li><a href="https://twitter.com/icanhazdadjoke" target="_blank">Twitter</a></li>
+<li><a href="https://slack.com/apps/A214NCJF2-icanhazdadjoke" target="_blank">Slack app</a></li>
+<li><a href="https://www.amazon.com/Brett-Langdon-icanhazdadjoke/dp/B01N6CQ3NZ/" target="_blank">Alexa skill</a></li>
+<li><a href="https://discordapp.com/api/oauth2/authorize?client_id=467365247921946626&permissions=0&scope=bot" target="_blank">Discord bot</a></li>
+<li><a href="https://marketplace.atlassian.com/plugins/com.icanhazdadjoke/cloud/overview" target="_blank">HipChat plugin</a></li>
+<li><a href="https://twistapp.com/integrations/install/20_901fa9d3df5b8784d3ddc56e" target="_blank">Twist integration</a></li>
+</ul>
+</aside>
+</div>
+<div class="column is-2">
+<aside class="menu">
+<ul class="menu-list">
+<li><a href="/about">About</a></li>
+<li><a href="/api">API</a></li>
+<li><a href="/">Random joke</a></li>
+<li><a href="/search">Search jokes</a></li>
+<li><a href="/submit">Submit new joke</a></li>
+</ul>
+</aside>
+</div>
+</div>
+</div>
+</footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-82372853-1', 'auto');
+        ga('send', 'pageview');
+        </script>
+<script>
+      document.addEventListener('click', function (evt) {
+        if (evt.target.id === 'nav-toggle' || evt.target.parent.id === 'nav-toggle') {
+          document.getElementById('nav-menu').classList.toggle('is-active');
+        }
+      });
+    </script>
+
+<script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 855658655;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "gdOKCMjzmHAQn6GBmAM";
+      var google_remarketing_only = false;
+      /* ]]> */
+    </script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+<noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/855658655/?label=gdOKCMjzmHAQn6GBmAM&amp;guid=ON&amp;script=0"/>
+      </div>
+    </noscript>
+</body>
+</html>'):
+  
+app/controllers/tasks_controller.rb:31:in `create_tasks'
+app/controllers/tasks_controller.rb:27:in `create_tasks_from_jokes'
+Started GET "/jokes" for ::1 at 2022-09-06 11:17:29 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:16: unknown regexp options - cahazdadjk
+/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:16: syntax error, unexpected ')'
+...et(https://icanhazdadjoke.com/)
+...                              ^
+/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:27: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/tasks_controller.rb:16: unknown regexp options - cahazdadjk
+app/controllers/tasks_controller.rb:16: syntax error, unexpected ')'
+app/controllers/tasks_controller.rb:27: syntax error, unexpected end-of-input, expecting end
+app/controllers/tasks_controller.rb:16: unknown regexp options - cahazdadjk
+app/controllers/tasks_controller.rb:16: syntax error, unexpected ')'
+app/controllers/tasks_controller.rb:27: syntax error, unexpected end-of-input, expecting end
+Started GET "/jokes" for ::1 at 2022-09-06 11:18:09 -0400
+  
+SyntaxError (/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:16: unknown regexp options - cahazdadjk
+/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:16: syntax error, unexpected ')'
+...t(https://icanhazdadjoke.json/)
+...                              ^
+/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:27: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/tasks_controller.rb:16: unknown regexp options - cahazdadjk
+app/controllers/tasks_controller.rb:16: syntax error, unexpected ')'
+app/controllers/tasks_controller.rb:27: syntax error, unexpected end-of-input, expecting end
+app/controllers/tasks_controller.rb:16: unknown regexp options - cahazdadjk
+app/controllers/tasks_controller.rb:16: syntax error, unexpected ')'
+app/controllers/tasks_controller.rb:27: syntax error, unexpected end-of-input, expecting end
+Started GET "/jokes" for ::1 at 2022-09-06 11:19:20 -0400
+  
+SyntaxError (/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:16: unknown regexp options - cahazdadjk
+/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:16: syntax error, unexpected ')'
+...et(https://icanhazdadjoke.com/)
+...                              ^):
+  
+app/controllers/tasks_controller.rb:16: unknown regexp options - cahazdadjk
+app/controllers/tasks_controller.rb:16: syntax error, unexpected ')'
+app/controllers/tasks_controller.rb:16: unknown regexp options - cahazdadjk
+app/controllers/tasks_controller.rb:16: syntax error, unexpected ')'
+Started GET "/jokes" for ::1 at 2022-09-06 11:20:12 -0400
+  
+SyntaxError (/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:15: unknown regexp options - cahazdadjk
+/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:15: syntax error, unexpected ')'
+...et(https://icanhazdadjoke.com/)
+...                              ^):
+  
+app/controllers/tasks_controller.rb:15: unknown regexp options - cahazdadjk
+app/controllers/tasks_controller.rb:15: syntax error, unexpected ')'
+app/controllers/tasks_controller.rb:15: unknown regexp options - cahazdadjk
+app/controllers/tasks_controller.rb:15: syntax error, unexpected ')'
+Started GET "/jokes" for ::1 at 2022-09-06 11:21:00 -0400
+  
+SyntaxError (/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:16: unknown regexp options - cahazdadjk
+/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:16: syntax error, unexpected ')'
+...et(https://icanhazdadjoke.com/)
+...                              ^):
+  
+app/controllers/tasks_controller.rb:16: unknown regexp options - cahazdadjk
+app/controllers/tasks_controller.rb:16: syntax error, unexpected ')'
+app/controllers/tasks_controller.rb:16: unknown regexp options - cahazdadjk
+app/controllers/tasks_controller.rb:16: syntax error, unexpected ')'
+Started GET "/jokes" for ::1 at 2022-09-06 11:21:22 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+Completed 204 No Content in 107241ms (Allocations: 55262)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 11:23:13 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+Completed 500 Internal Server Error in 127ms (Allocations: 2123)
+
+
+  
+NoMethodError (undefined method `pars' for JSON:Module
+Did you mean?  parse):
+  
+app/controllers/tasks_controller.rb:17:in `create_tasks_from_jokes'
+Started GET "/jokes" for ::1 at 2022-09-06 11:23:19 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+Completed 500 Internal Server Error in 98ms (Allocations: 1363)
+
+
+  
+JSON::ParserError (767: unexpected token at '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="description" content="The largest collection of dad jokes on the internet" />
+<meta name="author" content="C653 Labs" />
+<meta name="keywords" content="dad,joke,funny,slack,alexa" />
+<meta property="og:site_name" content="icanhazdadjoke" />
+<meta property="og:title" content="icanhazdadjoke" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://icanhazdadjoke.com/j/v4wAlO7USf" />
+<meta property="og:description" content="What type of music do balloons hate? Pop music!" />
+<meta property="og:image:url" content="https://icanhazdadjoke.com/j/v4wAlO7USf.png" />
+<meta property="og:image:secure_url" content="https://icanhazdadjoke.com/j/v4wAlO7USf.png" />
+<meta property="og:image:secure_url" content="https://icanhazdadjoke.com/static/smile.png" />
+<meta property="og:image:type" content="image/png" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@icanhazdadjoke">
+<meta name="twitter:title" content="icanhzdadjoke">
+<meta name="twitter:description" content="What type of music do balloons hate? Pop music!">
+<meta name="twitter:image" content="https://icanhazdadjoke.com/static/smile.png">
+<meta name="twitter:url" content="https://icanhazdadjoke.com/j/v4wAlO7USf" />
+<link rel="canonical" href="https://icanhazdadjoke.com/j/v4wAlO7USf">
+<link rel="amphtml" href="https://icanhazdadjoke.com/j/v4wAlO7USf/amp">
+<title>icanhazdadjoke</title>
+<link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/static/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/static/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/static/manifest.json">
+<link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#1fc8db">
+<link rel="shortcut icon" href="/static/favicon.ico">
+<meta name="msapplication-config" content="/static/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="slack-app-id" content="A214NCJF2">
+<link rel="stylesheet" href="/static/dist/style.css?55f4ea12">
+<script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://icanhazdadjoke.com/",
+        "name": "icanhazdadjoke",
+        "description": "The largest collection of dad jokes on the internet",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://icanhazdadjoke.com/search?term={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+<script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "https://icanhazdadjoke.com/",
+        "logo": "https://icanhazdadjoke.com/static/smile.png",
+        "name": "icanhazdadjoke",
+        "description": "The largest collection of dad jokes on the internet",
+        "email": "support@icanhazdadjoke.com"
+      }
+    </script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+      (adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-3200991035275362", enable_page_level_ads: true});
+    </script>
+</head>
+<body>
+<nav class="nav has-shadow">
+<div class="container">
+<div class="nav-left">
+<a class="nav-item is-brand" href="/">
+<img src="/static/smile.svg" alt="icanhazdadjoke logo" />
+<span class="subtitle pushhalf--left">
+icanhazdadjoke
+</span>
+</a>
+</div>
+<span id="nav-toggle" class="nav-toggle">
+<span></span>
+<span></span>
+<span></span>
+</span>
+<div id="nav-menu" class="nav-right nav-menu">
+<a class="nav-item is-tab" href="/">
+<span class="icon is-small">
+<i class="fa fa-random"></i>
+</span>
+<span class="pushquarter--left">
+Random joke
+</span>
+</a>
+<a class="nav-item is-tab" href="/search">
+<span class="icon is-small">
+<i class="fa fa-search"></i>
+</span>
+<span class="pushquarter--left">
+Search jokes
+</span>
+</a>
+<a class="nav-item is-tab" href="/submit">
+<span class="icon is-small">
+<i class="fa fa-pencil-square-o"></i>
+</span>
+<span class="pushquarter--left">
+Submit new joke
+</span>
+</a>
+<div class="nav-item">
+<a href="/slack-add" style="height:40px; max-width:139px">
+<img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" style="width:139px; height:40px; max-height: 40px" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
+</a>
+</div>
+<div class="nav-item">
+<a class="button" target="_blank" href="https://www.amazon.com/Brett-Langdon-icanhazdadjoke/dp/B01N6CQ3NZ/" style="background-color: #ffffff; color: #5ebfe4; border-radius: 6px; font-weight: 500; height:40px; width:139px; max-width:139px">
+<img src="/static/alexa-logo.png" style="margin-left: -0.5em;">
+Add to <strong style="margin-left: 0.25em">Alexa</strong>
+</a>
+</div>
+</div>
+</div>
+</nav>
+<section class="section">
+<div class="container">
+<div class="level">
+<div class="level-left">
+<div class="content level-item">
+<h1>Random dad joke:</h1>
+</div>
+</div>
+<div class="level-right">
+<a class="button is-primary level-item" href="/">
+<span class="icon is-small">
+<i class="fa fa-random"></i>
+</span>
+<span>
+New joke
+</span>
+</a>
+</div>
+</div>
+<div class="content">
+<div class="card">
+<div class="card-content">
+<p class="subtitle">What type of music do balloons hate? Pop music!</p>
+</div>
+<footer class="card-footer">
+<a class="card-footer-item" href="/j/v4wAlO7USf">
+<span class="icon is-small">
+<i class="fa fa-chain"></i>
+</span>
+<span class="pushquarter--left">
+Permalink
+</span>
+</a>
+<a class="card-footer-item" target="_blank" href="https://twitter.com/intent/tweet?url=https://icanhazdadjoke.com%2Fj%2Fv4wAlO7USf%2Famp&text=Check+out+this+%23dadjoke&via=icanhazdadjoke">
+<span class="icon is-small">
+<i class="fa fa-twitter"></i>
+</span>
+<span class="pushquarter--left">
+Share on Twitter
+</span>
+</a>
+</footer>
+</div>
+</div>
+<div class="content pushwhole--top">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3200991035275362" data-ad-slot="5324903139" data-ad-format="auto"></ins>
+</div>
+<script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+</div>
+</section>
+<footer class="footer">
+<div class="container">
+<div class="columns">
+<div class="column is-5">
+<div class="content">
+<p>
+<strong>icanhazdadjoke.com</strong> by <a href="https://c653labs.com/">C653 Labs</a>.
+</p>
+<p>
+<i>icanhazdadjoke.com</i> is the largest selection of dad jokes on the internet.
+Now supporting many different integrations to ensure you can access the dad jokes that you need wherever you are.
+</p>
+</div>
+</div>
+<div class="column is-3"></div>
+<div class="column is-2">
+<aside class="menu">
+<ul class="menu-list">
+<li><a href="/cdn-cgi/l/email-protection#added8ddddc2dfd9edc4ceccc3c5ccd7c9ccc9c7c2c6c883cec2c0" target="_blank">Contact</a></li>
+<li><a href="https://twitter.com/icanhazdadjoke" target="_blank">Twitter</a></li>
+<li><a href="https://slack.com/apps/A214NCJF2-icanhazdadjoke" target="_blank">Slack app</a></li>
+<li><a href="https://www.amazon.com/Brett-Langdon-icanhazdadjoke/dp/B01N6CQ3NZ/" target="_blank">Alexa skill</a></li>
+<li><a href="https://discordapp.com/api/oauth2/authorize?client_id=467365247921946626&permissions=0&scope=bot" target="_blank">Discord bot</a></li>
+<li><a href="https://marketplace.atlassian.com/plugins/com.icanhazdadjoke/cloud/overview" target="_blank">HipChat plugin</a></li>
+<li><a href="https://twistapp.com/integrations/install/20_901fa9d3df5b8784d3ddc56e" target="_blank">Twist integration</a></li>
+</ul>
+</aside>
+</div>
+<div class="column is-2">
+<aside class="menu">
+<ul class="menu-list">
+<li><a href="/about">About</a></li>
+<li><a href="/api">API</a></li>
+<li><a href="/">Random joke</a></li>
+<li><a href="/search">Search jokes</a></li>
+<li><a href="/submit">Submit new joke</a></li>
+</ul>
+</aside>
+</div>
+</div>
+</div>
+</footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-82372853-1', 'auto');
+        ga('send', 'pageview');
+        </script>
+<script>
+      document.addEventListener('click', function (evt) {
+        if (evt.target.id === 'nav-toggle' || evt.target.parent.id === 'nav-toggle') {
+          document.getElementById('nav-menu').classList.toggle('is-active');
+        }
+      });
+    </script>
+
+<script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 855658655;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "gdOKCMjzmHAQn6GBmAM";
+      var google_remarketing_only = false;
+      /* ]]> */
+    </script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+<noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/855658655/?label=gdOKCMjzmHAQn6GBmAM&amp;guid=ON&amp;script=0"/>
+      </div>
+    </noscript>
+</body>
+</html>'):
+  
+app/controllers/tasks_controller.rb:17:in `create_tasks_from_jokes'
+Started GET "/jokes" for ::1 at 2022-09-06 11:24:48 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+Completed 500 Internal Server Error in 157ms (Allocations: 1362)
+
+
+  
+JSON::ParserError (767: unexpected token at '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="description" content="The largest collection of dad jokes on the internet" />
+<meta name="author" content="C653 Labs" />
+<meta name="keywords" content="dad,joke,funny,slack,alexa" />
+<meta property="og:site_name" content="icanhazdadjoke" />
+<meta property="og:title" content="icanhazdadjoke" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://icanhazdadjoke.com/j/cpWnWg3TKmb" />
+<meta property="og:description" content="Two silk worms had a race. They ended up in a tie." />
+<meta property="og:image:url" content="https://icanhazdadjoke.com/j/cpWnWg3TKmb.png" />
+<meta property="og:image:secure_url" content="https://icanhazdadjoke.com/j/cpWnWg3TKmb.png" />
+<meta property="og:image:secure_url" content="https://icanhazdadjoke.com/static/smile.png" />
+<meta property="og:image:type" content="image/png" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@icanhazdadjoke">
+<meta name="twitter:title" content="icanhzdadjoke">
+<meta name="twitter:description" content="Two silk worms had a race. They ended up in a tie.">
+<meta name="twitter:image" content="https://icanhazdadjoke.com/static/smile.png">
+<meta name="twitter:url" content="https://icanhazdadjoke.com/j/cpWnWg3TKmb" />
+<link rel="canonical" href="https://icanhazdadjoke.com/j/cpWnWg3TKmb">
+<link rel="amphtml" href="https://icanhazdadjoke.com/j/cpWnWg3TKmb/amp">
+<title>icanhazdadjoke</title>
+<link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/static/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/static/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/static/manifest.json">
+<link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#1fc8db">
+<link rel="shortcut icon" href="/static/favicon.ico">
+<meta name="msapplication-config" content="/static/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="slack-app-id" content="A214NCJF2">
+<link rel="stylesheet" href="/static/dist/style.css?55f4ea12">
+<script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://icanhazdadjoke.com/",
+        "name": "icanhazdadjoke",
+        "description": "The largest collection of dad jokes on the internet",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://icanhazdadjoke.com/search?term={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+<script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "https://icanhazdadjoke.com/",
+        "logo": "https://icanhazdadjoke.com/static/smile.png",
+        "name": "icanhazdadjoke",
+        "description": "The largest collection of dad jokes on the internet",
+        "email": "support@icanhazdadjoke.com"
+      }
+    </script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+      (adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-3200991035275362", enable_page_level_ads: true});
+    </script>
+</head>
+<body>
+<nav class="nav has-shadow">
+<div class="container">
+<div class="nav-left">
+<a class="nav-item is-brand" href="/">
+<img src="/static/smile.svg" alt="icanhazdadjoke logo" />
+<span class="subtitle pushhalf--left">
+icanhazdadjoke
+</span>
+</a>
+</div>
+<span id="nav-toggle" class="nav-toggle">
+<span></span>
+<span></span>
+<span></span>
+</span>
+<div id="nav-menu" class="nav-right nav-menu">
+<a class="nav-item is-tab" href="/">
+<span class="icon is-small">
+<i class="fa fa-random"></i>
+</span>
+<span class="pushquarter--left">
+Random joke
+</span>
+</a>
+<a class="nav-item is-tab" href="/search">
+<span class="icon is-small">
+<i class="fa fa-search"></i>
+</span>
+<span class="pushquarter--left">
+Search jokes
+</span>
+</a>
+<a class="nav-item is-tab" href="/submit">
+<span class="icon is-small">
+<i class="fa fa-pencil-square-o"></i>
+</span>
+<span class="pushquarter--left">
+Submit new joke
+</span>
+</a>
+<div class="nav-item">
+<a href="/slack-add" style="height:40px; max-width:139px">
+<img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" style="width:139px; height:40px; max-height: 40px" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
+</a>
+</div>
+<div class="nav-item">
+<a class="button" target="_blank" href="https://www.amazon.com/Brett-Langdon-icanhazdadjoke/dp/B01N6CQ3NZ/" style="background-color: #ffffff; color: #5ebfe4; border-radius: 6px; font-weight: 500; height:40px; width:139px; max-width:139px">
+<img src="/static/alexa-logo.png" style="margin-left: -0.5em;">
+Add to <strong style="margin-left: 0.25em">Alexa</strong>
+</a>
+</div>
+</div>
+</div>
+</nav>
+<section class="section">
+<div class="container">
+<div class="level">
+<div class="level-left">
+<div class="content level-item">
+<h1>Random dad joke:</h1>
+</div>
+</div>
+<div class="level-right">
+<a class="button is-primary level-item" href="/">
+<span class="icon is-small">
+<i class="fa fa-random"></i>
+</span>
+<span>
+New joke
+</span>
+</a>
+</div>
+</div>
+<div class="content">
+<div class="card">
+<div class="card-content">
+<p class="subtitle">Two silk worms had a race. They ended up in a tie.</p>
+</div>
+<footer class="card-footer">
+<a class="card-footer-item" href="/j/cpWnWg3TKmb">
+<span class="icon is-small">
+<i class="fa fa-chain"></i>
+</span>
+<span class="pushquarter--left">
+Permalink
+</span>
+</a>
+<a class="card-footer-item" target="_blank" href="https://twitter.com/intent/tweet?url=https://icanhazdadjoke.com%2Fj%2FcpWnWg3TKmb%2Famp&text=Check+out+this+%23dadjoke&via=icanhazdadjoke">
+<span class="icon is-small">
+<i class="fa fa-twitter"></i>
+</span>
+<span class="pushquarter--left">
+Share on Twitter
+</span>
+</a>
+</footer>
+</div>
+</div>
+<div class="content pushwhole--top">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3200991035275362" data-ad-slot="5324903139" data-ad-format="auto"></ins>
+</div>
+<script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+</div>
+</section>
+<footer class="footer">
+<div class="container">
+<div class="columns">
+<div class="column is-5">
+<div class="content">
+<p>
+<strong>icanhazdadjoke.com</strong> by <a href="https://c653labs.com/">C653 Labs</a>.
+</p>
+<p>
+<i>icanhazdadjoke.com</i> is the largest selection of dad jokes on the internet.
+Now supporting many different integrations to ensure you can access the dad jokes that you need wherever you are.
+</p>
+</div>
+</div>
+<div class="column is-3"></div>
+<div class="column is-2">
+<aside class="menu">
+<ul class="menu-list">
+<li><a href="/cdn-cgi/l/email-protection#1c6f696c6c736e685c757f7d72747d66787d7876737779327f7371" target="_blank">Contact</a></li>
+<li><a href="https://twitter.com/icanhazdadjoke" target="_blank">Twitter</a></li>
+<li><a href="https://slack.com/apps/A214NCJF2-icanhazdadjoke" target="_blank">Slack app</a></li>
+<li><a href="https://www.amazon.com/Brett-Langdon-icanhazdadjoke/dp/B01N6CQ3NZ/" target="_blank">Alexa skill</a></li>
+<li><a href="https://discordapp.com/api/oauth2/authorize?client_id=467365247921946626&permissions=0&scope=bot" target="_blank">Discord bot</a></li>
+<li><a href="https://marketplace.atlassian.com/plugins/com.icanhazdadjoke/cloud/overview" target="_blank">HipChat plugin</a></li>
+<li><a href="https://twistapp.com/integrations/install/20_901fa9d3df5b8784d3ddc56e" target="_blank">Twist integration</a></li>
+</ul>
+</aside>
+</div>
+<div class="column is-2">
+<aside class="menu">
+<ul class="menu-list">
+<li><a href="/about">About</a></li>
+<li><a href="/api">API</a></li>
+<li><a href="/">Random joke</a></li>
+<li><a href="/search">Search jokes</a></li>
+<li><a href="/submit">Submit new joke</a></li>
+</ul>
+</aside>
+</div>
+</div>
+</div>
+</footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-82372853-1', 'auto');
+        ga('send', 'pageview');
+        </script>
+<script>
+      document.addEventListener('click', function (evt) {
+        if (evt.target.id === 'nav-toggle' || evt.target.parent.id === 'nav-toggle') {
+          document.getElementById('nav-menu').classList.toggle('is-active');
+        }
+      });
+    </script>
+
+<script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 855658655;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "gdOKCMjzmHAQn6GBmAM";
+      var google_remarketing_only = false;
+      /* ]]> */
+    </script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+<noscript>
+      <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/855658655/?label=gdOKCMjzmHAQn6GBmAM&amp;guid=ON&amp;script=0"/>
+      </div>
+    </noscript>
+</body>
+</html>'):
+  
+app/controllers/tasks_controller.rb:17:in `create_tasks_from_jokes'
+Started GET "/jokes" for ::1 at 2022-09-06 11:26:47 -0400
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:16: syntax error, unexpected tSTRING_DEND
+... #{https://icanhazdadjoke.com/}"
+...                              ^
+/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:23: syntax error, unexpected tIDENTIFIER, expecting tSTRING_DEND
+...ine, value: 10, category: "joke")
+...                           ^~~~
+/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:28: unterminated string meets end of file
+/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:28: syntax error, unexpected end-of-input, expecting tSTRING_DEND):
+  
+app/controllers/tasks_controller.rb:16: syntax error, unexpected tSTRING_DEND
+app/controllers/tasks_controller.rb:23: syntax error, unexpected tIDENTIFIER, expecting tSTRING_DEND
+app/controllers/tasks_controller.rb:28: unterminated string meets end of file
+app/controllers/tasks_controller.rb:28: syntax error, unexpected end-of-input, expecting tSTRING_DEND
+app/controllers/tasks_controller.rb:16: syntax error, unexpected tSTRING_DEND
+app/controllers/tasks_controller.rb:23: syntax error, unexpected tIDENTIFIER, expecting tSTRING_DEND
+app/controllers/tasks_controller.rb:28: unterminated string meets end of file
+app/controllers/tasks_controller.rb:28: syntax error, unexpected end-of-input, expecting tSTRING_DEND
+Started GET "/jokes" for ::1 at 2022-09-06 11:27:16 -0400
+  
+SyntaxError (/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:16: syntax error, unexpected tCONSTANT, expecting end
+... Kernel.system "curl -H "Accept: application/json" https://i...
+...                         ^~~~~~
+/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:16: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+...l -H "Accept: application/json" https://icanhazdadjoke.com/"
+...                              ^):
+  
+app/controllers/tasks_controller.rb:16: syntax error, unexpected tCONSTANT, expecting end
+app/controllers/tasks_controller.rb:16: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+app/controllers/tasks_controller.rb:16: syntax error, unexpected tCONSTANT, expecting end
+app/controllers/tasks_controller.rb:16: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+Started GET "/jokes" for ::1 at 2022-09-06 11:28:56 -0400
+  
+SyntaxError (/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:16: syntax error, unexpected tCONSTANT, expecting ')'
+... joke = system("curl -H "Accept: application/json" https://i...
+...                         ^~~~~~
+/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:16: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+...l -H "Accept: application/json" https://icanhazdadjoke.com/")
+...                              ^
+/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:16: syntax error, unexpected ')', expecting end
+..." https://icanhazdadjoke.com/")
+...                              ^):
+  
+app/controllers/tasks_controller.rb:16: syntax error, unexpected tCONSTANT, expecting ')'
+app/controllers/tasks_controller.rb:16: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+app/controllers/tasks_controller.rb:16: syntax error, unexpected ')', expecting end
+app/controllers/tasks_controller.rb:16: syntax error, unexpected tCONSTANT, expecting ')'
+app/controllers/tasks_controller.rb:16: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+app/controllers/tasks_controller.rb:16: syntax error, unexpected ')', expecting end
+Started GET "/jokes" for ::1 at 2022-09-06 11:33:32 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+Started GET "/jokes" for ::1 at 2022-09-06 11:35:01 -0400
+Completed 204 No Content in 95850ms (Allocations: 45149)
+
+
+  
+SyntaxError (/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:16: syntax error, unexpected '}', expecting =>
+...s: {"Accept: application/json"})
+...                              ^):
+  
+app/controllers/tasks_controller.rb:16: syntax error, unexpected '}', expecting =>
+app/controllers/tasks_controller.rb:16: syntax error, unexpected '}', expecting =>
+Started GET "/jokes" for ::1 at 2022-09-06 11:35:11 -0400
+  
+SyntaxError (/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:16: syntax error, unexpected '}', expecting =>
+...s: {"Accept: application/json"})
+...                              ^):
+  
+app/controllers/tasks_controller.rb:16: syntax error, unexpected '}', expecting =>
+app/controllers/tasks_controller.rb:16: syntax error, unexpected '}', expecting =>
+Started GET "/jokes" for ::1 at 2022-09-06 11:37:22 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+Completed 204 No Content in 207406ms (Allocations: 37822)
+
+
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220906003734)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "name" varchar, "email" varchar, "password_digest" varchar, "birthday" varchar, "score" integer, "beer_drinker" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906003734"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateChildren (20220906010146)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "children" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "birthday" varchar, "gender" varchar, "user_id" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906010146"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBadges (20220906012447)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "badges" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" varchar, "score_threshold" integer, "image" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906012447"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAchievements (20220906020304)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "achievements" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "badge_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906020304"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTasks (20220906022431)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "value" integer, "category" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906022431"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCompletedtasks (20220906022546)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "completedtasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "task_id" integer, "completed" boolean, "date" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906022546"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFavorites (20220906024129)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "task_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906024129"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-09-06 15:41:05.092061"], ["updated_at", "2022-09-06 15:41:05.092061"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (17.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "birthday", "score", "beer_drinker", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "ChrisBaum89"], ["name", "Chris"], ["email", "c@gmail.com"], ["password_digest", "password"], ["birthday", "09/03/1989"], ["score", 0], ["beer_drinker", 1], ["created_at", "2022-09-06 15:41:07.803762"], ["updated_at", "2022-09-06 15:41:07.803762"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "birthday", "score", "beer_drinker", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "Bob90"], ["name", "Bob"], ["email", "b@gmail.com"], ["password_digest", "password"], ["birthday", "01/24/1990"], ["score", 0], ["beer_drinker", 1], ["created_at", "2022-09-06 15:41:07.824910"], ["updated_at", "2022-09-06 15:41:07.824910"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChild Create (0.4ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Steve"], ["birthday", "09/03/2018"], ["gender", "male"], ["user_id", "1"], ["created_at", "2022-09-06 15:41:07.853004"], ["updated_at", "2022-09-06 15:41:07.853004"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Owen"], ["birthday", "09/20/2019"], ["gender", "male"], ["user_id", "1"], ["created_at", "2022-09-06 15:41:07.856770"], ["updated_at", "2022-09-06 15:41:07.856770"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Stacey"], ["birthday", "03/20/2019"], ["gender", "female"], ["user_id", "2"], ["created_at", "2022-09-06 15:41:07.859709"], ["updated_at", "2022-09-06 15:41:07.859709"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (0.3ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "New Balance Shoes"], ["description", "The only choice of footwear for a dad.  The more grass stains on it the better."], ["score_threshold", 500], ["image", "www.testimage1.com"], ["created_at", "2022-09-06 15:41:07.867731"], ["updated_at", "2022-09-06 15:41:07.867731"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (0.2ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Bud Light"], ["description", "No fancy beer for you. You are a father that doesn't have the time or money for that nonsense."], ["score_threshold", 300], ["image", "www.testimage2.com"], ["created_at", "2022-09-06 15:41:07.870071"], ["updated_at", "2022-09-06 15:41:07.870071"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (0.2ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Thick Face Eating Glasses"], ["description", "You need to see and it needs to be everything.  Can't have the frame impeding your view!"], ["score_threshold", 200], ["image", "www.testimage3.com"], ["created_at", "2022-09-06 15:41:07.872331"], ["updated_at", "2022-09-06 15:41:07.872331"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBadge Load (0.1ms)[0m  [1m[34mSELECT "badges".* FROM "badges" WHERE "badges"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAchievement Create (0.2ms)[0m  [1m[32mINSERT INTO "achievements" ("user_id", "badge_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["badge_id", 2], ["created_at", "2022-09-06 15:41:07.880757"], ["updated_at", "2022-09-06 15:41:07.880757"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Tell dad joke 1"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 15:41:07.887828"], ["updated_at", "2022-09-06 15:41:07.887828"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Tell dad joke 2"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 15:41:07.889802"], ["updated_at", "2022-09-06 15:41:07.889802"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Take out the trash"], ["value", 20], ["category", "goal"], ["created_at", "2022-09-06 15:41:07.891479"], ["updated_at", "2022-09-06 15:41:07.891479"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Play with children without looking at phone for 30 minutes"], ["value", 30], ["category", "goal"], ["created_at", "2022-09-06 15:41:07.893111"], ["updated_at", "2022-09-06 15:41:07.893111"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.2ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 1], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 15:41:07.901145"], ["updated_at", "2022-09-06 15:41:07.901145"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.2ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 2], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 15:41:07.904523"], ["updated_at", "2022-09-06 15:41:07.904523"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.2ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["task_id", 2], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 15:41:07.907611"], ["updated_at", "2022-09-06 15:41:07.907611"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.2ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 2], ["created_at", "2022-09-06 15:41:07.914495"], ["updated_at", "2022-09-06 15:41:07.914495"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.1ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 4], ["created_at", "2022-09-06 15:41:07.917689"], ["updated_at", "2022-09-06 15:41:07.917689"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.1ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 2], ["task_id", 3], ["created_at", "2022-09-06 15:41:07.920679"], ["updated_at", "2022-09-06 15:41:07.920679"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/jokes" for ::1 at 2022-09-06 11:41:20 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TasksController#create_tasks_from_jokes as HTML
+Completed 500 Internal Server Error in 135ms (ActiveRecord: 0.0ms | Allocations: 4512)
+
+
+  
+NoMethodError (undefined method `body' for #<String:0x00007f7b9aa3ce48>):
+  
+app/controllers/tasks_controller.rb:25:in `create_tasks'
+app/controllers/tasks_controller.rb:21:in `create_tasks_from_jokes'
+Started GET "/jokes" for ::1 at 2022-09-06 11:41:38 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+Completed 500 Internal Server Error in 107ms (Allocations: 2170)
+
+
+  
+NoMethodError (undefined method `body' for #<Hash:0x00007f7b7a8237a8>):
+  
+app/controllers/tasks_controller.rb:26:in `create_tasks'
+app/controllers/tasks_controller.rb:21:in `create_tasks_from_jokes'
+Started GET "/jokes" for ::1 at 2022-09-06 11:42:27 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+Completed 204 No Content in 351327ms (Allocations: 73702)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 11:48:22 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+Completed 204 No Content in 71067ms (Allocations: 18641)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 11:49:37 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+Completed 204 No Content in 130ms (ActiveRecord: 0.7ms | Allocations: 8602)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 11:49:39 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+Completed 204 No Content in 96ms (ActiveRecord: 0.0ms | Allocations: 1286)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 11:49:40 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+Completed 204 No Content in 170ms (ActiveRecord: 0.0ms | Allocations: 1281)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 11:49:41 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+Completed 204 No Content in 98ms (ActiveRecord: 0.0ms | Allocations: 1286)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 11:49:42 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+Completed 204 No Content in 91ms (ActiveRecord: 0.0ms | Allocations: 1290)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 11:49:57 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_tasks'
+Completed 204 No Content in 48591ms (ActiveRecord: 2.9ms | Allocations: 29754)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 11:50:53 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+  [1m[36mTask Create (0.4ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Where does Napoleon keep his armies? In his sleevies."], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 15:50:53.492861"], ["updated_at", "2022-09-06 15:50:53.492861"]]
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+Completed 204 No Content in 92ms (ActiveRecord: 1.4ms | Allocations: 9451)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 11:50:54 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+  [1m[36mTask Create (1.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "A cannibal is someone who is fed up with people."], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 15:50:54.683624"], ["updated_at", "2022-09-06 15:50:54.683624"]]
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+Completed 204 No Content in 107ms (ActiveRecord: 2.2ms | Allocations: 2892)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 11:50:55 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "I just got fired from a florist, apparently I took too many leaves."], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 15:50:55.388732"], ["updated_at", "2022-09-06 15:50:55.388732"]]
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+Completed 204 No Content in 132ms (ActiveRecord: 1.8ms | Allocations: 2891)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 11:50:55 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+  [1m[36mTask Create (1.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "What did the judge say to the dentist? Do you swear to pull the tooth, the whole tooth and nothing but the tooth?"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 15:50:55.955330"], ["updated_at", "2022-09-06 15:50:55.955330"]]
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+Completed 204 No Content in 106ms (ActiveRecord: 2.3ms | Allocations: 2885)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 11:50:56 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Where does batman go to the bathroom? The batroom."], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 15:50:56.583697"], ["updated_at", "2022-09-06 15:50:56.583697"]]
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+Completed 204 No Content in 101ms (ActiveRecord: 1.5ms | Allocations: 2890)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 11:51:07 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Did you hear about the cheese who saved the world? It was Legend-dairy!"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 15:51:07.459025"], ["updated_at", "2022-09-06 15:51:07.459025"]]
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:26:in `create_tasks'
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_tasks'
+Completed 204 No Content in 36003ms (ActiveRecord: 3.5ms | Allocations: 42064)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 12:07:31 -0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TasksController#create_tasks_from_jokes as HTML
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:25:in `create_tasks'
+  [1m[36mTask Create (1.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "How many kids with ADD does it take to change a lightbulb? Let's go ride bikes!"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:07:31.710312"], ["updated_at", "2022-09-06 16:07:31.710312"]]
+  ↳ app/controllers/tasks_controller.rb:25:in `create_tasks'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:25:in `create_tasks'
+Completed 204 No Content in 182ms (ActiveRecord: 2.0ms | Allocations: 12175)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 12:07:46 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:25:in `create_tasks'
+  [1m[36mTask Create (2.3ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Velcro… What a rip-off."], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:07:46.560513"], ["updated_at", "2022-09-06 16:07:46.560513"]]
+  ↳ app/controllers/tasks_controller.rb:25:in `create_tasks'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:25:in `create_tasks'
+Completed 204 No Content in 125ms (ActiveRecord: 4.2ms | Allocations: 2901)
+
+
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220906003734)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "name" varchar, "email" varchar, "password_digest" varchar, "birthday" varchar, "score" integer, "beer_drinker" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906003734"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateChildren (20220906010146)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "children" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "birthday" varchar, "gender" varchar, "user_id" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906010146"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBadges (20220906012447)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "badges" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" varchar, "score_threshold" integer, "image" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906012447"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAchievements (20220906020304)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "achievements" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "badge_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906020304"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTasks (20220906022431)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "identifier" varchar, "value" integer, "category" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906022431"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCompletedtasks (20220906022546)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "completedtasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "task_id" integer, "completed" boolean, "date" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906022546"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFavorites (20220906024129)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "task_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906024129"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-09-06 16:23:03.983920"], ["updated_at", "2022-09-06 16:23:03.983920"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "birthday", "score", "beer_drinker", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "ChrisBaum89"], ["name", "Chris"], ["email", "c@gmail.com"], ["password_digest", "password"], ["birthday", "09/03/1989"], ["score", 0], ["beer_drinker", 1], ["created_at", "2022-09-06 16:23:06.994876"], ["updated_at", "2022-09-06 16:23:06.994876"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "birthday", "score", "beer_drinker", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "Bob90"], ["name", "Bob"], ["email", "b@gmail.com"], ["password_digest", "password"], ["birthday", "01/24/1990"], ["score", 0], ["beer_drinker", 1], ["created_at", "2022-09-06 16:23:07.001971"], ["updated_at", "2022-09-06 16:23:07.001971"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChild Create (0.3ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Steve"], ["birthday", "09/03/2018"], ["gender", "male"], ["user_id", "1"], ["created_at", "2022-09-06 16:23:07.017384"], ["updated_at", "2022-09-06 16:23:07.017384"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChild Create (0.3ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Owen"], ["birthday", "09/20/2019"], ["gender", "male"], ["user_id", "1"], ["created_at", "2022-09-06 16:23:07.020456"], ["updated_at", "2022-09-06 16:23:07.020456"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Stacey"], ["birthday", "03/20/2019"], ["gender", "female"], ["user_id", "2"], ["created_at", "2022-09-06 16:23:07.023503"], ["updated_at", "2022-09-06 16:23:07.023503"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (0.2ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "New Balance Shoes"], ["description", "The only choice of footwear for a dad.  The more grass stains on it the better."], ["score_threshold", 500], ["image", "www.testimage1.com"], ["created_at", "2022-09-06 16:23:07.030037"], ["updated_at", "2022-09-06 16:23:07.030037"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (0.2ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Bud Light"], ["description", "No fancy beer for you. You are a father that doesn't have the time or money for that nonsense."], ["score_threshold", 300], ["image", "www.testimage2.com"], ["created_at", "2022-09-06 16:23:07.032167"], ["updated_at", "2022-09-06 16:23:07.032167"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (0.2ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Thick Face Eating Glasses"], ["description", "You need to see and it needs to be everything.  Can't have the frame impeding your view!"], ["score_threshold", 200], ["image", "www.testimage3.com"], ["created_at", "2022-09-06 16:23:07.034192"], ["updated_at", "2022-09-06 16:23:07.034192"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBadge Load (0.1ms)[0m  [1m[34mSELECT "badges".* FROM "badges" WHERE "badges"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAchievement Create (0.2ms)[0m  [1m[32mINSERT INTO "achievements" ("user_id", "badge_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["badge_id", 2], ["created_at", "2022-09-06 16:23:07.043493"], ["updated_at", "2022-09-06 16:23:07.043493"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.6ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Tell dad joke 1"], ["identifier", "3806314"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 16:23:07.051846"], ["updated_at", "2022-09-06 16:23:07.051846"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Tell dad joke 2"], ["identifier", "6952379"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 16:23:07.055934"], ["updated_at", "2022-09-06 16:23:07.055934"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Take out the trash"], ["identifier", "3882645"], ["value", 20], ["category", "goal"], ["created_at", "2022-09-06 16:23:07.059007"], ["updated_at", "2022-09-06 16:23:07.059007"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Play with children without looking at phone for 30 minutes"], ["identifier", "3003343"], ["value", 30], ["category", "goal"], ["created_at", "2022-09-06 16:23:07.062491"], ["updated_at", "2022-09-06 16:23:07.062491"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.2ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 1], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 16:23:07.072879"], ["updated_at", "2022-09-06 16:23:07.072879"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.2ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 2], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 16:23:07.077972"], ["updated_at", "2022-09-06 16:23:07.077972"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.3ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["task_id", 2], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 16:23:07.084182"], ["updated_at", "2022-09-06 16:23:07.084182"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.2ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 2], ["created_at", "2022-09-06 16:23:07.092539"], ["updated_at", "2022-09-06 16:23:07.092539"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.2ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 4], ["created_at", "2022-09-06 16:23:07.096270"], ["updated_at", "2022-09-06 16:23:07.096270"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.2ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 2], ["task_id", 3], ["created_at", "2022-09-06 16:23:07.100149"], ["updated_at", "2022-09-06 16:23:07.100149"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/jokes" for ::1 at 2022-09-06 12:23:27 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TasksController#create_tasks_from_jokes as HTML
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Create (0.4ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "My first time using an elevator was an uplifting experience. The second time let me down."], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:23:28.229235"], ["updated_at", "2022-09-06 16:23:28.229235"]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Create (1.9ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "What's the best thing about elevator jokes? They work on so many levels."], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:23:28.331355"], ["updated_at", "2022-09-06 16:23:28.331355"]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "Why can't you use \"Beef stew\" as a password? Because it's not stroganoff."], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:23:28.430385"], ["updated_at", "2022-09-06 16:23:28.430385"]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Create (0.6ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "I finally bought the limited edition Thesaurus that I've always wanted. When I opened it, all the pages were blank.\r\nI have no words to describe how angry I am."], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:23:28.537134"], ["updated_at", "2022-09-06 16:23:28.537134"]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["description", "I have kleptomania, but when it gets bad, I take something for it."], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:23:28.661486"], ["updated_at", "2022-09-06 16:23:28.661486"]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/tasks_controller.rb:21:in `create_tasks_from_jokes'
+Completed 204 No Content in 54893ms (ActiveRecord: 9.6ms | Allocations: 84813)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220906003734)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "name" varchar, "email" varchar, "password_digest" varchar, "birthday" varchar, "score" integer, "beer_drinker" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906003734"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateChildren (20220906010146)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "children" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "birthday" varchar, "gender" varchar, "user_id" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906010146"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBadges (20220906012447)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "badges" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" varchar, "score_threshold" integer, "image" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906012447"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAchievements (20220906020304)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "achievements" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "badge_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906020304"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTasks (20220906022431)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "identifier" varchar, "value" integer, "category" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906022431"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCompletedtasks (20220906022546)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "completedtasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "task_id" integer, "completed" boolean, "date" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906022546"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFavorites (20220906024129)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "task_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906024129"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-09-06 16:24:33.606502"], ["updated_at", "2022-09-06 16:24:33.606502"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "birthday", "score", "beer_drinker", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "ChrisBaum89"], ["name", "Chris"], ["email", "c@gmail.com"], ["password_digest", "password"], ["birthday", "09/03/1989"], ["score", 0], ["beer_drinker", 1], ["created_at", "2022-09-06 16:24:38.266156"], ["updated_at", "2022-09-06 16:24:38.266156"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "birthday", "score", "beer_drinker", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "Bob90"], ["name", "Bob"], ["email", "b@gmail.com"], ["password_digest", "password"], ["birthday", "01/24/1990"], ["score", 0], ["beer_drinker", 1], ["created_at", "2022-09-06 16:24:38.268873"], ["updated_at", "2022-09-06 16:24:38.268873"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Steve"], ["birthday", "09/03/2018"], ["gender", "male"], ["user_id", "1"], ["created_at", "2022-09-06 16:24:38.285416"], ["updated_at", "2022-09-06 16:24:38.285416"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChild Create (0.1ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Owen"], ["birthday", "09/20/2019"], ["gender", "male"], ["user_id", "1"], ["created_at", "2022-09-06 16:24:38.288376"], ["updated_at", "2022-09-06 16:24:38.288376"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mChild Create (0.1ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Stacey"], ["birthday", "03/20/2019"], ["gender", "female"], ["user_id", "2"], ["created_at", "2022-09-06 16:24:38.290662"], ["updated_at", "2022-09-06 16:24:38.290662"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (0.1ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "New Balance Shoes"], ["description", "The only choice of footwear for a dad.  The more grass stains on it the better."], ["score_threshold", 500], ["image", "www.testimage1.com"], ["created_at", "2022-09-06 16:24:38.296364"], ["updated_at", "2022-09-06 16:24:38.296364"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (0.1ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Bud Light"], ["description", "No fancy beer for you. You are a father that doesn't have the time or money for that nonsense."], ["score_threshold", 300], ["image", "www.testimage2.com"], ["created_at", "2022-09-06 16:24:38.298090"], ["updated_at", "2022-09-06 16:24:38.298090"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (0.2ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Thick Face Eating Glasses"], ["description", "You need to see and it needs to be everything.  Can't have the frame impeding your view!"], ["score_threshold", 200], ["image", "www.testimage3.com"], ["created_at", "2022-09-06 16:24:38.299690"], ["updated_at", "2022-09-06 16:24:38.299690"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBadge Load (0.0ms)[0m  [1m[34mSELECT "badges".* FROM "badges" WHERE "badges"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAchievement Create (0.1ms)[0m  [1m[32mINSERT INTO "achievements" ("user_id", "badge_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["badge_id", 2], ["created_at", "2022-09-06 16:24:38.306751"], ["updated_at", "2022-09-06 16:24:38.306751"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Tell dad joke 1"], ["identifier", "5118161"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 16:24:38.312849"], ["updated_at", "2022-09-06 16:24:38.312849"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Tell dad joke 2"], ["identifier", "9632316"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 16:24:38.314626"], ["updated_at", "2022-09-06 16:24:38.314626"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Take out the trash"], ["identifier", "9592362"], ["value", 20], ["category", "goal"], ["created_at", "2022-09-06 16:24:38.316316"], ["updated_at", "2022-09-06 16:24:38.316316"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Play with children without looking at phone for 30 minutes"], ["identifier", "675466"], ["value", 30], ["category", "goal"], ["created_at", "2022-09-06 16:24:38.317899"], ["updated_at", "2022-09-06 16:24:38.317899"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.2ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 1], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 16:24:38.325322"], ["updated_at", "2022-09-06 16:24:38.325322"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.1ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 2], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 16:24:38.328280"], ["updated_at", "2022-09-06 16:24:38.328280"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.1ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["task_id", 2], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 16:24:38.331083"], ["updated_at", "2022-09-06 16:24:38.331083"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.1ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 2], ["created_at", "2022-09-06 16:24:38.337104"], ["updated_at", "2022-09-06 16:24:38.337104"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.1ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 4], ["created_at", "2022-09-06 16:24:38.340141"], ["updated_at", "2022-09-06 16:24:38.340141"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.1ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 2], ["task_id", 3], ["created_at", "2022-09-06 16:24:38.343129"], ["updated_at", "2022-09-06 16:24:38.343129"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/jokes" for ::1 at 2022-09-06 12:24:42 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TasksController#create_tasks_from_jokes as HTML
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Create (0.4ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "What do you call an Argentinian with a rubber toe? Roberto"], ["identifier", "lqWgFlyPusc"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:24:42.758513"], ["updated_at", "2022-09-06 16:24:42.758513"]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Why are fish easy to weigh? Because they have their own scales."], ["identifier", "KBsrz5ws4Ed"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:24:42.848856"], ["updated_at", "2022-09-06 16:24:42.848856"]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Create (0.9ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "How many apples grow on a tree? All of them!"], ["identifier", "D5E6USfNmb"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:24:42.938370"], ["updated_at", "2022-09-06 16:24:42.938370"]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Create (0.9ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "What do you call a bee that lives in America? A USB."], ["identifier", "AXvHeVvHeib"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:24:43.050654"], ["updated_at", "2022-09-06 16:24:43.050654"]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "What kind of award did the dentist receive? A little plaque."], ["identifier", "dibUSv4ojyd"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:24:43.164761"], ["updated_at", "2022-09-06 16:24:43.164761"]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/tasks_controller.rb:21:in `create_tasks_from_jokes'
+Completed 204 No Content in 341546ms (ActiveRecord: 9.1ms | Allocations: 85335)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220906003734)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "name" varchar, "email" varchar, "password_digest" varchar, "birthday" varchar, "score" integer, "beer_drinker" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906003734"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateChildren (20220906010146)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "children" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "birthday" varchar, "gender" varchar, "user_id" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906010146"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBadges (20220906012447)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "badges" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" varchar, "score_threshold" integer, "image" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906012447"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAchievements (20220906020304)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "achievements" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "badge_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906020304"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTasks (20220906022431)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "identifier" varchar, "value" integer, "category" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906022431"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCompletedtasks (20220906022546)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "completedtasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "task_id" integer, "completed" boolean, "date" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906022546"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFavorites (20220906024129)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "task_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906024129"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-09-06 16:31:03.335468"], ["updated_at", "2022-09-06 16:31:03.335468"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "birthday", "score", "beer_drinker", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "ChrisBaum89"], ["name", "Chris"], ["email", "c@gmail.com"], ["password_digest", "password"], ["birthday", "09/03/1989"], ["score", 0], ["beer_drinker", 1], ["created_at", "2022-09-06 16:31:07.773215"], ["updated_at", "2022-09-06 16:31:07.773215"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "birthday", "score", "beer_drinker", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "Bob90"], ["name", "Bob"], ["email", "b@gmail.com"], ["password_digest", "password"], ["birthday", "01/24/1990"], ["score", 0], ["beer_drinker", 1], ["created_at", "2022-09-06 16:31:07.776386"], ["updated_at", "2022-09-06 16:31:07.776386"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Steve"], ["birthday", "09/03/2018"], ["gender", "male"], ["user_id", "1"], ["created_at", "2022-09-06 16:31:07.802296"], ["updated_at", "2022-09-06 16:31:07.802296"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Owen"], ["birthday", "09/20/2019"], ["gender", "male"], ["user_id", "1"], ["created_at", "2022-09-06 16:31:07.805732"], ["updated_at", "2022-09-06 16:31:07.805732"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mChild Create (0.2ms)[0m  [1m[32mINSERT INTO "children" ("name", "birthday", "gender", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Stacey"], ["birthday", "03/20/2019"], ["gender", "female"], ["user_id", "2"], ["created_at", "2022-09-06 16:31:07.808763"], ["updated_at", "2022-09-06 16:31:07.808763"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (0.3ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "New Balance Shoes"], ["description", "The only choice of footwear for a dad.  The more grass stains on it the better."], ["score_threshold", 500], ["image", "www.testimage1.com"], ["created_at", "2022-09-06 16:31:07.815559"], ["updated_at", "2022-09-06 16:31:07.815559"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (0.2ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Bud Light"], ["description", "No fancy beer for you. You are a father that doesn't have the time or money for that nonsense."], ["score_threshold", 300], ["image", "www.testimage2.com"], ["created_at", "2022-09-06 16:31:07.818360"], ["updated_at", "2022-09-06 16:31:07.818360"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBadge Create (0.2ms)[0m  [1m[32mINSERT INTO "badges" ("name", "description", "score_threshold", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Thick Face Eating Glasses"], ["description", "You need to see and it needs to be everything.  Can't have the frame impeding your view!"], ["score_threshold", 200], ["image", "www.testimage3.com"], ["created_at", "2022-09-06 16:31:07.820530"], ["updated_at", "2022-09-06 16:31:07.820530"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBadge Load (0.1ms)[0m  [1m[34mSELECT "badges".* FROM "badges" WHERE "badges"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAchievement Create (0.2ms)[0m  [1m[32mINSERT INTO "achievements" ("user_id", "badge_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["badge_id", 2], ["created_at", "2022-09-06 16:31:07.829080"], ["updated_at", "2022-09-06 16:31:07.829080"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Tell dad joke 1"], ["identifier", "1109651"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 16:31:07.836741"], ["updated_at", "2022-09-06 16:31:07.836741"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Tell dad joke 2"], ["identifier", "7083788"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-06 16:31:07.839084"], ["updated_at", "2022-09-06 16:31:07.839084"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Take out the trash"], ["identifier", "5122436"], ["value", 20], ["category", "goal"], ["created_at", "2022-09-06 16:31:07.841015"], ["updated_at", "2022-09-06 16:31:07.841015"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Play with children without looking at phone for 30 minutes"], ["identifier", "9993816"], ["value", 30], ["category", "goal"], ["created_at", "2022-09-06 16:31:07.843356"], ["updated_at", "2022-09-06 16:31:07.843356"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.2ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 1], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 16:31:07.853097"], ["updated_at", "2022-09-06 16:31:07.853097"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.2ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 2], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 16:31:07.856971"], ["updated_at", "2022-09-06 16:31:07.856971"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCompletedtask Create (0.2ms)[0m  [1m[32mINSERT INTO "completedtasks" ("user_id", "task_id", "completed", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["task_id", 2], ["completed", 1], ["date", "09/05/2022"], ["created_at", "2022-09-06 16:31:07.862380"], ["updated_at", "2022-09-06 16:31:07.862380"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.2ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 2], ["created_at", "2022-09-06 16:31:07.871101"], ["updated_at", "2022-09-06 16:31:07.871101"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.1ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["task_id", 4], ["created_at", "2022-09-06 16:31:07.874663"], ["updated_at", "2022-09-06 16:31:07.874663"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFavorite Create (0.2ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 2], ["task_id", 3], ["created_at", "2022-09-06 16:31:07.878083"], ["updated_at", "2022-09-06 16:31:07.878083"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/jokes" for ::1 at 2022-09-06 12:31:20 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TasksController#create_tasks_from_jokes as HTML
+  [1m[36mTask Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "FtHBXvXL6h"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "GtH6E6UD5Ed"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "pWv4MuzAQCd"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "9hiGeNZ0Tnb"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "2wkykjyIYDd"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "hiVSCdUvXg"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "xAlOZ8pOmjb"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "IYT082EQukb"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "3LRCIJY82wc"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "IexXD5TnGBd"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/tasks_controller.rb:21:in `create_tasks_from_jokes'
+Completed 204 No Content in 27076ms (ActiveRecord: 5.8ms | Allocations: 57330)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 12:31:50 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "jNmykbUSSvc"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.9ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "I went to a book store and asked the saleswoman where the Self Help section was, she said if she told me it would defeat the purpose."], ["identifier", "jNmykbUSSvc"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:31:50.454172"], ["updated_at", "2022-09-06 16:31:50.454172"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "7hNuz5MeVnb"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "What kind of dinosaur loves to sleep? A stega-snore-us."], ["identifier", "7hNuz5MeVnb"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:31:50.582841"], ["updated_at", "2022-09-06 16:31:50.582841"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "Qn31o49Musc"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "What do you call a fat psychic? A four-chin teller."], ["identifier", "Qn31o49Musc"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:31:50.692775"], ["updated_at", "2022-09-06 16:31:50.692775"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "f211DdFBdxc"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.5ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Did you hear about the chameleon who couldn't change color? They had a reptile dysfunction."], ["identifier", "f211DdFBdxc"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:31:50.803327"], ["updated_at", "2022-09-06 16:31:50.803327"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "41LeN7EImjb"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.5ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "What is the difference between ignorance and apathy?\r\n\r\nI don't know and I don't care."], ["identifier", "41LeN7EImjb"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:31:50.906990"], ["updated_at", "2022-09-06 16:31:50.906990"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "aMmbaFYTKBd"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "I finally bought the limited edition Thesaurus that I've always wanted. When I opened it, all the pages were blank.\r\nI have no words to describe how angry I am."], ["identifier", "aMmbaFYTKBd"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:31:51.011378"], ["updated_at", "2022-09-06 16:31:51.011378"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "9xPCt411ojb"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.9ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "What did one snowman say to the other snow man? Do you smell carrot?"], ["identifier", "9xPCt411ojb"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:31:51.114184"], ["updated_at", "2022-09-06 16:31:51.114184"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "K6UvXD5Mexc"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (1.0ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Which side of the chicken has more feathers? The outside."], ["identifier", "K6UvXD5Mexc"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:31:51.232668"], ["updated_at", "2022-09-06 16:31:51.232668"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "giyXgahV0wc"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.5ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "The great thing about stationery shops is they're always in the same place..."], ["identifier", "giyXgahV0wc"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:31:51.355956"], ["updated_at", "2022-09-06 16:31:51.355956"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "y59pGlbhyAd"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.8ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "I really want to buy one of those supermarket checkout dividers, but the cashier keeps putting it back."], ["identifier", "y59pGlbhyAd"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:31:51.461132"], ["updated_at", "2022-09-06 16:31:51.461132"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+Completed 204 No Content in 6796ms (ActiveRecord: 25.1ms | Allocations: 90555)
+
+
+Started GET "/jokes" for ::1 at 2022-09-06 12:32:04 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "8hVnbxcp4wc"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Is there a hole in your shoe? No… Then how’d you get your foot in it?"], ["identifier", "8hVnbxcp4wc"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:32:05.310506"], ["updated_at", "2022-09-06 16:32:05.310506"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "41LeN7EImjb"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTask Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "21DQnbaaxc"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.5ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Whoever invented the knock-knock joke should get a no bell prize."], ["identifier", "21DQnbaaxc"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:32:05.560958"], ["updated_at", "2022-09-06 16:32:05.560958"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "XLRfNuPZDAd"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.5ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "What is a tornado's favorite game to play? Twister!"], ["identifier", "XLRfNuPZDAd"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:32:05.653140"], ["updated_at", "2022-09-06 16:32:05.653140"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "SvzIBAQS0Dd"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.5ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "What did the pirate say on his 80th birthday? Aye Matey!"], ["identifier", "SvzIBAQS0Dd"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:32:05.766941"], ["updated_at", "2022-09-06 16:32:05.766941"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "EQKZDIeah"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.5ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Atheism is a non-prophet organisation."], ["identifier", "EQKZDIeah"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:32:05.874851"], ["updated_at", "2022-09-06 16:32:05.874851"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "S0TvXvzPfFd"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "A man was caught stealing in a supermarket today while balanced on the shoulders of a couple of vampires. He was charged with shoplifting on two counts. "], ["identifier", "S0TvXvzPfFd"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:32:05.966861"], ["updated_at", "2022-09-06 16:32:05.966861"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "X8pWSKJRZg"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.5ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "What does a clock do when it's hungry? It goes back four seconds!"], ["identifier", "X8pWSKJRZg"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:32:06.059822"], ["updated_at", "2022-09-06 16:32:06.059822"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (6.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "6U0DIBAlbxc"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "If at first you don't succeed, sky diving is not for you!"], ["identifier", "6U0DIBAlbxc"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:32:06.178353"], ["updated_at", "2022-09-06 16:32:06.178353"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "G6pr4EQfiqc"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.6ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "What did the piece of bread say to the knife? Butter me up."], ["identifier", "G6pr4EQfiqc"], ["value", 0], ["category", "joke"], ["created_at", "2022-09-06 16:32:06.295168"], ["updated_at", "2022-09-06 16:32:06.295168"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/tasks_controller.rb:21:in `create_tasks_from_jokes'
+Completed 204 No Content in 58881ms (ActiveRecord: 27.0ms | Allocations: 130666)
+
+

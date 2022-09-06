@@ -1,26 +1,31 @@
 class TasksController < ApplicationController
-    require 'uri'
-    require 'net/http'
-    require 'openssl'
+    require 'json'
+    require 'httparty'
 
+    jokes = []
     
     def index
         tasks = Task.all
         render json: TaskSerializer.new(tasks)
     end
 
-    def get_joke
-        url = URI("https://dad-jokes.p.rapidapi.com/random/joke?count=5")
+    def create_tasks_from_jokes
+        10.times{
+            response = HTTParty.get("https://icanhazdadjoke.com/",
+            headers: {
+                "Accept" => "application/json"
+                }
+            )
+            create_task(response.body)
+       }
+       binding.pry
+        
+    end
 
-        http = Net::HTTP.new(url.host, url.port)
-        http.use_ssl = true
-        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
-        request = Net::HTTP::Get.new(url)
-        request["X-RapidAPI-Key"] = '78247a2cd9msh0b1b327f3019cf5p1362f8jsndd71d1347360'
-        request["X-RapidAPI-Host"] = 'dad-jokes.p.rapidapi.com'
-        response = http.request(request)
-        puts response.read_body
-        render json: response.read_body
+    def create_task(response)
+        object = JSON.parse(response).with_indifferent_access
+        if not Task.exists?(:identifier => object[:id])
+            newTask = Task.create(description: object[:joke], identifier: object[:id], value: 0, category: "joke")
+        end
     end
 end

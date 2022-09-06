@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :favorites
   resources :completedtasks
-  get '/jokes', to: 'tasks#get_joke'
+  get '/jokes', to: 'tasks#create_tasks_from_jokes'
   resources :tasks
   resources :achievements
   resources :badges

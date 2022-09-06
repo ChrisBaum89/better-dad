@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2022_09_06_024129) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "description"
+    t.string "identifier"
     t.integer "value"
     t.string "category"
     t.datetime "created_at", precision: 6, null: false
@@ -65,7 +66,6 @@ ActiveRecord::Schema.define(version: 2022_09_06_024129) do
     t.string "username"
     t.string "name"
     t.string "email"
-    t.string "badge_id"
     t.string "password_digest"
     t.string "birthday"
     t.integer "score"

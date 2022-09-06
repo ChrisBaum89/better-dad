@@ -81,6 +81,11 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
+    httparty (0.20.0)
+      mime-types (~> 3.0)
+      multi_xml (>= 0.5.2)
+    httpparty (0.2.0)
+      httparty (> 0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     listen (3.7.1)
@@ -99,6 +104,7 @@ GEM
     mini_mime (1.1.2)
     minitest (5.16.3)
     msgpack (1.5.6)
+    multi_xml (0.6.0)
     netrc (0.11.0)
     nio4r (2.5.8)
     nokogiri (1.13.8-x86_64-darwin)
@@ -178,6 +184,7 @@ DEPENDENCIES
   byebug
   faker
   fast_jsonapi
+  httpparty
   listen (~> 3.3)
   pry
   puma (~> 5.0)
