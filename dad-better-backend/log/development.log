@@ -1852,3 +1852,130 @@ Processing by TasksController#index as HTML
 Completed 200 OK in 21ms (Views: 18.1ms | ActiveRecord: 1.7ms | Allocations: 21302)
 
 
+Started GET "/tasks" for ::1 at 2022-09-05 23:14:07 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/tasks_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 1]]
+  ↳ app/controllers/tasks_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 1]]
+  ↳ app/controllers/tasks_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 2]]
+  ↳ app/controllers/tasks_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 2]]
+  ↳ app/controllers/tasks_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 3]]
+  ↳ app/controllers/tasks_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 3]]
+  ↳ app/controllers/tasks_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 4]]
+  ↳ app/controllers/tasks_controller.rb:6:in `index'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 4]]
+  ↳ app/controllers/tasks_controller.rb:6:in `index'
+Completed 200 OK in 77ms (Views: 57.8ms | ActiveRecord: 6.6ms | Allocations: 27224)
+
+
+Started GET "/jokes" for ::1 at 2022-09-05 23:14:13 -0400
+Processing by TasksController#get_joke as HTML
+Completed 200 OK in 155ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 4193)
+
+
+Started GET "/jokes" for ::1 at 2022-09-05 23:17:06 -0400
+Processing by TasksController#get_joke as HTML
+Completed 200 OK in 141ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 2332)
+
+
+Started GET "/jokes" for ::1 at 2022-09-05 23:19:01 -0400
+Processing by TasksController#get_joke as HTML
+Completed 200 OK in 122ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 2260)
+
+
+Started GET "/jokes" for ::1 at 2022-09-05 23:19:33 -0400
+Processing by TasksController#get_joke as HTML
+Completed 200 OK in 121ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 2351)
+
+
+Started GET "/jokes" for ::1 at 2022-09-05 23:19:55 -0400
+Processing by TasksController#get_joke as HTML
+Completed 500 Internal Server Error in 105ms (Views: 0.1ms | Allocations: 3877)
+
+
+  
+NameError (undefined local variable or method `console' for #<TasksController:0x007fa96faa99c8>):
+  
+app/controllers/tasks_controller.rb:13:in `get_joke'
+Started GET "/jokes" for ::1 at 2022-09-05 23:20:06 -0400
+Processing by TasksController#get_joke as HTML
+Completed 500 Internal Server Error in 108ms (Views: 0.2ms | Allocations: 3826)
+
+
+  
+NameError (undefined local variable or method `console' for #<TasksController:0x007fa96e23de48>):
+  
+app/controllers/tasks_controller.rb:13:in `get_joke'
+Started GET "/jokes" for ::1 at 2022-09-05 23:20:15 -0400
+Processing by TasksController#get_joke as HTML
+Started GET "/jokes" for ::1 at 2022-09-05 23:22:56 -0400
+Completed 200 OK in 177742ms (Views: 0.2ms | Allocations: 45905)
+
+
+Processing by TasksController#get_joke as HTML
+Completed 200 OK in 3426ms (Views: 0.2ms | Allocations: 10826)
+
+
+Started GET "/jokes" for ::1 at 2022-09-05 23:23:24 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TasksController#get_joke as HTML
+Completed 200 OK in 202188ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 27893)
+
+
+Started GET "/jokes" for ::1 at 2022-09-05 23:26:50 -0400
+Processing by TasksController#get_joke as HTML
+Completed 500 Internal Server Error in 3ms (Allocations: 1116)
+
+
+  
+NoMethodError (undefined method `AddHeader' for #<ActionDispatch::Request:0x00007fdfb60654d0>
+Did you mean?  add_header):
+  
+app/controllers/tasks_controller.rb:11:in `get_joke'
+Started GET "/jokes" for ::1 at 2022-09-05 23:27:01 -0400
+Processing by TasksController#get_joke as HTML
+Completed 200 OK in 94ms (Views: 0.2ms | Allocations: 2419)
+
+
+Started GET "/jokes" for ::1 at 2022-09-05 23:37:41 -0400
+Processing by TasksController#get_joke as HTML
+Completed 204 No Content in 517ms (Allocations: 875)
+
+
+Started GET "/jokes" for ::1 at 2022-09-05 23:38:29 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TasksController#get_joke as HTML
+Completed 204 No Content in 452ms (ActiveRecord: 0.0ms | Allocations: 3305)
+
+
+Started GET "/jokes" for ::1 at 2022-09-05 23:38:42 -0400
+Processing by TasksController#get_joke as HTML
+Completed 204 No Content in 5917ms (Allocations: 17354)
+
+
+Started GET "/jokes" for ::1 at 2022-09-05 23:40:09 -0400
+Processing by TasksController#get_joke as HTML
+Completed 200 OK in 303ms (Views: 1.7ms | Allocations: 1257)
+
+
+Started GET "/jokes" for ::1 at 2022-09-05 23:40:22 -0400
+Processing by TasksController#get_joke as HTML
+Completed 200 OK in 198ms (Views: 0.4ms | Allocations: 906)
+
+
+Started GET "/jokes" for ::1 at 2022-09-05 23:40:52 -0400
+Processing by TasksController#get_joke as HTML
+Completed 200 OK in 202ms (Views: 0.4ms | Allocations: 912)
+
+
