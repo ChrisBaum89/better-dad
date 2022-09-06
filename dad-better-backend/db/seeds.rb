@@ -141,3 +141,28 @@ favorite3 = Favorite.create(
     user_id: 2,
     task_id: 3
 )
+
+quote1 = Quote.create(
+    description: "A dad is more than just the sum of his parts. He is the very soul of the family.",
+    category: "generic"
+)
+
+quote2 = Quote.create(
+    description: "Fathers are men who dared to place the world's hopes and dreams in their children.",
+    category: "generic"
+)
+
+quote3 = Quote.create(
+    description: "Even the best dads make mistakes. But there is no mistaking their love for their children.",
+    category: "generic"
+)
+
+quote4 = Quote.create(
+    description: "A father teaches his daughter how to love and be loved.",
+    category: "daughter"
+)
+
+quote5 = Quote.create(
+    description: "A dad is the hero his son hopes to be.",
+    category: "son"
+)

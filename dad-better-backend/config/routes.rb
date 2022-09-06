@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :quotes
   resources :favorites
   resources :completedtasks
   get '/jokes', to: 'tasks#create_tasks_from_jokes'

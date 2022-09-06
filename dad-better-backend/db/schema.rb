@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_06_024129) do
+ActiveRecord::Schema.define(version: 2022_09_06_193943) do
 
   create_table "achievements", force: :cascade do |t|
     t.integer "user_id"
@@ -49,6 +49,13 @@ ActiveRecord::Schema.define(version: 2022_09_06_024129) do
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "task_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "quotes", force: :cascade do |t|
+    t.string "description"
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
