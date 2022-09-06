@@ -5329,3 +5329,7 @@ Processing by UsersController#index as */*
 Completed 200 OK in 46ms (Views: 36.2ms | ActiveRecord: 7.8ms | Allocations: 16999)
 
 
+Started GET "/quotes" for ::1 at 2022-09-06 15:37:15 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/quotes"):
+  
