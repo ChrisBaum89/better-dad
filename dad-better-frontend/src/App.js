@@ -1,8 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-import {fetchUsers} from "..actions/fetchUsers";
+import {connect} from "react-redux"
+import {fetchUsers} from "./actions/userActions"
 
 function App() {
+  
+  componentDidMount(){
+    this.props.fetchCat()
+  }
+  
   return (
     <div className="App">
       <header className="App-header">
