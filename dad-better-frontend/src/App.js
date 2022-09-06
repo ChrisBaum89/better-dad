@@ -1,32 +1,42 @@
+import React, {Component} from 'react'
 import logo from './logo.svg';
 import './App.css';
 import {connect} from "react-redux"
 import {fetchUsers} from "./actions/userActions"
+import LoginContainer from "./containers/LoginContainer"
+import UserContainer from "./containers/UserContainer"
+import BadgeContainer from "./containers/BadgeContainer"
+import QuoteContainer from "./containers/QuoteContainer"
+import TaskContainer from './containers/TaskContainer';
 
-function App() {
+class App extends Component {
   
   componentDidMount(){
-    this.props.fetchCat()
+    this.props.fetchUsers()
   }
   
-  return (
+  render() {
+    return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>Dad Better</h1>
+        <LoginContainer />
+       
       </header>
+      <body>
+      <UserContainer />
+      <BadgeContainer />
+      <QuoteContainer />
+      <TaskContainer />
+      </body>
     </div>
-  );
+)}}
+
+const mapStateToProps = (state) => {
+  return {
+    users: state.users,
+    loading: state.loading
+  }
 }
 
-export default App;
+export default connect(mapStateToProps, {fetchUsers})(App);

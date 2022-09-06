@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 
-class QuoteContainer extends Component {
+class LoginContainer extends Component {
     render(){
         return (
             <div>
-                Quote Container
+                Login Container
             </div>
         )
     }
 }
 
-export default QuoteContainer
+export default LoginContainer
