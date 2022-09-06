@@ -17,3 +17,24 @@ user2 = User.create(
     name: "Brit",
     email: "b@gmail.com"
 )
+
+child1 = Child.create(
+    name: "Steve",
+    birthday: "09/03/2018",
+    gender: "male",
+    user_id: "1"
+)
+
+child2 = Child.create(
+    name: "Owen",
+    birthday: "09/20/2019",
+    gender: "male",
+    user_id: "1"
+)
+
+child3 = Child.create(
+    name: "Stacey",
+    birthday: "03/20/2019",
+    gender: "female",
+    user_id: "2"
+)
