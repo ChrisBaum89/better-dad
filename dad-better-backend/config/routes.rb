@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :achievements
   resources :badges
   resources :children
   resources :users

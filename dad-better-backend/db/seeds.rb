@@ -6,16 +6,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'faker'
+
 user1 = User.create(
     username: "ChrisBaum89",
     name: "Chris",
-    email: "c@gmail.com"
+    email: "c@gmail.com",
+    badge_id: [1]
 )
 
 user2 = User.create(
     username: "BritB90",
     name: "Brit",
-    email: "b@gmail.com"
+    email: "b@gmail.com",
+    badge_id: [2, 3]
 )
 
 child1 = Child.create(
@@ -58,4 +62,9 @@ badge3 = Badge.create(
     description: "You need to see and it needs to be everything.  Can't have the frame impeding your view!",
     score_threshold: 200,
     image: "www.testimage3.com"
+)
+
+achievement1 = Achievement.create(
+    user_id: 1,
+    badge_id: 2
 )

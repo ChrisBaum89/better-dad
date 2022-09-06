@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_06_010146) do
+ActiveRecord::Schema.define(version: 2022_09_06_020304) do
+
+  create_table "achievements", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "badge_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "score_threshold"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "children", force: :cascade do |t|
     t.string "name"
@@ -25,6 +41,7 @@ ActiveRecord::Schema.define(version: 2022_09_06_010146) do
     t.string "username"
     t.string "name"
     t.string "email"
+    t.string "badge_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
