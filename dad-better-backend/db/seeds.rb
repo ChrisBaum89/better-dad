@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+require 'json'
+require 'httparty'
 
 user1 = User.create(
     username: "ChrisBaum89",
