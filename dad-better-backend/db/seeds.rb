@@ -68,3 +68,47 @@ achievement1 = Achievement.create(
     user_id: 1,
     badge_id: 2
 )
+
+task1 = Task.create(
+    description: "Tell dad joke 1",
+    value: 10,
+    category: "joke"
+)
+
+task2 = Task.create(
+    description: "Tell dad joke 2",
+    value: 10,
+    category: "joke"
+)
+
+task3 = Task.create(
+    description: "Take out the trash",
+    value: 20,
+    category: "goal"
+)
+
+task4 = Task.create(
+    description: "Play with children without looking at phone for 30 minutes",
+    value: 30,
+    category: "goal"
+)
+
+completedtask1 = Completedtask.create(
+    user_id: 1,
+    task_id: 1,
+    completed: true,
+    date: "09/05/2022"
+)
+completedtask2 = Completedtask.create(
+    user_id: 1,
+    task_id: 2,
+    completed: true,
+    date: "09/05/2022"
+)
+
+completedtask3 = Completedtask.create(
+    user_id: 2,
+    task_id: 2,
+    completed: true,
+    date: "09/05/2022"
+)
