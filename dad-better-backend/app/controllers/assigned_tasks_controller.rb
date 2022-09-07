@@ -1,0 +1,2 @@
+class AssignedTasksController < ApplicationController
+end

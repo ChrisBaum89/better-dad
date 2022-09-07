@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :assigned_tasks
+  resources :completed_tasks
+  resources :earned_badges
   resources :quotes
   resources :favorites
   resources :completedtasks
