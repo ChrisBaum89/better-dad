@@ -14968,3 +14968,593 @@ Processing by CompletedTasksController#index as HTML
 Completed 200 OK in 29ms (Views: 21.7ms | ActiveRecord: 3.8ms | Allocations: 5828)
 
 
+Started GET "/ws" for ::1 at 2022-09-07 12:51:42 -0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/api/v1/users" for ::1 at 2022-09-07 12:51:47 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/users"):
+  
+Started GET "/ws" for ::1 at 2022-09-07 12:51:48 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/ws" for ::1 at 2022-09-07 12:52:06 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/ws" for ::1 at 2022-09-07 12:52:49 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/ws" for ::1 at 2022-09-07 12:53:54 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/ws" for ::1 at 2022-09-07 12:56:02 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started POST "/api/v1/users?username=hithere&password=[FILTERED]" for ::1 at 2022-09-07 12:56:30 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/users"):
+  
+Started POST "/api/v1/users?username=hithere&password=[FILTERED]&email=g@gmail.com" for ::1 at 2022-09-07 12:56:45 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/users"):
+  
+Started POST "/api/v1/users?username=myusername&password=[FILTERED]&email=g@gmail.com" for ::1 at 2022-09-07 12:59:12 -0400
+  
+ActionController::RoutingError (uninitialized constant Api):
+  
+Started POST "/api/v1/users?username=myusername&password=[FILTERED]&email=g@gmail.com" for ::1 at 2022-09-07 12:59:48 -0400
+  
+ActionController::RoutingError (uninitialized constant Api):
+  
+Started POST "/api/v1/users?username=myusername&password=[FILTERED]&email=g@gmail.com" for ::1 at 2022-09-07 13:00:09 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant Api):
+  
+Started GET "/api/v1/users" for ::1 at 2022-09-07 13:00:21 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/users"):
+  
+Started GET "/ws" for ::1 at 2022-09-07 13:00:22 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started POST "/api/v1/users?username=%22myusername%22&password=[FILTERED]&email=%22g@gmail.com%22" for ::1 at 2022-09-07 13:01:14 -0400
+  
+ActionController::RoutingError (uninitialized constant Api):
+  
+Started POST "/api/v1/users" for ::1 at 2022-09-07 13:01:22 -0400
+  
+ActionController::RoutingError (uninitialized constant Api):
+  
+Started POST "/api/v1/login" for ::1 at 2022-09-07 13:02:01 -0400
+  
+ActionController::RoutingError (uninitialized constant Api):
+  
+Started POST "/api/v1/login" for ::1 at 2022-09-07 13:02:02 -0400
+  
+ActionController::RoutingError (uninitialized constant Api):
+  
+Started POST "/api/v1/login" for ::1 at 2022-09-07 13:02:14 -0400
+  
+ActionController::RoutingError (uninitialized constant Api):
+  
+Started GET "/" for ::1 at 2022-09-07 13:02:31 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chrisbaum/.rvm/gems/ruby-2.6.1/gems/railties-6.1.6.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chrisbaum/.rvm/gems/ruby-2.6.1/gems/railties-6.1.6.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.6ms | Allocations: 195)
+Completed 200 OK in 17ms (Views: 5.4ms | ActiveRecord: 0.0ms | Allocations: 1700)
+
+
+Started GET "/users" for ::1 at 2022-09-07 13:02:35 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started POST "/" for ::1 at 2022-09-07 13:02:44 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started POST "/" for ::1 at 2022-09-07 13:02:45 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started GET "/" for ::1 at 2022-09-07 13:02:51 -0400
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/chrisbaum/.rvm/gems/ruby-2.6.1/gems/railties-6.1.6.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chrisbaum/.rvm/gems/ruby-2.6.1/gems/railties-6.1.6.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 12.3ms | Allocations: 190)
+Completed 200 OK in 17ms (Views: 14.4ms | ActiveRecord: 0.0ms | Allocations: 790)
+
+
+Started GET "/api" for ::1 at 2022-09-07 13:03:08 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api"):
+  
+Started GET "/users/api" for ::1 at 2022-09-07 13:03:14 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/users/api"):
+  
+Started POST "/api/v1/users" for ::1 at 2022-09-07 13:04:36 -0400
+  
+SyntaxError (/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/config/routes.rb:20: syntax error, unexpected end, expecting end-of-input):
+  
+config/routes.rb:20: syntax error, unexpected end, expecting end-of-input
+config/routes.rb:20: syntax error, unexpected end, expecting end-of-input
+Started GET "/users/api/v1/users" for ::1 at 2022-09-07 13:05:11 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/users/api/v1/users"):
+  
+Started POST "/api/v1/users" for ::1 at 2022-09-07 13:05:41 -0400
+  
+ActionController::RoutingError (uninitialized constant Api):
+  
+Started POST "/api/v1/users" for ::1 at 2022-09-07 13:06:19 -0400
+  
+ActionController::RoutingError (uninitialized constant Api):
+  
+Started GET "/users/api/v1/users" for ::1 at 2022-09-07 13:06:26 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/users/api/v1/users"):
+  
+Started POST "/api/v1/users" for ::1 at 2022-09-07 13:06:42 -0400
+  
+ActionController::RoutingError (uninitialized constant Api):
+  
+Started GET "/ws" for ::1 at 2022-09-07 13:08:58 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started POST "/api/v1/users" for ::1 at 2022-09-07 13:10:01 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant Api):
+  
+Started GET "/manifest.json" for ::1 at 2022-09-07 13:12:16 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/main.5106ca6506f345f143e2.hot-update.js.map" for ::1 at 2022-09-07 13:12:16 -0400
+Started GET "/main.0a8998bfe31a8c041c7c.hot-update.js.map" for ::1 at 2022-09-07 13:12:16 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/main.0a8998bfe31a8c041c7c.hot-update.js.map"):
+  
+Started GET "/static/js/bundle.js.map" for ::1 at 2022-09-07 13:12:16 -0400
+Started GET "/main.a39885aab05091d260ee.hot-update.js.map" for ::1 at 2022-09-07 13:12:16 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/main.5106ca6506f345f143e2.hot-update.js.map"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/static/js/bundle.js.map"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/main.a39885aab05091d260ee.hot-update.js.map"):
+  
+Started POST "/api/v1/users" for ::1 at 2022-09-07 13:13:02 -0400
+  
+ActionController::RoutingError (uninitialized constant Api):
+  
+Started POST "/api/v1/users" for ::1 at 2022-09-07 13:18:19 -0400
+  
+ActionController::RoutingError (uninitialized constant Api):
+  
+Started POST "/api/v1/users" for ::1 at 2022-09-07 13:18:21 -0400
+  
+ActionController::RoutingError (uninitialized constant Api):
+  
+Started POST "/api/v1/users" for ::1 at 2022-09-07 13:18:21 -0400
+  
+ActionController::RoutingError (uninitialized constant Api):
+  
+Started POST "/" for ::1 at 2022-09-07 13:18:30 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started POST "/" for ::1 at 2022-09-07 13:18:31 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started GET "/" for ::1 at 2022-09-07 13:18:37 -0400
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/chrisbaum/.rvm/gems/ruby-2.6.1/gems/railties-6.1.6.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chrisbaum/.rvm/gems/ruby-2.6.1/gems/railties-6.1.6.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.7ms | Allocations: 200)
+Completed 200 OK in 15ms (Views: 7.6ms | Allocations: 1744)
+
+
+Started POST "/api/v1/users" for ::1 at 2022-09-07 13:20:14 -0400
+  
+ActionController::RoutingError (uninitialized constant Api):
+  
+Started POST "/users" for ::1 at 2022-09-07 13:22:40 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/users"):
+  
+Started POST "/users" for ::1 at 2022-09-07 13:24:09 -0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 25ms (ActiveRecord: 0.0ms | Allocations: 8331)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:31:in `user_params'
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users?username=%22myusername%22&password=[FILTERED]&email=%22g@gmail.com%22" for ::1 at 2022-09-07 13:24:27 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"\"myusername\"", "password"=>"[FILTERED]", "email"=>"\"g@gmail.com\""}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 113)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:31:in `user_params'
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users?username=%22myusername%22&password=[FILTERED]&email=%22g@gmail.com%22" for ::1 at 2022-09-07 13:25:42 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"\"myusername\"", "password"=>"[FILTERED]", "email"=>"\"g@gmail.com\""}
+Completed 400 Bad Request in 6ms (Allocations: 4427)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:31:in `user_params'
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users?username=%22myusername%22&password=[FILTERED]&email=%22g@gmail.com%22&name=%22Chris" for ::1 at 2022-09-07 13:26:38 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"\"myusername\"", "password"=>"[FILTERED]", "email"=>"\"g@gmail.com\"", "name"=>"\"Chris"}
+Completed 400 Bad Request in 2ms (Allocations: 109)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:31:in `user_params'
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users?username=%22myusername%22&password=[FILTERED]&email=%22g@gmail.com%22&name=%22Chris" for ::1 at 2022-09-07 13:29:02 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"\"myusername\"", "password"=>"[FILTERED]", "email"=>"\"g@gmail.com\"", "name"=>"\"Chris"}
+Completed 500 Internal Server Error in 10ms (Allocations: 5345)
+
+
+  
+NoMethodError (undefined method `permit' for "\"myusername\"":String):
+  
+app/controllers/users_controller.rb:31:in `user_params'
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users?username=%22myusername%22&password=[FILTERED]&email=%22g@gmail.com%22&name=%22Chris" for ::1 at 2022-09-07 13:31:29 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"\"myusername\"", "password"=>"[FILTERED]", "email"=>"\"g@gmail.com\"", "name"=>"\"Chris"}
+Completed 400 Bad Request in 11ms (Allocations: 4425)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:31:in `user_params'
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users?username=%22myusername%22&password=[FILTERED]&email=%22g@gmail.com%22&name=%22Chris&score=0" for ::1 at 2022-09-07 13:31:47 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"\"myusername\"", "password"=>"[FILTERED]", "email"=>"\"g@gmail.com\"", "name"=>"\"Chris", "score"=>"0"}
+Completed 400 Bad Request in 2ms (Allocations: 109)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:31:in `user_params'
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users?username=%22myusername%22&password=[FILTERED]&email=%22g@gmail.com%22&name=%22Chris&score=0&level=0" for ::1 at 2022-09-07 13:35:04 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"\"myusername\"", "password"=>"[FILTERED]", "email"=>"\"g@gmail.com\"", "name"=>"\"Chris", "score"=>"0", "level"=>"0"}
+Completed 400 Bad Request in 5ms (Allocations: 4423)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:31:in `user_params'
+app/controllers/users_controller.rb:18:in `create'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220906003734)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "name" varchar, "email" varchar, "password_digest" varchar, "score" integer, "level" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906003734"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateChildren (20220906010146)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "children" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "birthday" varchar, "gender" varchar, "user_id" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906010146"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBadges (20220906012447)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "badges" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" varchar, "score_threshold" integer, "image" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906012447"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTasks (20220906022431)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "identifier" varchar, "value" integer, "category" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906022431"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateQuotes (20220906193943)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "quotes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "category" varchar, "active" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220906193943"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsersTasks (20220907135100)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "assigned_tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "task_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220907135100"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsersBadges (20220907141729)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "earned_badges" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "badge_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220907141729"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsersCompletedTasks (20220907142118)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "completed_tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "task_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220907142118"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-09-07 17:39:13.242785"], ["updated_at", "2022-09-07 17:39:13.242785"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/users?username=%22myusername%22&password=[FILTERED]&email=%22g@gmail.com%22" for ::1 at 2022-09-07 13:39:23 -0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"\"myusername\"", "password"=>"[FILTERED]", "email"=>"\"g@gmail.com\""}
+Completed 400 Bad Request in 70877ms (ActiveRecord: 0.0ms | Allocations: 33517)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:33:in `user_params'
+app/controllers/users_controller.rb:19:in `create'
+Started POST "/users?username=%22myusername%22&password=[FILTERED]&email=%22g@gmail.com%22" for ::1 at 2022-09-07 13:40:37 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"\"myusername\"", "password"=>"[FILTERED]", "email"=>"\"g@gmail.com\""}
+Completed 500 Internal Server Error in 27935ms (Allocations: 21359)
+
+
+  
+NoMethodError (undefined method `permit' for "\"myusername\"":String):
+  
+app/controllers/users_controller.rb:33:in `user_params'
+app/controllers/users_controller.rb:19:in `create'
+Started POST "/users?username=%22myusername%22&password=[FILTERED]&email=%22g@gmail.com%22" for ::1 at 2022-09-07 13:41:09 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"\"myusername\"", "password"=>"[FILTERED]", "email"=>"\"g@gmail.com\""}
+Completed 400 Bad Request in 8996ms (Allocations: 12383)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:33:in `user_params'
+app/controllers/users_controller.rb:19:in `create'
+Started POST "/users?username=%22myusername%22" for ::1 at 2022-09-07 13:41:21 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"\"myusername\""}
+Completed 400 Bad Request in 74386ms (Allocations: 12101)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:33:in `user_params'
+app/controllers/users_controller.rb:19:in `create'
+Started POST "/users?username=%22myusername%22" for ::1 at 2022-09-07 13:42:39 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"\"myusername\""}
+Completed 500 Internal Server Error in 96655ms (Allocations: 28664)
+
+
+  
+NoMethodError (undefined method `permit' for "\"myusername\"":String):
+  
+app/controllers/users_controller.rb:33:in `user_params'
+app/controllers/users_controller.rb:19:in `create'
+Started POST "/users?username=%22myusername%22" for ::1 at 2022-09-07 13:44:19 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"\"myusername\""}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "\"myusername\""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.25ms)
+Completed 422 Unprocessable Entity in 58997ms (Views: 4.4ms | ActiveRecord: 2.3ms | Allocations: 30034)
+
+
+Started POST "/users?username=%22%22myusername%22%22" for ::1 at 2022-09-07 13:45:21 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"\"\"myusername\"\""}
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "\"\"myusername\"\""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.29ms)
+Completed 422 Unprocessable Entity in 33514ms (Views: 1.5ms | ActiveRecord: 0.7ms | Allocations: 12857)
+
+
+Started POST "/users?username=myusername&password=[FILTERED]" for ::1 at 2022-09-07 13:45:57 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"myusername", "password"=>"[FILTERED]"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "myusername"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (19.18ms)
+Completed 201 Created in 37325ms (Views: 18.6ms | ActiveRecord: 2.0ms | Allocations: 41086)
+
+
+Started POST "/users?username=myusername&password=[FILTERED]" for ::1 at 2022-09-07 13:46:36 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"myusername", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 14951ms (Allocations: 18133)
+
+
+  
+NoMethodError (undefined method `permit' for "myusername":String):
+  
+app/controllers/users_controller.rb:33:in `user_params'
+app/controllers/users_controller.rb:19:in `create'
+Started POST "/users?username=myusername&password=[FILTERED]" for ::1 at 2022-09-07 13:46:54 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"myusername", "password"=>"[FILTERED]"}
+Completed 400 Bad Request in 34673ms (Allocations: 19542)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:33:in `user_params'
+app/controllers/users_controller.rb:19:in `create'
+Started POST "/users?username=myusername&password=[FILTERED]&email=g@gmail.com" for ::1 at 2022-09-07 13:47:39 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"myusername", "password"=>"[FILTERED]", "email"=>"g@gmail.com"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "myusername"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (10.51ms)
+Completed 201 Created in 64274ms (Views: 10.3ms | ActiveRecord: 2.7ms | Allocations: 38225)
+
+
+Started POST "/users?username=myusername&password=[FILTERED]&email=g@gmail.com" for ::1 at 2022-09-07 13:48:46 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"myusername", "password"=>"[FILTERED]", "email"=>"g@gmail.com"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "myusername"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "myusername"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[36mUser Create (3.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "score", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "myusername"], ["email", "g@gmail.com"], ["password_digest", "$2a$12$2eIIgk0lXBpaLruj4BMt7.ScjPBz.W7BBW51zQAms1JguhquBIGFi"], ["score", 0], ["level", 0], ["created_at", "2022-09-07 17:49:16.731114"], ["updated_at", "2022-09-07 17:49:16.731114"]]
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "1"]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:24:in `create'
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "earned_badges" ON "badges"."id" = "earned_badges"."badge_id" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:24:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completed_tasks" ON "tasks"."id" = "completed_tasks"."task_id" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:24:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (25.57ms)
+Completed 201 Created in 29967ms (Views: 25.4ms | ActiveRecord: 7.4ms | Allocations: 43119)
+
+
+Started POST "/users?username=myusername&password=[FILTERED]&email=g@gmail.com&name=Chris" for ::1 at 2022-09-07 13:49:19 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"myusername", "password"=>"[FILTERED]", "email"=>"g@gmail.com", "name"=>"Chris"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "myusername"], ["LIMIT", 1]]
+  ↳ (pry):23:in `create'
+  [1m[36mCACHE User Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "myusername"], ["LIMIT", 1]]
+  ↳ (pry):24:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "myusername"], ["LIMIT", 1]]
+  ↳ (pry):27:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "myusername"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 422 Unprocessable Entity in 71932ms (Views: 5.5ms | ActiveRecord: 2.6ms | Allocations: 35300)
+
+
+Started POST "/users?username=myusername2&password=[FILTERED]&email=g@gmail.com&name=Chris" for ::1 at 2022-09-07 13:50:35 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"myusername2", "password"=>"[FILTERED]", "email"=>"g@gmail.com", "name"=>"Chris"}
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "myusername2"], ["LIMIT", 1]]
+  ↳ (pry):31:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "myusername2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "myusername2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[36mUser Create (5.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "score", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "myusername2"], ["name", "Chris"], ["email", "g@gmail.com"], ["password_digest", "$2a$12$mphmXIVfMffRUErKfCB1h.JO3Z18N.L98gp4f4Gq3RKxRFrgmLJVS"], ["score", 0], ["level", 0], ["created_at", "2022-09-07 17:51:36.668476"], ["updated_at", "2022-09-07 17:51:36.668476"]]
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "2"]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:24:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "earned_badges" ON "badges"."id" = "earned_badges"."badge_id" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:24:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completed_tasks" ON "tasks"."id" = "completed_tasks"."task_id" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:24:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (18.92ms)
+Completed 201 Created in 61272ms (Views: 18.5ms | ActiveRecord: 8.1ms | Allocations: 42256)
+
+
+Started POST "/users?username=myusername29&password=[FILTERED]&email=g@gmail.com&name=Chris" for ::1 at 2022-09-07 13:51:43 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"myusername29", "password"=>"[FILTERED]", "email"=>"g@gmail.com", "name"=>"Chris"}
+Completed 500 Internal Server Error in 7ms (Allocations: 5336)
+
+
+  
+NoMethodError (undefined method `permit' for "myusername29":String):
+  
+app/controllers/users_controller.rb:36:in `user_params'
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users?username=myusername29&password=[FILTERED]&email=g@gmail.com&name=Chris" for ::1 at 2022-09-07 13:52:12 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"myusername29", "password"=>"[FILTERED]", "email"=>"g@gmail.com", "name"=>"Chris"}
+Completed 500 Internal Server Error in 7ms (Allocations: 5334)
+
+
+  
+NoMethodError (undefined method `permit' for "myusername29":String):
+  
+app/controllers/users_controller.rb:36:in `user_params'
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users?username=myusername29&password=[FILTERED]&email=g@gmail.com&name=Chris" for ::1 at 2022-09-07 13:52:41 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"myusername29", "password"=>"[FILTERED]", "email"=>"g@gmail.com", "name"=>"Chris"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "myusername29"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "myusername29"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "score", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "myusername29"], ["name", "Chris"], ["email", "g@gmail.com"], ["password_digest", "$2a$12$s7sq4LwdlBf1qX87KKQ74.FTlI34Wky8e/tWAk3ogcCiLi2BBKFJC"], ["score", 0], ["level", 0], ["created_at", "2022-09-07 17:52:45.502408"], ["updated_at", "2022-09-07 17:52:45.502408"]]
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `create'
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "3"]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:24:in `create'
+[active_model_serializers]   [1m[35m (0.3ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "earned_badges" ON "badges"."id" = "earned_badges"."badge_id" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:24:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completed_tasks" ON "tasks"."id" = "completed_tasks"."task_id" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:24:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (21.42ms)
+Completed 201 Created in 3761ms (Views: 19.5ms | ActiveRecord: 19.7ms | Allocations: 34621)
+
+

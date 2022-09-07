@@ -9,6 +9,6 @@ class User < ApplicationRecord
     has_many :tasks, through: :completed_tasks
     has_many :badges, through: :earned_badges
 
-    validates :username, uniqueness: {case_sensitive: false}
+    validates :username, uniqueness: { case_sensitive: false }
 
 end
