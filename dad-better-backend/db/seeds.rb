@@ -15,9 +15,8 @@ user1 = User.create(
     name: "Chris",
     email: "c@gmail.com",
     password_digest: "password",
-    birthday: "09/03/1989",
     score: 0,
-    beer_drinker: true
+    level: 0
     
 )
 
@@ -26,9 +25,8 @@ user2 = User.create(
     name: "Bob",
     email: "b@gmail.com",
     password_digest: "password",
-    birthday: "01/24/1990",
     score: 0,
-    beer_drinker: true
+    level: 0
 
 )
 
@@ -74,11 +72,6 @@ badge3 = Badge.create(
     image: "www.testimage3.com"
 )
 
-achievement1 = Achievement.create(
-    user_id: 1,
-    badge_id: 2
-)
-
 task1 = Task.create(
     description: "Tell dad joke 1",
     identifier: rand(1..10000000).to_s,
@@ -107,62 +100,32 @@ task4 = Task.create(
     category: "goal"
 )
 
-completedtask1 = Completedtask.create(
-    user_id: 1,
-    task_id: 1,
-    completed: true,
-    date: "09/05/2022"
-)
-completedtask2 = Completedtask.create(
-    user_id: 1,
-    task_id: 2,
-    completed: true,
-    date: "09/05/2022"
-)
-
-completedtask3 = Completedtask.create(
-    user_id: 2,
-    task_id: 2,
-    completed: true,
-    date: "09/05/2022"
-)
-
-favorite1 = Favorite.create(
-    user_id: 1,
-    task_id: 2
-)
-
-favorite2 = Favorite.create(
-    user_id: 1,
-    task_id: 4
-)
-
-favorite3 = Favorite.create(
-    user_id: 2,
-    task_id: 3
-)
-
 quote1 = Quote.create(
     description: "A dad is more than just the sum of his parts. He is the very soul of the family.",
-    category: "generic"
+    category: "generic",
+    active: false
 )
 
 quote2 = Quote.create(
     description: "Fathers are men who dared to place the world's hopes and dreams in their children.",
-    category: "generic"
+    category: "generic",
+    active: false
 )
 
 quote3 = Quote.create(
     description: "Even the best dads make mistakes. But there is no mistaking their love for their children.",
-    category: "generic"
+    category: "generic",
+    active: false
 )
 
 quote4 = Quote.create(
     description: "A father teaches his daughter how to love and be loved.",
-    category: "daughter"
+    category: "daughter",
+    active: true
 )
 
 quote5 = Quote.create(
     description: "A dad is the hero his son hopes to be.",
-    category: "son"
+    category: "son",
+    active: false
 )
