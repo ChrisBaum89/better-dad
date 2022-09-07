@@ -12611,3 +12611,55 @@ Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.2ms | Allocations: 2425)
 Completed 200 OK in 39ms (Views: 34.6ms | ActiveRecord: 2.8ms | Allocations: 18485)
 
 
+Started GET "/quotes" for ::1 at 2022-09-06 22:51:08 -0400
+Started GET "/users" for ::1 at 2022-09-06 22:51:08 -0400
+Processing by QuotesController#index as */*
+  [1m[36mQuote Load (0.2ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+Processing by UsersController#index as */*
+  ↳ app/controllers/quotes_controller.rb:5:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.2ms | Allocations: 1399)
+
+
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "1"]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "achievements" ON "badges"."id" = "achievements"."badge_id" WHERE "achievements"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completedtasks" ON "tasks"."id" = "completedtasks"."task_id" WHERE "completedtasks"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mBadge Load (0.1ms)[0m  [1m[34mSELECT "badges".* FROM "badges" INNER JOIN "achievements" ON "badges"."id" = "achievements"."badge_id" WHERE "achievements"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "achievements" ON "users"."id" = "achievements"."user_id" WHERE "achievements"."badge_id" = ?[0m  [["badge_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mChild Load (0.1ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "1"]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" INNER JOIN "completedtasks" ON "tasks"."id" = "completedtasks"."task_id" WHERE "completedtasks"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."task_id" = ?[0m  [["task_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completedtasks" ON "users"."id" = "completedtasks"."user_id" WHERE "completedtasks"."task_id" = ?[0m  [["task_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "2"]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "favorites"."id" FROM "favorites" WHERE "favorites"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "achievements" ON "badges"."id" = "achievements"."badge_id" WHERE "achievements"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completedtasks" ON "tasks"."id" = "completedtasks"."task_id" WHERE "completedtasks"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mBadge Load (0.1ms)[0m  [1m[34mSELECT "badges".* FROM "badges" INNER JOIN "achievements" ON "badges"."id" = "achievements"."badge_id" WHERE "achievements"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mChild Load (0.1ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "2"]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" INNER JOIN "completedtasks" ON "tasks"."id" = "completedtasks"."task_id" WHERE "completedtasks"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:6:in `index'
+Completed 200 OK in 29ms (Views: 25.7ms | ActiveRecord: 2.8ms | Allocations: 17717)
+
+
