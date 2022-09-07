@@ -42,7 +42,6 @@ function App(){
           <QuoteContainer />
           <TaskContainer />
           <NavigationContainer />
-          <Button variant="primary" onClick={handleShow}>Launch</Button>
           <Offcanvas show={show} onHide={handleClose}>
             <Offcanvas.Header closeButton>
               <Offcanvas.Title>Signup</Offcanvas.Title>
