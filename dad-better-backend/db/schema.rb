@@ -10,21 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_07_135100) do
-
-  create_table "achievements", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "badge_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2022_09_07_142118) do
 
   create_table "assigned_tasks", force: :cascade do |t|
     t.integer "user_id"
     t.integer "task_id"
-    t.boolean "active"
-    t.boolean "completed"
-    t.boolean "favorited"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -43,6 +33,20 @@ ActiveRecord::Schema.define(version: 2022_09_07_135100) do
     t.string "birthday"
     t.string "gender"
     t.string "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "completed_tasks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "task_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "earned_badges", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "badge_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -69,8 +73,8 @@ ActiveRecord::Schema.define(version: 2022_09_07_135100) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.string "birthday"
     t.integer "score"
+    t.integer "level"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

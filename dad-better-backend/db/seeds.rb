@@ -9,6 +9,7 @@
 require 'faker'
 require 'json'
 require 'httparty'
+require 'pry'
 
 user1 = User.create(
     username: "ChrisBaum89",
@@ -98,6 +99,16 @@ task4 = Task.create(
     identifier: rand(1..10000000).to_s,
     value: 30,
     category: "goal"
+)
+
+assigned_tasks1 = AssignedTask.create(
+    user_id: 1,
+    task_id: 4
+)
+
+completed_tasks1 = CompletedTask.create(
+    user_id: 1,
+    task_id: 1
 )
 
 quote1 = Quote.create(
