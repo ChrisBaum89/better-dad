@@ -25,4 +25,9 @@ class UsersController < ApplicationController
             status: :unprocessable_entity
         end
     end
+
+    private
+    def user_params
+        params.require(:user).permit(:username, :password)
+    end
 end
