@@ -15623,3 +15623,44 @@ Processing by UsersController#create as */*
 Completed 201 Created in 329ms (Views: 16.1ms | ActiveRecord: 7.2ms | Allocations: 34724)
 
 
+Started GET "/login" for ::1 at 2022-09-07 14:47:05 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+Started GET "/ws" for ::1 at 2022-09-07 14:47:07 -0400
+Started GET "/static/js/bundle.js.map" for ::1 at 2022-09-07 14:47:07 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/static/js/bundle.js.map"):
+  
+Started GET "/manifest.json" for ::1 at 2022-09-07 14:47:07 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/ws" for ::1 at 2022-09-07 14:47:08 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/" for ::1 at 2022-09-07 14:47:13 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chrisbaum/.rvm/gems/ruby-2.6.1/gems/railties-6.1.6.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chrisbaum/.rvm/gems/ruby-2.6.1/gems/railties-6.1.6.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 11.1ms | Allocations: 195)
+Completed 200 OK in 26ms (Views: 12.4ms | Allocations: 1693)
+
+
+Started GET "/" for ::1 at 2022-09-07 14:47:24 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chrisbaum/.rvm/gems/ruby-2.6.1/gems/railties-6.1.6.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chrisbaum/.rvm/gems/ruby-2.6.1/gems/railties-6.1.6.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 9.8ms | Allocations: 190)
+Completed 200 OK in 14ms (Views: 12.0ms | Allocations: 747)
+
+
+Started GET "/" for ::1 at 2022-09-07 14:51:42 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chrisbaum/.rvm/gems/ruby-2.6.1/gems/railties-6.1.6.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chrisbaum/.rvm/gems/ruby-2.6.1/gems/railties-6.1.6.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.2ms | Allocations: 8)
+Completed 200 OK in 8ms (Views: 6.8ms | Allocations: 226)
+
+
