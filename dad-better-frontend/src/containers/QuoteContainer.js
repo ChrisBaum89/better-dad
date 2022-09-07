@@ -8,7 +8,7 @@ class QuoteContainer extends Component {
     select_quote = (quotes) => {
         if (quotes !== undefined){
             const quoteIndex = Math.floor(Math.random() * quotes.length)
-            const selectedQuote = quotes[quoteIndex]
+            const selectedQuote = quotes[quoteIndex].attributes.description
             return selectedQuote
         }
         
@@ -18,7 +18,7 @@ class QuoteContainer extends Component {
     render(){
         const quote = this.select_quote(this.props.quotes)
         return (
-            <div>
+            <div className = "quote-container">
                 <QuoteCard quote={quote}/>
             </div>
         )
