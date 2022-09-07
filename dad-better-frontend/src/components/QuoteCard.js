@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card'
 
 const QuoteCard = (props) => {
     return (
-        <div class="col d-flex justify-content-center">
+        <div className="col d-flex justify-content-center">
             <Card style={{ width: '18rem' }} >
                 <Card.Body>
                     <Card.Text>

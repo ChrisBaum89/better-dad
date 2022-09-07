@@ -1,42 +1,43 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import logo from './logo.svg';
-import './App.css';
-import {connect} from "react-redux";
-import {fetchUsers} from "./actions/userActions";
-import {fetchQuotes} from "./actions/quoteActions"
+import './css/App.css';
+import { connect } from "react-redux";
+import { fetchUsers } from "./actions/userActions";
+import { fetchQuotes } from "./actions/quoteActions"
 import LoginContainer from "./containers/LoginContainer";
 import UserContainer from "./containers/UserContainer";
 import BadgeContainer from "./containers/BadgeContainer";
 import QuoteContainer from "./containers/QuoteContainer";
 import TaskContainer from './containers/TaskContainer';
 import NavigationContainer from './containers/NavigationContainer';
+import Image from 'react-bootstrap/Image'
+import MyImage from './img/better-dad-logo.png'
 
 class App extends Component {
-  
-  componentDidMount(){
+
+  componentDidMount() {
     this.props.fetchUsers()
     this.props.fetchQuotes()
   }
-  
+
   render() {
-    return(
-    <div className="App">
-      <header>
-        <h1>Dad Better</h1>
-        <LoginContainer />
-       
-      </header>
-      <body>
-      <UserContainer />
-      <BadgeContainer />
-      <QuoteContainer />
-      <TaskContainer />
-      </body>
-      <footer>
-        <NavigationContainer />
-      </footer>
-    </div>
-)}}
+    return (
+      <div>
+          <div className="better-dad-logo">
+            <Image src={MyImage} alt="Better Dad" display="inline-block"></Image>
+          </div>
+          <div className="login-container">
+            <LoginContainer />
+          </div>
+          <UserContainer />
+          <BadgeContainer />
+          <QuoteContainer />
+          <TaskContainer />
+          <NavigationContainer />
+      </div>
+    )
+  }
+}
 
 const mapStateToProps = (state) => {
   return {
@@ -45,4 +46,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {fetchUsers, fetchQuotes})(App);
+export default connect(mapStateToProps, { fetchUsers, fetchQuotes })(App);

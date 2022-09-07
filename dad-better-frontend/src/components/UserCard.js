@@ -4,7 +4,7 @@ import '../css/UserCard.css'
 
 const UserCard = (props) => {
     return (
-        <div class="col d-flex justify-content-center">
+        <div className="col d-flex justify-content-center">
             <Card style={{ width: '18rem' }}>
                 <Card.Img className="quote-image" variant="top" src="https://c8.alamy.com/comp/2J7983E/dad-pixel-art-vector-illustration-father-day-image-or-clip-art-2J7983E.jpg" />
                 <Card.Body>
