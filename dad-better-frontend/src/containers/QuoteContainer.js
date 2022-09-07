@@ -6,15 +6,20 @@ import {connect} from "react-redux"
 class QuoteContainer extends Component {
     
     select_quote = (quotes) => {
-        debugger /////HERE!!!!/////HERE!!!!/////HERE!!!!/////HERE!!!!/////HERE!!!!
-        return true
+        if (quotes !== undefined){
+            const quoteIndex = Math.floor(Math.random() * quotes.length)
+            const selectedQuote = quotes[quoteIndex]
+            return selectedQuote
+        }
+        
+        return []
     }
 
     render(){
-        this.select_quote(this.props.quotes)
+        const quote = this.select_quote(this.props.quotes)
         return (
             <div>
-                <QuoteCard />
+                <QuoteCard quote={quote}/>
             </div>
         )
     }
