@@ -4,5 +4,5 @@ class UserSerializer
   has_many :children
   has_many :favorites
   has_many :badges, through: :achievements
-  has_many :tasks, through: :completedtasks
+  has_many :tasks, through: 
 end
