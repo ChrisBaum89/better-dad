@@ -3,16 +3,18 @@ import Card from 'react-bootstrap/Card'
 import '../css/UserCard.css'
 
 const UserCard = (props) => {
-    return(
-        <Card style={{ width: '18rem' }}>
-        <Card.Img className= "quote-image" variant="top" src="https://c8.alamy.com/comp/2J7983E/dad-pixel-art-vector-illustration-father-day-image-or-clip-art-2J7983E.jpg" />
-        <Card.Body>
-            <Card.Text>
-                Username:
-            </Card.Text>
-            <Card.Text>Score:</Card.Text>
-        </Card.Body>
-    </Card>
+    return (
+        <div class="col d-flex justify-content-center">
+            <Card style={{ width: '18rem' }}>
+                <Card.Img className="quote-image" variant="top" src="https://c8.alamy.com/comp/2J7983E/dad-pixel-art-vector-illustration-father-day-image-or-clip-art-2J7983E.jpg" />
+                <Card.Body>
+                    <Card.Text>
+                        Username:
+                    </Card.Text>
+                    <Card.Text>Score:</Card.Text>
+                </Card.Body>
+            </Card>
+        </div>
     )
 }
 
