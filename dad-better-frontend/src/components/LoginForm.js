@@ -5,7 +5,6 @@ import Form from 'react-bootstrap/Form'
 function LoginForm(props) {
     
     const handleOnSubmit = (event) => {
-        debugger
         event.preventDefault()
     }
     

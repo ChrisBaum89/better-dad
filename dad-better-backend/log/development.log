@@ -15664,3 +15664,258 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 8ms (Views: 6.8ms | Allocations: 226)
 
 
+Started POST "/users?username=myusername33&password=[FILTERED]&email=g@gmail.com&name=Chris" for ::1 at 2022-09-07 16:39:47 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"myusername33", "password"=>"[FILTERED]", "email"=>"g@gmail.com", "name"=>"Chris"}
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "myusername33"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "myusername33"], ["name", "Chris"], ["email", "g@gmail.com"], ["password_digest", "$2a$12$gJDYpzJod9sPs7eNb2N0EugFFTIDT9DKDouqyI.PM1NERl5Bopr0W"], ["created_at", "2022-09-07 20:39:48.199911"], ["updated_at", "2022-09-07 20:39:48.199911"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "myusername33"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "myusername33"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "score" = ?, "level" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["score", 0], ["level", 0], ["updated_at", "2022-09-07 20:39:48.206280"], ["id", 6]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "6"]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers]   [1m[35m (0.3ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "earned_badges" ON "badges"."id" = "earned_badges"."badge_id" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 6]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completed_tasks" ON "tasks"."id" = "completed_tasks"."task_id" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 6]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (17.49ms)
+Completed 201 Created in 354ms (Views: 18.4ms | ActiveRecord: 10.8ms | Allocations: 24837)
+
+
+Started POST "/users" for ::1 at 2022-09-07 16:48:47 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"asdddddd", "password"=>"[FILTERED]", "email"=>"ddsd@gmail.com", "name"=>"Chris"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 422 Unprocessable Entity in 12ms (Views: 0.8ms | ActiveRecord: 0.8ms | Allocations: 11892)
+
+
+Started POST "/users" for ::1 at 2022-09-07 16:50:06 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"asdads", "password"=>"[FILTERED]", "email"=>"asdasdasdsad@gmail.com", "name"=>"asdasd"}}
+[31mUnpermitted parameter: :user[0m
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 422 Unprocessable Entity in 28663ms (Views: 1.8ms | ActiveRecord: 2.5ms | Allocations: 31722)
+
+
+Started POST "/users" for ::1 at 2022-09-07 16:51:20 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"asdads", "password"=>"[FILTERED]", "email"=>"asdasdasdsad@gmail.com", "name"=>"asdasd"}}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "asdads"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (2.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "asdads"], ["name", "asdasd"], ["email", "asdasdasdsad@gmail.com"], ["password_digest", "$2a$12$O9vTtGtBRK.v3cLr8Tyv/uRQp3OOK9n1qfQ5gYaluVEp6IsOPTL32"], ["created_at", "2022-09-07 20:51:30.823599"], ["updated_at", "2022-09-07 20:51:30.823599"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "asdads"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "asdads"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "score" = ?, "level" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["score", 0], ["level", 0], ["updated_at", "2022-09-07 20:51:30.828994"], ["id", 7]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "7"]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:16:in `create'
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "earned_badges" ON "badges"."id" = "earned_badges"."badge_id" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:16:in `create'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completed_tasks" ON "tasks"."id" = "completed_tasks"."task_id" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:16:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (23.89ms)
+Completed 201 Created in 10687ms (Views: 23.0ms | ActiveRecord: 9.6ms | Allocations: 35168)
+
+
+Started POST "/users" for ::1 at 2022-09-07 17:14:32 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"asdads", "password"=>"[FILTERED]", "email"=>"asdasdasdsad@gmail.com", "name"=>"asdasd"}}
+Started POST "/users" for ::1 at 2022-09-07 17:14:36 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"asdadswww", "password"=>"[FILTERED]", "email"=>"asdasdasdsad@gmail.com", "name"=>"asdasd"}}
+Started POST "/users" for ::1 at 2022-09-07 17:14:52 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"asdgsad", "password"=>"[FILTERED]", "email"=>"2@gmail.com", "name"=>"adsfasdf"}}
+Started POST "/users" for ::1 at 2022-09-07 17:15:05 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"asdgsad", "password"=>"[FILTERED]", "email"=>"2@gmail.com", "name"=>"adsfasdf"}}
+Started POST "/users" for ::1 at 2022-09-07 17:15:05 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"asdgsad", "password"=>"[FILTERED]", "email"=>"2@gmail.com", "name"=>"adsfasdf"}}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "asdgsad"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "asdgsad"], ["name", "adsfasdf"], ["email", "2@gmail.com"], ["password_digest", "$2a$12$Bd7ho94.Dq5rMrECb2wsze8zEvqHI5lVPcrRPU90ZpbkmUMJwz5jW"], ["created_at", "2022-09-07 21:18:31.972233"], ["updated_at", "2022-09-07 21:18:31.972233"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "asdgsad"], ["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "asdgsad"], ["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "score" = ?, "level" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["score", 0], ["level", 0], ["updated_at", "2022-09-07 21:18:31.976538"], ["id", 8]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "8"]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:16:in `create'
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "earned_badges" ON "badges"."id" = "earned_badges"."badge_id" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 8]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:16:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completed_tasks" ON "tasks"."id" = "completed_tasks"."task_id" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 8]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:16:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.5ms)
+Completed 201 Created in 206476ms (Views: 4.3ms | ActiveRecord: 9.2ms | Allocations: 17275)
+
+
+Started POST "/users" for ::1 at 2022-09-07 17:18:31 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"aaaaa", "password"=>"[FILTERED]", "email"=>"sadasd@gmail.com", "name"=>"asdasd"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "aaaaa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "aaaaa"], ["name", "asdasd"], ["email", "sadasd@gmail.com"], ["password_digest", "$2a$12$i6qDchoe6su8RJ4GkswVx.Yd5Ibq4zEj7zpqaLcXYbM0zsqykg0mC"], ["created_at", "2022-09-07 21:18:33.753321"], ["updated_at", "2022-09-07 21:18:33.753321"]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "aaaaa"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "aaaaa"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "score" = ?, "level" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["score", 0], ["level", 0], ["updated_at", "2022-09-07 21:18:33.756598"], ["id", 9]]
+  ↳ app/controllers/users_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:14:in `create'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "9"]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:16:in `create'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "earned_badges" ON "badges"."id" = "earned_badges"."badge_id" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 9]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:16:in `create'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completed_tasks" ON "tasks"."id" = "completed_tasks"."task_id" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 9]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:16:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.39ms)
+Completed 201 Created in 1761ms (Views: 2.5ms | ActiveRecord: 1.8ms | Allocations: 25334)
+
+
+Started POST "/users" for ::1 at 2022-09-07 17:18:33 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"aaaaa", "password"=>"[FILTERED]", "email"=>"sadasd@gmail.com", "name"=>"asdasd"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "aaaaa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "aaaaa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 422 Unprocessable Entity in 1262ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 19465)
+
+
+Started POST "/users" for ::1 at 2022-09-07 17:19:05 -0400
+Completed 500 Internal Server Error in 511443ms (Allocations: 75884)
+
+
+  
+Errno::EIO (Input/output error @ io_writev - <STDOUT>):
+  
+app/controllers/users_controller.rb:9:in `create'
+Completed 500 Internal Server Error in 524356ms (Allocations: 98793)
+
+
+  
+Errno::EIO (Input/output error @ io_writev - <STDOUT>):
+  
+app/controllers/users_controller.rb:9:in `create'
+Completed 500 Internal Server Error in 544104ms (Allocations: 111140)
+
+
+  
+Errno::EIO (Input/output error @ io_writev - <STDOUT>):
+  
+app/controllers/users_controller.rb:9:in `create'
+Completed 500 Internal Server Error in 539833ms (Allocations: 104769)
+
+
+  
+Errno::EIO (Input/output error @ io_writev - <STDOUT>):
+  
+app/controllers/users_controller.rb:9:in `create'
+Processing by UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"asdfasd", "password"=>"[FILTERED]", "email"=>"aasdgasdds@gmail.com", "name"=>"asdgasdg"}}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "asdfasd"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (72.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "asdfasd"], ["name", "asdgasdg"], ["email", "aasdgasdds@gmail.com"], ["password_digest", "$2a$12$ZnYYSmpkiap2KwubA6FZEeT8nJ9r/HqlRKesH161RTgY91WtThGOe"], ["created_at", "2022-09-07 21:23:37.415418"], ["updated_at", "2022-09-07 21:23:37.415418"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "asdfasd"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "asdfasd"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Update (9.0ms)[0m  [1m[33mUPDATE "users" SET "score" = ?, "level" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["score", 0], ["level", 0], ["updated_at", "2022-09-07 21:23:37.578558"], ["id", 10]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (23.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+[active_model_serializers]   [1m[35m (0.3ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "10"]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "earned_badges" ON "badges"."id" = "earned_badges"."badge_id" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 10]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completed_tasks" ON "tasks"."id" = "completed_tasks"."task_id" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 10]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (51.01ms)
+Completed 201 Created in 908ms (Views: 51.5ms | ActiveRecord: 123.2ms | Allocations: 20747)
+
+
