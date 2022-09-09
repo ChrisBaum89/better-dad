@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
 function LoginForm(props) {
-    
+
     const handleOnSubmit = (event) => {
         event.preventDefault()
         const [username, password] = event.target
@@ -25,10 +25,16 @@ function LoginForm(props) {
             }),
         })
             .then((r) => r.json())
-            .then(console.log);
+            .then((data) => {
+                // save the token to local storage for future access
+                localStorage.setItem("jwt", data.jwt);
+                //NEED TO SAVE USER TO STATE
+                //setUser(data.user)
+            })
+
     }
 
-    
+
     return (
         <div>
             <Form onSubmit={handleOnSubmit}>

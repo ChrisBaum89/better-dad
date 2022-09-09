@@ -16278,3 +16278,73 @@ Completed 500 Internal Server Error in 276ms (ActiveRecord: 0.9ms | Allocations:
 NoMethodError (undefined method `issue_token' for #<AuthController:0x007fefbb751cc0>):
   
 app/controllers/auth_controller.rb:10:in `create'
+Started POST "/login" for ::1 at 2022-09-09 12:30:58 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"myusername", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"myusername", "password"=>"[FILTERED]"}}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "myusername"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 281ms (ActiveRecord: 1.1ms | Allocations: 11705)
+
+
+  
+NoMethodError (undefined method `issue_token' for #<AuthController:0x007fef8a2910b8>):
+  
+app/controllers/auth_controller.rb:10:in `create'
+Started POST "/login" for ::1 at 2022-09-09 12:32:47 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"myusername", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"myusername", "password"=>"[FILTERED]"}}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "myusername"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 296ms (ActiveRecord: 1.1ms | Allocations: 11953)
+
+
+  
+NameError (undefined local variable or method `created_jwt' for #<AuthController:0x007fef8a5cd380>
+Did you mean?  create):
+  
+app/controllers/auth_controller.rb:11:in `create'
+Started POST "/login" for ::1 at 2022-09-09 12:33:07 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"myusername", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"myusername", "password"=>"[FILTERED]"}}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "myusername"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "1"]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:12:in `create'
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "earned_badges" ON "badges"."id" = "earned_badges"."badge_id" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:12:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completed_tasks" ON "tasks"."id" = "completed_tasks"."task_id" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:12:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (10.23ms)
+Completed 202 Accepted in 290ms (Views: 9.4ms | ActiveRecord: 2.2ms | Allocations: 21901)
+
+
+Started POST "/login" for ::1 at 2022-09-09 12:35:02 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"myusername", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"myusername", "password"=>"[FILTERED]"}}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "myusername"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "1"]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:12:in `create'
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "earned_badges" ON "badges"."id" = "earned_badges"."badge_id" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:12:in `create'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completed_tasks" ON "tasks"."id" = "completed_tasks"."task_id" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:12:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (13.2ms)
+Completed 202 Accepted in 291ms (Views: 10.4ms | ActiveRecord: 4.3ms | Allocations: 21918)
+
+
+Started POST "/login" for ::1 at 2022-09-09 12:36:31 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"myusername", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"myusername", "password"=>"[FILTERED]"}}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "myusername"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
