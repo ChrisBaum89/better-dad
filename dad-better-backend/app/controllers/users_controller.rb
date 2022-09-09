@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         @user.level = 0
         if @user.valid?
           @user.save
-          @token = encode_token(user_id: @user.id)
+          @token = issue_token(user_id: @user.id)
           render json: {
                    user: UserSerializer.new(@user),
                    jwt: @token,

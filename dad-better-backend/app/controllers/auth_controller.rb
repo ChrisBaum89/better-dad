@@ -7,7 +7,7 @@ class AuthController < ApplicationController
     # User#authenticate comes from BCrypt
     if @user && @user.authenticate(user_params[:password])
       # encode token comes from ApplicationController
-      token = encode_token({ user_id: @user.id })
+      token = issue_token({ user_id: @user.id })
       render json: {
                user: UserSerializer.new(@user),
                jwt: token
