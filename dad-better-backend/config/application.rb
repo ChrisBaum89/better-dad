@@ -46,5 +46,7 @@ module DadBetterBackend
           :max_age => 0
       end
     end
+
+    config.middleware.use ActionDispatch::Cookies
   end
 end
