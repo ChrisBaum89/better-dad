@@ -6,7 +6,28 @@ function LoginForm(props) {
     
     const handleOnSubmit = (event) => {
         event.preventDefault()
+        const [username, password] = event.target
+        sendLoginToServer(username.value, password.value)
     }
+
+    const sendLoginToServer = (username, password) => {
+        fetch("http://localhost:3000/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: JSON.stringify({
+                user: {
+                    username: username,
+                    password: password,
+                },
+            }),
+        })
+            .then((r) => r.json())
+            .then(console.log);
+    }
+
     
     return (
         <div>
