@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import BadgeList from "../components/BadgeList.js";
 
 function BadgeContainer() {
