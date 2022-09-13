@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import UserContainer from './UserContainer';
 import BadgeContainer from './BadgeContainer';
 import TaskContainer from './TaskContainer';
@@ -6,9 +6,8 @@ import QuoteContainer from './QuoteContainer'
 import NavigationContainer from './NavigationContainer';
 import LogoutButton from "../components/LogoutButton";
 
-class ProfileContainer extends Component {
+function ProfileContainer (){
 
-    render() {
         return (
             <div>
                 <div className="logout">
@@ -23,7 +22,6 @@ class ProfileContainer extends Component {
                 </div>
             </div>
         )
-    }
 }
 
 export default ProfileContainer

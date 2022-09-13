@@ -1,14 +1,12 @@
-import React, {Component} from 'react';
+import React from 'react';
 import TaskCard from '../components/TaskCard';
 
-class TaskContainer extends Component {
-    render(){
+function TaskContainer (){
         return (
             <div>
                 <TaskCard />
             </div>
         )
     }
-}
 
 export default TaskContainer

@@ -1,17 +1,14 @@
-import React, {Component} from 'react';
+import React from 'react';
 import LoginForm from '../components/LoginForm';
 
-class LoginContainer extends Component {
+function LoginContainer () {
     
-
-
-    render(){
         return (
             <div>
                 <LoginForm handleShow={this.props.handleShow}/>
             </div>
         )
-    }
+
 }
 
 export default LoginContainer
