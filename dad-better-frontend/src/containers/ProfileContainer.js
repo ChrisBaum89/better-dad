@@ -5,27 +5,45 @@ import TaskContainer from './TaskContainer';
 import QuoteContainer from './QuoteContainer'
 import NavigationContainer from './NavigationContainer';
 import LogoutButton from "../components/LogoutButton";
-import {useSelector, useDispatch} from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 
-function ProfileContainer (){
+function ProfileContainer() {
     const currentState = useSelector((state) => state)
     const dispatch = useDispatch()
 
-        return (
-            <div>
-                <div className="logout">
-                    <LogoutButton/>
-                </div>
-                <div className="profile-content">
-                    <UserContainer />
-                    <BadgeContainer />
-                    <QuoteContainer />
-                    <TaskContainer />
-                    <NavigationContainer />
-                </div>
+    const username = () => {
+        if (currentState.usersReducer.user.length > 0) {
+            return currentState.usersReducer.user[0].username
+        }
+        else {
+            return "no user found"
+        }
+    }
+    
+    const score = () => {
+        if (currentState.usersReducer.user.length > 0) {
+            return currentState.usersReducer.user[0].score
+        }
+        else {
+            return 0
+        }
+    }
+
+    return (
+        <div>
+            <div className="logout">
+                <LogoutButton />
             </div>
-        )
+            <div className="profile-content">
+                <UserContainer username={username()} score={score()} />
+                <BadgeContainer />
+                <QuoteContainer />
+                <TaskContainer />
+                <NavigationContainer />
+            </div>
+        </div>
+    )
 }
 
 export default ProfileContainer

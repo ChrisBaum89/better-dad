@@ -1,19 +1,21 @@
-const usersReducer = (state = { user: [], loading: false}, action) => {
+const usersReducer = (state = { user: [], loading: false }, action) => {
     switch (action.type) {
         case "LOADING_USERS":
-            return { 
+            return {
                 ...state, user: [...state.user],
                 loading: true,
             };
-            case "ADD_USERS":   
+        case "ADD_USERS":
             return {
-                    ...state,
-                    user: action.user.data,
-                    loading: false
-                }
-            case "SET_USER":
-                debugger  
-            return {...state, user: [action.payload]}
+                ...state,
+                user: action.user.data,
+                loading: false
+            }
+        case "SET_USER":
+            return { ...state, user: [action.payload] }
+
+        case "LOGOUT":
+            return {...state, user: []}
 
         default:
             return state

@@ -1,10 +1,10 @@
 import React from 'react';
 import UserCard from '../components/UserCard';
 
-function UserContainer () {
+function UserContainer (props) {
         return (
             <div>
-                <UserCard />
+                <UserCard username={props.username} score={props.score}/>
             </div>
         )
 }
