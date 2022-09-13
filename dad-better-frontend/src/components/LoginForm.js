@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import {useSelector, useDispatch} from 'react-redux'
-import {fetchUsers} from '../actions/userActions.js'
 
 
 function LoginForm(props) {
