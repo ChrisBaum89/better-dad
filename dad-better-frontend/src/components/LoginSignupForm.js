@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form'
 import {useSelector, useDispatch} from 'react-redux'
 
 
-function LoginForm(props) {
+function LoginSignupForm(props) {
 
     const userState = useSelector((state) => state)
     const dispatch = useDispatch()
@@ -59,4 +59,4 @@ function LoginForm(props) {
 }
 
 
-export default LoginForm
+export default LoginSignupForm

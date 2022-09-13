@@ -5,8 +5,12 @@ import TaskContainer from './TaskContainer';
 import QuoteContainer from './QuoteContainer'
 import NavigationContainer from './NavigationContainer';
 import LogoutButton from "../components/LogoutButton";
+import {useSelector, useDispatch} from 'react-redux'
+
 
 function ProfileContainer (){
+    const currentState = useSelector((state) => state)
+    const dispatch = useDispatch()
 
         return (
             <div>
