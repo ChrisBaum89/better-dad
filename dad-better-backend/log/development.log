@@ -16908,3 +16908,23 @@ Processing by AuthController#create as JSON
 Completed 202 Accepted in 303ms (Views: 4.9ms | ActiveRecord: 1.0ms | Allocations: 3811)
 
 
+Started POST "/login" for ::1 at 2022-09-13 14:36:21 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"", "password"=>"[FILTERED]"}}}
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.31ms)
+Completed 401 Unauthorized in 31ms (Views: 1.6ms | ActiveRecord: 18.6ms | Allocations: 1107)
+
+
+Started POST "/login" for ::1 at 2022-09-13 14:38:07 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.81ms)
+Completed 401 Unauthorized in 12ms (Views: 4.4ms | ActiveRecord: 0.7ms | Allocations: 617)
+
+

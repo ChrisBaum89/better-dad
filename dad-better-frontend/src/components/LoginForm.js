@@ -9,8 +9,6 @@ function LoginForm(props) {
 
     const userState = useSelector((state) => state)
     const dispatch = useDispatch()
-    debugger
-
 
     const handleOnSubmit = (event) => {
         event.preventDefault()
@@ -42,7 +40,6 @@ function LoginForm(props) {
         // save the token to local storage for future access
         //localStorage.setItem("jwt", data.jwt)
     }
-
 
     return (
         <div>
