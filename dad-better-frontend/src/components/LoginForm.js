@@ -26,10 +26,11 @@ function LoginForm(props) {
         })
             .then((r) => r.json())
             .then((data) => {
+                debugger
                 // save the token to local storage for future access
                 localStorage.setItem("jwt", data.jwt);
                 //NEED TO SAVE USER TO STATE
-                //setUser(data.user)
+                //setUser(data.user.attributes)
             })
 
     }
