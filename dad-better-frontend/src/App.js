@@ -15,6 +15,7 @@ import MyImage from './img/better-dad-logo.png'
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Signup from './components/Signup';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Welcome from "./components/Welcome"
 
 function App() {
   const [show, setShow] = useState(false);
@@ -33,6 +34,7 @@ function App() {
           {/* <LoginContainer handleShow={handleShow} /> */}
         </div>
 
+        <Route exact path="/" component={Welcome} />
         <Route exact path="/profile" component={UserContainer} />
         <Route exact path="/profile" component={BadgeContainer} />
         <Route exact path="/profile" component={QuoteContainer} />
