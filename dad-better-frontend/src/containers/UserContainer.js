@@ -14,7 +14,7 @@ class UserContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-      users: state.usersReducer.users,
+      user: state.usersReducer.user,
       quote: state.quotesReducer.quotes.data
     }
   }

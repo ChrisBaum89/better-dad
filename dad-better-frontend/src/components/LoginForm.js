@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
+import {useSelector, useDispatch} from 'react-redux'
+import {fetchUsers} from '../actions/userActions.js'
+
 
 function LoginForm(props) {
+
+    const userState = useSelector((state) => state)
+    const dispatch = useDispatch()
+    debugger
+
 
     const handleOnSubmit = (event) => {
         event.preventDefault()
         const [username, password] = event.target
         sendLoginToServer(username.value, password.value)
     }
-
+ 
     const sendLoginToServer = (username, password) => {
         fetch("http://localhost:3000/login", {
             method: "POST",
@@ -26,13 +34,13 @@ function LoginForm(props) {
         })
             .then((r) => r.json())
             .then((data) => {
-                debugger
-                // save the token to local storage for future access
-                localStorage.setItem("jwt", data.jwt);
-                //NEED TO SAVE USER TO STATE
-                //setUser(data.user.attributes)
+                localStorage.setItem("jwt", data.jwt)
+                dispatch({type: "SET_USER", payload: data.user.data})
+            
             })
-
+                //localStorage.setItem("jwt", data.jwt)
+        // save the token to local storage for future access
+        //localStorage.setItem("jwt", data.jwt)
     }
 
 
@@ -56,7 +64,6 @@ function LoginForm(props) {
     )
 
 }
-
 
 
 export default LoginForm
