@@ -36,9 +36,6 @@ function LoginForm(props) {
                 dispatch({type: "SET_USER", payload: data.user.data})
             
             })
-                //localStorage.setItem("jwt", data.jwt)
-        // save the token to local storage for future access
-        //localStorage.setItem("jwt", data.jwt)
     }
 
     return (
