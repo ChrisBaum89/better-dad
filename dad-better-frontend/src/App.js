@@ -5,11 +5,7 @@ import { connect } from "react-redux";
 import { fetchUsers } from "./actions/userActions";
 import { fetchQuotes } from "./actions/quoteActions"
 import LoginContainer from "./containers/LoginContainer";
-import UserContainer from "./containers/UserContainer";
-import BadgeContainer from "./containers/BadgeContainer";
-import QuoteContainer from "./containers/QuoteContainer";
-import TaskContainer from './containers/TaskContainer';
-import NavigationContainer from './containers/NavigationContainer';
+import ProfileContainer from "./containers/ProfileContainer";
 import Image from 'react-bootstrap/Image'
 import MyImage from './img/better-dad-logo.png'
 import Offcanvas from 'react-bootstrap/Offcanvas';
@@ -30,17 +26,12 @@ function App() {
           <Image src={MyImage} alt="Better Dad" display="inline-block"></Image>
         </div>
         <div className="login-container">
-        <Route exact path="/" render={() => <LoginContainer handleShow={handleShow}/>}/>
-          {/* <LoginContainer handleShow={handleShow} /> */}
+          <Route exact path="/" render={() => <LoginContainer handleShow={handleShow} />} />
         </div>
 
         <Route exact path="/" component={Welcome} />
-        <Route exact path="/profile" component={UserContainer} />
-        <Route exact path="/profile" component={BadgeContainer} />
-        <Route exact path="/profile" component={QuoteContainer} />
-        <Route exact path="/profile" component= {TaskContainer} />
-        <NavigationContainer />
-        
+        <Route exact path="/profile" component={ProfileContainer} />
+
         <Offcanvas show={show} onHide={handleClose}>
           <Offcanvas.Header closeButton>
             <Offcanvas.Title>Signup</Offcanvas.Title>
