@@ -2,8 +2,13 @@ import React from 'react';
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import {connect} from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
 
 function Signup() {
+
+    const userState = useSelector((state) => state)
+    const dispatch = useDispatch()
+
 
     const handleOnSubmit = (event) => {
         event.preventDefault()
@@ -28,11 +33,10 @@ function Signup() {
             }),
         })
             .then((r) => r.json())
-            .then(console.log)
             .then((data) => {
-                localStorage.setItem("jwt", data.jwt);
-                //setUser(data.user.attributes)
-            })
+                localStorage.setItem("jwt", data.jwt)
+                dispatch({type: "SET_USER", payload: data.user.data})
+             })
     }
 
 return (
