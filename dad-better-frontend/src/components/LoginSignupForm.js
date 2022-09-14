@@ -2,6 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import {useSelector, useDispatch} from 'react-redux'
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 function LoginSignupForm(props) {
@@ -33,7 +34,6 @@ function LoginSignupForm(props) {
             .then((data) => {
                 localStorage.setItem("jwt", data.jwt)
                 dispatch({type: "SET_USER", payload: data.user.data})
-            
             })
     }
 
