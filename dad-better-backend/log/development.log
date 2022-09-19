@@ -18466,3 +18466,94 @@ Processing by AuthController#create as JSON
 Completed 202 Accepted in 308ms (Views: 2.3ms | ActiveRecord: 1.9ms | Allocations: 4597)
 
 
+Started POST "/login" for ::1 at 2022-09-19 10:34:29 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "username1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mAssignedTask Load (0.4ms)[0m  [1m[34mSELECT "assigned_tasks".* FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ? AND "assigned_tasks"."created_at" BETWEEN ? AND ?[0m  [["user_id", 12], ["created_at", "2022-09-19 00:00:00"], ["created_at", "2022-09-19 23:59:59.999999"]]
+  ↳ app/controllers/auth_controller.rb:38:in `tasks_assigned_today?'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "12"]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:15:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "earned_badges" ON "badges"."id" = "earned_badges"."badge_id" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 12]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:15:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completed_tasks" ON "tasks"."id" = "completed_tasks"."task_id" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 12]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (8.9ms)
+Completed 202 Accepted in 288ms (Views: 9.1ms | ActiveRecord: 1.3ms | Allocations: 23410)
+
+
+Started POST "/login" for ::1 at 2022-09-19 10:34:57 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "username1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mAssignedTask Load (0.1ms)[0m  [1m[34mSELECT "assigned_tasks".* FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ? AND "assigned_tasks"."created_at" BETWEEN ? AND ?[0m  [["user_id", 12], ["created_at", "2022-09-19 00:00:00"], ["created_at", "2022-09-19 23:59:59.999999"]]
+  ↳ app/controllers/auth_controller.rb:38:in `tasks_assigned_today?'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "12"]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:15:in `create'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "earned_badges" ON "badges"."id" = "earned_badges"."badge_id" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 12]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:15:in `create'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completed_tasks" ON "tasks"."id" = "completed_tasks"."task_id" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 12]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.21ms)
+Completed 202 Accepted in 304ms (Views: 2.3ms | ActiveRecord: 0.5ms | Allocations: 4565)
+
+
+Started POST "/login" for ::1 at 2022-09-19 10:36:29 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "username1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mAssignedTask Load (0.1ms)[0m  [1m[34mSELECT "assigned_tasks".* FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ? AND "assigned_tasks"."created_at" BETWEEN ? AND ?[0m  [["user_id", 12], ["created_at", "2022-09-19 00:00:00"], ["created_at", "2022-09-19 23:59:59.999999"]]
+  ↳ app/controllers/auth_controller.rb:38:in `tasks_assigned_today?'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "12"]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:15:in `create'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "earned_badges" ON "badges"."id" = "earned_badges"."badge_id" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 12]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:15:in `create'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completed_tasks" ON "tasks"."id" = "completed_tasks"."task_id" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 12]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.85ms)
+Completed 202 Accepted in 334ms (Views: 3.2ms | ActiveRecord: 1.4ms | Allocations: 4565)
+
+
+Started POST "/login" for ::1 at 2022-09-19 10:36:47 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "username1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mAssignedTask Load (0.1ms)[0m  [1m[34mSELECT "assigned_tasks".* FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ? AND "assigned_tasks"."created_at" BETWEEN ? AND ?[0m  [["user_id", 12], ["created_at", "2022-09-19 00:00:00"], ["created_at", "2022-09-19 23:59:59.999999"]]
+  ↳ app/controllers/auth_controller.rb:38:in `tasks_assigned_today?'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "12"]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:15:in `create'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "earned_badges" ON "badges"."id" = "earned_badges"."badge_id" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 12]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:15:in `create'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "tasks"."id" FROM "tasks" INNER JOIN "completed_tasks" ON "tasks"."id" = "completed_tasks"."task_id" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 12]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.23ms)
+Completed 202 Accepted in 305ms (Views: 2.4ms | ActiveRecord: 0.6ms | Allocations: 4565)
+
+
+Started POST "/login" for ::1 at 2022-09-19 10:38:48 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "username1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mAssignedTask Load (0.3ms)[0m  [1m[34mSELECT "assigned_tasks".* FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ? AND "assigned_tasks"."created_at" BETWEEN ? AND ?[0m  [["user_id", 12], ["created_at", "2022-09-19 00:00:00"], ["created_at", "2022-09-19 23:59:59.999999"]]
+  ↳ app/controllers/auth_controller.rb:38:in `tasks_assigned_today?'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "12"]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:15:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "badges"."id" FROM "badges" INNER JOIN "earned_badges" ON "badges"."id" = "earned_badges"."badge_id" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 12]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:15:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "assigned_tasks"."id" FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ?[0m  [["user_id", 12]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:15:in `create'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "completed_tasks"."id" FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 12]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (9.93ms)
+Completed 202 Accepted in 325ms (Views: 9.8ms | ActiveRecord: 3.1ms | Allocations: 31837)
+
+
