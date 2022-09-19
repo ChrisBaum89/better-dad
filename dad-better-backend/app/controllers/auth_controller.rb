@@ -10,6 +10,8 @@ class AuthController < ApplicationController
       token = encode_token({ user_id: @user.id })
       cookies.signed[:jwt] = {value: token, httponly: true, expires: 1.hour.from_now}
       #binding.pry
+      assign_daily_tasks(@user)
+      
       render json: {
                user: UserSerializer.new(@user),
                jwt: token
@@ -21,6 +23,23 @@ class AuthController < ApplicationController
              },
              status: :unauthorized
     end
+  end
+
+  def assign_daily_tasks(user)
+    if not tasks_assigned_today?(user) and not tasks_completed_today?(user)
+      for i in 1..5
+        random_task = rand(1..Task.all.length)
+        AssignedTask.create(user_id: user.id, task_id: random_task)
+      end
+    end
+  end
+
+  def tasks_assigned_today?(user)
+    return user.assigned_tasks.where(created_at: Time.current.all_day).length > 0
+  end
+
+  def tasks_completed_today?(user)
+    return user.completed_tasks.where(created_at: Time.current.all_day).length > 0
   end
 
   private

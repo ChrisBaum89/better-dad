@@ -1,10 +1,10 @@
 import React from 'react';
-import TaskCard from '../components/TaskCard';
+import TaskList from '../components/TaskList';
 
 function TaskContainer (){
         return (
             <div>
-                <TaskCard />
+                <TaskList />
             </div>
         )
     }

@@ -1,0 +1,13 @@
+.task-carousel{
+    width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel-caption{
+    display: block;
+    top: 15px;
+    bottom: auto;
+    color: white;
+}
