@@ -17614,3 +17614,291 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 28ms (Views: 11.3ms | ActiveRecord: 3.5ms | Allocations: 21717)
 
 
+Started POST "/login" for ::1 at 2022-09-19 08:42:32 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 401 Unauthorized in 12ms (Views: 1.0ms | ActiveRecord: 0.5ms | Allocations: 10406)
+
+
+Started GET "/" for ::1 at 2022-09-19 08:43:25 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chrisbaum/.rvm/gems/ruby-2.6.1/gems/railties-6.1.6.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chrisbaum/.rvm/gems/ruby-2.6.1/gems/railties-6.1.6.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.6ms | Allocations: 319)
+Completed 200 OK in 26ms (Views: 19.4ms | ActiveRecord: 0.0ms | Allocations: 2595)
+
+
+Started GET "/favicon.ico" for ::1 at 2022-09-19 08:43:26 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/tasks" for ::1 at 2022-09-19 08:43:28 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/tasks"):
+  
+Started GET "/tasks" for ::1 at 2022-09-19 08:44:52 -0400
+Processing by TasksController#index as HTML
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with TaskSerializer (2.6ms)
+Completed 200 OK in 8ms (Views: 3.1ms | ActiveRecord: 0.7ms | Allocations: 4440)
+
+
+Started GET "/jokes" for ::1 at 2022-09-19 08:51:01 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TasksController#create_tasks_from_jokes as HTML
+  [1m[36mTask Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "M7ElyAQCAd"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.8ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "How was the snow globe feeling after the storm? A little shaken."], ["identifier", "M7ElyAQCAd"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-19 12:51:01.788962"], ["updated_at", "2022-09-19 12:51:01.788962"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "Tvcah31oWvc"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.5ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "What do you call a fashionable lawn statue with an excellent sense of rhythmn? A metro-gnome"], ["identifier", "Tvcah31oWvc"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-19 12:51:01.904803"], ["updated_at", "2022-09-19 12:51:01.904803"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "5hVDAAIRKuc"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (1.0ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "What did the late tomato say to the early tomato? I’ll ketch up"], ["identifier", "5hVDAAIRKuc"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-19 12:51:02.043479"], ["updated_at", "2022-09-19 12:51:02.043479"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "KeqOmOZDYDd"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (1.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Why is it so windy inside an arena? All those fans."], ["identifier", "KeqOmOZDYDd"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-19 12:51:02.191848"], ["updated_at", "2022-09-19 12:51:02.191848"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "4ElyszXDdxc"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "I went to the store to pick up eight cans of sprite... when I got home I realized I'd only picked seven up"], ["identifier", "4ElyszXDdxc"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-19 12:51:02.297033"], ["updated_at", "2022-09-19 12:51:02.297033"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "DY8UvkqHexc"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (1.0ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Why did the half blind man fall in the well? Because he couldn't see that well!"], ["identifier", "DY8UvkqHexc"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-19 12:51:02.455708"], ["updated_at", "2022-09-19 12:51:02.455708"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "m3E69pbhaFd"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (1.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "I gave all my dead batteries away today, free of charge."], ["identifier", "m3E69pbhaFd"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-19 12:51:02.567345"], ["updated_at", "2022-09-19 12:51:02.567345"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "EYojGtPRusc"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (1.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "I gave my friend 10 puns hoping that one of them would make him laugh. Sadly, no pun in ten did."], ["identifier", "EYojGtPRusc"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-19 12:51:02.724688"], ["updated_at", "2022-09-19 12:51:02.724688"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "PfaMusPucFd"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (1.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "What do you do when your bunny gets wet? You get your hare dryer."], ["identifier", "PfaMusPucFd"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-19 12:51:02.842308"], ["updated_at", "2022-09-19 12:51:02.842308"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "IRuX8U8EImb"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Who is the coolest Doctor in the hospital? The hip Doctor!"], ["identifier", "IRuX8U8EImb"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-19 12:51:02.955147"], ["updated_at", "2022-09-19 12:51:02.955147"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+Completed 204 No Content in 1356ms (ActiveRecord: 30.1ms | Allocations: 85571)
+
+
+Started GET "/tasks" for ::1 at 2022-09-19 08:51:05 -0400
+Processing by TasksController#index as HTML
+[active_model_serializers]   [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 1]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 2]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 3]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 4]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 5]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 6]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 7]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 8]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 9]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 10]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with TaskSerializer (46.74ms)
+Completed 200 OK in 54ms (Views: 47.5ms | ActiveRecord: 2.7ms | Allocations: 21426)
+
+
+Started GET "/favicon.ico" for ::1 at 2022-09-19 08:51:05 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/jokes" for ::1 at 2022-09-19 08:52:21 -0400
+Processing by TasksController#create_tasks_from_jokes as HTML
+  [1m[36mTask Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "pWn31TCQ7pb"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (1.0ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "What do you call a duck that gets all A's? A wise quacker."], ["identifier", "pWn31TCQ7pb"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-19 12:52:21.195641"], ["updated_at", "2022-09-19 12:52:21.195641"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "KZDtkG6pjqc"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (1.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Writing with a broken pencil is pointless."], ["identifier", "KZDtkG6pjqc"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-19 12:52:21.298790"], ["updated_at", "2022-09-19 12:52:21.298790"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "RC51wcNRClb"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.4ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Two dyslexics walk into a bra."], ["identifier", "RC51wcNRClb"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-19 12:52:21.458115"], ["updated_at", "2022-09-19 12:52:21.458115"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "xscaxH6M7h"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Two guys walked into a bar, the third one ducked."], ["identifier", "xscaxH6M7h"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-19 12:52:21.569490"], ["updated_at", "2022-09-19 12:52:21.569490"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "baFQZv4w5wc"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (1.2ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "My New Years resolution is to stop leaving things so late."], ["identifier", "baFQZv4w5wc"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-19 12:52:21.703335"], ["updated_at", "2022-09-19 12:52:21.703335"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "u4Tvkba21wc"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.8ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Why did Sweden start painting barcodes on the sides of their battleships? So they could Scandinavian."], ["identifier", "u4Tvkba21wc"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-19 12:52:21.845887"], ["updated_at", "2022-09-19 12:52:21.845887"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "KJmrOKeNexc"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.9ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "This morning I was wondering where the sun was, but then it dawned on me."], ["identifier", "KJmrOKeNexc"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-19 12:52:21.945173"], ["updated_at", "2022-09-19 12:52:21.945173"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "HYgiVDAscFd"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (1.1ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "People are making apocalypse jokes like there’s no tomorrow."], ["identifier", "HYgiVDAscFd"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-19 12:52:22.049278"], ["updated_at", "2022-09-19 12:52:22.049278"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "DIeFtkVvHlb"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (1.3ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Why do valley girls hang out in odd numbered groups? Because they can't even."], ["identifier", "DIeFtkVvHlb"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-19 12:52:22.157029"], ["updated_at", "2022-09-19 12:52:22.157029"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "tasks" WHERE "tasks"."identifier" = ? LIMIT ?[0m  [["identifier", "2gaMZLBszsc"], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:27:in `create_task'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTask Create (0.9ms)[0m  [1m[32mINSERT INTO "tasks" ("description", "identifier", "value", "category", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Why did the kid throw the clock out the window? He wanted to see time fly!"], ["identifier", "2gaMZLBszsc"], ["value", 10], ["category", "joke"], ["created_at", "2022-09-19 12:52:22.259709"], ["updated_at", "2022-09-19 12:52:22.259709"]]
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:28:in `create_task'
+Completed 204 No Content in 1184ms (ActiveRecord: 32.2ms | Allocations: 75304)
+
+
+Started GET "/tasks" for ::1 at 2022-09-19 08:52:24 -0400
+Processing by TasksController#index as HTML
+[active_model_serializers]   [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 1]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 2]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 3]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 4]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 5]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 6]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 7]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 8]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 9]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 10]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 11]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 12]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 13]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 14]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 15]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 16]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 17]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 18]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 19]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "completed_tasks" ON "users"."id" = "completed_tasks"."user_id" WHERE "completed_tasks"."task_id" = ?[0m  [["task_id", 20]]
+[active_model_serializers]   ↳ app/controllers/tasks_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with TaskSerializer (44.92ms)
+Completed 200 OK in 46ms (Views: 42.7ms | ActiveRecord: 2.9ms | Allocations: 22575)
+
+
