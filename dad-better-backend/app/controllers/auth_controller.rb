@@ -35,12 +35,14 @@ class AuthController < ApplicationController
   end
 
   def tasks_assigned_today?(user)
-    return user.assigned_tasks.where(created_at: Time.current.all_day).length > 0
+    return user.assigned_tasks.where(created_at: Time.current.all_day).length == 5
   end
 
   def tasks_completed_today?(user)
     return user.completed_tasks.where(created_at: Time.current.all_day).length > 0
   end
+
+  #May want to add task to delete assigned tasks from previous days
 
   private
 
