@@ -12,8 +12,13 @@ class AuthController < ApplicationController
       #binding.pry
       assign_daily_tasks(@user)
       
+      options = {
+        include: [:assigned_tasks, :completed_tasks]
+      }
+
       render json: {
                user: UserSerializer.new(@user),
+               options: options,
                jwt: token
              },
              status: :accepted

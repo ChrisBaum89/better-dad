@@ -27,12 +27,20 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
-    render json: UserSerializer.new(@user)
+    options = {
+      include: [:assigned_tasks, :completed_tasks]
+    }
+    render json: UserSerializer.new(@user, options)
   end
 
   def update
     #update user score
     #verify if a badge is earned
+  end
+
+  def index
+    @users = User.all
+    render json: UserSerializer.new(@users)
   end
   
   private

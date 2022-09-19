@@ -3,12 +3,13 @@ import TaskList from '../components/TaskList';
 import { useSelector, useDispatch } from 'react-redux';
 
 function TaskContainer (props){
-    const currentState = useSelector((state) => state)
-    const dispatch = useDispatch()
+    const currentTasks = useSelector((state) => state)
     debugger
+    const dispatch = useDispatch()
+
     return (
             <div>
-                <TaskList />
+                <TaskList tasks={currentTasks}/>
             </div>
         )
     }
