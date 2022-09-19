@@ -6,11 +6,9 @@ const tasksReducer = (state = { tasks: [], loading: false }, action) => {
                 loading: true,
             };
         case "ADD_TASKS":
-            debugger
             return {
                 ...state,
-                user: action.tasks.data,
-                loading: false
+                tasks: action.tasks,
             }
         default:
             return state
