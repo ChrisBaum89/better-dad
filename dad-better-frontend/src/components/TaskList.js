@@ -3,8 +3,36 @@ import Carousel from 'react-bootstrap/Carousel'
 import task_background from './task_background.jpeg'
 import '../css/Tasks.css'
 import Button from 'react-bootstrap/Button'
+import { useSelector, useDispatch } from 'react-redux';
 
 function TaskList(props) {
+
+    const currentUser = useSelector((state) => state.usersReducer.user[0].data)
+    const dispatch = useDispatch()
+
+    const sendUserToServer = (user, score) => {
+        fetch("http://localhost:3000/updatescore", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: JSON.stringify({
+                user: {
+                    user_id: user.id,
+                    score: score
+                },
+            }),
+        })
+            .then((r) => r.json())
+            // .then((data) => { console.log(data) })
+    }
+
+    const handleClick = (event, user = currentUser) => {
+        const score = event.target.attributes.taskvalue.value
+        sendUserToServer(user, score)
+        return true
+    }
 
     return (
         <div class="task-carousel">
@@ -19,8 +47,8 @@ function TaskList(props) {
                             />
                             <Carousel.Caption>
                                 <h6>{task.attributes.description}</h6>
-                                <p>Points: 10</p>
-                                <Button variant="primary">
+                                <p>Points: {task.attributes.value}</p>
+                                <Button variant="primary" taskValue={task.attributes.value} onClick={handleClick}>
                                     Complete
                                 </Button>
                             </Carousel.Caption>

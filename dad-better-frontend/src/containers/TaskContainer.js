@@ -41,16 +41,6 @@ function TaskContainer(props) {
 
     const userTasks = getAssignedTaskData(assignedTasks, allTasks)
 
-    // useEffect(() => {
-    //     fetch("http://localhost:3000/tasks")
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //         dispatch({type: "ADD_TASKS", tasks: data.data})
-    //     })
-    // })
-
-
-
 
     return (
         <div>

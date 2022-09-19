@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  require 'json'
+  require 'httparty'
   skip_before_action :authorized, only: [:create]
 
   def profile
@@ -33,9 +35,10 @@ class UsersController < ApplicationController
     render json: UserSerializer.new(@user, options)
   end
 
-  def update
-    #update user score
-    #verify if a badge is earned
+  def updatescore
+    @user = User.find_by_id(params[:user][:user_id])
+    @user.score = @user.score + (params[:user][:score]).to_i
+    @user.save
   end
 
   def index
@@ -46,6 +49,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :email, :name)
+    params.require(:user).permit(:user_id, :username, :password, :email, :name, :score, :id)
   end
 end

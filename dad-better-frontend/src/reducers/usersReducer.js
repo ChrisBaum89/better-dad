@@ -15,7 +15,7 @@ const usersReducer = (state = { user: [], loading: false }, action) => {
             return { ...state, user: [action.payload.user] }
 
         case "LOGOUT":
-            return {...state, user: []}
+            return { ...state, user: [] }
 
         default:
             return state
