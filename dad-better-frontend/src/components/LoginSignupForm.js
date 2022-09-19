@@ -33,7 +33,8 @@ function LoginSignupForm(props) {
             .then((r) => r.json())
             .then((data) => {
                 localStorage.setItem("jwt", data.jwt)
-                dispatch({type: "SET_USER", payload: data.user.data})
+                // dispatch({type: "SET_USER", payload: data.user.data})
+                dispatch({type: "SET_USER", payload: data})
             })
     }
 

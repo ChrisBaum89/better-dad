@@ -14,7 +14,7 @@ function ProfileContainer() {
 
     const username = () => {
         if (currentState.usersReducer.user.length > 0) {
-            return currentState.usersReducer.user[0].attributes.username
+            return currentState.usersReducer.user[0].data.attributes.username
         }
         else {
             return "no user found"
@@ -23,7 +23,7 @@ function ProfileContainer() {
     
     const score = () => {
         if (currentState.usersReducer.user.length > 0) {
-            return currentState.usersReducer.user[0].attributes.score
+            return currentState.usersReducer.user[0].data.attributes.score
         }
         else {
             return 0

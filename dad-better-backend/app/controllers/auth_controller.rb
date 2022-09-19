@@ -9,16 +9,14 @@ class AuthController < ApplicationController
       # encode token comes from ApplicationController
       token = encode_token({ user_id: @user.id })
       cookies.signed[:jwt] = {value: token, httponly: true, expires: 1.hour.from_now}
-      #binding.pry
       assign_daily_tasks(@user)
-      
+
       options = {
         include: [:assigned_tasks, :completed_tasks]
       }
 
       render json: {
-               user: UserSerializer.new(@user),
-               options: options,
+               user: UserSerializer.new(@user, options),
                jwt: token
              },
              status: :accepted

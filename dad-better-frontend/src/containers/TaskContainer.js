@@ -4,8 +4,30 @@ import { useSelector, useDispatch } from 'react-redux';
 
 function TaskContainer (props){
 
-    const currentTasks = useSelector((state) => state)
+    const assignedTasks = useSelector((state) => state.usersReducer.user[0].included)
+    const allTasks = useSelector((state) => state.tasksReducer.tasks)
     const dispatch = useDispatch()
+
+    const getAssignedTaskIds = (assignedTasks) => {
+        return assignedTasks.map(task => task.attributes.task_id)
+    }
+
+    const getTaskInfo = (allTasks, assignIds) => {
+        const foundTasks = []
+        for (let i = 0; i < allTasks.length; i++){
+            if (assignIds.includes(parseInt(allTasks[i].id))){
+                foundTasks.push(allTasks[i])
+            }
+        }
+        return foundTasks
+    }
+
+    const getAssignedTaskData = (assignedTasks, allTasks) => {
+        return getTaskInfo(allTasks, getAssignedTaskIds(assignedTasks))
+    }
+
+
+    const userTasks = getAssignedTaskData(assignedTasks, allTasks)
 
     useEffect(() => {
         fetch("http://localhost:3000/tasks")
@@ -15,11 +37,10 @@ function TaskContainer (props){
         })
     })
 
-    debugger
-
+        
     return (
             <div>
-                <TaskList tasks={currentTasks}/>
+                <TaskList tasks={userTasks}/>
             </div>
         )
     }
