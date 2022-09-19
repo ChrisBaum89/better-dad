@@ -25,6 +25,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find_by_id(params[:id])
+    render json: UserSerializer.new(@user)
+  end
+
+  def update
+    #update user score
+    #verify if a badge is earned
+  end
+  
   private
 
   def user_params
