@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   skip_before_action :authorized, only: [:create]
 
   def profile
-    #render json: { user: UserSerializer.new(current_user) }, status: :accepted
+    # render json: { user: UserSerializer.new(current_user) }, status: :accepted
   end
 
   def create
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by_id(params[:id])
     options = {
-      include: [:assigned_tasks, :completed_tasks]
+      include: %i[assigned_tasks completed_tasks]
     }
     render json: UserSerializer.new(@user, options)
   end
@@ -40,24 +40,29 @@ class UsersController < ApplicationController
     original_score = @user.score
     @user.score = @user.score + (params[:user][:score]).to_i
     @user.save
-    if (@user.score > original_score)
-      render json:{
+    if @user.score > original_score
+      render json: {
         user: UserSerializer.new(@user)
       }
     else
       render json: {
-        error: 'failed to update score'
-      },
-    status: :unprocessable_entity
+               error: 'failed to update score'
+             },
+             status: :unprocessable_entity
+    end
   end
 
+  def updatetask
+    @user = User.find_by_id(params[:user][:user_id])
+    @completed_task = Task.find_by_id(params[:user][:task_id])
+    CompletedTask.create(user_id: @user.id, task_id: @completed_task.id)
   end
 
   def index
     @users = User.all
     render json: UserSerializer.new(@users)
   end
-  
+
   private
 
   def user_params

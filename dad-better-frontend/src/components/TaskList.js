@@ -29,10 +29,31 @@ function TaskList(props) {
                 dispatch({type: "UPDATE_SCORE", payload: data})})
     }
 
+    const completeTasksToServer = (user, taskId) => {
+        fetch("http://localhost:3000/updatetask", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: JSON.stringify({
+                user: {
+                    user_id: user.id,
+                    task_id: taskId,
+                },
+            }),
+        })
+            .then((r) => r.json())
+            .then((data) => {
+                dispatch({type: "UPDATE_TASK", payload: data})})
+    }
+
 
     const handleClick = (event, user = currentUser) => {
+        const taskId = event.target.attributes.taskid.value
         const score = event.target.attributes.taskvalue.value
         sendUserToServer(user, score)
+        completeTasksToServer(user, taskId)
         return true
     }
 
@@ -50,7 +71,7 @@ function TaskList(props) {
                             <Carousel.Caption>
                                 <h6>{task.attributes.description}</h6>
                                 <p>Points: {task.attributes.value}</p>
-                                <Button variant="primary" taskvalue={task.attributes.value} onClick={handleClick}>
+                                <Button variant="primary" taskid= {task.id} taskvalue={task.attributes.value} onClick={handleClick}>
                                     Complete
                                 </Button>
                             </Carousel.Caption>

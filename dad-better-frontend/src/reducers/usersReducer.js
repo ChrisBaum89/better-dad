@@ -9,6 +9,10 @@ const usersReducer = (state = { user: [], loading: false }, action) => {
             updatedUser.user[0].data.attributes.score = action.payload.user.data.attributes.score
             return { ...state, updatedUser}
 
+        case "UPDATE_TASK":
+
+            return true
+
         case "LOGOUT":
             return { ...state, user: [] }
 

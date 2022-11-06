@@ -3,6 +3,7 @@ Rails.application.routes.draw do
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
       post '/updatescore', to: 'users#updatescore'
+      post '/updatetask', to: 'users#updatetask'
 
   # resources :assigned_tasks
   # resources :completed_tasks
