@@ -1,12 +1,19 @@
 import React, { useEffect } from 'react';
 import TaskList from '../components/TaskList';
 import { useSelector, useDispatch } from 'react-redux';
+import { fetchTasks } from '../actions/taskActions';
 
 function TaskContainer(props) {
 
     const assignedTasks = useSelector((state) => state.usersReducer.user[0].included)
     const allTasks = useSelector((state) => state.tasksReducer.tasks)
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        fetchTasks().then((data) => {
+            dispatch({ type: "ADD_TASKS", tasks: data.data })
+        })
+    }, [])
 
 
     const getAssignedTaskIds = (assignedTasks) => {
@@ -27,15 +34,12 @@ function TaskContainer(props) {
         return getTaskInfo(allTasks, getAssignedTaskIds(assignedTasks))
     }
 
-    const getData = async () => {
+    const fetchTasks = async () => {
+        debugger
         const response = await fetch("http://localhost:3000/tasks");
         const tasks = await response.json();
         return tasks;
     };
-
-    getData().then((data) => {
-        dispatch({ type: "ADD_TASKS", tasks: data.data })
-    })
 
     const userTasks = getAssignedTaskData(assignedTasks, allTasks)
 
