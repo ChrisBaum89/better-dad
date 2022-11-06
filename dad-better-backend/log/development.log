@@ -3104,3 +3104,6 @@ Completed 200 OK in 24ms (Views: 7.7ms | ActiveRecord: 2.7ms | Allocations: 1008
   ↳ app/controllers/users_controller.rb:58:in `updatetask'
   [1m[36mAssignedTask Destroy (0.1ms)[0m  [1m[31mDELETE FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ? AND "assigned_tasks"."task_id" = ?[0m  [["user_id", 3], ["task_id", 5]]
   ↳ app/controllers/users_controller.rb:61:in `updatetask'
+Completed 204 No Content in 177762ms (ActiveRecord: 1.9ms | Allocations: 42378)
+
+
