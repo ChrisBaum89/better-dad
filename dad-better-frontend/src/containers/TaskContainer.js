@@ -15,6 +15,11 @@ function TaskContainer(props) {
         })
     }, [])
 
+    const fetchTasks = async () => {
+        const response = await fetch("http://localhost:3000/tasks");
+        const tasks = await response.json();
+        return tasks;
+    };
 
     const getAssignedTaskIds = (assignedTasks) => {
         return assignedTasks.map(task => task.attributes.task_id)
@@ -34,12 +39,7 @@ function TaskContainer(props) {
         return getTaskInfo(allTasks, getAssignedTaskIds(assignedTasks))
     }
 
-    const fetchTasks = async () => {
-        debugger
-        const response = await fetch("http://localhost:3000/tasks");
-        const tasks = await response.json();
-        return tasks;
-    };
+    
 
     const userTasks = getAssignedTaskData(assignedTasks, allTasks)
 

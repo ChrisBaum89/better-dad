@@ -7,8 +7,7 @@ const tasksReducer = (state = { tasks: [], requesting: false }, action) => {
                 requesting: true,
             }
 
-        case "ADD_TASKS":
-        debugger    
+        case "ADD_TASKS": 
         return {
                 ...state,
                 tasks: action.tasks,
