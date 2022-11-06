@@ -26,9 +26,9 @@ function TaskList(props) {
         })
             .then((r) => r.json())
             .then((data) => {
-                debugger
                 dispatch({type: "UPDATE_SCORE", payload: data})})
     }
+
 
     const handleClick = (event, user = currentUser) => {
         const score = event.target.attributes.taskvalue.value
