@@ -8,18 +8,6 @@ function TaskContainer(props) {
     const allTasks = useSelector((state) => state.tasksReducer.tasks)
     const dispatch = useDispatch()
 
-    useEffect(() => {
-
-        const getData = async () => {
-            const response = await fetch("http://localhost:3000/tasks");
-            const tasks = await response.json();
-            return tasks;
-        };
-
-        getData().then((data) => {
-            dispatch({ type: "ADD_TASKS", tasks: data.data })
-        })
-    }, [])
 
     const getAssignedTaskIds = (assignedTasks) => {
         return assignedTasks.map(task => task.attributes.task_id)
@@ -38,6 +26,16 @@ function TaskContainer(props) {
     const getAssignedTaskData = (assignedTasks, allTasks) => {
         return getTaskInfo(allTasks, getAssignedTaskIds(assignedTasks))
     }
+
+    const getData = async () => {
+        const response = await fetch("http://localhost:3000/tasks");
+        const tasks = await response.json();
+        return tasks;
+    };
+
+    getData().then((data) => {
+        dispatch({ type: "ADD_TASKS", tasks: data.data })
+    })
 
     const userTasks = getAssignedTaskData(assignedTasks, allTasks)
 

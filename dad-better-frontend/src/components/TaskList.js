@@ -20,12 +20,14 @@ function TaskList(props) {
             body: JSON.stringify({
                 user: {
                     user_id: user.id,
-                    score: score
+                    score: score,
                 },
             }),
         })
             .then((r) => r.json())
-            // .then((data) => { console.log(data) })
+            .then((data) => {
+                debugger
+                dispatch({type: "UPDATE_SCORE", payload: data})})
     }
 
     const handleClick = (event, user = currentUser) => {
@@ -48,7 +50,7 @@ function TaskList(props) {
                             <Carousel.Caption>
                                 <h6>{task.attributes.description}</h6>
                                 <p>Points: {task.attributes.value}</p>
-                                <Button variant="primary" taskValue={task.attributes.value} onClick={handleClick}>
+                                <Button variant="primary" taskvalue={task.attributes.value} onClick={handleClick}>
                                     Complete
                                 </Button>
                             </Carousel.Caption>

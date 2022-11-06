@@ -37,8 +37,20 @@ class UsersController < ApplicationController
 
   def updatescore
     @user = User.find_by_id(params[:user][:user_id])
+    original_score = @user.score
     @user.score = @user.score + (params[:user][:score]).to_i
     @user.save
+    if (@user.score > original_score)
+      render json:{
+        user: UserSerializer.new(@user)
+      }
+    else
+      render json: {
+        error: 'failed to update score'
+      },
+    status: :unprocessable_entity
+  end
+
   end
 
   def index
@@ -49,6 +61,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:user_id, :username, :password, :email, :name, :score, :id)
+    params.require(:user).permit(:user_id, :username, :password, :email, :name, :score)
   end
 end
