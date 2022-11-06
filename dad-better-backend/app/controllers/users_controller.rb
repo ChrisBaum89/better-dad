@@ -56,6 +56,10 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:user][:user_id])
     @completed_task = Task.find_by_id(params[:user][:task_id])
     CompletedTask.create(user_id: @user.id, task_id: @completed_task.id)
+    
+    #remove @completed_task from assigned tasks
+    @user.assigned_tasks.delete_by(task_id: @completed_task.id)
+    binding.pry
   end
 
   def index
