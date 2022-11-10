@@ -28,12 +28,23 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(params[:id])
+    # add assigned tasks and completed tasks
+    user = User.find_by_id(params[:id])
+    binding.pry
     options = {
       include: %i[assigned_tasks completed_tasks]
     }
-    render json: UserSerializer.new(@user, options)
+    render json: UserSerializer.new(user, options)
   end
+
+  # def show
+  #   @user = User.find_by_id(params[:id])
+  #   options = {
+  #     include: %i[assigned_tasks completed_tasks]
+  #   }
+  #   render json: UserSerializer.new(@user, options)
+  # end
+
 
   def updatescore
     @user = User.find_by_id(params[:user][:user_id])
@@ -59,7 +70,6 @@ class UsersController < ApplicationController
     
     #remove @completed_task from assigned tasks
     @user.assigned_tasks.delete_by(task_id: @completed_task.id)
-    binding.pry
   end
 
   def index

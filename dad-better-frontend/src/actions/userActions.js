@@ -1,5 +1,6 @@
 
 export const fetchUsers = () => {
+    debugger
     return (dispatch) => {
         dispatch({ type: 'LOADING_USERS' });
         fetch("http://localhost:3000/users")

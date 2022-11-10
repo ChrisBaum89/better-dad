@@ -10,25 +10,42 @@ import { useSelector, useDispatch } from 'react-redux'
 
 function ProfileContainer() {
     const currentState = useSelector((state) => state)
+    const currentUser = currentState.usersReducer.user[0]
     const dispatch = useDispatch()
-
-    const username = () => {
-        if (currentState.usersReducer.user.length > 0) {
-            return currentState.usersReducer.user[0].data.attributes.username
+    
+    const username = (currentUser) => {
+        if (currentUser !== null) {
+            return currentUser.data.attributes.username
         }
         else {
             return "no user found"
         }
     }
-    
-    const score = () => {
-        if (currentState.usersReducer.user.length > 0) {
-            return currentState.usersReducer.user[0].data.attributes.score
+
+    const score = (currentUser) => {
+        if (currentUser !== null) {
+            return currentUser.data.attributes.score
         }
         else {
             return 0
         }
     }
+
+    const checkAssignedTask = (task) =>{
+        return task.type === "assigned_task"
+    }
+
+    const assignedTasks = (currentUser) => {
+        if (currentUser !== 0) {
+            const userAssignedTasks = currentUser.included.filter(checkAssignedTask)
+            return userAssignedTasks
+        }
+        else {
+            return "No user. No tasks assigned"
+        }
+
+    }
+
 
     return (
         <div>
@@ -36,10 +53,10 @@ function ProfileContainer() {
                 <LogoutButton />
             </div>
             <div className="profile-content">
-                <UserContainer username={username()} score={score()} />
+                <UserContainer username={username(currentUser)} score={score(currentUser)} />
                 <BadgeContainer />
                 <QuoteContainer />
-                <TaskContainer />
+                <TaskContainer userAssignedTasks={assignedTasks(currentUser)} />
                 <NavigationContainer />
             </div>
         </div>

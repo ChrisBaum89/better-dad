@@ -10,7 +10,7 @@ const usersReducer = (state = { user: [], loading: false }, action) => {
             return { ...state, updatedUser}
 
         case "UPDATE_TASK":
-
+            debugger
             return true
 
         case "LOGOUT":

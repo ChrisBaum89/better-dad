@@ -4,10 +4,11 @@ import task_background from './task_background.jpeg'
 import '../css/Tasks.css'
 import Button from 'react-bootstrap/Button'
 import { useSelector, useDispatch } from 'react-redux';
+import { handleClick } from "../actions/taskActions";
 
 function TaskList(props) {
-
     const currentUser = useSelector((state) => state.usersReducer.user[0].data)
+    const assignedTasks = props.userAssignedTasks
     const dispatch = useDispatch()
 
     const sendUserToServer = (user, score) => {
@@ -60,7 +61,7 @@ function TaskList(props) {
     return (
         <div class="task-carousel">
             <Carousel>
-                {props.tasks.map(task => {
+                {assignedTasks.map(task => {
                     return (
                         <Carousel.Item interval={10000000}>
                             <img

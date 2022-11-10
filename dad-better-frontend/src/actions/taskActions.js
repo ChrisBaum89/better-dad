@@ -6,3 +6,4 @@ export const fetchTasks = () => {
             .then((responseJSON) => { dispatch({ type: "ADD_TASK", tasks: responseJSON })})
     }
 }
+
