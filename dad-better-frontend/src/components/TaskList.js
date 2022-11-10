@@ -10,9 +10,9 @@ function TaskList(props) {
     const currentUser = useSelector((state) => state.usersReducer.user[0].data)
     const assignedTasks = props.userAssignedTasks
     const dispatch = useDispatch()
-
-    const sendUserToServer = (user, score) => {
-        fetch("http://localhost:3000/updatescore", {
+ 
+    const updateUserToServer = (user, score, taskId) => {
+        fetch("http://localhost:3000/updateuser", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -22,39 +22,20 @@ function TaskList(props) {
                 user: {
                     user_id: user.id,
                     score: score,
-                },
-            }),
-        })
-            .then((r) => r.json())
-            .then((data) => {
-                dispatch({type: "UPDATE_SCORE", payload: data})})
-    }
-
-    const completeTasksToServer = (user, taskId) => {
-        fetch("http://localhost:3000/updatetask", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-            },
-            body: JSON.stringify({
-                user: {
-                    user_id: user.id,
                     task_id: taskId,
                 },
             }),
         })
             .then((r) => r.json())
             .then((data) => {
-                dispatch({type: "UPDATE_TASK", payload: data})})
+                dispatch({type: "UPDATE_USER", payload: data})})
     }
 
 
     const handleClick = (event, user = currentUser) => {
         const taskId = event.target.attributes.taskid.value
         const score = event.target.attributes.taskvalue.value
-        sendUserToServer(user, score)
-        completeTasksToServer(user, taskId)
+        updateUserToServer(user, score, taskId)
         return true
     }
 
@@ -72,7 +53,7 @@ function TaskList(props) {
                             <Carousel.Caption>
                                 <h6>{task.attributes.task.description}</h6>
                                 <p>Points: {task.attributes.task.value}</p>
-                                <Button variant="primary" taskid= {task.id} taskvalue={task.attributes.task.value} onClick={handleClick}>
+                                <Button variant="primary" taskid= {task.attributes.task.id} taskvalue={task.attributes.task.value} onClick={handleClick}>
                                     Complete
                                 </Button>
                             </Carousel.Caption>

@@ -8,6 +8,7 @@ import LogoutButton from "../components/LogoutButton";
 import { useSelector, useDispatch } from 'react-redux'
 
 
+
 function ProfileContainer() {
     const currentState = useSelector((state) => state)
     const currentUser = currentState.usersReducer.user[0]

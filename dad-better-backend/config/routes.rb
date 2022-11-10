@@ -2,8 +2,9 @@ Rails.application.routes.draw do
       resources :users, only: [:create, :show, :index, :update]
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
-      post '/updatescore', to: 'users#updatescore'
-      post '/updatetask', to: 'users#updatetask'
+      post '/updateuser', to: 'users#updateuser'
+      #post '/updatescore', to: 'users#updatescore'
+      #post '/updatetask', to: 'users#updatetask'
 
   # resources :assigned_tasks
   # resources :completed_tasks
