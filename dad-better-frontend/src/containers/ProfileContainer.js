@@ -37,6 +37,7 @@ function ProfileContainer() {
 
     const assignedTasks = (currentUser) => {
         if (currentUser !== 0) {
+            
             const userAssignedTasks = currentUser.included.filter(checkAssignedTask)
             return userAssignedTasks
         }

@@ -70,9 +70,9 @@ function TaskList(props) {
                                 alt="First slide"
                             />
                             <Carousel.Caption>
-                                <h6>{task.attributes.description}</h6>
-                                <p>Points: {task.attributes.value}</p>
-                                <Button variant="primary" taskid= {task.id} taskvalue={task.attributes.value} onClick={handleClick}>
+                                <h6>{task.attributes.task.description}</h6>
+                                <p>Points: {task.attributes.task.value}</p>
+                                <Button variant="primary" taskid= {task.id} taskvalue={task.attributes.task.value} onClick={handleClick}>
                                     Complete
                                 </Button>
                             </Carousel.Caption>
