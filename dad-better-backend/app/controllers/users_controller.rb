@@ -40,8 +40,9 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:user][:user_id])
     updatescore(@user)
     updatetask(@user)
+    updatebadge(@user)
     @user.save
-
+    binding.pry
     options = {
       include: [:assigned_tasks, :completed_tasks]
     }
@@ -63,8 +64,15 @@ class UsersController < ApplicationController
     user.assigned_tasks.delete_by(task_id: @completed_task.id)
   end
 
-  def updatebadge
-
+  def updatebadge(user)
+    applicable_badges = Badge.all.select{|badge| user.score >= badge.score_threshold}
+    applicable_badges.each do |badge|
+      if user.badges.include?(badge)
+      
+     elsif 
+        EarnedBadge.create(user_id: user.id, badge_id: badge.id)
+      end
+    end
   end
 
   def index
