@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     updatetask(@user)
     updatebadge(@user)
     @user.save
-    binding.pry
+
     options = {
       include: [:assigned_tasks, :completed_tasks]
     }
