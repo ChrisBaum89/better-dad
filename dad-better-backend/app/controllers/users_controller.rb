@@ -37,8 +37,10 @@ class UsersController < ApplicationController
   end
 
   def updateuser
-    updatescore
-    updatetask
+    @user = User.find_by_id(params[:user][:user_id])
+    updatescore(@user)
+    updatetask(@user)
+    @user.save
 
     options = {
       include: [:assigned_tasks, :completed_tasks]
@@ -49,20 +51,20 @@ class UsersController < ApplicationController
     }
   end
 
-  def updatescore
-    @user = User.find_by_id(params[:user][:user_id])
-    original_score = @user.score
-    @user.score = @user.score + (params[:user][:score]).to_i
-    @user.save
+  def updatescore(user)
+    user.score = user.score + (params[:user][:score]).to_i
   end
 
-  def updatetask
-    @user = User.find_by_id(params[:user][:user_id])
+  def updatetask(user)
     @completed_task = Task.find_by_id(params[:user][:task_id])
-    CompletedTask.create(user_id: @user.id, task_id: @completed_task.id)
+    CompletedTask.create(user_id: user.id, task_id: @completed_task.id)
 
     # remove @completed_task from assigned tasks
-    @user.assigned_tasks.delete_by(task_id: @completed_task.id)
+    user.assigned_tasks.delete_by(task_id: @completed_task.id)
+  end
+
+  def updatebadge
+
   end
 
   def index
