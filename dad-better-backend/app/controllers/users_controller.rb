@@ -36,14 +36,6 @@ class UsersController < ApplicationController
     render json: UserSerializer.new(user, options)
   end
 
-  # def show
-  #   @user = User.find_by_id(params[:id])
-  #   options = {
-  #     include: %i[assigned_tasks completed_tasks]
-  #   }
-  #   render json: UserSerializer.new(@user, options)
-  # end
-
   def updateuser
     updatescore
     updatetask
