@@ -47,3 +47,10 @@
   text-align: "right";
   color: black
 }
+
+.app{
+  background-image: url('../img/background_photo.webp');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: rgb(126, 172, 113);
+}
