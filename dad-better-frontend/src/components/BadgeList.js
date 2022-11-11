@@ -1,5 +1,4 @@
 import React from "react";
-import BadgeCard from "./BadgeCard";
 import Carousel from 'react-bootstrap/Carousel'
 import { useSelector, useDispatch } from 'react-redux'
 import star_background from '../img/star_background.jpeg'
