@@ -22,6 +22,16 @@ function CompletedTaskCard (){
 
     const userCompletedTasks = completedTasks(currentUser)
 
+    const formatDateTime= (dateTime) => {
+        const dateTimeArray = []
+        const formattedDateTime = new Date(dateTime)
+        
+        dateTimeArray.push(formattedDateTime.toDateString())
+        dateTimeArray.push(formattedDateTime.toTimeString())
+
+        return dateTimeArray
+    }
+
     const userCompletedTask = (task) => {
         return (<div className="col d-flex justify-content-center">
             <Card style={{ width: '18rem' }} >
@@ -29,7 +39,8 @@ function CompletedTaskCard (){
                     <Card.Text>
                         {task.attributes.task.description}<br></br>
                         Score: {task.attributes.task.value}<br></br>
-                        Date Completed: {task.attributes.created_at}
+                        Date Completed: {formatDateTime(task.attributes.created_at)[0]}<br></br>
+                        Time Completed: {formatDateTime(task.attributes.created_at)[1]}
                     </Card.Text>
                 </Card.Body>
             </Card>
