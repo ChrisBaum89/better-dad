@@ -32,5 +32,6 @@ class TasksController < ApplicationController
     10.times do
       random_task_id = rand(1..Task.all.length)
       AssignedTask.create(user_id: 3, task_id: random_task_id)
-  end 
+    end
+  end
 end

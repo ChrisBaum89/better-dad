@@ -20369,3 +20369,244 @@ Processing by AuthController#create as JSON
 Completed 202 Accepted in 359ms (Views: 54.9ms | ActiveRecord: 2.2ms | Allocations: 42318)
 
 
+Started GET "/" for ::1 at 2022-11-11 11:30:03 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chrisbaum/.rvm/gems/ruby-2.6.1/gems/railties-6.1.6.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chrisbaum/.rvm/gems/ruby-2.6.1/gems/railties-6.1.6.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 16.3ms | Allocations: 537)
+Completed 200 OK in 27ms (Views: 19.0ms | ActiveRecord: 0.0ms | Allocations: 2776)
+
+
+Started GET "/assigntasks" for ::1 at 2022-11-11 11:30:12 -0500
+  
+SyntaxError (/Users/chrisbaum/Flatiron/code/dad-better/dad-better-backend/app/controllers/tasks_controller.rb:36: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/tasks_controller.rb:36: syntax error, unexpected end-of-input, expecting end
+app/controllers/tasks_controller.rb:36: syntax error, unexpected end-of-input, expecting end
+Started GET "/assigntasks" for ::1 at 2022-11-11 11:30:36 -0500
+Processing by TasksController#assign_tasks as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in assign_tasks'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in assign_tasks'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mAssignedTask Create (0.3ms)[0m  [1m[32mINSERT INTO "assigned_tasks" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["task_id", 13], ["created_at", "2022-11-11 16:30:36.565636"], ["updated_at", "2022-11-11 16:30:36.565636"]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in assign_tasks'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mAssignedTask Create (0.3ms)[0m  [1m[32mINSERT INTO "assigned_tasks" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["task_id", 5], ["created_at", "2022-11-11 16:30:36.569798"], ["updated_at", "2022-11-11 16:30:36.569798"]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in assign_tasks'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mAssignedTask Create (0.2ms)[0m  [1m[32mINSERT INTO "assigned_tasks" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["task_id", 10], ["created_at", "2022-11-11 16:30:36.573779"], ["updated_at", "2022-11-11 16:30:36.573779"]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in assign_tasks'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mAssignedTask Create (0.1ms)[0m  [1m[32mINSERT INTO "assigned_tasks" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["task_id", 21], ["created_at", "2022-11-11 16:30:36.577165"], ["updated_at", "2022-11-11 16:30:36.577165"]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in assign_tasks'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mAssignedTask Create (0.2ms)[0m  [1m[32mINSERT INTO "assigned_tasks" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["task_id", 2], ["created_at", "2022-11-11 16:30:36.581777"], ["updated_at", "2022-11-11 16:30:36.581777"]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in assign_tasks'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mAssignedTask Create (0.1ms)[0m  [1m[32mINSERT INTO "assigned_tasks" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["task_id", 18], ["created_at", "2022-11-11 16:30:36.586552"], ["updated_at", "2022-11-11 16:30:36.586552"]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in assign_tasks'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mAssignedTask Create (0.1ms)[0m  [1m[32mINSERT INTO "assigned_tasks" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["task_id", 10], ["created_at", "2022-11-11 16:30:36.591116"], ["updated_at", "2022-11-11 16:30:36.591116"]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in assign_tasks'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mAssignedTask Create (0.1ms)[0m  [1m[32mINSERT INTO "assigned_tasks" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["task_id", 21], ["created_at", "2022-11-11 16:30:36.595177"], ["updated_at", "2022-11-11 16:30:36.595177"]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in assign_tasks'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mAssignedTask Create (0.1ms)[0m  [1m[32mINSERT INTO "assigned_tasks" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["task_id", 12], ["created_at", "2022-11-11 16:30:36.598368"], ["updated_at", "2022-11-11 16:30:36.598368"]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/controllers/tasks_controller.rb:33:in `block in assign_tasks'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mAssignedTask Create (0.1ms)[0m  [1m[32mINSERT INTO "assigned_tasks" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["task_id", 21], ["created_at", "2022-11-11 16:30:36.601448"], ["updated_at", "2022-11-11 16:30:36.601448"]]
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:34:in `block in assign_tasks'
+Completed 204 No Content in 69ms (ActiveRecord: 8.7ms | Allocations: 73867)
+
+
+Started POST "/login" for ::1 at 2022-11-11 11:30:47 -0500
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "username1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mAssignedTask Load (0.3ms)[0m  [1m[34mSELECT "assigned_tasks".* FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ? AND "assigned_tasks"."created_at" BETWEEN ? AND ?[0m  [["user_id", 3], ["created_at", "2022-11-11 00:00:00"], ["created_at", "2022-11-11 23:59:59.999999"]]
+  ↳ app/controllers/auth_controller.rb:41:in `tasks_assigned_today?'
+  [1m[36mCompletedTask Load (0.1ms)[0m  [1m[34mSELECT "completed_tasks".* FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ? AND "completed_tasks"."created_at" BETWEEN ? AND ?[0m  [["user_id", 3], ["created_at", "2022-11-11 00:00:00"], ["created_at", "2022-11-11 23:59:59.999999"]]
+  ↳ app/controllers/auth_controller.rb:45:in `tasks_completed_today?'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "3"]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "earned_badges"."id" FROM "earned_badges" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "assigned_tasks"."id" FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "completed_tasks"."id" FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mAssignedTask Load (0.1ms)[0m  [1m[34mSELECT "assigned_tasks".* FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCompletedTask Load (0.1ms)[0m  [1m[34mSELECT "completed_tasks".* FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mEarnedBadge Load (0.1ms)[0m  [1m[34mSELECT "earned_badges".* FROM "earned_badges" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mBadge Load (0.1ms)[0m  [1m[34mSELECT "badges".* FROM "badges" WHERE "badges"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (42.94ms)
+Completed 202 Accepted in 366ms (Views: 41.7ms | ActiveRecord: 4.2ms | Allocations: 71561)
+
+

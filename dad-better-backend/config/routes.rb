@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # resources :earned_badges
   # resources :quotes
   get '/jokes', to: 'tasks#create_tasks_from_jokes'
+  get '/assigntasks', to: 'tasks#assign_tasks'
    resources :tasks
   # resources :badges
   # resources :children
