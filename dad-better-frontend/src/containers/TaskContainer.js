@@ -9,6 +9,9 @@ function TaskContainer(props) {
 
     return (
         <div>
+            <div class="task-title">
+                <h2>Tasks</h2>
+            </div>
             <TaskList userAssignedTasks={props.userAssignedTasks} />
         </div>
     )
