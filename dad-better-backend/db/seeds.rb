@@ -56,21 +56,21 @@ badge1 = Badge.create(
     name: "New Balance Shoes",
     description: "The only choice of footwear for a dad.  The more grass stains on it the better.",
     score_threshold: 500,
-    image: "www.testimage1.com"
+    image: "https://itk-assets.nyc3.cdn.digitaloceanspaces.com/2020/06/street_style_-_dusseldorf_-_june_12__2020.jpeg"
 )
 
 badge2 = Badge.create(
     name: "Bud Light",
     description: "No fancy beer for you. You are a father that doesn't have the time or money for that nonsense.",
     score_threshold: 300,
-    image: "www.testimage2.com"
+    image: "https://res.cloudinary.com/promenade-prod/image/upload/b_rgb:ffffff,c_pad,d_alcohol:vendor:global:catalog:product:image-placeholder.png,dpr_2.0,f_auto,fl_preserve_transparency,h_450,q_auto,w_450/v1636953021/alcohol/vendor/100055/catalog/product/b/6/b6392f6a4e8d2fe4af193905b2ec7b35_5fbede3684ee9.jpg"
 )
 
 badge3 = Badge.create(
-    name: "Thick Face Eating Glasses",
+    name: "Dad Glasses",
     description: "You need to see and it needs to be everything.  Can't have the frame impeding your view!",
     score_threshold: 200,
-    image: "www.testimage3.com"
+    image: "https://c.shld.net/rpx/i/s/pi/mp/10160405/prod_9456915432?src=http%3A%2F%2Flyimage.club%2Fimages%2FimageB%2FALVB07KXBMBP2.jpg&d=6bf4e65569f1b27907470137c97431dbe9803a95&hei=468&wid=468&op_sharpen=1"
 )
 
 task1 = Task.create(

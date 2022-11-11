@@ -23,12 +23,14 @@ const BadgeList = () => {
 
     const badges = earnedBadges(currentUser)
 
+
+    if (badges.length > 0){
     return (
         <div class="badge-carousel">
             <div class="badge-title">
                 <h2>Badges</h2>
             </div>
-            <Carousel>
+                <Carousel>
                 {badges.map(badge => {
                     return (
                         <Carousel.Item interval={10000000}>
@@ -50,6 +52,10 @@ const BadgeList = () => {
             </Carousel>
         </div>
     )
+            } else{
+                return <h2>No Badges</h2>
+            }
+
 }
 
 export default BadgeList

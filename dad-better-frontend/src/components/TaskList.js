@@ -10,7 +10,7 @@ function TaskList(props) {
     const currentUser = useSelector((state) => state.usersReducer.user[0].data)
     const assignedTasks = props.userAssignedTasks
     const dispatch = useDispatch()
- 
+
     const updateUserToServer = (user, score, taskId) => {
         fetch("http://localhost:3000/updateuser", {
             method: "POST",
@@ -28,7 +28,8 @@ function TaskList(props) {
         })
             .then((r) => r.json())
             .then((data) => {
-                dispatch({type: "UPDATE_USER", payload: data})})
+                dispatch({ type: "UPDATE_USER", payload: data })
+            })
     }
 
 
@@ -38,6 +39,7 @@ function TaskList(props) {
         updateUserToServer(user, score, taskId)
         return true
     }
+
 
     return (
         <div class="task-carousel">
@@ -53,10 +55,10 @@ function TaskList(props) {
                             <Carousel.Caption>
                                 <div class="task-carousel-caption">
                                     <h6>{task.attributes.task.description}</h6>
-                                <p>Points: {task.attributes.task.value}</p>
-                                <Button variant="primary" taskid= {task.attributes.task.id} taskvalue={task.attributes.task.value} onClick={handleClick}>
-                                    Complete
-                                </Button>
+                                    <p>Points: {task.attributes.task.value}</p>
+                                    <Button variant="primary" taskid={task.attributes.task.id} taskvalue={task.attributes.task.value} onClick={handleClick}>
+                                        Complete
+                                    </Button>
                                 </div>
                             </Carousel.Caption>
                         </Carousel.Item>
