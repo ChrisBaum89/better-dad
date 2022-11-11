@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from 'react-bootstrap/Carousel'
-import task_background from './task_background.jpeg'
+import task_background from '../img/task_background.jpeg'
 import '../css/Tasks.css'
 import Button from 'react-bootstrap/Button'
 import { useSelector, useDispatch } from 'react-redux';
@@ -51,11 +51,13 @@ function TaskList(props) {
                                 alt="First slide"
                             />
                             <Carousel.Caption>
-                                <h6>{task.attributes.task.description}</h6>
+                                <div class="task-carousel-caption">
+                                    <h6>{task.attributes.task.description}</h6>
                                 <p>Points: {task.attributes.task.value}</p>
                                 <Button variant="primary" taskid= {task.attributes.task.id} taskvalue={task.attributes.task.value} onClick={handleClick}>
                                     Complete
                                 </Button>
+                                </div>
                             </Carousel.Caption>
                         </Carousel.Item>
                     )

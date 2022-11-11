@@ -1,7 +1,7 @@
 import React from 'react';
 import BadgeList from "../components/BadgeList.js";
 
-function BadgeContainer() {
+function BadgeContainer(props) {
     return (
         <div>
             <BadgeList />

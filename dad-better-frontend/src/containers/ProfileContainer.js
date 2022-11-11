@@ -12,7 +12,6 @@ import { useSelector, useDispatch } from 'react-redux'
 function ProfileContainer() {
     const currentState = useSelector((state) => state)
     const currentUser = currentState.usersReducer.user[0]
-    debugger
     const dispatch = useDispatch()
     
     const username = (currentUser) => {
@@ -39,9 +38,7 @@ function ProfileContainer() {
 
     const assignedTasks = (currentUser) => {
         if (currentUser !== 0) {
-            
-            const userAssignedTasks = currentUser.included.filter(checkAssignedTask)
-            return userAssignedTasks
+            return currentUser.included.filter(checkAssignedTask)
         }
         else {
             return "No user. No tasks assigned"
@@ -49,6 +46,7 @@ function ProfileContainer() {
 
     }
 
+    
 
     return (
         <div>

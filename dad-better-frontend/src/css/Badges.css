@@ -1,0 +1,19 @@
+.badge-carousel{
+    width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.badge-carousel-caption{
+    display: block;
+    top: 30px;
+    bottom: auto;
+    color: black;
+}
+
+.badge-title{
+    text-align: center;
+    top: 30px;
+    bottom: block;
+}
