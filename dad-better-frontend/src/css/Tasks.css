@@ -11,3 +11,9 @@
     left: 0px;
     color: white;
 }
+
+.task-title{
+    text-align: center;
+    top: 30px;
+    bottom: block;
+}
