@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import Card from 'react-bootstrap/Card'
+import task_background from '../img/task_background.jpeg'
+import '../css/Tasks.css'
 
 function CompletedTaskCard (){
     const currentUser = useSelector((state) => state.usersReducer.user[0])
@@ -34,15 +36,19 @@ function CompletedTaskCard (){
 
     const userCompletedTask = (task) => {
         return (<div className="col d-flex justify-content-center">
-            <Card style={{ width: '18rem' }} >
-                <Card.Body>
+            <Card style={{ width: '36rem' }} >
+                <Card.Img src={task_background}></Card.Img>
+                <Card.ImgOverlay>
+                <Card.Body class='completed-card-body'>
+                    <Card.Title class= 'completed-card-title'>
+                        {task.attributes.task.description}
+                    </Card.Title>
                     <Card.Text>
-                        {task.attributes.task.description}<br></br>
                         Score: {task.attributes.task.value}<br></br>
-                        Date Completed: {formatDateTime(task.attributes.created_at)[0]}<br></br>
-                        Time Completed: {formatDateTime(task.attributes.created_at)[1]}
+                        Completed: {formatDateTime(task.attributes.created_at)[0]}<br></br>
                     </Card.Text>
                 </Card.Body>
+                </Card.ImgOverlay>
             </Card>
         </div>)
     }
