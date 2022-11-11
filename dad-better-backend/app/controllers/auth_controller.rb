@@ -12,7 +12,7 @@ class AuthController < ApplicationController
       assign_daily_tasks(@user)
 
       options = {
-        include: [:assigned_tasks, :completed_tasks]
+        include: [:assigned_tasks, :completed_tasks, :earned_badges]
       }
 
       render json: {

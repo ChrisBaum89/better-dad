@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     # add assigned tasks and completed tasks
     user = User.find_by_id(params[:id])
     options = {
-      include: %i[assigned_tasks completed_tasks]
+      include: %i[assigned_tasks completed_tasks earned_badges]
     }
     render json: UserSerializer.new(user, options)
   end
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     @user.save
 
     options = {
-      include: [:assigned_tasks, :completed_tasks]
+      include: [:assigned_tasks, :completed_tasks, :earned_badges]
     }
 
     render json: {
