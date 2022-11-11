@@ -6,9 +6,8 @@
 }
 
 .task-carousel-caption{
-    position: relative;
-    display: block;
-    top: -20px;
-    bottom: auto;
+    position: absolute;
+    top: -130px;
+    left: 0px;
     color: white;
 }
