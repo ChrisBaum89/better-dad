@@ -27,4 +27,10 @@ class TasksController < ApplicationController
       newTask = Task.create(description: object[:joke], identifier: object[:id], value: 10, category: 'joke')
     end
   end
+
+  def assign_tasks
+    10.times do
+      random_task_id = rand(1..Task.all.length)
+      AssignedTask.create(user_id: 3, task_id: random_task_id)
+  end 
 end
