@@ -23,37 +23,37 @@ const BadgeList = () => {
     const badges = earnedBadges(currentUser)
 
 
-    if (badges.length > 0){
-    return (
-        <div class="badge-carousel">
-            <div class="badge-title">
-                <h2>Badges</h2>
-            </div>
+    if (badges.length > 0) {
+        return (
+            <div class="badge-carousel">
+                <div class="badge-title">
+                    <h2>Badges</h2>
+                </div>
                 <Carousel>
-                {badges.map(badge => {
-                    return (
-                        <Carousel.Item interval={10000000}>
-                            <img
-                                className="d-block w-100"
-                                src={star_background}
-                                alt="First slide"
-                            />
-                            <Carousel.Caption>
-                                <div class="badge-carousel-caption">
-                                    <h6>{badge.attributes.badge.name}</h6>
-                                    <p>{badge.attributes.badge.description}</p>
-                                    <img src={badge.attributes.badge.image}></img>
-                                </div>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                    )
-                })}
-            </Carousel>
-        </div>
-    )
-            } else{
-                return <h2>No Badges</h2>
-            }
+                    {badges.map(badge => {
+                        return (
+                            <Carousel.Item interval={10000000}>
+                                <img
+                                    className="d-block w-100"
+                                    src={star_background}
+                                    alt="First slide"
+                                />
+                                <Carousel.Caption>
+                                    <div class="badge-carousel-caption">
+                                        <img class='badge-image' src={badge.attributes.badge.image}></img>
+                                        <h6>{badge.attributes.badge.name}</h6>
+                                        <p>{badge.attributes.badge.description}</p>
+                                    </div>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                        )
+                    })}
+                </Carousel>
+            </div>
+        )
+    } else {
+        return <h2>No Badges</h2>
+    }
 
 }
 

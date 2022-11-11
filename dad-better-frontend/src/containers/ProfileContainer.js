@@ -55,8 +55,11 @@ function ProfileContainer() {
             </div>
             <div className="profile-content">
                 <UserContainer username={username(currentUser)} score={score(currentUser)} />
+                <br></br>
                 <BadgeContainer />
+                <br></br>
                 <QuoteContainer />
+                <br></br>
                 <TaskContainer userAssignedTasks={assignedTasks(currentUser)} />
                 <NavigationContainer />
             </div>
