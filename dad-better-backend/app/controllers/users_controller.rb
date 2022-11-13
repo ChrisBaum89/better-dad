@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user.level = 0
     if @user.valid?
       @user.save
-      assign
+      assign_tasks
       @token = encode_token(user_id: @user.id)
       render json: {
                user: UserSerializer.new(@user),
@@ -81,10 +81,12 @@ class UsersController < ApplicationController
     render json: UserSerializer.new(@users)
   end
 
-  def assigntasksoncreation
-
+  def assign_tasks
+    for i in 1..5
+      random_task = rand(1..Task.all.length)
+      AssignedTask.create(user_id: user.id, task_id: random_task)
+    end
   end
-
 
   private
 
