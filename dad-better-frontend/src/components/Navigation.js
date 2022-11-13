@@ -4,13 +4,21 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import History from '../components/History';
+import { useSelector, useDispatch } from 'react-redux';
 
 function Navigation(){
+
+    const currentUser = useSelector((state) => state.usersReducer.user[0])
+    const dispatch = useDispatch()
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    
+
+    const handleLogout = () => {
+        localStorage.setItem("jwt", "")
+        dispatch({type: "LOGOUT"})
+    }
 
     return (
         <div>
@@ -19,7 +27,7 @@ function Navigation(){
                     <Button onClick={handleShow}>History</Button>
                     <Button>Favorites</Button>
                     <Button>User Profile</Button>
-                    <Button>Logout</Button>
+                    <Button onClick={handleLogout}>Logout</Button>
                 </ButtonGroup>
             </ButtonToolbar>
 
