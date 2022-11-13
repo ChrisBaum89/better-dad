@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Card from 'react-bootstrap/Card'
 import task_background from '../img/task_background.jpeg'
 import '../css/Tasks.css'
+import { formatDateTime } from "../actions/taskActions";
 
 function CompletedTaskCard (){
     
@@ -14,29 +15,20 @@ function CompletedTaskCard (){
         return task.type === "completed_task"
     }
 
-    const completedTasks = (currentUser) => {
+    const getCompletedTasks = (currentUser) => {
         if (currentUser !== 0) {
             return currentUser.included.filter(checkCompletedTask)
         }
         else {
-            return "No user. No tasks assigned"
+            return []
         }
     }
 
-    const userCompletedTasks = completedTasks(currentUser)
-
-    const formatDateTime= (dateTime) => {
-        const dateTimeArray = []
-        const formattedDateTime = new Date(dateTime)
-        
-        dateTimeArray.push(formattedDateTime.toDateString())
-        dateTimeArray.push(formattedDateTime.toTimeString())
-
-        return dateTimeArray
-    }
+    const userCompletedTasks = getCompletedTasks(currentUser)
 
     const userCompletedTask = (task) => {
-        return (<div className="col d-flex justify-content-center">
+        return (
+        <div className="col d-flex justify-content-center">
             <Card style={{ width: '36rem' }} >
                 <Card.Body class='completed-card-body'>
                     <Card.Title class= 'completed-card-title'>
