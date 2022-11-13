@@ -50,9 +50,6 @@ function ProfileContainer() {
 
     return (
         <div>
-            <div className="logout">
-                <LogoutButton />
-            </div>
             <div className="profile-content">
                 <UserContainer username={username(currentUser)} score={score(currentUser)} />
                 <br></br>
