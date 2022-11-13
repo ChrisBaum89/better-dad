@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 function ProfileContainer() {
     const currentState = useSelector((state) => state)
-    const currentUser = currentState.usersReducer.user[0]
+    const currentUser = currentState.usersReducer.user[0].user
     const dispatch = useDispatch()
     
     const username = (currentUser) => {

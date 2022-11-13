@@ -41,12 +41,15 @@ class ApplicationController < ActionController::API
     render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
   end
 
-  def render_user_json
+  def render_user_json(user, token)
+    options = {
+      include: [:assigned_tasks, :completed_tasks, :earned_badges]
+    }
+
     render json: {
-      user: UserSerializer.new(@user),
-      jwt: @token
+      user: UserSerializer.new(user, options),
+      jwt: token
     },
     status: :created
   end
-
 end

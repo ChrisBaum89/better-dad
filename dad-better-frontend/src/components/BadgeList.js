@@ -7,7 +7,7 @@ import '../css/Badges.css'
 const BadgeList = () => {
 
     const currentState = useSelector((state) => state)
-    const currentUser = currentState.usersReducer.user[0]
+    const currentUser = currentState.usersReducer.user[0].user
     const dispatch = useDispatch()
 
     const checkEarnedBadges = (badge) => {
