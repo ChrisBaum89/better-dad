@@ -1,5 +1,5 @@
 .task-carousel{
-    width: 400px;
+    width: 500px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -7,8 +7,9 @@
 
 .task-carousel-caption{
     position: absolute;
-    top: -130px;
-    left: 0px;
+    top: -325%;
+    width: 100%;
+    text-align: center;
     color: white;
 }
 
