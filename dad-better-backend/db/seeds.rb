@@ -73,27 +73,6 @@ badge3 = Badge.create(
     image: "https://c.shld.net/rpx/i/s/pi/mp/10160405/prod_9456915432?src=http%3A%2F%2Flyimage.club%2Fimages%2FimageB%2FALVB07KXBMBP2.jpg&d=6bf4e65569f1b27907470137c97431dbe9803a95&hei=468&wid=468&op_sharpen=1"
 )
 
-task1 = Task.create(
-    description: "Tell dad joke 1",
-    identifier: rand(1..10000000).to_s,
-    value: 10,
-    category: "joke"
-)
-
-task2 = Task.create(
-    description: "Tell dad joke 2",
-    identifier: rand(1..10000000).to_s,
-    value: 10,
-    category: "joke"
-)
-
-task3 = Task.create(
-    description: "Take out the trash",
-    identifier: rand(1..10000000).to_s,
-    value: 20,
-    category: "goal"
-)
-
 task4 = Task.create(
     description: "Play with children without looking at phone for 30 minutes",
     identifier: rand(1..10000000).to_s,
@@ -101,15 +80,6 @@ task4 = Task.create(
     category: "goal"
 )
 
-assigned_tasks1 = AssignedTask.create(
-    user_id: 1,
-    task_id: 4
-)
-
-completed_tasks1 = CompletedTask.create(
-    user_id: 1,
-    task_id: 1
-)
 
 quote1 = Quote.create(
     description: "A dad is more than just the sum of his parts. He is the very soul of the family.",
