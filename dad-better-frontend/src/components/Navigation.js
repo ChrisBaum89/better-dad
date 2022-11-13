@@ -10,10 +10,10 @@ function Navigation(){
 
     const currentUser = useSelector((state) => state.usersReducer.user[0])
     const dispatch = useDispatch()
-    const [show, setShow] = useState(false);
+    const [show, setHistoryShow] = useState(false);
 
-    const handleHistoryClose = () => setShow(false);
-    const handleHistoryShow = () => setShow(true);
+    const handleHistoryClose = () => setHistoryShow(false);
+    const handleHistoryShow = () => setHistoryShow(true);
 
     const handleLogout = () => {
         localStorage.setItem("jwt", "")
