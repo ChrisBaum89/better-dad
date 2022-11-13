@@ -37,8 +37,6 @@ function CompletedTaskCard (){
     const userCompletedTask = (task) => {
         return (<div className="col d-flex justify-content-center">
             <Card style={{ width: '36rem' }} >
-                <Card.Img src={task_background}></Card.Img>
-                <Card.ImgOverlay>
                 <Card.Body class='completed-card-body'>
                     <Card.Title class= 'completed-card-title'>
                         {task.attributes.task.description}
@@ -48,7 +46,6 @@ function CompletedTaskCard (){
                         Completed: {formatDateTime(task.attributes.created_at)[0]}<br></br>
                     </Card.Text>
                 </Card.Body>
-                </Card.ImgOverlay>
             </Card>
         </div>)
     }
