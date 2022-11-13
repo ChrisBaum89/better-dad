@@ -4,16 +4,20 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import History from '../components/History';
+import UserSettings from './UserSettings';
 import { useSelector, useDispatch } from 'react-redux';
 
 function Navigation(){
 
     const currentUser = useSelector((state) => state.usersReducer.user[0])
     const dispatch = useDispatch()
-    const [show, setHistoryShow] = useState(false);
+    const [showHistory, setHistoryShow] = useState(false);
+    const [showSettings, setSettingsShow] = useState(false)
 
     const handleHistoryClose = () => setHistoryShow(false);
     const handleHistoryShow = () => setHistoryShow(true);
+    const handleSettingsClose = () => setSettingsShow(false);
+    const handleSettingsShow = () => setSettingsShow(true)
 
     const handleLogout = () => {
         localStorage.setItem("jwt", "")
@@ -26,17 +30,26 @@ function Navigation(){
                 <ButtonGroup className="me-2" aria-label="First group">
                     <Button onClick={handleHistoryShow}>History</Button>
                     <Button>Favorites</Button>
-                    <Button>User Profile</Button>
+                    <Button onClick={handleSettingsShow}>User Settings</Button>
                     <Button onClick={handleLogout}>Logout</Button>
                 </ButtonGroup>
             </ButtonToolbar>
 
-            <Offcanvas show={show} onHide={handleHistoryClose}>
+            <Offcanvas show={showHistory} onHide={handleHistoryClose}>
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title>Completed Tasks</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <History/>
+                </Offcanvas.Body>
+            </Offcanvas>
+
+            <Offcanvas show={showSettings} onHide={handleSettingsClose}>
+                <Offcanvas.Header closeButton>
+                    <Offcanvas.Title>User Settings</Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                    <UserSettings/>
                 </Offcanvas.Body>
             </Offcanvas>
         </div>
