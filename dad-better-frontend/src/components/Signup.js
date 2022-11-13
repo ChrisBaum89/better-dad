@@ -35,7 +35,7 @@ function Signup() {
             .then((r) => r.json())
             .then((data) => {
                 localStorage.setItem("jwt", data.jwt)
-                dispatch({type: "SET_USER", payload: data})
+                dispatch({type: "UPDATE_USER", payload: data})
              })
     }
 

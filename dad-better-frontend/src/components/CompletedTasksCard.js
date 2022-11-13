@@ -5,8 +5,9 @@ import task_background from '../img/task_background.jpeg'
 import '../css/Tasks.css'
 
 function CompletedTaskCard (){
-    const currentUser = useSelector((state) => state.usersReducer.user[0])
     
+    const currentState = useSelector((state) => state)
+    const currentUser = currentState.usersReducer.user[0].user
     const dispatch = useDispatch()
 
     const checkCompletedTask = (task) =>{

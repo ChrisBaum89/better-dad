@@ -6,13 +6,11 @@ import QuoteContainer from './QuoteContainer'
 import NavigationContainer from './NavigationContainer';
 import { useSelector, useDispatch } from 'react-redux'
 
-
-
 function ProfileContainer() {
     const currentState = useSelector((state) => state)
     const currentUser = currentState.usersReducer.user[0].user
     const dispatch = useDispatch()
-    
+
     const username = (currentUser) => {
         if (currentUser !== null) {
             return currentUser.data.attributes.username
@@ -31,7 +29,7 @@ function ProfileContainer() {
         }
     }
 
-    const checkAssignedTask = (task) =>{
+    const checkAssignedTask = (task) => {
         return task.type === "assigned_task"
     }
 
@@ -45,12 +43,12 @@ function ProfileContainer() {
 
     }
 
-    
+
 
     return (
         <div>
             <div className="profile-content">
-            <NavigationContainer />
+                <NavigationContainer />
                 <UserContainer username={username(currentUser)} score={score(currentUser)} />
                 <br></br>
                 <QuoteContainer />

@@ -2,7 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
 
 function UserSettings(){
-    const currentUser = useSelector((state) => state.usersReducer.user[0])
+    const currentState = useSelector((state) => state)
+    const currentUser = currentState.usersReducer.user[0].user
     const dispatch = useDispatch()
 
     const name = currentUser.data.attributes.name

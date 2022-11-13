@@ -17,6 +17,8 @@ function App() {
     return (currentState.usersReducer.user.length > 0) ? true : false
   }
 
+
+
   return (
     <Router>
       <div className="app">
