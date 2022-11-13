@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user.level = 0
     if @user.valid?
       @user.save
+      assign
       @token = encode_token(user_id: @user.id)
       render json: {
                user: UserSerializer.new(@user),
@@ -36,11 +37,11 @@ class UsersController < ApplicationController
     render json: UserSerializer.new(user, options)
   end
 
-  def updateuser
+  def update_user
     @user = User.find_by_id(params[:user][:user_id])
-    updatescore(@user)
-    updatetask(@user)
-    updatebadge(@user)
+    update_score(@user)
+    update_task(@user)
+    update_badge(@user)
     @user.save
 
     options = {
@@ -52,11 +53,11 @@ class UsersController < ApplicationController
     }
   end
 
-  def updatescore(user)
+  def update_score(user)
     user.score = user.score + (params[:user][:score]).to_i
   end
 
-  def updatetask(user)
+  def update_task(user)
     @completed_task = Task.find_by_id(params[:user][:task_id])
     CompletedTask.create(user_id: user.id, task_id: @completed_task.id)
 
@@ -64,7 +65,7 @@ class UsersController < ApplicationController
     user.assigned_tasks.delete_by(task_id: @completed_task.id)
   end
 
-  def updatebadge(user)
+  def update_badge(user)
     applicable_badges = Badge.all.select{|badge| user.score >= badge.score_threshold}
     applicable_badges.each do |badge|
       if user.badges.include?(badge)
@@ -79,6 +80,11 @@ class UsersController < ApplicationController
     @users = User.all
     render json: UserSerializer.new(@users)
   end
+
+  def assigntasksoncreation
+
+  end
+
 
   private
 
