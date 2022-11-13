@@ -4,7 +4,6 @@ import BadgeContainer from './BadgeContainer';
 import TaskContainer from './TaskContainer';
 import QuoteContainer from './QuoteContainer'
 import NavigationContainer from './NavigationContainer';
-import LogoutButton from "../components/LogoutButton";
 import { useSelector, useDispatch } from 'react-redux'
 
 
@@ -51,6 +50,7 @@ function ProfileContainer() {
     return (
         <div>
             <div className="profile-content">
+            <NavigationContainer />
                 <UserContainer username={username(currentUser)} score={score(currentUser)} />
                 <br></br>
                 <BadgeContainer />
