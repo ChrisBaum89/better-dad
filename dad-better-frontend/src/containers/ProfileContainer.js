@@ -5,6 +5,8 @@ import TaskContainer from './TaskContainer';
 import QuoteContainer from './QuoteContainer'
 import NavigationContainer from './NavigationContainer';
 import { useSelector, useDispatch } from 'react-redux'
+import Image from 'react-bootstrap/Image'
+import MyImage from '../img/better-dad-logo.png'
 
 function ProfileContainer() {
     const currentState = useSelector((state) => state)
@@ -46,9 +48,13 @@ function ProfileContainer() {
 
 
     return (
-        <div>
-            <div className="profile-content">
-                <NavigationContainer />
+
+        <div className="profile-content">
+            <NavigationContainer />
+            <div>
+                <div className="better-dad-logo">
+                    <Image src={MyImage} alt="Better Dad" display="inline-block"></Image>
+                </div>
                 <UserContainer username={username(currentUser)} score={score(currentUser)} />
                 <br></br>
                 <QuoteContainer />
