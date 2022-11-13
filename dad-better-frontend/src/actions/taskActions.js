@@ -1,9 +1,9 @@
-export const fetchTasks = () => {
-    return (dispatch) => {
-        dispatch({ type: 'LOADING_USERS' });
-        fetch("http://localhost:3000/tasks")
-            .then((response) => { return response.json() })
-            .then((responseJSON) => { dispatch({ type: "ADD_TASK", tasks: responseJSON })})
-    }
-}
+export const formatDateTime = (dateTime) => {
+    const dateTimeArray = []
+    const formattedDateTime = new Date(dateTime)
 
+    dateTimeArray.push(formattedDateTime.toDateString())
+    dateTimeArray.push(formattedDateTime.toTimeString())
+
+    return dateTimeArray
+}
