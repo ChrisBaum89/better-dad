@@ -5,7 +5,7 @@ const usersReducer = (state = { user: [], loading: false }, action) => {
             return { ...state, user: [action.payload] }
 
         case "UPDATE_USER":
-            return {...state, user: [action.payload.user]}
+            return {...state, user: [action.payload]}
 
         case "LOGOUT":
             return { ...state, user: [] }

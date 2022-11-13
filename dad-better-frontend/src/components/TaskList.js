@@ -7,8 +7,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { handleClick } from "../actions/taskActions";
 
 function TaskList(props) {
-    const currentUser = useSelector((state) => state.usersReducer.user[0].data)
+    const currentState = useSelector((state) => state)
+    const currentUser = currentState.usersReducer.user[0].user
     const assignedTasks = props.userAssignedTasks
+    const jwtKey = currentState.usersReducer.user[0].jwt
+
     const dispatch = useDispatch()
 
     const updateUserToServer = (user, score, taskId) => {
@@ -20,10 +23,14 @@ function TaskList(props) {
             },
             body: JSON.stringify({
                 user: {
-                    user_id: user.id,
+                    user_id: user.data.id,
                     score: score,
                     task_id: taskId,
                 },
+                jwt: {
+                    jwt: jwtKey,
+
+                }
             }),
         })
             .then((r) => r.json())

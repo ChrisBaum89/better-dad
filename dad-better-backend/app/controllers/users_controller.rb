@@ -42,6 +42,7 @@ class UsersController < ApplicationController
     update_score(@user)
     update_task(@user)
     update_badge(@user)
+    token = params[:jwt]
     @user.save
 
     options = {
@@ -49,7 +50,8 @@ class UsersController < ApplicationController
     }
 
     render json: {
-      user: UserSerializer.new(@user, options)
+      user: UserSerializer.new(@user, options),
+      jwt: token
     }
   end
 
