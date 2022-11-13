@@ -15,17 +15,17 @@ class UsersController < ApplicationController
       @user.save
       assign_tasks
       @token = encode_token(user_id: @user.id)
-      render json: {
-               user: UserSerializer.new(@user),
-               jwt: @token
-             },
-             status: :created
+      render_user_json
     else
-      render json: {
-               error: 'failed to create user'
-             },
-             status: :unprocessable_entity
+      render_error
     end
+  end
+
+  def render_error_json
+    render json: {
+      error: 'failed to create user'
+    },
+    status: :unprocessable_entity
   end
 
   def show
