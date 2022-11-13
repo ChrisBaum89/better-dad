@@ -18,6 +18,8 @@ function Navigation(){
                 <ButtonGroup className="me-2" aria-label="First group">
                     <Button onClick={handleShow}>History</Button>
                     <Button>Favorites</Button>
+                    <Button>User Profile</Button>
+                    <Button>Logout</Button>
                 </ButtonGroup>
             </ButtonToolbar>
 
