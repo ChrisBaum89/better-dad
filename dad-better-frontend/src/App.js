@@ -22,17 +22,12 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <div className="better-dad-logo">
-          <Image src={MyImage} alt="Better Dad" display="inline-block"></Image>
-        </div>
-
         <Route exact path="/">
           {loggedin() ? <Redirect to="/profile" /> : <WelcomeContainer />}
         </Route>
         <Route exact path="/profile">
           {loggedin() ? <ProfileContainer /> : <Redirect to="/" />}
         </Route>
-
       </div>
     </Router>
   )
