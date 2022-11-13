@@ -12,8 +12,8 @@ function Navigation(){
     const dispatch = useDispatch()
     const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleHistoryClose = () => setShow(false);
+    const handleHistoryShow = () => setShow(true);
 
     const handleLogout = () => {
         localStorage.setItem("jwt", "")
@@ -24,14 +24,14 @@ function Navigation(){
         <div>
             <ButtonToolbar aria-label="Toolbar with button groups">
                 <ButtonGroup className="me-2" aria-label="First group">
-                    <Button onClick={handleShow}>History</Button>
+                    <Button onClick={handleHistoryShow}>History</Button>
                     <Button>Favorites</Button>
                     <Button>User Profile</Button>
                     <Button onClick={handleLogout}>Logout</Button>
                 </ButtonGroup>
             </ButtonToolbar>
 
-            <Offcanvas show={show} onHide={handleClose}>
+            <Offcanvas show={show} onHide={handleHistoryClose}>
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title>Completed Tasks</Offcanvas.Title>
                 </Offcanvas.Header>
