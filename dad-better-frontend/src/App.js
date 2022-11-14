@@ -1,49 +1,39 @@
-import React, { Component } from 'react'
-import logo from './logo.svg';
+import React from 'react';
 import './css/App.css';
-import { connect } from "react-redux";
-import { fetchUsers } from "./actions/userActions";
-import { fetchQuotes } from "./actions/quoteActions"
-import LoginContainer from "./containers/LoginContainer";
-import UserContainer from "./containers/UserContainer";
-import BadgeContainer from "./containers/BadgeContainer";
-import QuoteContainer from "./containers/QuoteContainer";
-import TaskContainer from './containers/TaskContainer';
-import NavigationContainer from './containers/NavigationContainer';
-import Image from 'react-bootstrap/Image'
-import MyImage from './img/better-dad-logo.png'
+import ProfileContainer from "./containers/ProfileContainer";
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import WelcomeContainer from './containers/WelcomeContainer';
+import { useSelector, useDispatch } from 'react-redux';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import Footer from './components/Footer';
 
-class App extends Component {
+function App() {
 
-  componentDidMount() {
-    this.props.fetchUsers()
-    this.props.fetchQuotes()
+  const currentState = useSelector((state) => state)
+  const dispatch = useDispatch()
+
+  const loggedin = () => {
+    return (currentState.usersReducer.user.length > 0) ? true : false
   }
 
-  render() {
-    return (
-      <div>
-          <div className="better-dad-logo">
-            <Image src={MyImage} alt="Better Dad" display="inline-block"></Image>
-          </div>
-          <div className="login-container">
-            <LoginContainer />
-          </div>
-          <UserContainer />
-          <BadgeContainer />
-          <QuoteContainer />
-          <TaskContainer />
-          <NavigationContainer />
+  return (
+    <Router>
+      <div className="app">
+        <Route exact path="/">
+          {loggedin() ? <Redirect to="/profile" /> : <WelcomeContainer />}
+        </Route>
+        <Route exact path="/profile">
+          {loggedin() ? <ProfileContainer /> : <Redirect to="/" />}
+        </Route>
+        <div className="site-footer">
+                <div className="footer-content">
+                  <Footer />
+                  </div>
+            </div>
       </div>
-    )
-  }
+    </Router>
+  )
+
 }
 
-const mapStateToProps = (state) => {
-  return {
-    users: state.usersReducer.users,
-    quote: state.quotesReducer.quotes.data
-  }
-}
-
-export default connect(mapStateToProps, { fetchUsers, fetchQuotes })(App);
+export default App;

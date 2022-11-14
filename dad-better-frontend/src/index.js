@@ -5,13 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import thunk from 'redux-thunk'
 import rootReducer from "./reducers/indexReducer.js"
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Provider } from 'react-redux'
 import { applyMiddleware, createStore } from "redux";
+import {CookiesProvider} from 'react-cookie'
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <Provider store={store}>
     <App />

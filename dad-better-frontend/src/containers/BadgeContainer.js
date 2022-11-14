@@ -1,14 +1,12 @@
-import React, {Component} from 'react';
+import React from 'react';
 import BadgeList from "../components/BadgeList.js";
 
-class BadgeContainer extends Component {
-    render(){
-        return (
-            <div>
-                <BadgeList />
-            </div>
-        )
-    }
+function BadgeContainer(props) {
+    return (
+        <div>
+            <BadgeList />
+        </div>
+    )
 }
 
 export default BadgeContainer

@@ -1,4 +1,6 @@
 class CompletedTaskSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :user_id, :task_id
+  attributes :user, :task, :favorite, :created_at
+  belongs_to :user
+  belongs_to :task
 end

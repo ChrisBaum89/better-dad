@@ -3,7 +3,7 @@ class CreateUsersCompletedTasks < ActiveRecord::Migration[6.1]
     create_table :completed_tasks do |t|
       t.integer :user_id
       t.integer :task_id
-
+      t.boolean :favorite, default: false
       t.timestamps
     end
   end
