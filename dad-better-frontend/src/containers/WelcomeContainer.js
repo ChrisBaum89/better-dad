@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import Offcanvas from 'react-bootstrap/Offcanvas';
+import React from 'react';
 import LoginSignupContainer from './LoginSignupContainer';
 import Welcome from '../components/Welcome';
-import Signup from '../components/Signup';
 import Image from 'react-bootstrap/Image'
 import MyImage from '../img/better-dad-logo.png'
 
-
 function WelcomeContainer() {
-
-
-
     return (
         <div>
             <div className="better-dad-logo">
@@ -18,7 +12,6 @@ function WelcomeContainer() {
             </div>
             <LoginSignupContainer />
             <Welcome />
-
         </div>
     )
 }
