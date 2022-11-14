@@ -3,3 +3,5 @@
 - have favoriting only on jokes
 - be able to edit user settings
 - handle JWT back and forth for updating.
+- need to implement quotes
+- need to refactor
