@@ -49,10 +49,16 @@ function FavoriteButton(props) {
         return <div className={starClassName} onClick={() => {handleFavoriteClick(currentUser, props.task.id)}}></div>
     }
 
+    const checkJoke = (task) => {
+        if (task.attributes.task.category === "joke"){
+            return buttonLoad(task)
+        }
+    }
+
     return (
         <div className="favorite-star">
             <div className={`favorite-star-${props.task.id}`}>
-                {buttonLoad(props.task)}
+                {checkJoke(props.task)}
             </div>
         </div>
     )
