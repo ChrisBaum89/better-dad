@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-globals */
-import React from "react";
+import React, { useEffect } from "react";
 import '../css/Tasks.css'
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -35,22 +35,18 @@ function FavoriteButton(props) {
     }
 
     const handleFavoriteClick = (user, taskId) => {
-        if (event.target.className === 'fa fa-star') {
-            event.target.className = 'fa fa-star checked'
-        }
-        else {
-            event.target.className = 'fa fa-star'
-        }
         updateUserToServer(user, taskId)
     }
 
     const buttonLoad = (task) => {
+        let starClassName = ""
         if (task.attributes.favorite){
-            return <div className="fa fa-star checked" onClick={() => {handleFavoriteClick(currentUser, props.task.id)}}></div>
+            starClassName = 'fa fa-star checked'
         }
         else{
-            return <div className="fa fa-star" onClick={() => {handleFavoriteClick(currentUser, props.task.id)}}></div>
+            starClassName = 'fa fa-star'
         }
+        return <div className={starClassName} onClick={() => {handleFavoriteClick(currentUser, props.task.id)}}></div>
     }
 
     return (
