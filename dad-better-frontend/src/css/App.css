@@ -49,8 +49,13 @@
 }
 
 .app{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   background-image: url('../img/background_photo.webp');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100% auto;
+  min-height: 100%;
   background-color: rgb(126, 172, 113);
 }
