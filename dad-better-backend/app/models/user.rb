@@ -11,11 +11,11 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: { case_sensitive: false }
 
-  def score
+  def calc_score
     score = 0
     self.completed_tasks.each do |completed_task|
       score = score + completed_task.task.value
     end
-    return score
+    return self.score = score
   end
 end
