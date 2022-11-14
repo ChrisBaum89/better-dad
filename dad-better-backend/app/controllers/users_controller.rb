@@ -58,10 +58,6 @@ class UsersController < ApplicationController
     }
   end
 
-  # def update_score(user)
-  #   user.score = user.score + (params[:user][:score]).to_i
-  # end
-
   def mark_task_completed(user)
     @completed_task = Task.find_by_id(params[:user][:task_id])
     CompletedTask.create(user_id: user.id, task_id: @completed_task.id)
