@@ -4,7 +4,6 @@ import task_background from '../img/task_background.jpeg'
 import '../css/Tasks.css'
 import Button from 'react-bootstrap/Button'
 import { useSelector, useDispatch } from 'react-redux';
-import { handleClick } from "../actions/taskActions";
 
 function TaskList(props) {
     const currentState = useSelector((state) => state)
