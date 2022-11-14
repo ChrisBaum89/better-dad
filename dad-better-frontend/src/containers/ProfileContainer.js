@@ -7,6 +7,7 @@ import NavigationContainer from './NavigationContainer';
 import { useSelector, useDispatch } from 'react-redux'
 import Image from 'react-bootstrap/Image'
 import MyImage from '../img/better-dad-logo.png'
+import Footer from '../components/Footer';
 
 function ProfileContainer() {
     const currentState = useSelector((state) => state)
@@ -61,7 +62,7 @@ function ProfileContainer() {
                 <br></br>
                 <TaskContainer userAssignedTasks={assignedTasks(currentUser)} />
                 <br></br>
-                <BadgeContainer />
+                <BadgeContainer /><br></br><br></br><br></br>
             </div>
         </div>
     )
