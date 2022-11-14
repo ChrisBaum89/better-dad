@@ -1,10 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import Card from 'react-bootstrap/Card'
-import task_background from '../img/task_background.jpeg'
 import '../css/Tasks.css'
 import { formatDateTime } from "../actions/taskActions";
-import Button from "react-bootstrap/esm/Button";
+import FavoriteButton from "./FavoriteButton";
 
 function CompletedTaskCard() {
 
@@ -33,11 +32,7 @@ function CompletedTaskCard() {
                 <Card style={{ width: '36rem' }} >
                     <Card.Body class='completed-card-body'>
                         <Card.Title class='completed-card-title'>
-                            <div className={'favorite-star'}>
-                                <Button variant="light">
-                                <div className="fa fa-star"></div>
-                                </Button>
-                            </div><br></br>
+                            <FavoriteButton />
                             {task.attributes.task.description}
                         </Card.Title>
                         <Card.Text>
