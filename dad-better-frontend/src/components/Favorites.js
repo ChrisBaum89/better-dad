@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import '../css/Tasks.css'
 import Card from 'react-bootstrap/Card'
+import FavoriteButton from './FavoriteButton';
 
 function Favorites() {
     const currentState = useSelector((state) => state)
@@ -28,6 +29,7 @@ function Favorites() {
         <div className="col d-flex justify-content-center">
             <Card style={{ width: '36rem' }} >
                 <Card.Body class='completed-card-body'>
+                <FavoriteButton task={task}/>
                     <Card.Title class='completed-card-title'>
                         {task.attributes.task.description}
                     </Card.Title>
@@ -40,8 +42,6 @@ function Favorites() {
     return (
         userFavoriteTasks.map(userFavoriteTask)
     )
-
-
 }
 
 export default Favorites
