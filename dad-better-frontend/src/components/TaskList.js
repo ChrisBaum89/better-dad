@@ -4,6 +4,7 @@ import task_background from '../img/task_background.jpeg'
 import '../css/Tasks.css'
 import Button from 'react-bootstrap/Button'
 import { useSelector, useDispatch } from 'react-redux';
+import { setUserState } from "../actions/userActions";
 
 function TaskList(props) {
     const currentState = useSelector((state) => state)
@@ -13,7 +14,7 @@ function TaskList(props) {
 
     const dispatch = useDispatch()
 
-    const updateUserToServer = (user, score, taskId) => {
+    const updateUserToServer = (user, taskId) => {
         fetch("http://localhost:3000/updateuser", {
             method: "POST",
             headers: {
@@ -23,8 +24,8 @@ function TaskList(props) {
             body: JSON.stringify({
                 user: {
                     user_id: user.data.id,
-                    score: score,
                     task_id: taskId,
+                    update_type: "task_completed"
                 },
                 jwt: {
                     jwt: jwtKey,
@@ -42,8 +43,7 @@ function TaskList(props) {
     const handleClick = (event, user = currentUser) => {
         const taskId = event.target.attributes.taskid.value
         const score = event.target.attributes.taskvalue.value
-        updateUserToServer(user, score, taskId)
-        return true
+        updateUserToServer(user, taskId)
     }
 
 
