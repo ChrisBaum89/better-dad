@@ -10,4 +10,12 @@ class User < ApplicationRecord
   has_many :badges, through: :earned_badges
 
   validates :username, uniqueness: { case_sensitive: false }
+
+  def score
+    score = 0
+    self.completed_tasks.each do |completed_task|
+      score = score + completed_task.task.value
+    end
+    return score
+  end
 end
