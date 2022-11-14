@@ -44,10 +44,19 @@ function FavoriteButton(props) {
         updateUserToServer(user, taskId)
     }
 
+    const buttonLoad = (task) => {
+        if (task.attributes.favorite){
+            return <div className="fa fa-star checked" onClick={() => {handleFavoriteClick(currentUser, props.task.id)}}></div>
+        }
+        else{
+            return <div className="fa fa-star" onClick={() => {handleFavoriteClick(currentUser, props.task.id)}}></div>
+        }
+    }
+
     return (
         <div className="favorite-star">
-            <div className={`favorite-star-${props.taskid}`}>
-                <div className="fa fa-star" onClick={() => {handleFavoriteClick(currentUser, props.taskid)}}></div>
+            <div className={`favorite-star-${props.task.id}`}>
+                {buttonLoad(props.task)}
             </div>
         </div>
     )
