@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './css/App.css';
 import ProfileContainer from "./containers/ProfileContainer";
-import Image from 'react-bootstrap/Image'
-import MyImage from './img/better-dad-logo.png'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import WelcomeContainer from './containers/WelcomeContainer';
 import { useSelector, useDispatch } from 'react-redux';
@@ -17,8 +15,6 @@ function App() {
   const loggedin = () => {
     return (currentState.usersReducer.user.length > 0) ? true : false
   }
-
-
 
   return (
     <Router>
