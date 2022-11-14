@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
+import Button from 'react-bootstrap/Button'
 
 function UserSettings(){
     const currentState = useSelector((state) => state)
@@ -13,7 +14,8 @@ function UserSettings(){
         <div>
             <h4>Name: {name}</h4>
             <h4>Email: {email}</h4>
-            <h4>Edit Password</h4>
+            <Button>Edit Settings and Password</Button>
+
         </div>
     )
 
