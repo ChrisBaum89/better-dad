@@ -39,11 +39,15 @@ class UsersController < ApplicationController
 
   def update_user
     @user = User.find_by_id(params[:user][:user_id])
-    @task = Task.find_by_id(params[:user][:task_id])
     @update_type = params[:user][:update_type]
-    if @update_type == 'task_completed'
+    case @update_type
+    when 'task_completed'
+      @task = Task.find_by_id(params[:user][:task_id])
       update_badge(@user)
-      mark_task_completed(@user)
+      mark_task_completed(@user, @task)
+    when 'task_favorited'
+      @completed_task = CompletedTask.find_by_id(params[:user][:task_id])
+      favorite_task(@completed_task)
     end
     token = params[:jwt]
     @user.save
@@ -58,12 +62,11 @@ class UsersController < ApplicationController
     }
   end
 
-  def mark_task_completed(user)
-    @completed_task = Task.find_by_id(params[:user][:task_id])
-    CompletedTask.create(user_id: user.id, task_id: @completed_task.id)
+  def mark_task_completed(user, task)
+    CompletedTask.create(user_id: user.id, task_id: task.id)
 
     # remove @completed_task from assigned tasks
-    user.assigned_tasks.delete_by(task_id: @completed_task.id)
+    user.assigned_tasks.delete_by(task_id: task.id)
     user.calc_score
   end
 
@@ -75,6 +78,15 @@ class UsersController < ApplicationController
       elsif EarnedBadge.create(user_id: user.id, badge_id: badge.id)
       end
     end
+  end
+
+  def favorite_task(task)
+    if task.favorite
+      task.favorite = false
+    else
+      task.favorite = true
+    end
+    task.save
   end
 
   def index
