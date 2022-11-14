@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
@@ -7,8 +7,9 @@ import History from '../components/History';
 import Favorites from '../components/Favorites';
 import UserSettings from './UserSettings';
 import { useSelector, useDispatch } from 'react-redux';
+import '../css/App.css'
 
-function Navigation(){
+function Navigation() {
 
     const currentUser = useSelector((state) => state.usersReducer.user[0])
     const dispatch = useDispatch()
@@ -25,7 +26,7 @@ function Navigation(){
 
     const handleLogout = () => {
         localStorage.setItem("jwt", "")
-        dispatch({type: "LOGOUT"})
+        dispatch({ type: "LOGOUT" })
     }
 
     return (
@@ -41,28 +42,39 @@ function Navigation(){
 
             <Offcanvas show={showHistory} onHide={handleHistoryClose}>
                 <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>Completed Tasks</Offcanvas.Title>
+                    <Offcanvas.Title>
+                        <div className="offcanvas-title">
+                            Completed Tasks
+                        </div>
+                    </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    <History/>
+                    <History />
                 </Offcanvas.Body>
             </Offcanvas>
 
             <Offcanvas show={showSettings} onHide={handleSettingsClose}>
                 <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>User Settings</Offcanvas.Title>
+                    <Offcanvas.Title>
+                        <div className="offcanvas-title">
+                            User Settings
+                        </div>
+                    </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    <UserSettings/>
+                    <UserSettings />
                 </Offcanvas.Body>
             </Offcanvas>
 
             <Offcanvas show={showFavorites} onHide={handleFavoritesClose}>
                 <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>Favorites</Offcanvas.Title>
+                    <Offcanvas.Title>
+                        <div className="offcanvas-title">
+                            Favorites
+                        </div></Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    <Favorites/>
+                    <Favorites />
                 </Offcanvas.Body>
             </Offcanvas>
         </div>
