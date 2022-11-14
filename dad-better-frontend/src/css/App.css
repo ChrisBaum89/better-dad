@@ -59,3 +59,9 @@
   min-height: 100%;
   background-color: rgb(126, 172, 113);
 }
+
+.footer-content{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
