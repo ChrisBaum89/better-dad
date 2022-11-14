@@ -32,7 +32,7 @@ function CompletedTaskCard() {
                 <Card style={{ width: '36rem' }} >
                     <Card.Body class='completed-card-body'>
                         <Card.Title class='completed-card-title'>
-                            <FavoriteButton />
+                            <FavoriteButton taskid={task.id}/>
                             {task.attributes.task.description}
                         </Card.Title>
                         <Card.Text>
