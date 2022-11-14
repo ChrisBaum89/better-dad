@@ -65,3 +65,9 @@
   bottom: 0;
   right: 0;
 }
+
+.offcanvas-title{
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+}
