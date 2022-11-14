@@ -34459,3 +34459,542 @@ Processing by AuthController#create as JSON
 Completed 202 Accepted in 344ms (Views: 43.9ms | ActiveRecord: 2.8ms | Allocations: 38984)
 
 
+Started POST "/login" for ::1 at 2022-11-14 11:05:36 -0500
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "username1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mAssignedTask Load (0.2ms)[0m  [1m[34mSELECT "assigned_tasks".* FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ? AND "assigned_tasks"."created_at" BETWEEN ? AND ?[0m  [["user_id", 3], ["created_at", "2022-11-14 00:00:00"], ["created_at", "2022-11-14 23:59:59.999999"]]
+  ↳ app/controllers/auth_controller.rb:41:in `tasks_assigned_today?'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "3"]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "earned_badges"."id" FROM "earned_badges" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "assigned_tasks"."id" FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "completed_tasks"."id" FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mAssignedTask Load (0.0ms)[0m  [1m[34mSELECT "assigned_tasks".* FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCompletedTask Load (0.1ms)[0m  [1m[34mSELECT "completed_tasks".* FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mEarnedBadge Load (0.1ms)[0m  [1m[34mSELECT "earned_badges".* FROM "earned_badges" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mBadge Load (0.1ms)[0m  [1m[34mSELECT "badges".* FROM "badges" WHERE "badges"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (48.95ms)
+Completed 202 Accepted in 350ms (Views: 48.3ms | ActiveRecord: 2.9ms | Allocations: 38981)
+
+
+Started POST "/updateuser" for ::1 at 2022-11-14 11:05:47 -0500
+Processing by UsersController#update_user as JSON
+  Parameters: {"user"=>{"user_id"=>"3", "score"=>"10", "task_id"=>"2"}, "jwt"=>{"jwt"=>"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozfQ.ansdtXHOu0fbUgM-GP0mOcZ67lOPShXYdrRRi948wNA"}}
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41:in `update_user'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:63:in `update_task'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:64:in `update_task'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:64:in `update_task'
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:64:in `update_task'
+  [1m[36mCompletedTask Create (3.0ms)[0m  [1m[32mINSERT INTO "completed_tasks" ("user_id", "task_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["task_id", 2], ["created_at", "2022-11-14 16:05:47.592703"], ["updated_at", "2022-11-14 16:05:47.592703"]]
+  ↳ app/controllers/users_controller.rb:64:in `update_task'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:64:in `update_task'
+  [1m[36mAssignedTask Destroy (1.0ms)[0m  [1m[31mDELETE FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ? AND "assigned_tasks"."task_id" = ?[0m  [["user_id", 3], ["task_id", 2]]
+  ↳ app/controllers/users_controller.rb:67:in `update_task'
+  [1m[36mBadge Load (0.1ms)[0m  [1m[34mSELECT "badges".* FROM "badges"[0m
+  ↳ app/controllers/users_controller.rb:71:in `update_badge'
+  [1m[36mBadge Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "badges" INNER JOIN "earned_badges" ON "badges"."id" = "earned_badges"."badge_id" WHERE "earned_badges"."user_id" = ? AND "badges"."id" = ? LIMIT ?[0m  [["user_id", 3], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:73:in `block in update_badge'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:46:in `update_user'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "username1"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `update_user'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "score" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["score", 210], ["updated_at", "2022-11-14 16:05:47.614022"], ["id", 3]]
+  ↳ app/controllers/users_controller.rb:46:in `update_user'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:46:in `update_user'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "3"]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "earned_badges"."id" FROM "earned_badges" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "assigned_tasks"."id" FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[35m (0.0ms)[0m  [1m[34mSELECT "completed_tasks"."id" FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mAssignedTask Load (0.0ms)[0m  [1m[34mSELECT "assigned_tasks".* FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mCompletedTask Load (2.7ms)[0m  [1m[34mSELECT "completed_tasks".* FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mEarnedBadge Load (0.0ms)[0m  [1m[34mSELECT "earned_badges".* FROM "earned_badges" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers]   [1m[36mBadge Load (0.5ms)[0m  [1m[34mSELECT "badges".* FROM "badges" WHERE "badges"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:52:in `update_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (64.48ms)
+Completed 200 OK in 104ms (Views: 60.7ms | ActiveRecord: 17.4ms | Allocations: 46535)
+
+
+Started POST "/login" for ::1 at 2022-11-14 11:23:43 -0500
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}}}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "username1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mAssignedTask Load (0.9ms)[0m  [1m[34mSELECT "assigned_tasks".* FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ? AND "assigned_tasks"."created_at" BETWEEN ? AND ?[0m  [["user_id", 3], ["created_at", "2022-11-14 00:00:00"], ["created_at", "2022-11-14 23:59:59.999999"]]
+  ↳ app/controllers/auth_controller.rb:41:in `tasks_assigned_today?'
+  [1m[36mCompletedTask Load (0.2ms)[0m  [1m[34mSELECT "completed_tasks".* FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ? AND "completed_tasks"."created_at" BETWEEN ? AND ?[0m  [["user_id", 3], ["created_at", "2022-11-14 00:00:00"], ["created_at", "2022-11-14 23:59:59.999999"]]
+  ↳ app/controllers/auth_controller.rb:45:in `tasks_completed_today?'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "3"]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "earned_badges"."id" FROM "earned_badges" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "assigned_tasks"."id" FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "completed_tasks"."id" FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mAssignedTask Load (0.1ms)[0m  [1m[34mSELECT "assigned_tasks".* FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCompletedTask Load (0.1ms)[0m  [1m[34mSELECT "completed_tasks".* FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mEarnedBadge Load (0.1ms)[0m  [1m[34mSELECT "earned_badges".* FROM "earned_badges" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mBadge Load (0.1ms)[0m  [1m[34mSELECT "badges".* FROM "badges" WHERE "badges"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (27.09ms)
+Completed 202 Accepted in 346ms (Views: 26.2ms | ActiveRecord: 10.6ms | Allocations: 39038)
+
+
+Started POST "/login" for ::1 at 2022-11-14 11:46:52 -0500
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}}}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "username1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mAssignedTask Load (1.5ms)[0m  [1m[34mSELECT "assigned_tasks".* FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ? AND "assigned_tasks"."created_at" BETWEEN ? AND ?[0m  [["user_id", 3], ["created_at", "2022-11-14 00:00:00"], ["created_at", "2022-11-14 23:59:59.999999"]]
+  ↳ app/controllers/auth_controller.rb:41:in `tasks_assigned_today?'
+  [1m[36mCompletedTask Load (0.2ms)[0m  [1m[34mSELECT "completed_tasks".* FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ? AND "completed_tasks"."created_at" BETWEEN ? AND ?[0m  [["user_id", 3], ["created_at", "2022-11-14 00:00:00"], ["created_at", "2022-11-14 23:59:59.999999"]]
+  ↳ app/controllers/auth_controller.rb:45:in `tasks_completed_today?'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "3"]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "earned_badges"."id" FROM "earned_badges" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "assigned_tasks"."id" FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "completed_tasks"."id" FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mAssignedTask Load (0.1ms)[0m  [1m[34mSELECT "assigned_tasks".* FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCompletedTask Load (0.1ms)[0m  [1m[34mSELECT "completed_tasks".* FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mEarnedBadge Load (0.3ms)[0m  [1m[34mSELECT "earned_badges".* FROM "earned_badges" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mBadge Load (0.1ms)[0m  [1m[34mSELECT "badges".* FROM "badges" WHERE "badges"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (45.42ms)
+Completed 202 Accepted in 358ms (Views: 45.6ms | ActiveRecord: 11.7ms | Allocations: 39037)
+
+
+Started POST "/login" for ::1 at 2022-11-14 11:48:18 -0500
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (8.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "username1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mAssignedTask Load (0.2ms)[0m  [1m[34mSELECT "assigned_tasks".* FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ? AND "assigned_tasks"."created_at" BETWEEN ? AND ?[0m  [["user_id", 3], ["created_at", "2022-11-14 00:00:00"], ["created_at", "2022-11-14 23:59:59.999999"]]
+  ↳ app/controllers/auth_controller.rb:41:in `tasks_assigned_today?'
+  [1m[36mCompletedTask Load (0.3ms)[0m  [1m[34mSELECT "completed_tasks".* FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ? AND "completed_tasks"."created_at" BETWEEN ? AND ?[0m  [["user_id", 3], ["created_at", "2022-11-14 00:00:00"], ["created_at", "2022-11-14 23:59:59.999999"]]
+  ↳ app/controllers/auth_controller.rb:45:in `tasks_completed_today?'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "3"]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "earned_badges"."id" FROM "earned_badges" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "assigned_tasks"."id" FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "completed_tasks"."id" FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mAssignedTask Load (0.1ms)[0m  [1m[34mSELECT "assigned_tasks".* FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCompletedTask Load (0.2ms)[0m  [1m[34mSELECT "completed_tasks".* FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mEarnedBadge Load (0.1ms)[0m  [1m[34mSELECT "earned_badges".* FROM "earned_badges" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mBadge Load (0.1ms)[0m  [1m[34mSELECT "badges".* FROM "badges" WHERE "badges"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (131.81ms)
+Completed 202 Accepted in 522ms (Views: 129.3ms | ActiveRecord: 12.2ms | Allocations: 38319)
+
+
+Started POST "/login" for ::1 at 2022-11-14 11:52:39 -0500
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (11.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "username1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mAssignedTask Load (1.3ms)[0m  [1m[34mSELECT "assigned_tasks".* FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ? AND "assigned_tasks"."created_at" BETWEEN ? AND ?[0m  [["user_id", 3], ["created_at", "2022-11-14 00:00:00"], ["created_at", "2022-11-14 23:59:59.999999"]]
+  ↳ app/controllers/auth_controller.rb:41:in `tasks_assigned_today?'
+  [1m[36mCompletedTask Load (0.1ms)[0m  [1m[34mSELECT "completed_tasks".* FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ? AND "completed_tasks"."created_at" BETWEEN ? AND ?[0m  [["user_id", 3], ["created_at", "2022-11-14 00:00:00"], ["created_at", "2022-11-14 23:59:59.999999"]]
+  ↳ app/controllers/auth_controller.rb:45:in `tasks_completed_today?'
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "3"]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "earned_badges"."id" FROM "earned_badges" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "assigned_tasks"."id" FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "completed_tasks"."id" FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mAssignedTask Load (0.1ms)[0m  [1m[34mSELECT "assigned_tasks".* FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCompletedTask Load (0.1ms)[0m  [1m[34mSELECT "completed_tasks".* FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mEarnedBadge Load (0.3ms)[0m  [1m[34mSELECT "earned_badges".* FROM "earned_badges" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mBadge Load (0.1ms)[0m  [1m[34mSELECT "badges".* FROM "badges" WHERE "badges"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (43.91ms)
+Completed 202 Accepted in 361ms (Views: 43.3ms | ActiveRecord: 14.5ms | Allocations: 38320)
+
+
+Started POST "/login" for ::1 at 2022-11-14 12:02:01 -0500
+Processing by AuthController#create as JSON
+  Parameters: {"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}, "auth"=>{"user"=>{"username"=>"username1", "password"=>"[FILTERED]"}}}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "username1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+  [1m[36mAssignedTask Load (0.3ms)[0m  [1m[34mSELECT "assigned_tasks".* FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ? AND "assigned_tasks"."created_at" BETWEEN ? AND ?[0m  [["user_id", 3], ["created_at", "2022-11-14 00:00:00"], ["created_at", "2022-11-14 23:59:59.999999"]]
+  ↳ app/controllers/auth_controller.rb:41:in `tasks_assigned_today?'
+  [1m[36mCompletedTask Load (0.2ms)[0m  [1m[34mSELECT "completed_tasks".* FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ? AND "completed_tasks"."created_at" BETWEEN ? AND ?[0m  [["user_id", 3], ["created_at", "2022-11-14 00:00:00"], ["created_at", "2022-11-14 23:59:59.999999"]]
+  ↳ app/controllers/auth_controller.rb:45:in `tasks_completed_today?'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "children"."id" FROM "children" WHERE "children"."user_id" = ?[0m  [["user_id", "3"]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "earned_badges"."id" FROM "earned_badges" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "assigned_tasks"."id" FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT "completed_tasks"."id" FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mAssignedTask Load (0.1ms)[0m  [1m[34mSELECT "assigned_tasks".* FROM "assigned_tasks" WHERE "assigned_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCompletedTask Load (0.1ms)[0m  [1m[34mSELECT "completed_tasks".* FROM "completed_tasks" WHERE "completed_tasks"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mEarnedBadge Load (0.1ms)[0m  [1m[34mSELECT "earned_badges".* FROM "earned_badges" WHERE "earned_badges"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers]   [1m[36mBadge Load (0.2ms)[0m  [1m[34mSELECT "badges".* FROM "badges" WHERE "badges"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/auth_controller.rb:18:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (47.37ms)
+Completed 202 Accepted in 387ms (Views: 46.2ms | ActiveRecord: 22.9ms | Allocations: 39038)
+
+
