@@ -71,3 +71,7 @@
   font-weight: bold;
   color: black;
 }
+
+.invalid-login {
+  color: red;
+}
