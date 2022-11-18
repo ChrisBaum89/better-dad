@@ -32,10 +32,10 @@ class User < ApplicationRecord
 
   def assign_daily_tasks
     unless self.daily_tasks_assigned?
-      self.clear_assigned_tasks
-      10.times do
-        random_task_id = rand(1..Task.all.length)
-        AssignedTask.create(user_id: self.id, task_id: random_task_id)
+      self.clear_assigned_tasks;
+      8.times do
+        random_task_id = rand(1..Task.all.length);
+        AssignedTask.create(user_id: self.id, task_id: random_task_id);
       end
     end
   end
