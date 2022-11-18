@@ -11,6 +11,8 @@ function WelcomeContainer() {
                 <Image src={MyImage} alt="Better Dad" display="inline-block"></Image>
             </div>
             <LoginSignupContainer />
+            <br></br>
+            <br></br>
             <Welcome />
         </div>
     )
