@@ -31,7 +31,7 @@ class User < ApplicationRecord
   end
 
   def assign_todays_tasks
-    if not self.tasks_assigned_today?
+    unless self.tasks_assigned_today?
       10.times do
         random_task_id = rand(1..Task.all.length)
         AssignedTask.create(user_id: self.id, task_id: random_task_id)
