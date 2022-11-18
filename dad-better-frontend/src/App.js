@@ -13,7 +13,13 @@ function App() {
   const dispatch = useDispatch()
 
   const loggedin = () => {
-    return (currentState.usersReducer.user.length > 0) ? true : false
+    const user = currentState.usersReducer.user[0]
+    if (user !== undefined && user.message === "Valid Login"){
+      return true
+    }
+    else {
+      return false
+    }
   }
 
   return (
