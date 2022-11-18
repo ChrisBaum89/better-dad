@@ -25,7 +25,7 @@ class User < ApplicationRecord
 
   def daily_tasks_assigned?
     current_date = DateTime.now.to_date
-    assigned_today = self.assigned_tasks.all? {|task| task.created_at.to_date == current_date}
+    assigned_today = self.assigned_tasks.any? {|task| task.created_at.to_date == current_date}
     completed_today = self.completed_tasks.any? {|task| task.created_at.to_date == current_date}
     assigned_today || completed_today
   end
@@ -37,6 +37,7 @@ class User < ApplicationRecord
         random_task_id = rand(1..Task.all.length);
         AssignedTask.create(user_id: self.id, task_id: random_task_id);
       end
+      self.reload()
     end
   end
 
