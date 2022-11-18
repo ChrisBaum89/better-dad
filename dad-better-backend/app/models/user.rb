@@ -23,19 +23,23 @@ class User < ApplicationRecord
     assigned_tasks.length
   end
 
-  def tasks_assigned_today?
+  def daily_tasks_assigned?
     current_date = DateTime.now.to_date
     assigned_today = self.assigned_tasks.any? {|task| task.created_at.to_date == current_date}
     completed_today = self.completed_tasks.any? {|task| task.created_at.to_date == current_date}
     assigned_today || completed_today
   end
 
-  def assign_todays_tasks
-    unless self.tasks_assigned_today?
+  def assign_daily_tasks
+    unless self.daily_tasks_assigned?
       10.times do
         random_task_id = rand(1..Task.all.length)
         AssignedTask.create(user_id: self.id, task_id: random_task_id)
       end
     end
+  end
+
+  def clear_assigned_tasks
+    self.assigned_tasks.destroy_all
   end
 end
