@@ -52,7 +52,27 @@ const BadgeList = () => {
             </div>
         )
     } else {
-        return <h2>No Badges</h2>
+        return (
+            <div class="badge-carousel">
+                <div class="badge-title">
+                    <h2>Badges</h2>
+                </div>
+                <Carousel>
+                    <Carousel.Item interval={10000000}>
+                        <img
+                            className="d-block w-100"
+                            src={star_background}
+                            alt="First slide"
+                        />
+                        <Carousel.Caption>
+                            <div class="no-badge-carousel-caption">
+                                <h6>No Badges earned at this time. Keep completing tasks to earn badges.</h6>
+                            </div>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                </Carousel>
+            </div>
+        )
     }
 
 }
