@@ -58,7 +58,8 @@ class UsersController < ApplicationController
 
     render json: {
       user: UserSerializer.new(@user, options),
-      jwt: token
+      jwt: token,
+      message: 'Valid Login',
     }
   end
 
