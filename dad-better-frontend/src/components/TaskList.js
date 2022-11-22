@@ -47,31 +47,56 @@ function TaskList(props) {
         updateUserToServer(user, taskId)
     }
 
+    const checkIfAssignedTasks = (tasks) => {
+        if (tasks.length > 0) {
+            return (
+                <Carousel>
+                    {tasks.map(task => {
+                        return (
+                            <Carousel.Item interval={10000000}>
+                                <img
+                                    className="d-block w-100"
+                                    src={task_background}
+                                    alt="First slide"
+                                />
+                                <Carousel.Caption>
+                                    <div class="task-carousel-caption">
+                                        <h6>{task.attributes.task.description}</h6>
+                                        <p>Points: {task.attributes.task.value}</p>
+                                        <Button variant="primary" taskid={task.attributes.task.id} taskvalue={task.attributes.task.value} onClick={handleClick}>
+                                            Complete
+                                        </Button>
+                                    </div>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                        )
+                    })}
+                </Carousel>
+            )
+        }
+        else {
+            return (
+                <Carousel>
+                    <Carousel.Item interval={10000000}>
+                        <img
+                            className="d-block w-100"
+                            src={task_background}
+                            alt="First slide"
+                        />
+                        <Carousel.Caption>
+                            <div class="task-carousel-caption">
+                                <h4>No tasks currently available. Please check back tomorrow</h4>
+                            </div>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                </Carousel>
+            )
+        }
+    }
 
     return (
         <div class="task-carousel">
-            <Carousel>
-                {assignedTasks.map(task => {
-                    return (
-                        <Carousel.Item interval={10000000}>
-                            <img
-                                className="d-block w-100"
-                                src={task_background}
-                                alt="First slide"
-                            />
-                            <Carousel.Caption>
-                                <div class="task-carousel-caption">
-                                    <h6>{task.attributes.task.description}</h6>
-                                    <p>Points: {task.attributes.task.value}</p>
-                                    <Button variant="primary" taskid={task.attributes.task.id} taskvalue={task.attributes.task.value} onClick={handleClick}>
-                                        Complete
-                                    </Button>
-                                </div>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                    )
-                })}
-            </Carousel>
+            {checkIfAssignedTasks(assignedTasks)}
         </div>
     )
 
