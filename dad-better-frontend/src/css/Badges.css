@@ -23,3 +23,12 @@
     margin: auto;
     height: 125px;
 }
+
+.no-badge-carousel-caption{
+    display: block;
+    position: relative;
+    top: -50px;
+    bottom: auto;
+    color: black;
+    
+}
