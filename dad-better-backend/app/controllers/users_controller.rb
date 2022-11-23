@@ -48,6 +48,10 @@ class UsersController < ApplicationController
     when 'task_favorited'
       @completed_task = CompletedTask.find_by_id(params[:user][:task_id])
       favorite_task(@completed_task)
+    when 'update_user_settings'
+      @user = User.find_by_id(params[:user][:user_id])
+      @user.name = params[:user][:name]
+      @user.email = params[:user][:email]
     end
     token = params[:jwt]
     @user.save
@@ -88,6 +92,10 @@ class UsersController < ApplicationController
       task.favorite = true
     end
     task.save
+  end
+
+  def update_user_settings(user)
+
   end
 
   def index
