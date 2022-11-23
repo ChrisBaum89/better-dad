@@ -58,8 +58,8 @@ class UsersController < ApplicationController
       end
     end
     #this is currently not working when trying to change password
-    token = params[:jwt]
     @user.save
+    token = params[:jwt]
 
     options = {
       include: %i[assigned_tasks completed_tasks earned_badges]
@@ -67,8 +67,8 @@ class UsersController < ApplicationController
 
     render json: {
       user: UserSerializer.new(@user, options),
-      jwt: token,
       message: 'Valid Login',
+      jwt: token,
     }
   end
 

@@ -10,7 +10,7 @@ function TaskList(props) {
     const currentState = useSelector((state) => state)
     const currentUser = currentState.usersReducer.user[0].user
     const assignedTasks = props.userAssignedTasks
-    const jwtKey = currentState.usersReducer.user[0].jwt
+    const jwtToken = localStorage.jwt
 
     const dispatch = useDispatch()
 
@@ -19,6 +19,7 @@ function TaskList(props) {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                Authorization: `bearer ${jwtToken}`,
                 Accept: "application/json",
             },
             body: JSON.stringify({
@@ -28,8 +29,7 @@ function TaskList(props) {
                     update_type: "task_completed"
                 },
                 jwt: {
-                    jwt: jwtKey,
-
+                    jwtToken,
                 }
             }),
         })

@@ -2,8 +2,9 @@ class ApplicationController < ActionController::API
   include ::ActionController::Cookies
 
   before_action :authorized
+
   def encode_token(payload)
-    JWT.encode(payload, 'my_s3cr3t')
+    JWT.encode(payload, 'the_s3cr3t')
   end
 
   def auth_header
@@ -16,7 +17,7 @@ class ApplicationController < ActionController::API
       token = auth_header.split(' ')[1]
       # headers: { 'Authorization': 'Bearer <token>' }
       begin
-        JWT.decode(token, 'my_s3cr3t', true, algorithm: 'HS256')
+        JWT.decode(token, 'the_s3cr3t', true, algorithm: 'HS256')
       # JWT.decode => [{ "beef"=>"steak" }, { "alg"=>"HS256" }]
       rescue JWT::DecodeError
         nil
@@ -24,7 +25,7 @@ class ApplicationController < ActionController::API
     end
   end
 
-  def current_user
+  def logged_in_user
     if decoded_token
       # decoded_token=> [{"user_id"=>2}, {"alg"=>"HS256"}]
       user_id = decoded_token[0]['user_id']
@@ -33,8 +34,7 @@ class ApplicationController < ActionController::API
   end
 
   def logged_in?
-    # !!current_user
-    true
+    !!logged_in_user
   end
 
   def authorized
@@ -43,14 +43,14 @@ class ApplicationController < ActionController::API
 
   def render_user_json(user, token)
     options = {
-      include: [:assigned_tasks, :completed_tasks, :earned_badges]
+      include: %i[assigned_tasks completed_tasks earned_badges]
     }
 
     render json: {
-      user: UserSerializer.new(user, options),
-      jwt: token,
-      message: 'Valid Login'
-    },
-    status: :created
+             user: UserSerializer.new(user, options),
+             jwt: token,
+             message: 'Valid Login'
+           },
+           status: :created
   end
 end

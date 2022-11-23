@@ -15,7 +15,7 @@ function UserSettings() {
     const [email, setEmail] = useState(currentUser.data.attributes.email)
     const [existingPassword, setExistingPassword] = useState("")
     const [newPassword, setNewPassword] = useState("")
-    const jwtKey = currentState.usersReducer.user[0].jwt
+    const jwtToken = localStorage.jwt
 
     const handleSettingsSubmit = (userId, name, email) => {
         updateUserToServer(userId, name, email)
@@ -50,6 +50,7 @@ function UserSettings() {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                Authorization: `bearer ${jwtToken}`,
                 Accept: "application/json",
             },
             body: JSON.stringify({
@@ -59,6 +60,9 @@ function UserSettings() {
                     name: name,
                     update_type: "update_user_settings",
                 },
+                jwt: {
+                    jwtToken,
+                }
             }),
         })
             .then((r) => r.json())
@@ -73,6 +77,7 @@ function UserSettings() {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                Authorization: `bearer ${jwtToken}`,
                 Accept: "application/json",
             },
             body: JSON.stringify({
@@ -82,6 +87,9 @@ function UserSettings() {
                     new_password: newPassword,
                     update_type: "update_password",
                 },
+                jwt: {
+                    jwtToken,
+                }
             }),
         })
             .then((r) => r.json())
