@@ -14,7 +14,13 @@ function App() {
 
   const loggedin = () => {
     const user = currentState.usersReducer.user[0]
-    if (user !== undefined && user.message === "Valid Login"){
+    if (user === undefined){
+      return false
+    }
+    else if (user.jwt === undefined){
+      return false
+    }
+    else if (user.jwt !== undefined){
       return true
     }
     else {
