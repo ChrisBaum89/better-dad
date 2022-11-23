@@ -15,6 +15,7 @@ function UserSettings() {
     const [email, setEmail] = useState(currentUser.data.attributes.email)
     const [existingPassword, setExistingPassword] = useState("")
     const [newPassword, setNewPassword] = useState("")
+    const [passwordUpdated, setPasswordUpdated] = useState(0)
     const jwtToken = localStorage.jwt
 
     const handleSettingsSubmit = (userId, name, email) => {
@@ -95,31 +96,60 @@ function UserSettings() {
             .then((r) => r.json())
             .then((data) => {
                 dispatch({ type: "UPDATE_USER", payload: data })
+                passwordMessage(data.message)
             })
+        setExistingPassword('')
+        setNewPassword('')
+    }
+
+    const passwordMessage = (message) => {
+        if (message === 'password updated') {
+            setPasswordUpdated(1)
+        }
+        if (message === 'password update failed') {
+            setPasswordUpdated(2)
+        }
     }
 
     const passwordControl = () => {
         if (disablePasswordEdit === false) {
+            return (
+                <div>
+                    <br></br><br></br><br></br>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Existing Password</Form.Label>
+                        <Form.Control
+                            placeholder={existingPassword}
+                            disabled={disablePasswordEdit}
+                            onChange={e => setExistingPassword(e.target.value)} />
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>New Password</Form.Label>
+                        <Form.Control
+                            placeholder={newPassword}
+                            disabled={disablePasswordEdit}
+                            onChange={e => setNewPassword(e.target.value)} />
+                    </Form.Group>
+                </div>
+            )
+        }
+    }
+
+    const passwordUpdateSuccessful = () => {
+        let message = ''
+        if (passwordUpdated === 1) {
+            message = 'Password updated successfully'
+        }
+        if (passwordUpdated === 2) {
+            message = 'Password not updated successfully. Verify you have correct existing password.'
+        }
+
         return (
-            <div>
-                <br></br><br></br><br></br>
-                <Form.Group className="mb-3">
-                    <Form.Label>Existing Password</Form.Label>
-                    <Form.Control
-                        placeholder={existingPassword}
-                        disabled={disablePasswordEdit}
-                        onChange={e => setExistingPassword(e.target.value)} />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>New Password</Form.Label>
-                    <Form.Control
-                        placeholder={newPassword}
-                        disabled={disablePasswordEdit}
-                        onChange={e => setNewPassword(e.target.value)} />
-                </Form.Group>
+            <div className='password-updated'>
+                <br></br>
+                <p>{message}</p>
             </div>
         )
-        }
     }
 
 
@@ -146,6 +176,8 @@ function UserSettings() {
             {passwordControl()}
 
             {passwordButtonDisplay()}
+
+            {passwordUpdateSuccessful()}
 
         </div>
     )
