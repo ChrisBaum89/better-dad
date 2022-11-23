@@ -23,7 +23,8 @@ function UserSettings() {
     }
 
     const handlePasswordSubmit = (userId, existingPassword, newPassword) => {
-        debugger
+        updatePasswordToServer(userId, existingPassword, newPassword)
+        setDisablePasswordEdit(true)
     }
 
     const settingsButtonDisplay = () => {
@@ -63,6 +64,30 @@ function UserSettings() {
             .then((r) => r.json())
             .then((data) => {
                 localStorage.setItem("jwt", data.jwt)
+                dispatch({ type: "UPDATE_USER", payload: data })
+            })
+    }
+
+    const updatePasswordToServer = (userId, existingPassword, newPassword) => {
+        fetch("http://localhost:3000/updateuser", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: JSON.stringify({
+                user: {
+                    user_id: userId,
+                    existing_password: existingPassword,
+                    new_password: newPassword,
+                    update_type: "update_password",
+                },
+            }),
+        })
+            .then((r) => r.json())
+            .then((data) => {
+                localStorage.setItem("jwt", data.jwt)
+                debugger
                 dispatch({ type: "UPDATE_USER", payload: data })
             })
     }

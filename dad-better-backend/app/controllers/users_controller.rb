@@ -52,7 +52,12 @@ class UsersController < ApplicationController
       @user = User.find_by_id(params[:user][:user_id])
       @user.name = params[:user][:name]
       @user.email = params[:user][:email]
+    when 'update_password'
+      if @user.authenticate(params[:user][:existing_password])
+        @user.password = params[:user][:new_password]
+      end
     end
+    #this is currently not working when trying to change password
     token = params[:jwt]
     @user.save
 
