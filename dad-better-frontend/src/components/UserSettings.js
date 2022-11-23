@@ -94,8 +94,6 @@ function UserSettings() {
         })
             .then((r) => r.json())
             .then((data) => {
-                localStorage.setItem("jwt", data.jwt)
-                debugger
                 dispatch({ type: "UPDATE_USER", payload: data })
             })
     }
