@@ -7,13 +7,14 @@ function FavoriteButton(props) {
     const currentState = useSelector((state) => state)
     const currentUser = currentState.usersReducer.user[0].user
     const dispatch = useDispatch()
-    const jwtKey = currentState.usersReducer.user[0].jwt
+    const jwtToken = localStorage.jwt
 
     const updateUserToServer = (user, taskId) => {
         fetch("http://localhost:3000/updateuser", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                Authorization: `bearer ${jwtToken}`,
                 Accept: "application/json",
             },
             body: JSON.stringify({
@@ -23,8 +24,7 @@ function FavoriteButton(props) {
                     update_type: "task_favorited",
                 },
                 jwt: {
-                    jwt: jwtKey,
-
+                    jwtToken,
                 }
             }),
         })
