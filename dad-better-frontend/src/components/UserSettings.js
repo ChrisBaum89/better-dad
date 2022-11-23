@@ -9,21 +9,38 @@ function UserSettings() {
     const dispatch = useDispatch()
 
     const userId = currentUser.data.id
-    const [disableEdit, setDisableEdit] = useState(true)
+    const [disableSettingsEdit, setDisableSettingsEdit] = useState(true)
+    const [disablePasswordEdit, setDisablePasswordEdit] = useState(true)
     const [name, setName] = useState(currentUser.data.attributes.name)
     const [email, setEmail] = useState(currentUser.data.attributes.email)
+    const [existingPassword, setExistingPassword] = useState("")
+    const [newPassword, setNewPassword] = useState("")
+    const jwtKey = currentState.usersReducer.user[0].jwt
 
-    const handleSubmit = (userId, name, email) => {
+    const handleSettingsSubmit = (userId, name, email) => {
         updateUserToServer(userId, name, email)
-        setDisableEdit(true)
+        setDisableSettingsEdit(true)
     }
 
-    const buttonDisplay = () => {
-        if (disableEdit === false) {
-            return <Button variant="primary" type="submit" onClick={() => handleSubmit(userId, name, email)}>Submit</Button>
+    const handlePasswordSubmit = (userId, existingPassword, newPassword) => {
+        debugger
+    }
+
+    const settingsButtonDisplay = () => {
+        if (disableSettingsEdit === false) {
+            return <Button variant="primary" type="submit" onClick={() => handleSettingsSubmit(userId, name, email)}>Submit</Button>
         }
         else {
-            return <Button onClick={() => setDisableEdit(false)}>Edit Settings and Password</Button>
+            return <Button onClick={() => setDisableSettingsEdit(false)}>Edit Settings</Button>
+        }
+    }
+
+    const passwordButtonDisplay = () => {
+        if (disablePasswordEdit === false) {
+            return <Button variant="primary" type="submit" onClick={() => handlePasswordSubmit(userId, existingPassword, newPassword)}>Submit Password</Button>
+        }
+        else {
+            return <Button onClick={() => setDisablePasswordEdit(false)}>Edit Password</Button>
         }
     }
 
@@ -46,29 +63,58 @@ function UserSettings() {
             .then((r) => r.json())
             .then((data) => {
                 localStorage.setItem("jwt", data.jwt)
-                dispatch({type: "UPDATE_USER", payload: data})
-             })
+                dispatch({ type: "UPDATE_USER", payload: data })
+            })
     }
+
+    const passwordControl = () => {
+        if (disablePasswordEdit === false) {
+        return (
+            <div>
+                <br></br><br></br><br></br>
+                <Form.Group className="mb-3">
+                    <Form.Label>Existing Password</Form.Label>
+                    <Form.Control
+                        placeholder={existingPassword}
+                        disabled={disablePasswordEdit}
+                        onChange={e => setExistingPassword(e.target.value)} />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>New Password</Form.Label>
+                    <Form.Control
+                        placeholder={newPassword}
+                        disabled={disablePasswordEdit}
+                        onChange={e => setNewPassword(e.target.value)} />
+                </Form.Group>
+            </div>
+        )
+        }
+    }
+
 
     return (
         <div>
             <Form.Group className="mb-3">
                 <Form.Label>Name</Form.Label>
-                <Form.Control 
-                placeholder={name} 
-                disabled={disableEdit}
-                onChange={e => setName(e.target.value)} 
+                <Form.Control
+                    placeholder={name}
+                    disabled={disableSettingsEdit}
+                    onChange={e => setName(e.target.value)}
                 />
             </Form.Group>
             <Form.Group className="mb-3">
                 <Form.Label>Email</Form.Label>
-                <Form.Control 
-                placeholder={email} 
-                disabled={disableEdit}
-                onChange={e => setEmail(e.target.value)} />
+                <Form.Control
+                    placeholder={email}
+                    disabled={disableSettingsEdit}
+                    onChange={e => setEmail(e.target.value)} />
             </Form.Group>
 
-            {buttonDisplay()}
+            {settingsButtonDisplay()}
+
+            {passwordControl()}
+
+            {passwordButtonDisplay()}
 
         </div>
     )
