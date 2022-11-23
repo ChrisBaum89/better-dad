@@ -17,10 +17,10 @@ function App() {
     if (user === undefined){
       return false
     }
-    else if (user.jwt === undefined){
+    else if (localStorage.jwt === 'undefined'){
       return false
     }
-    else if (user.jwt !== undefined){
+    else if (localStorage.jwt !== 'undefined'){
       return true
     }
     else {
