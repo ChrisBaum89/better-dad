@@ -39,6 +39,7 @@ class UsersController < ApplicationController
 
   def update_user
     @user = User.find_by_id(params[:user][:user_id])
+    @message = ''
     @update_type = params[:user][:update_type]
     case @update_type
     when 'task_completed'
@@ -55,9 +56,11 @@ class UsersController < ApplicationController
     when 'update_password'
       if @user.authenticate(params[:user][:existing_password])
         @user.password = params[:user][:new_password]
+        @message = 'password updated'
+      else
+        @message = 'password update failed'
       end
     end
-    #this is currently not working when trying to change password
     @user.save
     token = params[:jwt]
 
@@ -67,7 +70,7 @@ class UsersController < ApplicationController
 
     render json: {
       user: UserSerializer.new(@user, options),
-      message: 'Valid Login',
+      message: @message,
       jwt: token,
     }
   end
