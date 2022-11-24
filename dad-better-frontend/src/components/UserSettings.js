@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import '../css/UserSettings.css'
 
 function UserSettings() {
     const currentState = useSelector((state) => state)
@@ -143,24 +142,30 @@ function UserSettings() {
 
     const updateMessaging = () => {
         let message = ''
+        let messageColor = 'black'
         switch (passwordUpdated) {
             case 1:
-                message = 'Password updated successfully'
+                message = 'Password updated successfully';
+                messageColor = 'green';
                 break;
             case 2:
                 message = 'Password not updated successfully. Verify you have correct existing password.'
+                messageColor = 'red';
                 break;
             case 3:
                 message = "Settings updated successfully"
+                messageColor = 'green';
                 break;
             case 4:
                 message = "Settings not updated successfully."
+                messageColor = 'red';
                 break;
             default:
                 message = ''
         }
+
         return (
-            <div className='user-settings-messaging'>
+            <div className='user-settings-messaging' style={{color: messageColor}}>
                 <br></br>
                 <p>{message}</p>
             </div>
