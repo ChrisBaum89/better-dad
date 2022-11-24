@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-globals */
-import React, { useEffect } from "react";
+import React from "react";
 import '../css/Tasks.css'
 import { useSelector, useDispatch } from 'react-redux';
 
