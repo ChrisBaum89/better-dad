@@ -99,6 +99,8 @@ class UsersController < ApplicationController
   def update_badge(user)
     applicable_badges = Badge.all.select { |badge| user.score >= badge.score_threshold }
     applicable_badges.each do |badge|
+      ##NEED TO SIMPLIFY THIS
+      ##NEED TO SIMPLIFY THIS
       if user.badges.include?(badge)
 
       elsif EarnedBadge.create(user_id: user.id, badge_id: badge.id)
