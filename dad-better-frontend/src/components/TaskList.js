@@ -27,9 +27,6 @@ function TaskList(props) {
                     task_id: taskId,
                     update_type: "task_completed"
                 },
-                jwt: {
-                    jwtToken,
-                }
             }),
         })
             .then((r) => r.json())
@@ -41,7 +38,6 @@ function TaskList(props) {
 
     const handleClick = (event, user = currentUser) => {
         const taskId = event.target.attributes.taskid.value
-        const score = event.target.attributes.taskvalue.value
         updateUserToServer(user, taskId)
     }
 
