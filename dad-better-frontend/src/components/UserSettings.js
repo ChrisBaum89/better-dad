@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
+import '../css/UserSettings.css'
 
 function UserSettings() {
     const currentState = useSelector((state) => state)
@@ -61,15 +62,12 @@ function UserSettings() {
                     name: name,
                     update_type: "update_user_settings",
                 },
-                jwt: {
-                    jwtToken,
-                }
             }),
         })
             .then((r) => r.json())
             .then((data) => {
-                localStorage.setItem("jwt", data.jwt)
                 dispatch({ type: "UPDATE_USER", payload: data })
+                userSettingsMessage(data.message)
             })
     }
 
@@ -88,27 +86,35 @@ function UserSettings() {
                     new_password: newPassword,
                     update_type: "update_password",
                 },
-                jwt: {
-                    jwtToken,
-                }
             }),
         })
             .then((r) => r.json())
             .then((data) => {
                 dispatch({ type: "UPDATE_USER", payload: data })
-                passwordMessage(data.message)
+                userSettingsMessage(data.message)
             })
         setExistingPassword('')
         setNewPassword('')
     }
 
-    const passwordMessage = (message) => {
-        if (message === 'password updated') {
-            setPasswordUpdated(1)
+    const userSettingsMessage = (message) => {
+        switch (message) {
+            case 'password updated':
+                setPasswordUpdated(1)
+                break;
+            case 'password update failed':
+                setPasswordUpdated(2)
+                break;
+            case 'settings updated':
+                setPasswordUpdated(3)
+                break;
+            case 'settings update failed':
+                setPasswordUpdated(4)
+                break;
+            default:
+                setPasswordUpdated(0)
         }
-        if (message === 'password update failed') {
-            setPasswordUpdated(2)
-        }
+
     }
 
     const passwordControl = () => {
@@ -135,17 +141,26 @@ function UserSettings() {
         }
     }
 
-    const passwordUpdateSuccessful = () => {
+    const updateMessaging = () => {
         let message = ''
-        if (passwordUpdated === 1) {
-            message = 'Password updated successfully'
+        switch (passwordUpdated) {
+            case 1:
+                message = 'Password updated successfully'
+                break;
+            case 2:
+                message = 'Password not updated successfully. Verify you have correct existing password.'
+                break;
+            case 3:
+                message = "Settings updated successfully"
+                break;
+            case 4:
+                message = "Settings not updated successfully."
+                break;
+            default:
+                message = ''
         }
-        if (passwordUpdated === 2) {
-            message = 'Password not updated successfully. Verify you have correct existing password.'
-        }
-
         return (
-            <div className='password-updated'>
+            <div className='user-settings-messaging'>
                 <br></br>
                 <p>{message}</p>
             </div>
@@ -155,6 +170,7 @@ function UserSettings() {
 
     return (
         <div>
+            {updateMessaging()}
             <Form.Group className="mb-3">
                 <Form.Label>Name</Form.Label>
                 <Form.Control
@@ -176,8 +192,6 @@ function UserSettings() {
             {passwordControl()}
 
             {passwordButtonDisplay()}
-
-            {passwordUpdateSuccessful()}
 
         </div>
     )
