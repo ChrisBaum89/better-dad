@@ -51,13 +51,7 @@ class UsersController < ApplicationController
       favorite_task(@completed_task)
     when 'update_user_settings'
       @user = User.find_by_id(params[:user][:user_id])
-      if @user
-        @user.name = params[:user][:name]
-        @user.email = params[:user][:email]
-        @message = 'settings updated'
-      else
-        @message = 'settings update failed'
-      end
+      update_user_settings(@user)
     when 'update_password'
       if @user.authenticate(params[:user][:existing_password])
         @user.password = params[:user][:new_password]
@@ -78,6 +72,17 @@ class UsersController < ApplicationController
       message: @message,
       jwt: token,
     }
+  end
+
+  def update_user_settings(user)
+    @message = ''
+    if user
+      user.name = params[:user][:name]
+      user.email = params[:user][:email]
+      @message = 'settings updated'
+    else
+      @message = 'settings update failed'
+    end
   end
 
   def mark_task_completed(user, task)
