@@ -99,11 +99,7 @@ class UsersController < ApplicationController
   end
 
   def favorite_task(task)
-    if task.favorite
-      task.favorite = false
-    else
-      task.favorite = true
-    end
+    task.favorite = !task.favorite
     task.save
   end
 
