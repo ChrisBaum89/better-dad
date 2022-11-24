@@ -4,7 +4,6 @@ import task_background from '../img/task_background.jpeg'
 import '../css/Tasks.css'
 import Button from 'react-bootstrap/Button'
 import { useSelector, useDispatch } from 'react-redux';
-import { setUserState } from "../actions/userActions";
 
 function TaskList(props) {
     const currentState = useSelector((state) => state)
@@ -102,18 +101,3 @@ function TaskList(props) {
 }
 
 export default TaskList
-
-        // < Carousel.Item interval = { 10000000} >
-        //                 <img
-        //                     className="d-block w-100"
-        //                     src={task_background}
-        //                     alt="First slide"
-        //                 />
-        //                 <Carousel.Caption>
-        //                     <h4>hi</h4>
-        //                     <p>Points: 10</p>
-        //                     <Button variant="primary">
-        //                         Complete
-        //                     </Button>
-        //                 </Carousel.Caption>
-        //             </Carousel.Item >
