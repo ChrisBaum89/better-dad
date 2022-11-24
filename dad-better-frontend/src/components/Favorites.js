@@ -7,7 +7,6 @@ import FavoriteButton from './FavoriteButton';
 function Favorites() {
     const currentState = useSelector((state) => state)
     const currentUser = currentState.usersReducer.user[0].user
-    const dispatch = useDispatch()
 
     const checkFavoriteTask = (task) => {
         return task.attributes.favorite === true
