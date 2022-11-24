@@ -6,7 +6,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import History from '../components/History';
 import Favorites from '../components/Favorites';
 import UserSettings from './UserSettings';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import '../css/App.css'
 
 function Navigation() {
