@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Card from 'react-bootstrap/Card'
 import '../css/Tasks.css'
 import { formatDateTime } from "../actions/taskActions";
@@ -9,7 +9,6 @@ function CompletedTaskCard() {
 
     const currentState = useSelector((state) => state)
     const currentUser = currentState.usersReducer.user[0].user
-    const dispatch = useDispatch()
 
     const checkCompletedTask = (task) => {
         return task.type === "completed_task"
