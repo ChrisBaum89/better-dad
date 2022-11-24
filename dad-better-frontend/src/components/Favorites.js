@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import '../css/Tasks.css'
 import Card from 'react-bootstrap/Card'
 import FavoriteButton from './FavoriteButton';
