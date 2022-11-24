@@ -3,10 +3,6 @@ class UsersController < ApplicationController
   require 'httparty'
   skip_before_action :authorized, only: [:create]
 
-  def profile
-    # render json: { user: UserSerializer.new(current_user) }, status: :accepted
-  end
-
   def create
     @user = User.create(user_params)
     @user.score = 0
