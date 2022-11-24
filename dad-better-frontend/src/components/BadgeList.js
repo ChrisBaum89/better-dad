@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from 'react-bootstrap/Carousel'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import star_background from '../img/star_background.jpeg'
 import '../css/Badges.css'
 
@@ -8,7 +8,6 @@ const BadgeList = () => {
 
     const currentState = useSelector((state) => state)
     const currentUser = currentState.usersReducer.user[0].user
-    const dispatch = useDispatch()
 
     const checkEarnedBadges = (badge) => {
         return badge.type === "earned_badge"
@@ -40,7 +39,7 @@ const BadgeList = () => {
                                 />
                                 <Carousel.Caption>
                                     <div class="badge-carousel-caption">
-                                        <img class='badge-image' src={badge.attributes.badge.image}></img>
+                                        <img class='badge-image' src={badge.attributes.badge.image} alt=''></img>
                                         <h6>{badge.attributes.badge.name}</h6>
                                         <p>{badge.attributes.badge.description}</p>
                                     </div>
