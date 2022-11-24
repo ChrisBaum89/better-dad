@@ -53,12 +53,7 @@ class UsersController < ApplicationController
       @user = User.find_by_id(params[:user][:user_id])
       update_user_settings(@user)
     when 'update_password'
-      if @user.authenticate(params[:user][:existing_password])
-        @user.password = params[:user][:new_password]
-        @message = 'password updated'
-      else
-        @message = 'password update failed'
-      end
+      update_password(@user)
     end
     @user.save
     token = params[:jwt]
@@ -75,13 +70,21 @@ class UsersController < ApplicationController
   end
 
   def update_user_settings(user)
-    @message = ''
     if user
       user.name = params[:user][:name]
       user.email = params[:user][:email]
       @message = 'settings updated'
     else
       @message = 'settings update failed'
+    end
+  end
+
+  def update_password(user)
+    if user.authenticate(params[:user][:existing_password])
+      user.password = params[:user][:new_password]
+      @message = 'password updated'
+    else
+      @message = 'password update failed'
     end
   end
 
