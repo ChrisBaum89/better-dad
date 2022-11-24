@@ -1,7 +1,6 @@
-11/6/2022
-- need to figure out how to assign only a certain amount of tasks daily (probably should be done in backend)
-- have favoriting only on jokes
-- be able to edit user settings
-- handle JWT back and forth for updating.
+11/23/2022
+- make Better Dad logo bigger
+- possibly format color on offscreen screens
 - need to implement quotes
+- need to show newest badge as header (may want to create more seeded badges)
 - need to refactor
