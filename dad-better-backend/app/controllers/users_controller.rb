@@ -7,11 +7,15 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     @user.score = 0
     @user.level = 0
-    if @user.valid?
-      @user.save
-      @user.assign_daily_tasks
-      @token = encode_token(user_id: @user.id)
-      render_user_json(@user, @token)
+    valid_user(@user)
+  end
+
+  def valid_user(user)
+    if user.valid?
+      user.save
+      user.assign_daily_tasks
+      token = encode_token(user_id: user.id)
+      render_user_json(user, token)
     else
       render_error_json
     end
