@@ -11,7 +11,6 @@ import '../css/App.css'
 
 function Navigation() {
 
-    const currentUser = useSelector((state) => state.usersReducer.user[0])
     const dispatch = useDispatch()
     const [showHistory, setHistoryShow] = useState(false);
     const [showSettings, setSettingsShow] = useState(false)
