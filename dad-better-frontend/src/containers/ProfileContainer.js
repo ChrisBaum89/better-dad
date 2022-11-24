@@ -4,14 +4,13 @@ import BadgeContainer from './BadgeContainer';
 import TaskContainer from './TaskContainer';
 import QuoteContainer from './QuoteContainer'
 import NavigationContainer from './NavigationContainer';
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import Image from 'react-bootstrap/Image'
 import MyImage from '../img/better-dad-logo.png'
 
 function ProfileContainer() {
     const currentState = useSelector((state) => state)
     const currentUser = currentState.usersReducer.user[0].user
-    const dispatch = useDispatch()
 
     const username = (currentUser) => {
         if (currentUser !== null) {
