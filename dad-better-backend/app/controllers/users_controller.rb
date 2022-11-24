@@ -107,10 +107,6 @@ class UsersController < ApplicationController
     task.save
   end
 
-  def update_user_settings(user)
-
-  end
-
   def index
     @users = User.all
     render json: UserSerializer.new(@users)
