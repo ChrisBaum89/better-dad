@@ -1,7 +1,7 @@
 import React from 'react';
 import UserCard from '../components/UserCard';
 import BadgeContainer from './BadgeContainer';
-import TaskList from '../components/TaskList.js'
+import TaskContainer from './TaskContainer';
 import NavigationContainer from './NavigationContainer';
 import { useSelector } from 'react-redux'
 import Image from 'react-bootstrap/Image'
@@ -31,20 +31,6 @@ function ProfileContainer() {
         }
     }
 
-    const checkAssignedTask = (task) => {
-        return task.type === "assigned_task"
-    }
-
-    const assignedTasks = (currentUser) => {
-        if (currentUser !== 0) {
-            return currentUser.included.filter(checkAssignedTask)
-        }
-        else {
-            return "No user. No tasks assigned"
-        }
-
-    }
-
     return (
 
         <div className="profile-content">
@@ -59,10 +45,7 @@ function ProfileContainer() {
                 </div>
                 <UserCard username={username(currentUser)} score={score(currentUser)} />
                 <br></br>
-                <div class="task-title">
-                    <h2>Tasks</h2>
-                </div>
-                <TaskList userAssignedTasks={assignedTasks(currentUser)} />
+                <TaskContainer />
                 <br></br>
                 <BadgeContainer />
                 <br></br><br></br><br></br>
