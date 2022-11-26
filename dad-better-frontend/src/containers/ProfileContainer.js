@@ -1,8 +1,7 @@
 import React from 'react';
-import UserContainer from './UserContainer';
+import UserCard from '../components/UserCard';
 import BadgeContainer from './BadgeContainer';
-import TaskContainer from './TaskContainer';
-import QuoteContainer from './QuoteContainer'
+import TaskList from '../components/TaskList.js'
 import NavigationContainer from './NavigationContainer';
 import { useSelector } from 'react-redux'
 import Image from 'react-bootstrap/Image'
@@ -49,20 +48,24 @@ function ProfileContainer() {
     return (
 
         <div className="profile-content">
-            <NavigationContainer />
+            <NavigationContainer/>
             <div>
                 <br></br>
-                <Quote quote={quote}/>
-                <div className="better-dad-logo">
-                    <Image src={MyImage} alt="Better Dad" display="inline-block"></Image>
+                <div className='logo-quote'>
+                    <div className="better-dad-logo">
+                        <Image src={MyImage} alt="Better Dad" display="inline-block"></Image>
+                        <Quote quote={quote} />
+                    </div>
                 </div>
-                <UserContainer username={username(currentUser)} score={score(currentUser)} />
+                <UserCard username={username(currentUser)} score={score(currentUser)} />
                 <br></br>
-                <QuoteContainer />
+                <div class="task-title">
+                    <h2>Tasks</h2>
+                </div>
+                <TaskList userAssignedTasks={assignedTasks(currentUser)} />
                 <br></br>
-                <TaskContainer userAssignedTasks={assignedTasks(currentUser)} />
-                <br></br>
-                <BadgeContainer /><br></br><br></br><br></br>
+                <BadgeContainer />
+                <br></br><br></br><br></br>
             </div>
         </div>
     )
