@@ -1,67 +1,42 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import {connect} from 'react-redux'
-import { useDispatch } from 'react-redux';
+import { connect } from 'react-redux'
+import Offcanvas from 'react-bootstrap/Offcanvas';
 
-function Signup() {
+function Signup(props) {
 
-    const dispatch = useDispatch()
-
-
-    const handleOnSubmit = (event) => {
-        event.preventDefault()
-        const [username, password, name, email] = event.target
-        createUser(username.value, password.value, name.value, email.value)
-    }
-
-    const createUser = (username, password, name, email) => {
-        fetch("http://localhost:3000/users", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-            },
-            body: JSON.stringify({
-                user: {
-                    username: username,
-                    password: password,
-                    email: email,
-                    name: name,
-                },
-            }),
-        })
-            .then((r) => r.json())
-            .then((data) => {
-                localStorage.setItem("jwt", data.jwt)
-                dispatch({type: "LOGIN_USER", payload: data})
-             })
-    }
-
-return (
+    return (
         <div>
-            <Form onSubmit={handleOnSubmit}>
-                <Form.Group className="w-100" controlId="formBasicEmail">
-                    <Form.Control type="username" size="sm" placeholder="Username" />
-                </Form.Group>
-                <br></br>
-                <Form.Group className="w-100" controlId="formBasicPassword">
-                    <Form.Control type="password" size="sm" placeholder="Password" />
-                </Form.Group>
-                <br></br>
-                <Form.Group className="w-100" controlId="formBasicName">
-                    <Form.Control type="name" size="sm" placeholder="Name" />
-                </Form.Group>
-                <br></br>
-                <Form.Group className="w-100" controlId="formBasicEmail">
-                    <Form.Control type="email" size="sm" placeholder="Email" />
-                </Form.Group>
-                <br></br>
-                <Button variant="primary" type="submit">
-                    Create Account
-                </Button>
-            </Form>
-        </div>
+            <Offcanvas show={props.show} onHide={props.handleClose}>
+                <Offcanvas.Header closeButton>
+                    <Offcanvas.Title>Signup</Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                    <Form onSubmit={props.handleOnSubmit}>
+                        <Form.Group className="w-100" controlId="formBasicEmail">
+                            <Form.Control type="username" size="sm" placeholder="Username" />
+                        </Form.Group>
+                        <br></br>
+                        <Form.Group className="w-100" controlId="formBasicPassword">
+                            <Form.Control type="password" size="sm" placeholder="Password" />
+                        </Form.Group>
+                        <br></br>
+                        <Form.Group className="w-100" controlId="formBasicName">
+                            <Form.Control type="name" size="sm" placeholder="Name" />
+                        </Form.Group>
+                        <br></br>
+                        <Form.Group className="w-100" controlId="formBasicEmail">
+                            <Form.Control type="email" size="sm" placeholder="Email" />
+                        </Form.Group>
+                        <br></br>
+                        <Button variant="primary" type="submit">
+                            Create Account
+                        </Button>
+                    </Form>
+                </Offcanvas.Body>
+            </Offcanvas>
+        </div >
     )
 }
 
