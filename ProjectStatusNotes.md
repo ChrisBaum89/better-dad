@@ -4,3 +4,4 @@
 - need to implement quotes
 - need to show newest badge as header (may want to create more seeded badges)
 - need to refactor
+- need a 3rd route (maybe move the How It Works to a new page/route)
