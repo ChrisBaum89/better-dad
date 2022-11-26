@@ -1,10 +1,11 @@
 import React from "react";
+import '../css/Quote.css'
 
 const Quote = (props) => {
-    debugger
     return (
-        <div>
-            {props.quote.description}
+        <div className='quote-div'>
+            {props.quote.description} - {props.quote.author}
+            <br></br><br></br><br></br>
         </div>
     )
 }
