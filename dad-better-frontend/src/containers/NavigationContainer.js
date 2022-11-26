@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import History from '../components/History';
 import Favorites from '../components/Favorites';
-import UserSettings from '../components/UserSettings';
+import UserSettingsContainer from './UserSettingsContainer';
 import NavigationToolbar from '../components/NavigationToolbar';
 import { useDispatch } from 'react-redux';
 import '../css/App.css'
@@ -46,7 +46,7 @@ function NavigationContainer() {
                     </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    <UserSettings />
+                    <UserSettingsContainer />
                 </Offcanvas.Body>
             </Offcanvas>
 
