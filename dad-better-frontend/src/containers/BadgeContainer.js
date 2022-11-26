@@ -19,7 +19,7 @@ function BadgeContainer () {
     }
 
     const badges = earnedBadges(currentUser)
-debugger
+
     return(
         <div>
             <BadgeList badges={badges}/>
