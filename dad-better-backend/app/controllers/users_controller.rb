@@ -66,6 +66,7 @@ class UsersController < ApplicationController
       user: UserSerializer.new(@user, options),
       message: @message,
       jwt: token,
+      quote: @user.quote_for_user,
     }
   end
 

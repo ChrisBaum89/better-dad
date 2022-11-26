@@ -49,8 +49,10 @@ class ApplicationController < ActionController::API
     render json: {
              user: UserSerializer.new(user, options),
              jwt: token,
-             message: 'Valid Login'
+             message: 'Valid Login',
+             quote: @user.quote_for_user,
            },
            status: :created
   end
+
 end
