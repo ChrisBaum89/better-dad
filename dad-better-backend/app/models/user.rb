@@ -24,7 +24,6 @@ class User < ApplicationRecord
   end
 
   def daily_tasks_assigned?
-    binding.pry
     current_date = DateTime.now.in_time_zone("Eastern Time (US & Canada)").to_date
     assigned_today = self.assigned_tasks.any? {|task| task.created_at.to_date == current_date}
     completed_today = self.completed_tasks.any? {|task| task.created_at.to_date == current_date}
