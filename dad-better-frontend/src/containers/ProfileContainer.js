@@ -4,9 +4,7 @@ import BadgeContainer from './BadgeContainer';
 import TaskContainer from './TaskContainer';
 import NavigationContainer from './NavigationContainer';
 import { useSelector } from 'react-redux'
-import Image from 'react-bootstrap/Image'
-import MyImage from '../img/better-dad-logo.png'
-import Quote from '../components/Quote';
+import Logo from '../components/Logo';
 
 function ProfileContainer() {
     const currentState = useSelector((state) => state)
@@ -34,15 +32,10 @@ function ProfileContainer() {
     return (
 
         <div className="profile-content">
-            <NavigationContainer/>
+            <NavigationContainer />
             <div>
                 <br></br>
-                <div className='logo-quote'>
-                    <div className="better-dad-logo">
-                        <Image src={MyImage} alt="Better Dad" display="inline-block"></Image>
-                        <Quote quote={quote} />
-                    </div>
-                </div>
+                <Logo quote={quote}/>
                 <UserCard username={username(currentUser)} score={score(currentUser)} />
                 <br></br>
                 <TaskContainer />
