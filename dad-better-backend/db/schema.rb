@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2022_09_07_142118) do
 
   create_table "quotes", force: :cascade do |t|
     t.string "description"
+    t.string "author"
     t.string "category"
     t.boolean "active"
     t.datetime "created_at", precision: 6, null: false

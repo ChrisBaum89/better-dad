@@ -62,30 +62,35 @@ task4 = Task.create(
 
 quote1 = Quote.create(
     description: "A dad is more than just the sum of his parts. He is the very soul of the family.",
+    author: "unknown",
     category: "generic",
     active: false
 )
 
 quote2 = Quote.create(
     description: "Fathers are men who dared to place the world's hopes and dreams in their children.",
+    author: "unknown",
     category: "generic",
     active: false
 )
 
 quote3 = Quote.create(
     description: "Even the best dads make mistakes. But there is no mistaking their love for their children.",
+    author: "unknown",
     category: "generic",
     active: false
 )
 
 quote4 = Quote.create(
     description: "A father teaches his daughter how to love and be loved.",
+    author: "unknown",
     category: "daughter",
     active: true
 )
 
 quote5 = Quote.create(
     description: "A dad is the hero his son hopes to be.",
+    author: "unknown",
     category: "son",
     active: false
 )
