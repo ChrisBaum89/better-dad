@@ -46,18 +46,15 @@ function ProfileContainer() {
 
     }
 
-    debugger
-
     return (
 
         <div className="profile-content">
             <NavigationContainer />
             <div>
+                <br></br>
+                <Quote quote={quote}/>
                 <div className="better-dad-logo">
                     <Image src={MyImage} alt="Better Dad" display="inline-block"></Image>
-                </div>
-                <div>
-                    <Quote quote={quote}/>
                 </div>
                 <UserContainer username={username(currentUser)} score={score(currentUser)} />
                 <br></br>
