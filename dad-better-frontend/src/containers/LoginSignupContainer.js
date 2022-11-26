@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import LoginSignupForm from '../components/LoginSignupForm';
 import Signup from '../components/Signup';
-import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useDispatch } from 'react-redux';
 
 function LoginSignupContainer(props) {
