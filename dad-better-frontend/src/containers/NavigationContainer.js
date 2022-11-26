@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button'
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import History from '../components/History';
 import Favorites from '../components/Favorites';
