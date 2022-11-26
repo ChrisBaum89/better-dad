@@ -44,4 +44,9 @@ class User < ApplicationRecord
   def clear_assigned_tasks
     self.assigned_tasks.destroy_all
   end
+
+  def quote_for_user
+    quote_id = rand(1..Quote.all.length);
+    Quote.find_by_id(quote_id)
+  end
 end
