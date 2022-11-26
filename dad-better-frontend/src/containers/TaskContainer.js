@@ -1,8 +1,5 @@
 import React from "react";
-import Carousel from 'react-bootstrap/Carousel'
-import task_background from '../img/task_background.jpeg'
 import '../css/Tasks.css'
-import Button from 'react-bootstrap/Button'
 import { useSelector, useDispatch } from 'react-redux';
 import TaskList from "../components/TaskList";
 
