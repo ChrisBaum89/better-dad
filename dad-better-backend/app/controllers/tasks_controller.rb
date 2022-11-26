@@ -2,6 +2,8 @@ class TasksController < ApplicationController
   require 'json'
   require 'httparty'
 
+  skip_before_action :authorized, only: [:create_tasks_from_jokes]
+
   jokes = []
 
   def index
