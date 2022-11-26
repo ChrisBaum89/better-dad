@@ -7,10 +7,12 @@ import NavigationContainer from './NavigationContainer';
 import { useSelector } from 'react-redux'
 import Image from 'react-bootstrap/Image'
 import MyImage from '../img/better-dad-logo.png'
+import Quote from '../components/Quote';
 
 function ProfileContainer() {
     const currentState = useSelector((state) => state)
     const currentUser = currentState.usersReducer.user[0].user
+    const quote = currentState.usersReducer.user[0].quote
 
     const username = (currentUser) => {
         if (currentUser !== null) {
@@ -44,6 +46,8 @@ function ProfileContainer() {
 
     }
 
+    debugger
+
     return (
 
         <div className="profile-content">
@@ -51,6 +55,9 @@ function ProfileContainer() {
             <div>
                 <div className="better-dad-logo">
                     <Image src={MyImage} alt="Better Dad" display="inline-block"></Image>
+                </div>
+                <div>
+                    <Quote quote={quote}/>
                 </div>
                 <UserContainer username={username(currentUser)} score={score(currentUser)} />
                 <br></br>
