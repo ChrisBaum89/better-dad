@@ -107,15 +107,18 @@
 
 .welcome-logo-spacing {
   overflow: auto;
-  width: 33%;
+  width: 30%;
   float: left;
 }
 
 .login-signin-form {
-  
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
 .welcome-logo {
-  width: 60%;
+  width: 100%;
+}
+
+.login-form {
+  width: 30%;
+  margin: auto;
 }
