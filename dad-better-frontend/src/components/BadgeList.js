@@ -9,7 +9,7 @@ const BadgeList = (props) => {
         return (
             <div class="badge-carousel">
                 <div class="badge-title">
-                    <h2>Badges</h2>
+                    <h2>Badges Earned</h2>
                 </div>
                 <Carousel>
                     {props.badges.map(badge => {
@@ -23,6 +23,7 @@ const BadgeList = (props) => {
                                 <Carousel.Caption>
                                     <div class="badge-carousel-caption">
                                         <img class='badge-image' src={badge.attributes.badge.image} alt=''></img>
+                                        <br></br><br></br>
                                         <h6>{badge.attributes.badge.name}</h6>
                                         <p>{badge.attributes.badge.description}</p>
                                     </div>
@@ -37,7 +38,7 @@ const BadgeList = (props) => {
         return (
             <div class="badge-carousel">
                 <div class="badge-title">
-                    <h2>Badges</h2>
+                    <h2>Badges Earned</h2>
                 </div>
                 <Carousel>
                     <Carousel.Item interval={10000000}>
