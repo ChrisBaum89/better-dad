@@ -12,6 +12,7 @@ class AuthController < ApplicationController
       @user.assign_daily_tasks
       @user.calc_score
       update_badge(@user)
+      assign_quote_of_day()
 
       options = {
         include: [:assigned_tasks, :completed_tasks, :earned_badges]
@@ -21,7 +22,7 @@ class AuthController < ApplicationController
                user: UserSerializer.new(@user, options),
                jwt: token,
                message: 'Valid Login',
-               quote: @user.quote_for_user,
+               quote: quote_of_day(),
              },
              status: :accepted
     else
@@ -30,6 +31,35 @@ class AuthController < ApplicationController
              },
              status: :unauthorized
     end
+  end
+
+  def assign_quote_of_day
+    activeQuote = current_quote_of_day()
+    if not quote_assigned_today?(activeQuote)
+      reset_quote_of_day(activeQuote)
+      assign_new_quote(activeQuote)
+    end
+  end
+
+  def quote_assigned_today?(quote)
+    current_date = DateTime.now.in_time_zone("Eastern Time (US & Canada)").to_date
+    return quote.updated_at.to_date == current_date
+  end
+
+  def assign_new_quote(last_active_quote)
+    random_quote_id = rand(1..Quote.all.length)
+    if random_quote_id != last_active_quote.id
+      quote = Quote.find_by_id(random_quote_id)
+      quote.active = true
+      quote.save
+    else
+      assign_new_quote(last_active_quote)
+    end
+  end
+
+  def reset_quote_of_day(quote)
+    quote.active = false
+    quote.save
   end
 
   private
