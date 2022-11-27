@@ -27,19 +27,21 @@ function CompletedTaskCard() {
 
     const userCompletedTask = (task) => {
         return (
-            <div className="col d-flex justify-content-center">
-                <Card style={{ width: '36rem' }} >
-                    <Card.Body class='completed-card-body'>
-                        <Card.Title class='completed-card-title'>
-                            <FavoriteButton task={task}/>
-                            {task.attributes.task.description}
-                        </Card.Title>
-                        <Card.Text>
-                            Score: {task.attributes.task.value}<br></br>
-                            Completed: {formatDateTime(task.attributes.created_at)[0]}<br></br>
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
+            <div className='completed-tasks-div'>
+                <div className="col d-flex justify-content-center">
+                    <Card style={{ width: '36rem' }} >
+                        <Card.Body class='completed-card-body'>
+                            <Card.Title class='completed-card-title'>
+                                <FavoriteButton task={task} />
+                                {task.attributes.task.description}
+                            </Card.Title>
+                            <Card.Text>
+                                Score: {task.attributes.task.value}<br></br>
+                                Completed: {formatDateTime(task.attributes.created_at)[0]}<br></br>
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                </div>
             </div>)
     }
 
