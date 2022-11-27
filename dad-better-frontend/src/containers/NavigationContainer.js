@@ -43,7 +43,7 @@ function NavigationContainer() {
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title>
                         <div className="offcanvas-title">
-                            User Settings
+                            Settings
                         </div>
                     </Offcanvas.Title>
                 </Offcanvas.Header>
