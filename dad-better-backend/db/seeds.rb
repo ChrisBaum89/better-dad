@@ -71,6 +71,13 @@ badge6 = Badge.create(
     image: "https://i.pinimg.com/736x/a3/d4/5d/a3d45d928715e820031d15db64bd5a19.jpg",
 )
 
+badge7 = Badge.create(
+    name: "Start of Journey",
+    description: "Thank you for signing up! You are ready to start your journey to becoming a better dad and role model for your family!",
+    score_threshold: 0,
+    image: "https://www.shutterstock.com/image-photo/excited-dedicated-football-fan-triumphing-260nw-1164947800.jpg",
+)
+
 task4 = Task.create(
     description: "Play with children without looking at phone for 30 minutes",
     identifier: rand(1..10000000).to_s,
