@@ -37,11 +37,6 @@
   }
 }
 
-.better-dad-logo {
-  display: "right-align";
-  text-align: "right";
-}
-
 .login-container {
   display: "inline-block";
   text-align: "right";
@@ -75,4 +70,22 @@
 
 .invalid-login {
   color: red;
+}
+
+.better-dad-logo {
+  float: left;
+  width: 50%;
+}
+
+.logo-quote {
+  position: relative;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+.quote-div {
+  width: 50%;
+  color: black;
+  float: right;
 }
