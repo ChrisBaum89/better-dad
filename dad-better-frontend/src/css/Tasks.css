@@ -46,3 +46,14 @@
     color: orange;
     font-size: 20px;
   }
+
+  .offcanvas-body{
+    background-image: url('../img/offcanvas-background.jpeg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-color: #764835;
+  }
+
+  .offcanvas-header{
+    background-color: #71c8e3;
+  }
