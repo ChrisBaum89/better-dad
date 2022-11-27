@@ -53,10 +53,10 @@ function LoginSignupForm(props) {
         <div className='login-form'>
             <Form onSubmit={handleOnSubmit}>
                 <Form.Group className="w-100" controlId="formBasicEmail">
-                    <Form.Control type="username" size="sm" placeholder="Username" />
+                    <Form.Control required type="username" size="sm" placeholder="Username" />
                 </Form.Group>
                 <Form.Group className="w-100" controlId="formBasicPassword">
-                    <Form.Control type="password" size="sm" htmlSize="10" placeholder="Password" />
+                    <Form.Control required type="password" size="sm" htmlSize="10" placeholder="Password" />
                 </Form.Group>
                 {invalidLogin()}
                 <br></br>
