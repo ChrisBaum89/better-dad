@@ -32,9 +32,11 @@ function ProfileContainer() {
     return (
 
         <div className="profile-content">
+            <div className='profile-header'>
             <NavigationContainer />
+            <ProfileHeader quote={quote}/>
+            </div>
             <div>
-                <ProfileHeader quote={quote}/>
                 <UserCard username={username(currentUser)} score={score(currentUser)} />
                 <br></br>
                 <TaskContainer />
