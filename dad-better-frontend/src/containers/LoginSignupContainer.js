@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import LoginSignupForm from '../components/LoginSignupForm';
 import Signup from '../components/Signup';
 import { useDispatch } from 'react-redux';
+import "../css/App.css"
 
 function LoginSignupContainer(props) {
     const [show, setShow] = useState(false);
@@ -42,7 +43,7 @@ function LoginSignupContainer(props) {
     }
     
     return (
-        <div>
+        <div className='login-signin-form'>
             <LoginSignupForm handleShow={handleShow}/>
 
            <Signup
