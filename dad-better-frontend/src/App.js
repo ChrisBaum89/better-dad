@@ -6,6 +6,7 @@ import WelcomeContainer from './containers/WelcomeContainer';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import Footer from './components/Footer';
+import About from './components/About';
 
 function App() {
 
@@ -13,13 +14,13 @@ function App() {
 
   const loggedin = () => {
     const user = currentState.usersReducer.user[0]
-    if (user === undefined){
+    if (user === undefined) {
       return false
     }
-    else if (localStorage.jwt === 'undefined'){
+    else if (localStorage.jwt === 'undefined') {
       return false
     }
-    else if (localStorage.jwt !== 'undefined'){
+    else if (localStorage.jwt !== 'undefined') {
       return true
     }
     else {
@@ -36,11 +37,14 @@ function App() {
         <Route exact path="/profile">
           {loggedin() ? <ProfileContainer /> : <Redirect to="/" />}
         </Route>
+        <Route exact path="/about">
+          <About />
+        </Route>
         <div className="site-footer">
-                <div className="footer-content">
-                  <Footer />
-                  </div>
-            </div>
+          <div className="footer-content">
+            <Footer />
+          </div>
+        </div>
       </div>
     </Router>
   )
