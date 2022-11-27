@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     if user.valid?
       user.save
       user.assign_daily_tasks
+      update_badge(user)
       token = encode_token(user_id: user.id)
       render_user_json(user, token)
     else
@@ -44,8 +45,9 @@ class UsersController < ApplicationController
     case @update_type
     when 'task_completed'
       @task = Task.find_by_id(params[:user][:task_id])
-      update_badge(@user)
       mark_task_completed(@user, @task)
+      @user.calc_score
+      update_badge(@user)
     when 'task_favorited'
       @completed_task = CompletedTask.find_by_id(params[:user][:task_id])
       favorite_task(@completed_task)
@@ -66,7 +68,7 @@ class UsersController < ApplicationController
       user: UserSerializer.new(@user, options),
       message: @message,
       jwt: token,
-      quote: @user.quote_for_user,
+      quote: quote_of_day(),
     }
   end
 
@@ -94,7 +96,6 @@ class UsersController < ApplicationController
 
     # remove @completed_task from assigned tasks
     user.assigned_tasks.delete_by(task_id: task.id)
-    user.calc_score
   end
 
   def favorite_task(task)
