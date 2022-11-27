@@ -52,19 +52,16 @@ function LoginSignupForm(props) {
     return (
         <div className='login-form'>
             <Form onSubmit={handleOnSubmit}>
-                <Form.Group className="w-25" controlId="formBasicEmail">
+                <Form.Group className="w-100" controlId="formBasicEmail">
                     <Form.Control type="username" size="sm" placeholder="Username" />
                 </Form.Group>
-                <Form.Group className="w-25" controlId="formBasicPassword">
+                <Form.Group className="w-100" controlId="formBasicPassword">
                     <Form.Control type="password" size="sm" htmlSize="10" placeholder="Password" />
                 </Form.Group>
                 {invalidLogin()}
-                <Button variant="primary" type="submit">
-                    Login
-                </Button>
-                <Button variant="primary" onClick={props.handleShow}>
-                    Signup
-                </Button>
+                <br></br>
+                <Button variant="primary" type="submit">Login</Button>
+                <Button variant="primary" onClick={props.handleShow}>Signup</Button>
             </Form>
         </div>
     )
