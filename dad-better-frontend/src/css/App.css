@@ -132,3 +132,11 @@
 .welcome-div {
   font-family: palatino, serif;
 }
+
+.about-link-div {
+  font-size: 40px;
+}
+
+.footer-div {
+  margin-right: 5px;
+}
