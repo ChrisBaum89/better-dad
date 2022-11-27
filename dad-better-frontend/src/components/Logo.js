@@ -5,7 +5,7 @@ import MyImage from '../img/better-dad-logo.png'
 function Logo() {
     return (
         <div className="better-dad-logo">
-            <Image src={MyImage} alt="Better Dad" width="50%"></Image>
+            <Image src={MyImage} alt="Better Dad" width="100%"></Image>
         </div>
     )
 }
