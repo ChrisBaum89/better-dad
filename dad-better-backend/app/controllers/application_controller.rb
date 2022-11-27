@@ -56,3 +56,12 @@ class ApplicationController < ActionController::API
   end
 
 end
+
+def update_badge(user)
+  applicable_badges = Badge.all.select { |badge| user.score >= badge.score_threshold }
+  applicable_badges.each do |badge|
+    if user.badges.exclude?(badge)
+      EarnedBadge.create(user_id: user.id, badge_id: badge.id)
+    end
+  end
+end
