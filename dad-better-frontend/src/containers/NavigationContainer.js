@@ -28,14 +28,16 @@ function NavigationContainer() {
 
     return (
         <div>
-            <NavigationToolbar
-                handleHistory={handleHistoryShow} 
-                handleFavorites={handleFavoritesShow}
-                handleSettings={handleSettingsShow}
-                handleLogout={handleLogout}
-            />
+            <div className='navigation-button-bar'>
+                <NavigationToolbar
+                    handleHistory={handleHistoryShow}
+                    handleFavorites={handleFavoritesShow}
+                    handleSettings={handleSettingsShow}
+                    handleLogout={handleLogout}
+                />
+            </div>
 
-            <History showHistory={showHistory} handleHistoryClose={handleHistoryClose}/>
+            <History showHistory={showHistory} handleHistoryClose={handleHistoryClose} />
 
             <Offcanvas show={showSettings} onHide={handleSettingsClose}>
                 <Offcanvas.Header closeButton>
