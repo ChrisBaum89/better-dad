@@ -50,7 +50,7 @@ class ApplicationController < ActionController::API
              user: UserSerializer.new(user, options),
              jwt: token,
              message: 'Valid Login',
-             quote: @user.quote_for_user,
+             quote: quote_of_day(),
            },
            status: :created
   end
@@ -65,3 +65,9 @@ def update_badge(user)
     end
   end
 end
+
+def quote_of_day()
+  activeQuote = Quote.all.select{|quote| quote.active == true}
+  return activeQuote[0]
+end
+
