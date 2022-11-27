@@ -3,6 +3,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    font-family: palatino, serif;
 }
 
 .task-carousel-caption{
@@ -17,6 +18,7 @@
     text-align: center;
     top: 30px;
     bottom: block;
+    font-family: palatino, serif;
 }
 
 .completed-card-body{
