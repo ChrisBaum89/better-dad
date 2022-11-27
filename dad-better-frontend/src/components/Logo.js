@@ -1,17 +1,11 @@
 import React from "react";
-import Image from "react-bootstrap/esm/Image";
-import Quote from "./Quote";
+import Image from "react-bootstrap/Image";
 import MyImage from '../img/better-dad-logo.png'
 
-function Logo(props) {
+function Logo() {
     return (
-        <div>
-            <div className='logo-quote'>
-                <div className="better-dad-logo">
-                    <Image src={MyImage} alt="Better Dad" display="inline-block"></Image>
-                    <Quote quote={props.quote} />
-                </div>
-            </div>
+        <div className="better-dad-logo">
+            <Image src={MyImage} alt="Better Dad" width="50%"></Image>
         </div>
     )
 }
