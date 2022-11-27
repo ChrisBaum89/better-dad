@@ -6,6 +6,16 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 
 function Signup(props) {
 
+    const errorMessage = (userError) => {
+        if (userError) {
+            return (
+                <div>
+                    Username already taken.
+                </div>
+            )
+        }
+    }
+    
     return (
         <div>
             <Offcanvas show={props.show} onHide={props.handleClose}>
@@ -30,6 +40,7 @@ function Signup(props) {
                             <Form.Control required type="email" size="sm" placeholder="Email" />
                         </Form.Group>
                         <br></br>
+                        {errorMessage(props.newUserError)}
                         <Button variant="primary" type="submit">
                             Create Account
                         </Button>
