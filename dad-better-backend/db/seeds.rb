@@ -15,20 +15,18 @@ user1 = User.create(
     username: "ChrisBaum89",
     name: "Chris",
     email: "c@gmail.com",
-    password_digest: "password",
+    password: "password",
     score: 0,
-    level: 0
-    
+    level: 0,
 )
 
 user2 = User.create(
     username: "Bob90",
     name: "Bob",
     email: "b@gmail.com",
-    password_digest: "password",
+    password: "password",
     score: 0,
-    level: 0
-
+    level: 0,
 )
 
 badge1 = Badge.create(
@@ -50,6 +48,27 @@ badge3 = Badge.create(
     description: "You need to see and it needs to be everything.  Can't have the frame impeding your view!",
     score_threshold: 200,
     image: "https://c.shld.net/rpx/i/s/pi/mp/10160405/prod_9456915432?src=http%3A%2F%2Flyimage.club%2Fimages%2FimageB%2FALVB07KXBMBP2.jpg&d=6bf4e65569f1b27907470137c97431dbe9803a95&hei=468&wid=468&op_sharpen=1"
+)
+
+badge4 = Badge.create(
+    name: "Jorts",
+    description: "You need something on your legs that is durable but can breath and you have found them!",
+    score_threshold: 100,
+    image: "https://pbs.twimg.com/media/Ckm6SllW0AASe7N.jpg",
+)
+
+badge5 = Badge.create(
+    name: "Lawn Mower",
+    description: "Nothing cuts the lawn like that ride-on John Deer.",
+    score_threshold: 400,
+    image: "https://d14zyouj9r0hpo.cloudfront.net/wp-content/uploads/2019/09/image.png",
+)
+
+badge6 = Badge.create(
+    name: "Phone Clip",
+    description: "Your about efficiency. You phone must be at the ready to handle the demands of today's world!",
+    score_threshold: 50,
+    image: "https://i.pinimg.com/736x/a3/d4/5d/a3d45d928715e820031d15db64bd5a19.jpg",
 )
 
 task4 = Task.create(
@@ -93,4 +112,39 @@ quote5 = Quote.create(
     author: "unknown",
     category: "son",
     active: false
+)
+
+quote6 = Quote.create(
+    description: "One father is more than a hundred schoolmasters.",
+    author: "George Herbert",
+    category: "generic",
+    active: false,
+)
+
+quote7 = Quote.create(
+    description: "A father doesn’t tell you that he loves you. He shows you.",
+    author: "Dimitri the Stoneheart",
+    category: "generic",
+    active: false,
+)
+
+quote8 = Quote.create(
+    description: "When my father didn’t have my hand, he had my back.",
+    author: "Linda Poindexter",
+    category: "generic",
+    active: false,
+)
+
+quote9 = Quote.create(
+    description: "Dad, your guiding hand on my shoulder will remain with me forever.",
+    author: "Unknown",
+    category: "generic",
+    active: false,
+)
+
+quote10 = Quote.create(
+    description: "Being a great father is like shaving. No matter how good you shaved today, you have to do it again tomorrow.",
+    author: "Reed Markham",
+    category: "generic",
+    active: false,
 )
