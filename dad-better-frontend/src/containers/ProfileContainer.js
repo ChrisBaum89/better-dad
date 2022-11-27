@@ -29,6 +29,12 @@ function ProfileContainer() {
         }
     }
 
+    const userCardPicture = (user) => {
+        const earnedBadges = user.included.filter(task => task.type === "earned_badge")
+        const lastBadgeEarned = earnedBadges.pop()
+        return lastBadgeEarned.attributes.badge.image
+    }
+
     return (
 
         <div className="profile-content">
@@ -37,7 +43,8 @@ function ProfileContainer() {
             <ProfileHeader quote={quote}/>
             </div>
             <div>
-                <UserCard username={username(currentUser)} score={score(currentUser)} />
+                <UserCard username={username(currentUser)} score={score(currentUser)} picture={userCardPicture(currentUser)}/>
+                <br></br>
                 <br></br>
                 <TaskContainer />
                 <br></br>
