@@ -1,15 +1,12 @@
 import React from 'react';
 import LoginSignupContainer from './LoginSignupContainer';
 import Welcome from '../components/Welcome';
-import Image from 'react-bootstrap/Image'
-import MyImage from '../img/better-dad-logo.png'
+import Logo from '../components/Logo';
 
 function WelcomeContainer() {
     return (
         <div>
-            <div className="better-dad-logo">
-                <Image src={MyImage} alt="Better Dad" display="inline-block"></Image>
-            </div>
+            <Logo />
             <LoginSignupContainer />
             <br></br>
             <br></br>
