@@ -1,5 +1,5 @@
 .badge-carousel{
-    width: 400px;
+    width: 500px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -22,7 +22,7 @@
 
 .badge-image{
     margin: auto;
-    height: 125px;
+    height: 150px;
 }
 
 .no-badge-carousel-caption{
