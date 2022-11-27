@@ -53,19 +53,20 @@
   background-size: 100% auto;
   min-height: 100%;
   background-color: rgb(126, 172, 113);
-  font-family: Arvo;
 }
 
 .footer-content{
   position: absolute;
   bottom: 0;
   right: 0;
+  font-family: palatino, serif;
 }
 
 .offcanvas-title{
   font-size: 30px;
   font-weight: bold;
   color: black;
+  font-family: palatino, serif;
 }
 
 .invalid-login {
@@ -90,12 +91,17 @@
   width: 50%;
   color: black;
   float: right;
+  font-family: palatino, serif;
 }
 
 .navigation-button-bar {
   overflow: auto;
   width: 38%;
   float: left;
+}
+
+.offcanvas-body {
+  font-family: palatino, serif;
 }
 
 .logo-signin-form {
@@ -121,4 +127,8 @@
 .login-form {
   width: 30%;
   margin: auto;
+}
+
+.welcome-div {
+  font-family: palatino, serif;
 }
