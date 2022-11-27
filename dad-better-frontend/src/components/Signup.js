@@ -15,19 +15,19 @@ function Signup(props) {
                 <Offcanvas.Body>
                     <Form onSubmit={props.handleOnSubmit}>
                         <Form.Group className="w-100" controlId="formBasicEmail">
-                            <Form.Control type="username" size="sm" placeholder="Username" />
+                            <Form.Control required type="username" size="sm" placeholder="Username" />
                         </Form.Group>
                         <br></br>
                         <Form.Group className="w-100" controlId="formBasicPassword">
-                            <Form.Control type="password" size="sm" placeholder="Password" />
+                            <Form.Control required type="password" size="sm" placeholder="Password" />
                         </Form.Group>
                         <br></br>
                         <Form.Group className="w-100" controlId="formBasicName">
-                            <Form.Control type="name" size="sm" placeholder="Name" />
+                            <Form.Control required type="name" size="sm" placeholder="Name" />
                         </Form.Group>
                         <br></br>
                         <Form.Group className="w-100" controlId="formBasicEmail">
-                            <Form.Control type="email" size="sm" placeholder="Email" />
+                            <Form.Control required type="email" size="sm" placeholder="Email" />
                         </Form.Group>
                         <br></br>
                         <Button variant="primary" type="submit">
