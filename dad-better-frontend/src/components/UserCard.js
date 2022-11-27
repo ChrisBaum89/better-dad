@@ -7,7 +7,7 @@ const UserCard = (props) => {
         <div className="user-card">
             <div className="col d-flex justify-content-center">
                 <Card style={{ width: '18rem' }}>
-                    <Card.Img className="user-image" variant="top" src="https://c8.alamy.com/comp/2J7983E/dad-pixel-art-vector-illustration-father-day-image-or-clip-art-2J7983E.jpg" />
+                    <Card.Img className="user-image" variant="top" src={props.picture} />
                     <Card.Body>
                         <Card.Text>
                             Username: {props.username}
