@@ -50,7 +50,7 @@ function LoginSignupForm(props) {
     }
 
     return (
-        <div>
+        <div className='login-form'>
             <Form onSubmit={handleOnSubmit}>
                 <Form.Group className="w-25" controlId="formBasicEmail">
                     <Form.Control type="username" size="sm" placeholder="Username" />
