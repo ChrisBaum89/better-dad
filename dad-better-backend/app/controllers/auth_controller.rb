@@ -34,7 +34,7 @@ class AuthController < ApplicationController
   end
 
   def assign_quote_of_day
-    activeQuote = current_quote_of_day()
+    activeQuote = quote_of_day()
     if not quote_assigned_today?(activeQuote)
       reset_quote_of_day(activeQuote)
       assign_new_quote(activeQuote)
