@@ -25,6 +25,15 @@ class ApplicationController < ActionController::API
     end
   end
 
+  def decoded_token_jwt_login(token)
+    begin
+      JWT.decode(token, 'the_s3cr3t', true, algorithm: 'HS256')
+    # JWT.decode => [{ "beef"=>"steak" }, { "alg"=>"HS256" }]
+    rescue JWT::DecodeError
+      nil
+    end
+  end
+
   def logged_in_user
     if decoded_token
       # decoded_token=> [{"user_id"=>2}, {"alg"=>"HS256"}]
@@ -70,4 +79,3 @@ def quote_of_day()
   activeQuote = Quote.all.select{|quote| quote.active == true}
   return activeQuote[0]
 end
-
