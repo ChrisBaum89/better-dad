@@ -50,12 +50,12 @@
   }
 
   .offcanvas-body{
-    background-image: url('../img/offcanvas-background.jpeg');
+    /* background-image: url('../img/offcanvas-background.jpeg');
     background-repeat: no-repeat;
     background-size: 100% auto;
-    background-color: #764835;
+    background-color: #764835; */
   }
 
   .offcanvas-header{
-    background-color: #71c8e3;
+    background-color: #79caf9;
   }
