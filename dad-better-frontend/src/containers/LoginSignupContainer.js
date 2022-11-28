@@ -1,17 +1,24 @@
 import React, {useState} from 'react';
 import LoginSignupForm from '../components/LoginSignupForm';
 import Signup from '../components/Signup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import "../css/App.css"
 
-function LoginSignupContainer(props) {
+function LoginSignupContainer() {
     const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
     const dispatch = useDispatch()
+    const currentState = useSelector((state) => state)
+    const user = currentState.usersReducer.user[0]
+    const message = user.message
 
+    const handleClose = () => {
+        dispatch({ type: "CLEAR_MESSAGE"})
+        setShow(false)
+    }
+    const handleShow = () => {
+        setShow(true);
+    }
 
     const handleOnSubmit = (event) => {
         event.preventDefault()
@@ -41,7 +48,7 @@ function LoginSignupContainer(props) {
                 dispatch({ type: "LOGIN_USER", payload: data })
             })
     }
-    
+
     return (
         <div className='login-signin-form'>
             <LoginSignupForm handleShow={handleShow}/>
@@ -50,6 +57,7 @@ function LoginSignupContainer(props) {
             handleOnSubmit={handleOnSubmit}
             handleClose={handleClose}
             show={show}
+            message={message}
            />
         </div>
     )
