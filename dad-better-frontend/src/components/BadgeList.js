@@ -7,21 +7,21 @@ const BadgeList = (props) => {
 
     if (props.badges.length > 0) {
         return (
-            <div class="badge-carousel">
-                <div class="badge-title">
+            <div className="badge-carousel">
+                <div className="badge-title">
                     <h2>Badges Earned</h2>
                 </div>
                 <Carousel>
                     {props.badges.map(badge => {
                         return (
-                            <Carousel.Item interval={10000000}>
+                            <Carousel.Item interval={10000000} key={`badge-${badge.id}`}>
                                 <img
                                     className="d-block w-100"
                                     src={star_background}
                                     alt="First slide"
                                 />
                                 <Carousel.Caption>
-                                    <div class="badge-carousel-caption">
+                                    <div className="badge-carousel-caption">
                                         <img class='badge-image' src={badge.attributes.badge.image} alt=''></img>
                                         <br></br><br></br>
                                         <h6>{badge.attributes.badge.name}</h6>
@@ -36,8 +36,8 @@ const BadgeList = (props) => {
         )
     } else {
         return (
-            <div class="badge-carousel">
-                <div class="badge-title">
+            <div className="badge-carousel">
+                <div className="badge-title">
                     <h2>Badges Earned</h2>
                 </div>
                 <Carousel>
@@ -48,7 +48,7 @@ const BadgeList = (props) => {
                             alt="First slide"
                         />
                         <Carousel.Caption>
-                            <div class="no-badge-carousel-caption">
+                            <div className="no-badge-carousel-caption">
                                 <h6>No Badges earned at this time. Keep completing tasks to earn badges.</h6>
                             </div>
                         </Carousel.Caption>
