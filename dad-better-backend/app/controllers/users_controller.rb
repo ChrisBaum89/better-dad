@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def render_error_json
     render json: {
-             error: 'failed to create user'
+             message: 'failed to create user'
            },
            status: :unprocessable_entity
   end
