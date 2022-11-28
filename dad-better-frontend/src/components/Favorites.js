@@ -25,7 +25,7 @@ function Favorites() {
 
     const userFavoriteTask = (task) => {
         return(
-        <div className="col d-flex justify-content-center">
+        <div className="col d-flex justify-content-center" key={`favorited-card-${task.id}`}>
             <Card style={{ width: '36rem' }} >
                 <Card.Body class='completed-card-body'>
                 <FavoriteButton task={task}/>
