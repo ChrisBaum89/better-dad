@@ -1,17 +1,24 @@
+.about-link-div {
+  font-size: 40px;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-image: url('../img/background_photo.webp');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  min-height: 100%;
+  background-color: rgb(126, 172, 113);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+
 
 .App-header {
   background-color: #282c34;
@@ -26,6 +33,32 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.better-dad-logo {
+  display: "inline-block";
+  float: left;
+  width: 40%;
+}
+
+.footer-content{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-family: palatino, serif;
+}
+
+.footer-div {
+  margin-right: 5px;
+}
+
+.invalid-login {
+  color: red;
 }
 
 @keyframes App-logo-spin {
@@ -43,40 +76,13 @@
   color: black
 }
 
-.app{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-image: url('../img/background_photo.webp');
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  min-height: 100%;
-  background-color: rgb(126, 172, 113);
+.login-form {
+  width: 30%;
+  margin: auto;
 }
 
-.footer-content{
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  font-family: palatino, serif;
-}
-
-.offcanvas-title{
-  font-size: 30px;
-  font-weight: bold;
-  color: black;
-  font-family: palatino, serif;
-}
-
-.invalid-login {
-  color: red;
-}
-
-.better-dad-logo {
-  display: "inline-block";
-  float: left;
-  width: 40%;
+.login-signin-form {
+  text-align: center;
 }
 
 .logo-quote {
@@ -86,12 +92,17 @@
   overflow: hidden;
 }
 
-.quote-div {
+.logo-signin-form {
+  position: relative;
+  left: 0;
+  right: 0;
   overflow: hidden;
-  width: 50%;
-  color: black;
-  float: right;
-  font-family: palatino, serif;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
 .navigation-button-bar {
@@ -104,43 +115,35 @@
   font-family: palatino, serif;
 }
 
-.logo-signin-form {
-  position: relative;
-  left: 0;
-  right: 0;
+.offcanvas-title{
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+  font-family: palatino, serif;
+}
+
+.quote-div {
   overflow: hidden;
+  width: 50%;
+  color: black;
+  float: right;
+  font-family: palatino, serif;
 }
 
-.welcome-logo-spacing {
-  overflow: auto;
-  width: 30%;
-  float: left;
-}
-
-.login-signin-form {
-  text-align: center;
-}
-.welcome-logo {
-  width: 100%;
-}
-
-.login-form {
-  width: 30%;
-  margin: auto;
+.username-error {
+  color: red;
 }
 
 .welcome-div {
   font-family: palatino, serif;
 }
 
-.about-link-div {
-  font-size: 40px;
+.welcome-logo {
+  width: 100%;
 }
 
-.footer-div {
-  margin-right: 5px;
-}
-
-.username-error {
-  color: red;
+.welcome-logo-spacing {
+  overflow: auto;
+  width: 30%;
+  float: left;
 }
