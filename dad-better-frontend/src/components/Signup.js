@@ -1,30 +1,31 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { connect } from 'react-redux'
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import '../css/App.css'
 
 function Signup(props) {
 
-    const errorMessage = (userError) => {
-        if (userError) {
+    const errorMessageHandling = (message) => {
+        if (message === "failed to create user") {
             return (
-                <div>
-                    Username already taken.
+                <div className="username-error">
+                    <p>Username already taken.</p>
                 </div>
             )
         }
     }
-    
+
     return (
         <div>
-            <Offcanvas show={props.show} onHide={props.handleClose}>
+            <Offcanvas show={props.show} onHide={props.handleClose} >
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title>Signup</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <Form onSubmit={props.handleOnSubmit}>
-                        <Form.Group className="w-100" controlId="formBasicEmail">
+                        <Form.Group className="w-100" controlId="formBasicUsername" >
                             <Form.Control required type="username" size="sm" placeholder="Username" />
                         </Form.Group>
                         <br></br>
@@ -40,7 +41,7 @@ function Signup(props) {
                             <Form.Control required type="email" size="sm" placeholder="Email" />
                         </Form.Group>
                         <br></br>
-                        {errorMessage(props.newUserError)}
+                        {errorMessageHandling(props.message)}
                         <Button variant="primary" type="submit">
                             Create Account
                         </Button>
