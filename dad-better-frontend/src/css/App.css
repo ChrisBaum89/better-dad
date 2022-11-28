@@ -121,6 +121,10 @@
 
 .welcome-div {
   font-family: palatino, serif;
+  background-color: #a7e852;
+  border-radius:25px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .welcome-logo {
