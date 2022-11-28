@@ -27,6 +27,7 @@ function LoginSignupForm(props) {
                 user: {
                     username: username,
                     password: password,
+                    message: "new user login"
                 },
             }),
         })
