@@ -140,3 +140,7 @@
 .footer-div {
   margin-right: 5px;
 }
+
+.username-error {
+  color: red;
+}
