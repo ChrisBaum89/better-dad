@@ -3,6 +3,7 @@ const usersReducer = (state = { user: [], loading: false }, action) => {
         
         case "INITIALIZE":
             const userArray = {message: "NO USER"}
+            localStorage.jwt = 'undefined'
             return { ...state, user: [userArray] }
 
         case "UPDATE_USER":
