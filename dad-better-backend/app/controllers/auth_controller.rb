@@ -2,10 +2,44 @@ class AuthController < ApplicationController
   skip_before_action :authorized, only: [:create]
 
   def create
-    @user = User.find_by(username: user_params[:username])
+    if user_params[:jwtToken] != nil
+      login_jwt(user_params[:jwtToken])
+    else
+      login_username_password(user_params[:username], user_params[:password])
+    end
+  end
 
-    # User#authenticate comes from BCrypt
-    if @user && @user.authenticate(user_params[:password])
+  def login_jwt(jwtToken)
+    decoded_jwt = decoded_token_jwt_login(jwtToken)
+    user_id = decoded_jwt[0]["user_id"]
+    @user = User.find_by_id(user_id)
+    if @user
+      @user.assign_daily_tasks
+      @user.calc_score
+      update_badge(@user)
+      assign_quote_of_day()
+
+      options = {
+        include: [:assigned_tasks, :completed_tasks, :earned_badges]
+      }
+
+      render json: {
+               user: UserSerializer.new(@user, options),
+               message: 'Valid Login',
+               quote: quote_of_day(),
+             },
+             status: :accepted
+    else
+      render json: {
+               message: 'Invalid Login'
+             },
+             status: :unauthorized
+    end
+  end
+
+  def login_username_password(username, password)
+    @user = User.find_by(username: username)
+    if @user && @user.authenticate(password)
       # encode token comes from ApplicationController
       token = encode_token({ user_id: @user.id })
       cookies.signed[:jwt] = {value: token, httponly: true, expires: 1.hour.from_now}
@@ -65,6 +99,6 @@ class AuthController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :message, :jwtToken)
   end
 end
