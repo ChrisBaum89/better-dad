@@ -12,7 +12,7 @@ function ProfileContainer() {
     const quote = currentState.usersReducer.user[0].quote
 
     const username = (currentUser) => {
-        if (currentUser !== null) {
+        if (currentUser !== undefined) {
             return currentUser.data.attributes.username
         }
         else {
@@ -21,7 +21,7 @@ function ProfileContainer() {
     }
 
     const score = (currentUser) => {
-        if (currentUser !== null) {
+        if (currentUser !== undefined) {
             return currentUser.data.attributes.score
         }
         else {
