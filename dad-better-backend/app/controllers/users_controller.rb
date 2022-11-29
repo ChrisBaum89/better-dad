@@ -3,6 +3,11 @@ class UsersController < ApplicationController
   require 'httparty'
   skip_before_action :authorized, only: [:create]
 
+  def index
+    @users = User.all
+    render json: UserSerializer.new(@users)
+  end
+
   def create
     @user = User.create(user_params)
     @user.score = 0
@@ -16,7 +21,7 @@ class UsersController < ApplicationController
       user.assign_daily_tasks
       update_badge(user)
       token = encode_token(user_id: user.id)
-      render_user_json(user, token)
+      render_user_json(user, token, 'Valid Login')
     else
       render_error_json
     end
@@ -60,16 +65,7 @@ class UsersController < ApplicationController
     @user.save
     token = params[:jwt]
 
-    options = {
-      include: %i[assigned_tasks completed_tasks earned_badges]
-    }
-
-    render json: {
-      user: UserSerializer.new(@user, options),
-      message: @message,
-      jwt: token,
-      quote: quote_of_day(),
-    }
+   render_user_json(@user, token, @message)
   end
 
   def update_user_settings(user)
@@ -101,11 +97,6 @@ class UsersController < ApplicationController
   def favorite_task(task)
     task.favorite = !task.favorite
     task.save
-  end
-
-  def index
-    @users = User.all
-    render json: UserSerializer.new(@users)
   end
 
   private

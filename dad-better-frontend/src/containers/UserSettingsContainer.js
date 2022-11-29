@@ -127,14 +127,18 @@ function UserSettingsContainer() {
                         <Form.Control
                             placeholder={existingPassword}
                             disabled={disablePasswordEdit}
-                            onChange={e => setExistingPassword(e.target.value)} />
+                            onChange={e => setExistingPassword(e.target.value)}
+                            type="password"
+                        />
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Label>New Password</Form.Label>
                         <Form.Control
                             placeholder={newPassword}
                             disabled={disablePasswordEdit}
-                            onChange={e => setNewPassword(e.target.value)} />
+                            onChange={e => setNewPassword(e.target.value)}
+                            type="password"
+                        />
                     </Form.Group>
                 </div>
             )
@@ -166,7 +170,7 @@ function UserSettingsContainer() {
         }
 
         return (
-            <div className='user-settings-messaging' style={{color: messageColor}}>
+            <div className='user-settings-messaging' style={{ color: messageColor }}>
                 <br></br>
                 <p>{message}</p>
             </div>
@@ -176,15 +180,15 @@ function UserSettingsContainer() {
 
     return (
         <div>
-            <UserSettings 
-            disableSettingsEdit={disableSettingsEdit}
-            name={name}
-            email={email}
-            setName={setName}
-            updateMessaging={updateMessaging}
-            settingsButtonDisplay={settingsButtonDisplay}
-            passwordControl={passwordControl}
-            passwordButtonDisplay={passwordButtonDisplay}
+            <UserSettings
+                disableSettingsEdit={disableSettingsEdit}
+                name={name}
+                email={email}
+                setName={setName}
+                updateMessaging={updateMessaging}
+                settingsButtonDisplay={settingsButtonDisplay}
+                passwordControl={passwordControl}
+                passwordButtonDisplay={passwordButtonDisplay}
             />
         </div>
     )

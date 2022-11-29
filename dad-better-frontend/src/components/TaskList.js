@@ -10,20 +10,20 @@ function TaskList(props) {
         if (tasks.length > 0) {
             return (
                 <div>
-                    <div class="task-title">
+                    <div className="task-title">
                         <h2>Tasks</h2>
                     </div>
                     <Carousel>
                         {tasks.map(task => {
                             return (
-                                <Carousel.Item interval={10000000}>
+                                <Carousel.Item interval={10000000} key={`task-${task.id}`}>
                                     <img
                                         className="d-block w-100"
                                         src={task_background}
                                         alt="First slide"
                                     />
                                     <Carousel.Caption>
-                                        <div class="task-carousel-caption">
+                                        <div className="task-carousel-caption">
                                             <h6>{task.attributes.task.description}</h6>
                                             <p>Points: {task.attributes.task.value}</p>
                                             <Button variant="primary" taskid={task.attributes.task.id} taskvalue={task.attributes.task.value} onClick={props.handleClick}>
@@ -40,7 +40,7 @@ function TaskList(props) {
         }
         else {
             return (<div>
-                <div class="task-title">
+                <div className="task-title">
                     <h2>Tasks</h2>
                 </div>
                 <Carousel>
@@ -51,7 +51,7 @@ function TaskList(props) {
                             alt="First slide"
                         />
                         <Carousel.Caption>
-                            <div class="task-carousel-caption">
+                            <div className="task-carousel-caption">
                                 <h4>No tasks currently available. Please check back tomorrow</h4>
                             </div>
                         </Carousel.Caption>
@@ -63,7 +63,7 @@ function TaskList(props) {
     }
 
     return (
-        <div class="task-carousel">
+        <div className="task-carousel">
             {checkIfAssignedTasks(props.tasks)}
         </div>
     )

@@ -10,7 +10,15 @@ function LoginSignupContainer() {
     const dispatch = useDispatch()
     const currentState = useSelector((state) => state)
     const user = currentState.usersReducer.user[0]
-    const message = user.message
+
+    const messaging = (user) => {
+        if (user !== undefined) {
+            return user.message
+        }
+        else{
+            return ""
+        }
+    }
 
     const handleClose = () => {
         dispatch({ type: "CLEAR_MESSAGE"})
@@ -57,7 +65,7 @@ function LoginSignupContainer() {
             handleOnSubmit={handleOnSubmit}
             handleClose={handleClose}
             show={show}
-            message={message}
+            message={messaging(user)}
            />
         </div>
     )
