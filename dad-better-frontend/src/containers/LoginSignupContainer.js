@@ -3,6 +3,7 @@ import LoginSignupForm from '../components/LoginSignupForm';
 import Signup from '../components/Signup';
 import { useDispatch, useSelector } from 'react-redux';
 import "../css/App.css"
+import { fetchUser } from '../actions/userActions.js';
 
 function LoginSignupContainer() {
     const [show, setShow] = useState(false);
@@ -38,7 +39,7 @@ function LoginSignupContainer() {
     const handleLoginOnSubmit = (event) => {
         event.preventDefault()
         const [username, password] = event.target
-        sendLoginToServer(username.value, password.value)
+        dispatch(fetchUser(username.value, password.value))
     }
 
     const createUser = (username, password, name, email) => {
@@ -64,27 +65,27 @@ function LoginSignupContainer() {
             })
     }
 
-    const sendLoginToServer = (username, password) => {
-        fetch("http://localhost:3000/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-            },
-            body: JSON.stringify({
-                user: {
-                    username: username,
-                    password: password,
-                    message: "new user login"
-                },
-            }),
-        })
-            .then((r) => r.json())
-            .then((data) => {
-                localStorage.setItem("jwt", data.jwt)
-                dispatch({ type: "LOGIN_USER", payload: data })
-            })
-    }
+    // const sendLoginToServer = (username, password) => {
+    //     fetch("http://localhost:3000/login", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             Accept: "application/json",
+    //         },
+    //         body: JSON.stringify({
+    //             user: {
+    //                 username: username,
+    //                 password: password,
+    //                 message: "new user login"
+    //             },
+    //         }),
+    //     })
+    //         .then((r) => r.json())
+    //         .then((data) => {
+    //             localStorage.setItem("jwt", data.jwt)
+    //             dispatch({ type: "LOGIN_USER", payload: data })
+    //         })
+    // }
 
     const invalidLogin = () => {
         if (currentUser !== undefined) {
