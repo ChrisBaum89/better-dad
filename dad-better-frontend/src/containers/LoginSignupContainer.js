@@ -28,7 +28,7 @@ function LoginSignupContainer() {
         setShow(true);
     }
 
-    const handleOnSubmit = (event) => {
+    const handleSignupOnSubmit = (event) => {
         event.preventDefault()
         const [username, password, name, email] = event.target
         createUser(username.value, password.value, name.value, email.value)
@@ -62,7 +62,7 @@ function LoginSignupContainer() {
             <LoginSignupForm handleShow={handleShow}/>
 
            <Signup
-            handleOnSubmit={handleOnSubmit}
+            handleOnSubmit={handleSignupOnSubmit}
             handleClose={handleClose}
             show={show}
             message={messaging(user)}
