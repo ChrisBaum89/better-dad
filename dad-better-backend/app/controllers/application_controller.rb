@@ -56,6 +56,13 @@ class ApplicationController < ActionController::API
   end
 end
 
+def render_invalid_login_json
+  render json: {
+    message: 'Invalid Login'
+  },
+  status: :unauthorized
+end
+
 def update_badge(user)
   applicable_badges = Badge.all.select { |badge| user.score >= badge.score_threshold }
   applicable_badges.each do |badge|
@@ -77,9 +84,6 @@ def setup_authorized_user(user, token)
     token = encode_token({ user_id: @user.id })
     render_user_json(user, token)
   else
-    render json: {
-             message: 'Invalid Login'
-           },
-           status: :unauthorized
+    render_invalid_login_json
   end
 end
