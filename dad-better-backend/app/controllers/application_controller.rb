@@ -73,20 +73,9 @@ def setup_authorized_user(user, token)
     user.assign_daily_tasks
     user.calc_score
     update_badge(user)
-    assign_quote_of_day()
+    assign_quote_of_day
     token = encode_token({ user_id: @user.id })
-
-    options = {
-      include: %i[assigned_tasks completed_tasks earned_badges]
-    }
-
-    render json: {
-             user: UserSerializer.new(user, options),
-             message: 'Valid Login',
-             quote: quote_of_day(),
-             jwt: token,
-           },
-           status: :accepted
+    render_user_json(user, token)
   else
     render json: {
              message: 'Invalid Login'
