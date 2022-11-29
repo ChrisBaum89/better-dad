@@ -10,7 +10,7 @@ function LoginSignupForm(props) {
     const currentUser = currentState.usersReducer.user[0]
     const dispatch = useDispatch()
 
-    const handleOnSubmit = (event) => {
+    const handleLoginOnSubmit = (event) => {
         event.preventDefault()
         const [username, password] = event.target
         sendLoginToServer(username.value, password.value)
@@ -52,7 +52,7 @@ function LoginSignupForm(props) {
 
     return (
         <div className='login-form'>
-            <Form onSubmit={handleOnSubmit}>
+            <Form onSubmit={handleLoginOnSubmit}>
                 <Form.Group className="w-100" controlId="formBasicEmail">
                     <Form.Control required type="username" size="sm" placeholder="Username" />
                 </Form.Group>
