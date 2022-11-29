@@ -2,39 +2,20 @@ class AuthController < ApplicationController
   skip_before_action :authorized, only: [:create]
 
   def create
-    if user_params[:jwtToken] != nil
-      login_jwt(user_params[:jwtToken])
+    jwt_token = decoded_token
+    if !jwt_token.nil?
+      login_jwt()
     else
       login_username_password(user_params[:username], user_params[:password])
     end
   end
 
-  def login_jwt(jwtToken)
-    decoded_jwt = decoded_token_jwt_login(jwtToken)
-    user_id = decoded_jwt[0]["user_id"]
+  def login_jwt
+    decoded_jwt = decoded_token()
+    user_id = decoded_jwt[0]['user_id']
     @user = User.find_by_id(user_id)
-    if @user
-      @user.assign_daily_tasks
-      @user.calc_score
-      update_badge(@user)
-      assign_quote_of_day()
-
-      options = {
-        include: [:assigned_tasks, :completed_tasks, :earned_badges]
-      }
-
-      render json: {
-               user: UserSerializer.new(@user, options),
-               message: 'Valid Login',
-               quote: quote_of_day(),
-             },
-             status: :accepted
-    else
-      render json: {
-               message: 'Invalid Login'
-             },
-             status: :unauthorized
-    end
+    token = ''
+    setup_authorized_user(@user, token)
   end
 
   def login_username_password(username, password)
@@ -42,42 +23,22 @@ class AuthController < ApplicationController
     if @user && @user.authenticate(password)
       # encode token comes from ApplicationController
       token = encode_token({ user_id: @user.id })
-      cookies.signed[:jwt] = {value: token, httponly: true, expires: 1.hour.from_now}
-      @user.assign_daily_tasks
-      @user.calc_score
-      update_badge(@user)
-      assign_quote_of_day()
-
-      options = {
-        include: [:assigned_tasks, :completed_tasks, :earned_badges]
-      }
-
-      render json: {
-               user: UserSerializer.new(@user, options),
-               jwt: token,
-               message: 'Valid Login',
-               quote: quote_of_day(),
-             },
-             status: :accepted
-    else
-      render json: {
-               message: 'Invalid Login'
-             },
-             status: :unauthorized
+      cookies.signed[:jwt] = { value: token, httponly: true, expires: 1.hour.from_now }
+      setup_authorized_user(@user, token)
     end
   end
 
   def assign_quote_of_day
-    activeQuote = quote_of_day()
-    if not quote_assigned_today?(activeQuote)
+    activeQuote = quote_of_day
+    unless quote_assigned_today?(activeQuote)
       reset_quote_of_day(activeQuote)
       assign_new_quote(activeQuote)
     end
   end
 
   def quote_assigned_today?(quote)
-    current_date = DateTime.now.in_time_zone("Eastern Time (US & Canada)").to_date
-    return quote.updated_at.to_date == current_date
+    current_date = DateTime.now.in_time_zone('Eastern Time (US & Canada)').to_date
+    quote.updated_at.to_date == current_date
   end
 
   def assign_new_quote(last_active_quote)
