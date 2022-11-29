@@ -1,5 +1,28 @@
-.about-link-div {
-  font-size: 40px;
+.about-better-dad-logo {
+  position: absolute;
+    top: 0%;
+    left: 33%;
+    width: 67%;
+}
+
+.about-div {
+  font-family: palatino, serif;
+  background-color: #a7e852;
+  border-radius:25px;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  right: 10%;
+}
+
+.about-content {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.about-links-div {
 }
 
 .App {
@@ -17,8 +40,6 @@
   min-height: 100%;
   background-color: #358f03;
 }
-
-
 
 .App-header {
   background-color: #282c34;
@@ -44,13 +65,16 @@
   display: "inline-block";
   float: left;
   width: 40%;
+  overflow: hidden;
 }
 
 .footer-content{
   position: relative;
   float: right;
   font-family: palatino, serif;
-  margin-top: 20px;
+  position: absolute;
+    bottom: 0%;
+    right: 1%;
 }
 
 .footer-div {
