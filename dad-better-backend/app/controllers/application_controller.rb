@@ -41,7 +41,7 @@ class ApplicationController < ActionController::API
     render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
   end
 
-  def render_user_json(user, token)
+  def render_user_json(user, token, message)
     options = {
       include: %i[assigned_tasks completed_tasks earned_badges]
     }
@@ -49,7 +49,7 @@ class ApplicationController < ActionController::API
     render json: {
              user: UserSerializer.new(user, options),
              jwt: token,
-             message: 'Valid Login',
+             message: message,
              quote: quote_of_day
            },
            status: :created
@@ -81,7 +81,7 @@ class ApplicationController < ActionController::API
       update_badge(user)
       assign_quote_of_day
       token = encode_token({ user_id: @user.id })
-      render_user_json(user, token)
+      render_user_json(user, token, 'Valid Login')
     else
       render_invalid_login_json
     end
