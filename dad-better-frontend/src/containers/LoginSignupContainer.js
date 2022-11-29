@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import LoginSignupForm from '../components/LoginSignup';
+import LoginSignupForm from '../components/LoginSignupForm';
 import Signup from '../components/Signup';
 import { useDispatch, useSelector } from 'react-redux';
 import "../css/App.css"
@@ -100,7 +100,7 @@ function LoginSignupContainer() {
 
     return (
         <div className='login-signin-form'>
-            <LoginSignupForm 
+            <LoginSignupForm
             handleShow={handleShow}
             handleOnSubmit={handleLoginOnSubmit}
             invalidLogin={invalidLogin}
