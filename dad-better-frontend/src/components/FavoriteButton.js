@@ -2,6 +2,7 @@
 import React from "react";
 import '../css/Tasks.css'
 import { useSelector, useDispatch } from 'react-redux';
+import { fetchUser } from "../actions/userActions";
 
 function FavoriteButton(props) {
     const currentState = useSelector((state) => state)
@@ -10,28 +11,26 @@ function FavoriteButton(props) {
     const jwtToken = localStorage.jwt
 
     const updateUserToServer = (user, taskId) => {
-        fetch("http://localhost:3000/updateuser", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `bearer ${jwtToken}`,
-                Accept: "application/json",
-            },
-            body: JSON.stringify({
-                user: {
-                    user_id: user.data.id,
-                    task_id: taskId,
-                    update_type: "task_favorited",
-                },
-                jwt: {
-                    jwtToken,
-                }
-            }),
-        })
-            .then((r) => r.json())
-            .then((data) => {
-                dispatch({ type: "UPDATE_USER", payload: data })
-            })
+        const [username, password, nameUser, email, existingPassword, newPassword, message] = ''
+        const userId = user.data.id
+        const updateType = 'task_favorited'
+        const dispatchType = "UPDATE_USER"
+        const fetchUrl = "http://localhost:3000/updateuser"
+        dispatch(fetchUser(
+            userId, 
+            username, 
+            password, 
+            email, 
+            nameUser, 
+            existingPassword, 
+            newPassword, 
+            message,
+            updateType,
+            taskId,
+            dispatchType,
+            fetchUrl,
+            )
+        )
     }
 
     const handleFavoriteClick = (user, taskId) => {
