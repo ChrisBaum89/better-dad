@@ -34,7 +34,7 @@ function LoginSignupContainer() {
         event.preventDefault()
         const [username, password, name, email] = event.target
         const userId = 0
-        const [existingPassword, newPassword] = ''
+        const [existingPassword, newPassword, updateType] = ''
         const message = 'create user'
         const dispatchType = "LOGIN_USER"
         const fetchUrl = "http://localhost:3000/users"
@@ -48,6 +48,7 @@ function LoginSignupContainer() {
             existingPassword, 
             newPassword, 
             message,
+            updateType,
             dispatchType,
             fetchUrl
             ))
