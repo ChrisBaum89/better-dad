@@ -25,6 +25,8 @@ class AuthController < ApplicationController
       token = encode_token({ user_id: @user.id })
       cookies.signed[:jwt] = { value: token, httponly: true, expires: 1.hour.from_now }
       setup_authorized_user(@user, token)
+    else
+      render_invalid_login_json
     end
   end
 
