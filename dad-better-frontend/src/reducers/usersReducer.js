@@ -6,6 +6,7 @@ const usersReducer = (state = { user: [], requesting: false }, action) => {
             return { ...state, user: [userArray] }
 
         case "UPDATE_USER":
+            localStorage.setItem("jwt", action.payload.jwt)
             return { ...state, user: [action.payload] }
 
         case "LOGIN_USER":
