@@ -9,7 +9,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    @user = User.create(
+      username: user_params[:username],
+      password: user_params[:password],
+      email: user_params[:email],
+      name: user_params[:name],
+    )
     @user.score = 0
     @user.level = 0
     valid_user(@user)
@@ -46,7 +51,7 @@ class UsersController < ApplicationController
   def update_user
     @user = User.find_by_id(params[:user][:user_id])
     @message = ''
-    @update_type = params[:user][:update_type]
+    @update_type = params[:update_type]
     case @update_type
     when 'task_completed'
       @task = Task.find_by_id(params[:user][:task_id])
