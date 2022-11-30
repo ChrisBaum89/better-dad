@@ -17,7 +17,7 @@ function UserSettingsContainer() {
     const [email, setEmail] = useState(currentUser.data.attributes.email)
     const [existingPassword, setExistingPassword] = useState("")
     const [newPassword, setNewPassword] = useState("")
-    const [passwordUpdated, setPasswordUpdated] = useState(0)
+    const [updateMessage, setUpdateMessage] = useState(0)
 
     const handleSettingsSubmit = (userId, name, email) => {
         updateUserToServer(userId, name, email)
@@ -97,19 +97,19 @@ function UserSettingsContainer() {
     const userSettingsMessage = (message) => {
         switch (message) {
             case 'password updated':
-                setPasswordUpdated(1)
+                setUpdateMessage(1)
                 break;
             case 'password update failed':
-                setPasswordUpdated(2)
+                setUpdateMessage(2)
                 break;
             case 'settings updated':
-                setPasswordUpdated(3)
+                setUpdateMessage(3)
                 break;
             case 'settings update failed':
-                setPasswordUpdated(4)
+                setUpdateMessage(4)
                 break;
             default:
-                setPasswordUpdated(0)
+                setUpdateMessage(0)
         }
 
     }
@@ -145,7 +145,7 @@ function UserSettingsContainer() {
     const updateMessaging = () => {
         let message = ''
         let messageColor = 'black'
-        switch (passwordUpdated) {
+        switch (setUpdateMessage) {
             case 1:
                 message = 'Password updated successfully';
                 messageColor = 'green';
