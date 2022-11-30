@@ -7,7 +7,6 @@ import { fetchUser } from "../actions/userActions";
 function TaskContainer() {
     const currentState = useSelector((state) => state)
     const currentUser = currentState.usersReducer.user[0].user
-    const jwtToken = localStorage.jwt
 
     const dispatch = useDispatch()
 
