@@ -48,7 +48,7 @@ function UserSettingsContainer() {
     }
 
     const updateUserToServer = (userId, name, email) => {
-        const [username, password, existingPassword, newPassword, message] = ''
+        const [username, password, existingPassword, newPassword, message, taskId] = ''
         const dispatchType = "UPDATE_USER"
         const updateType = "update_user_settings"
         const fetchUrl = "http://localhost:3000/updateuser"
@@ -63,6 +63,7 @@ function UserSettingsContainer() {
             newPassword, 
             message,
             updateType,
+            taskId,
             dispatchType,
             fetchUrl
             ))
@@ -70,7 +71,7 @@ function UserSettingsContainer() {
     }
 
     const updatePasswordToServer = (userId, existingPassword, newPassword) => {
-        const [username, password, message, name, email] = ''
+        const [username, password, message, name, email, taskId] = ''
         const dispatchType = "UPDATE_USER"
         const updateType = "update_password"
         const fetchUrl = "http://localhost:3000/updateuser"
@@ -85,6 +86,7 @@ function UserSettingsContainer() {
             newPassword, 
             message,
             updateType,
+            taskId,
             dispatchType,
             fetchUrl
             ))
