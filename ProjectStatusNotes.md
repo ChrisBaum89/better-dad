@@ -1,3 +1,3 @@
 11/23/2022
-- bug occurrs when you change password more than once.  Permits incorrect existing password
+- bug where on 1st Edit Settings submit, the completed message does not appear.
 - need to refactor
