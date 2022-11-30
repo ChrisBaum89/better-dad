@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import LoginSignupForm from '../components/LoginSignupForm';
 import Signup from '../components/Signup';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,13 +17,13 @@ function LoginSignupContainer() {
         if (user !== undefined) {
             return user.message
         }
-        else{
+        else {
             return ""
         }
     }
 
     const handleClose = () => {
-        dispatch({ type: "CLEAR_MESSAGE"})
+        dispatch({ type: "CLEAR_MESSAGE" })
         setShow(false)
     }
     const handleShow = () => {
@@ -37,21 +37,22 @@ function LoginSignupContainer() {
         const message = 'create user'
         const dispatchType = "LOGIN_USER"
         const fetchUrl = "http://localhost:3000/users"
-        
+
         dispatch(fetchUser(
-            userId, 
-            username.value, 
-            password.value, 
-            email.value, 
-            name.value, 
-            existingPassword, 
-            newPassword, 
+            userId,
+            username.value,
+            password.value,
+            email.value,
+            name.value,
+            existingPassword,
+            newPassword,
             message,
             updateType,
             taskId,
             dispatchType,
             fetchUrl
-            ))
+        )
+        )
     }
 
     const handleLoginOnSubmit = (event) => {
@@ -62,19 +63,19 @@ function LoginSignupContainer() {
         const dispatchType = "LOGIN_USER"
         const fetchUrl = "http://localhost:3000/login"
         dispatch(fetchUser(
-            userId, 
-            username.value, 
-            password.value, 
-            email, 
-            nameUser, 
-            existingPassword, 
-            newPassword, 
+            userId,
+            username.value,
+            password.value,
+            email,
+            nameUser,
+            existingPassword,
+            newPassword,
             message,
             updateType,
             taskId,
             dispatchType,
             fetchUrl,
-            )
+        )
         )
     }
 
@@ -93,17 +94,17 @@ function LoginSignupContainer() {
     return (
         <div className='login-signin-form'>
             <LoginSignupForm
-            handleShow={handleShow}
-            handleOnSubmit={handleLoginOnSubmit}
-            invalidLogin={invalidLogin}
+                handleShow={handleShow}
+                handleOnSubmit={handleLoginOnSubmit}
+                invalidLogin={invalidLogin}
             />
 
-           <Signup
-            handleOnSubmit={handleSignupOnSubmit}
-            handleClose={handleClose}
-            show={show}
-            message={messaging(user)}
-           />
+            <Signup
+                handleOnSubmit={handleSignupOnSubmit}
+                handleClose={handleClose}
+                show={show}
+                message={messaging(user)}
+            />
         </div>
     )
 
