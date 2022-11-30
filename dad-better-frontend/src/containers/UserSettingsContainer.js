@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import UserSettings from "../components/UserSettings";
-import { fetchPasswordUpdate, fetchUserUpdate } from "../actions/userActions";
+import { fetchPasswordUpdate, fetchUser } from "../actions/userActions";
 
 function UserSettingsContainer() {
     const currentState = useSelector((state) => state)
@@ -48,7 +48,27 @@ function UserSettingsContainer() {
     }
 
     const updateUserToServer = (userId, name, email) => {
-        dispatch(fetchUserUpdate(userId, name, email))
+        const [username, password, existingPassword, newPassword] = ''
+        const dispatchType = "UPDATE_USER"
+        const message = ""
+        const updateType = "update_user_settings"
+        const fetchUrl = "http://localhost:3000/updateuser"
+        
+
+        // dispatch(fetchUser(userId, name, email))
+        dispatch(fetchUser(
+            userId, 
+            username, 
+            password, 
+            email, 
+            name, 
+            existingPassword, 
+            newPassword, 
+            message,
+            updateType,
+            dispatchType,
+            fetchUrl
+            ))
         userSettingsMessage(currentState.usersReducer.user[0].message)
     }
 
