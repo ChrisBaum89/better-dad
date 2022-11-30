@@ -33,59 +33,48 @@ function LoginSignupContainer() {
     const handleSignupOnSubmit = (event) => {
         event.preventDefault()
         const [username, password, name, email] = event.target
-        createUser(username.value, password.value, name.value, email.value)
+        const userId = 0
+        const [existingPassword, newPassword] = ''
+        const message = 'create user'
+        const dispatchType = "LOGIN_USER"
+        const fetchUrl = "http://localhost:3000/users"
+        
+        dispatch(fetchUser(
+            userId, 
+            username.value, 
+            password.value, 
+            email.value, 
+            name.value, 
+            existingPassword, 
+            newPassword, 
+            message,
+            dispatchType,
+            fetchUrl
+            ))
     }
 
     const handleLoginOnSubmit = (event) => {
         event.preventDefault()
         const [username, password] = event.target
-        dispatch(fetchUser(username.value, password.value))
+        const userId = 0
+        const [nameUser, email, existingPassword, newPassword] = ''
+        const message = "new user login"
+        const dispatchType = "LOGIN_USER"
+        const fetchUrl = "http://localhost:3000/login"
+        dispatch(fetchUser(
+            userId, 
+            username.value, 
+            password.value, 
+            email, 
+            nameUser, 
+            existingPassword, 
+            newPassword, 
+            message,
+            dispatchType,
+            fetchUrl,
+            )
+        )
     }
-
-    const createUser = (username, password, name, email) => {
-        fetch("http://localhost:3000/users", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-            },
-            body: JSON.stringify({
-                user: {
-                    username: username,
-                    password: password,
-                    email: email,
-                    name: name,
-                },
-            }),
-        })
-            .then((r) => r.json())
-            .then((data) => {
-                localStorage.setItem("jwt", data.jwt)
-                dispatch({ type: "LOGIN_USER", payload: data })
-            })
-    }
-
-    // const sendLoginToServer = (username, password) => {
-    //     fetch("http://localhost:3000/login", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             Accept: "application/json",
-    //         },
-    //         body: JSON.stringify({
-    //             user: {
-    //                 username: username,
-    //                 password: password,
-    //                 message: "new user login"
-    //             },
-    //         }),
-    //     })
-    //         .then((r) => r.json())
-    //         .then((data) => {
-    //             localStorage.setItem("jwt", data.jwt)
-    //             dispatch({ type: "LOGIN_USER", payload: data })
-    //         })
-    // }
 
     const invalidLogin = () => {
         if (currentUser !== undefined) {
