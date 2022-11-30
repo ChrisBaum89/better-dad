@@ -8,6 +8,7 @@ export const fetchUser = (
     newPassword = '',
     message = '',
     updateType = '',
+    taskId = '',
     dispatchType = '',
     fetchUrl = ''
 ) => {
@@ -24,6 +25,7 @@ export const fetchUser = (
                 newPassword,
                 message,
                 updateType,
+                taskId,
                 ))
             .then((response) => response.json())
             .then((data) => {
@@ -80,6 +82,7 @@ export const jsonUserCommon = (
     newPassword = '',
     message = '',
     updateType = '',
+    taskId = '',
 ) => {
     return (
         {
@@ -98,6 +101,7 @@ export const jsonUserCommon = (
                     name: name,
                     existing_password: existingPassword,
                     new_password: newPassword,
+                    task_id: taskId
                 },
                 message: message,
                 update_type: updateType
