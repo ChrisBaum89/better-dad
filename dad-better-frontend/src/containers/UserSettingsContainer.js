@@ -145,7 +145,7 @@ function UserSettingsContainer() {
     const updateMessaging = () => {
         let message = ''
         let messageColor = 'black'
-        switch (setUpdateMessage) {
+        switch (updateMessage) {
             case 1:
                 message = 'Password updated successfully';
                 messageColor = 'green';
