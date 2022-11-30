@@ -48,14 +48,11 @@ function UserSettingsContainer() {
     }
 
     const updateUserToServer = (userId, name, email) => {
-        const [username, password, existingPassword, newPassword] = ''
+        const [username, password, existingPassword, newPassword, message] = ''
         const dispatchType = "UPDATE_USER"
-        const message = ""
         const updateType = "update_user_settings"
         const fetchUrl = "http://localhost:3000/updateuser"
         
-
-        // dispatch(fetchUser(userId, name, email))
         dispatch(fetchUser(
             userId, 
             username, 
@@ -73,7 +70,24 @@ function UserSettingsContainer() {
     }
 
     const updatePasswordToServer = (userId, existingPassword, newPassword) => {
-        dispatch(fetchPasswordUpdate(userId, existingPassword, newPassword))
+        const [username, password, message, name, email] = ''
+        const dispatchType = "UPDATE_USER"
+        const updateType = "update_password"
+        const fetchUrl = "http://localhost:3000/updateuser"
+        
+        dispatch(fetchUser(
+            userId, 
+            username, 
+            password, 
+            email, 
+            name, 
+            existingPassword, 
+            newPassword, 
+            message,
+            updateType,
+            dispatchType,
+            fetchUrl
+            ))
         userSettingsMessage(currentState.usersReducer.user[0].message)
         setExistingPassword('')
         setNewPassword('')
