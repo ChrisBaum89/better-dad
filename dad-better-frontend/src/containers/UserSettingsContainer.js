@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import UserSettings from "../components/UserSettings";
+import { fetchPasswordUpdate, fetchUserUpdate } from "../actions/userActions";
 
 function UserSettingsContainer() {
     const currentState = useSelector((state) => state)
@@ -17,7 +18,6 @@ function UserSettingsContainer() {
     const [existingPassword, setExistingPassword] = useState("")
     const [newPassword, setNewPassword] = useState("")
     const [passwordUpdated, setPasswordUpdated] = useState(0)
-    const jwtToken = localStorage.jwt
 
     const handleSettingsSubmit = (userId, name, email) => {
         updateUserToServer(userId, name, email)
@@ -48,51 +48,13 @@ function UserSettingsContainer() {
     }
 
     const updateUserToServer = (userId, name, email) => {
-        fetch("http://localhost:3000/updateuser", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `bearer ${jwtToken}`,
-                Accept: "application/json",
-            },
-            body: JSON.stringify({
-                user: {
-                    user_id: userId,
-                    email: email,
-                    name: name,
-                    update_type: "update_user_settings",
-                },
-            }),
-        })
-            .then((r) => r.json())
-            .then((data) => {
-                dispatch({ type: "UPDATE_USER", payload: data })
-                userSettingsMessage(data.message)
-            })
+        dispatch(fetchUserUpdate(userId, name, email))
+        userSettingsMessage(currentState.usersReducer.user[0].message)
     }
 
     const updatePasswordToServer = (userId, existingPassword, newPassword) => {
-        fetch("http://localhost:3000/updateuser", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `bearer ${jwtToken}`,
-                Accept: "application/json",
-            },
-            body: JSON.stringify({
-                user: {
-                    user_id: userId,
-                    existing_password: existingPassword,
-                    new_password: newPassword,
-                    update_type: "update_password",
-                },
-            }),
-        })
-            .then((r) => r.json())
-            .then((data) => {
-                dispatch({ type: "UPDATE_USER", payload: data })
-                userSettingsMessage(data.message)
-            })
+        dispatch(fetchPasswordUpdate(userId, existingPassword, newPassword))
+        userSettingsMessage(currentState.usersReducer.user[0].message)
         setExistingPassword('')
         setNewPassword('')
     }
