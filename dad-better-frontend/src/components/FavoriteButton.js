@@ -8,7 +8,6 @@ function FavoriteButton(props) {
     const currentState = useSelector((state) => state)
     const currentUser = currentState.usersReducer.user[0].user
     const dispatch = useDispatch()
-    const jwtToken = localStorage.jwt
 
     const updateUserToServer = (user, taskId) => {
         const [username, password, nameUser, email, existingPassword, newPassword, message] = ''
