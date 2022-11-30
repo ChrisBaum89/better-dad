@@ -67,8 +67,9 @@ class UsersController < ApplicationController
     when 'update_password'
       update_password(@user)
     end
+
     @user.save
-    token = params[:jwt]
+    token = encode_token(user_id: @user.id)
 
    render_user_json(@user, token, @message)
   end
