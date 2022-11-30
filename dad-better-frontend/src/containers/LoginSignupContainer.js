@@ -33,8 +33,7 @@ function LoginSignupContainer() {
     const handleSignupOnSubmit = (event) => {
         event.preventDefault()
         const [username, password, name, email] = event.target
-        const userId = 0
-        const [existingPassword, newPassword, updateType] = ''
+        const [userId, taskId, existingPassword, newPassword, updateType] = ''
         const message = 'create user'
         const dispatchType = "LOGIN_USER"
         const fetchUrl = "http://localhost:3000/users"
@@ -49,6 +48,7 @@ function LoginSignupContainer() {
             newPassword, 
             message,
             updateType,
+            taskId,
             dispatchType,
             fetchUrl
             ))
@@ -57,8 +57,7 @@ function LoginSignupContainer() {
     const handleLoginOnSubmit = (event) => {
         event.preventDefault()
         const [username, password] = event.target
-        const userId = 0
-        const [nameUser, email, existingPassword, newPassword, updateType] = ''
+        const [userId, taskId, nameUser, email, existingPassword, newPassword, updateType] = ''
         const message = "new user login"
         const dispatchType = "LOGIN_USER"
         const fetchUrl = "http://localhost:3000/login"
@@ -72,6 +71,7 @@ function LoginSignupContainer() {
             newPassword, 
             message,
             updateType,
+            taskId,
             dispatchType,
             fetchUrl,
             )
