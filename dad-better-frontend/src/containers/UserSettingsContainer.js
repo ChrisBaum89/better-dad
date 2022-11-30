@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
@@ -18,6 +18,9 @@ function UserSettingsContainer() {
     const [existingPassword, setExistingPassword] = useState("")
     const [newPassword, setNewPassword] = useState("")
     const [updateMessage, setUpdateMessage] = useState(0)
+    const [myState, setMyState] = useState(currentState)
+
+    useEffect(() => {userSettingsMessage(currentState.usersReducer.user[0].message)})
 
     const handleSettingsSubmit = (userId, name, email) => {
         updateUserToServer(userId, name, email)
@@ -53,20 +56,20 @@ function UserSettingsContainer() {
         const updateType = "update_user_settings"
         const fetchUrl = "http://localhost:3000/updateuser"
         dispatch(fetchUser(
-            userId, 
-            username, 
-            password, 
-            email, 
-            name, 
-            existingPassword, 
-            newPassword, 
+            userId,
+            username,
+            password,
+            email,
+            name,
+            existingPassword,
+            newPassword,
             message,
             updateType,
             taskId,
             dispatchType,
             fetchUrl
-            ))
-        userSettingsMessage(currentState.usersReducer.user[0].message)
+        ))
+        // userSettingsMessage(currentState.usersReducer.user[0].message)
     }
 
     const updatePasswordToServer = (userId, existingPassword, newPassword) => {
@@ -74,22 +77,22 @@ function UserSettingsContainer() {
         const dispatchType = "UPDATE_USER"
         const updateType = "update_password"
         const fetchUrl = "http://localhost:3000/updateuser"
-        
+
         dispatch(fetchUser(
-            userId, 
-            username, 
-            password, 
-            email, 
-            name, 
-            existingPassword, 
-            newPassword, 
+            userId,
+            username,
+            password,
+            email,
+            name,
+            existingPassword,
+            newPassword,
             message,
             updateType,
             taskId,
             dispatchType,
             fetchUrl
-            ))
-        userSettingsMessage(currentState.usersReducer.user[0].message)
+        ))
+        // userSettingsMessage(currentState.usersReducer.user[0].message)
         setExistingPassword('')
         setNewPassword('')
     }
@@ -111,7 +114,6 @@ function UserSettingsContainer() {
             default:
                 setUpdateMessage(0)
         }
-
     }
 
     const passwordControl = () => {
@@ -165,7 +167,6 @@ function UserSettingsContainer() {
             default:
                 message = ''
         }
-
         return (
             <div className='user-settings-messaging' style={{ color: messageColor }}>
                 <br></br>
@@ -173,7 +174,6 @@ function UserSettingsContainer() {
             </div>
         )
     }
-
 
     return (
         <div>
