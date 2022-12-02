@@ -51,7 +51,7 @@ function About() {
                     <br></br>
                     <h5>
                         This project was created using React (v18.2.0). Redux (v4.2.0) and Thunk (v2.4.1) are utilized for state management. The React application fetches data from a Ruby on Rails API (v6.1.6).
-                        Pictures used are from <a href="https://www.pexels.com/">Pexels</a>.
+                        Pictures used are from <a href="https://www.pexels.com/">Pexels</a> and logo was created using <a href="https://logo.com/">Logo</a>.
                     </h5>
                 </div >
             </div>
