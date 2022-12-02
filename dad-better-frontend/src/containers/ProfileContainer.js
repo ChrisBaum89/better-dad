@@ -6,6 +6,7 @@ import NavigationContainer from './NavigationContainer';
 import { useSelector } from 'react-redux'
 import Logo from '../components/Logo';
 import Quote from '../components/Quote';
+import Footer from '../components/Footer';
 
 function ProfileContainer() {
     const currentState = useSelector((state) => state)
@@ -50,6 +51,7 @@ function ProfileContainer() {
                 <br></br>
                 <BadgeContainer />
                 <br></br><br></br><br></br>
+                <Footer />
             </div>
         </div>
     )
