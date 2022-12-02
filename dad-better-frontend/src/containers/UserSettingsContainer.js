@@ -14,11 +14,10 @@ function UserSettingsContainer() {
     const [disableSettingsEdit, setDisableSettingsEdit] = useState(true)
     const [disablePasswordEdit, setDisablePasswordEdit] = useState(true)
     const [name, setName] = useState(currentUser.data.attributes.name)
-    const [email, setEmail] = useState(currentUser.data.attributes.email)
+    const [email] = useState(currentUser.data.attributes.email)
     const [existingPassword, setExistingPassword] = useState("")
     const [newPassword, setNewPassword] = useState("")
     const [updateMessage, setUpdateMessage] = useState(0)
-    const [myState, setMyState] = useState(currentState)
 
     useEffect(() => {userSettingsMessage(currentState.usersReducer.user[0].message)})
 
