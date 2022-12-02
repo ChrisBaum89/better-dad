@@ -7,8 +7,9 @@ const UserCard = (props) => {
         <div className="user-card">
             <div className="col d-flex justify-content-center">
                 <div className="user-card-div">
-                <Card style={{ width: '18rem' }}>
+                <Card style={{ width: '18rem', color:"black", background: "#fff3e1", }}>
                     <Card.Img className="user-image" variant="top" src={props.picture} />
+                    <div className="badge-title-content-divider"></div>
                     <Card.Body>
                         <Card.Text>
                             Username: {props.username}
