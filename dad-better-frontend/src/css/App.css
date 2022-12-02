@@ -12,7 +12,7 @@
   border-radius:25px;
   position: relative;
   overflow-y: scroll;
-  max-height: 70%;
+  max-height: 55%;
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 20px;
@@ -68,10 +68,11 @@ height: 100%;
 }
 
 .better-dad-logo {
-  margin: auto;
-  width: 150px;
+  width: 175px;
   height: auto;
   border-radius:25px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .better-dad-logo-div{
@@ -79,9 +80,15 @@ height: 100%;
   text-align: center;
 }
 
+.footer-content {
+  position:absolute;
+ bottom: 0;
+ right: 5px;
+}
+
 .footer-div {
-  text-align: right;
   color: #fff3e1;
+  height: 100px;
 }
 
 .invalid-login {
@@ -95,19 +102,20 @@ height: 100%;
 }
 
 .login-form {
-  width: 30%;
-  margin: auto;
+  width: 100%;
+  margin-top: 20px;
 }
 
-.login-signin-form {
-  text-align: center;
+.login-form-content {
+  position:relative;
+  width:20%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .logo-signin-form {
   position: relative;
-  left: 0;
-  right: 0;
-  overflow: hidden;
+  text-align: center;
 }
 
 .navigation-button-bar {
@@ -155,7 +163,7 @@ height: 100%;
 .quote-div {
   width: 100%;
   text-align: center;
-  margin-top: 1%;
+  margin-top: 5%;
   margin-bottom: 1%;
 }
 
@@ -164,14 +172,6 @@ height: 100%;
   margin-bottom:2%;
   margin-right: 2%;
   margin-left: 2%;
-}
-
-footer{
-  height: 0px; 
-  width:100%;
-  position: absolute;
-  left: 0;
-  bottom: 0; 
 }
 
 .ted-video {
@@ -216,4 +216,12 @@ padding-bottom:56.25%;
 .welcome-logo {
   width: 100%;
   height: 130px;
+}
+
+.welcome-page-div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
