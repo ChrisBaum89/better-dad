@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 
 function WelcomeContainer() {
     return (
-        <div>
+        <div className="welcome-page-div">
             <div><WelcomeLinks /></div>
             <div className="welcome-logo">
                 <Logo />
