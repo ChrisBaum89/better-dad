@@ -3,6 +3,7 @@ import LoginSignupContainer from './LoginSignupContainer';
 import Welcome from '../components/Welcome';
 import Logo from '../components/Logo';
 import WelcomeLinks from '../components/WelcomeLink';
+import Footer from '../components/Footer';
 
 function WelcomeContainer() {
     return (
@@ -19,6 +20,7 @@ function WelcomeContainer() {
             <br></br>
             <br></br>
             <Welcome />
+            <Footer />
         </div>
     )
 }
