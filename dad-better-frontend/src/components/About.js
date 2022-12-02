@@ -2,6 +2,7 @@ import React from "react";
 import AboutLinks from "./AboutLinks";
 import Logo from "./Logo";
 import "../css/App.css"
+import Footer from "./Footer";
 
 
 function About() {
@@ -55,6 +56,7 @@ function About() {
                     </h5>
                 </div >
             </div>
+            <Footer/>
         </div >
     )
 }
