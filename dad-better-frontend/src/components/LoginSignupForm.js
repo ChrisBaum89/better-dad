@@ -17,8 +17,10 @@ function LoginSignupForm(props) {
                 </Form.Group>
                 {props.invalidLogin()}
                 <br></br>
-                <Button variant="primary" type="submit">Login</Button>
-                <Button variant="primary" onClick={props.handleShow}>Signup</Button>
+                <Button variant="custom" type="submit" style={{
+                    color: "#fff3e1", background: "black"}}>Login</Button>
+                <Button variant="custom" onClick={props.handleShow} style={{
+                    color: "#fff3e1", background: "black"}}>Signup</Button>
             </Form>
         </div>
     )
