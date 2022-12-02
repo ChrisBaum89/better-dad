@@ -11,6 +11,7 @@ const BadgeList = (props) => {
                 <div className="badge-title">
                     <h2>Badges Earned</h2>
                 </div>
+                <div className="badge-title-content-divider"></div>
                 <Carousel>
                     {props.badges.map(badge => {
                         return (
@@ -40,20 +41,22 @@ const BadgeList = (props) => {
                 <div className="badge-title">
                     <h2>Badges Earned</h2>
                 </div>
-                <Carousel>
-                    <Carousel.Item interval={10000000}>
-                        <img
-                            className="d-block w-100"
-                            src={star_background}
-                            alt="First slide"
-                        />
-                        <Carousel.Caption>
-                            <div className="no-badge-carousel-caption">
-                                <h6>No Badges earned at this time. Keep completing tasks to earn badges.</h6>
-                            </div>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>
+                <div className="badge-carousel-badges">
+                    <Carousel>
+                        <Carousel.Item interval={10000000}>
+                            <img
+                                className="d-block w-100"
+                                src={star_background}
+                                alt="First slide"
+                            />
+                            <Carousel.Caption>
+                                <div className="no-badge-carousel-caption">
+                                    <h6>No Badges earned at this time. Keep completing tasks to earn badges.</h6>
+                                </div>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                    </Carousel>
+                </div>
             </div>
         )
     }
