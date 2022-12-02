@@ -6,6 +6,7 @@ const UserCard = (props) => {
     return (
         <div className="user-card">
             <div className="col d-flex justify-content-center">
+                <div className="user-card-div">
                 <Card style={{ width: '18rem' }}>
                     <Card.Img className="user-image" variant="top" src={props.picture} />
                     <Card.Body>
@@ -17,6 +18,7 @@ const UserCard = (props) => {
                         </Card.Text>
                     </Card.Body>
                 </Card>
+                </div>
             </div>
         </div>
     )

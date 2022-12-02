@@ -9,7 +9,7 @@ function TaskList(props) {
     const checkIfAssignedTasks = (tasks) => {
         if (tasks.length > 0) {
             return (
-                <div>
+                <div className="task-div">
                     <div className="task-title">
                         <h2>Tasks</h2>
                     </div>
