@@ -29,7 +29,7 @@ function CompletedTaskCard() {
         return (
             <div className='completed-tasks-div' key={`completed-card-${task.id}`}>
                 <div className="col d-flex justify-content-center">
-                    <Card style={{ width: '36rem' }}>
+                    <Card style={{ width: '36rem', background:"black", color: "#fff3e1", margin: "1%",}}>
                         <Card.Body className='completed-card-body'>
                             <Card.Title className='completed-card-title'>
                                 <FavoriteButton task={task} />
