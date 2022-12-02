@@ -11,7 +11,7 @@
   background-color: #fff3e1;
   border-radius:25px;
   position: absolute;
-  top: 20%;
+  top: 25%;
   left: 10%;
   right: 10%;
   overflow-y: scroll;
@@ -69,20 +69,17 @@
 }
 
 .better-dad-logo-div{
-text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 .footer-content{
-  position: relative;
-  float: right;
-  font-family: palatino, serif;
-  position: absolute;
-    bottom: 0%;
-    right: 1%;
+  color: black;
 }
 
 .footer-div {
   margin-right: 5px;
+  color: black;
 }
 
 .invalid-login {
@@ -104,13 +101,6 @@ text-align: center;
   text-align: center;
 }
 
-.logo-quote {
-  position: relative;
-  left: 0;
-  right: 0;
-  overflow: hidden;
-}
-
 .logo-signin-form {
   position: relative;
   left: 0;
@@ -120,12 +110,27 @@ text-align: center;
 
 .navigation-button-bar {
   overflow: auto;
-  width: 38%;
-  float: left;
+  width: 100%;
+}
+
+.navigation-container-bar {
+  position: relative;
+  width: 100%;
+}
+
+.profile-content {
+  position: absolute;
+  width: 100%;
+  background-image: url('../img/background_photo.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  min-height: 100%;
+  background-color: #151414;
 }
 
 .offcanvas-body {
   font-family: palatino, serif;
+  background-color:#fff3e1;
 }
 
 .offcanvas-title{
@@ -135,12 +140,32 @@ text-align: center;
   font-family: palatino, serif;
 }
 
-.quote-div {
-  overflow: hidden;
-  width: 50%;
-  color: black;
-  float: right;
+.quote-content-div {
+  display:inline-block;
+  width: 60%;
+  color: #fff3e1;
+  background-color: black;
   font-family: palatino, serif;
+  border-radius:25px;
+  height: auto;
+}
+
+.quote-div {
+  width: 100%;
+  text-align: center;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.quote-text {
+  margin-top:2%;
+  margin-bottom:2%;
+  margin-right: 2%;
+  margin-left: 2%;
+}
+
+.site-footer {
+  position: relative;
 }
 
 .ted-video {
