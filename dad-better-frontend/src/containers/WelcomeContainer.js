@@ -7,12 +7,13 @@ import WelcomeLinks from '../components/WelcomeLink';
 function WelcomeContainer() {
     return (
         <div>
-            <WelcomeLinks />
+            <div><WelcomeLinks /></div>
+            <div className="welcome-logo">
+                <Logo />
+            </div>
             <div className='logo-signin-form'>
-                <div className='welcome-logo-spacing'><p>&nbsp;</p></div>
-                <div className="welcome-logo">
-                    <Logo />
-                </div>
+                {/* <div className='welcome-logo-spacing'><p>&nbsp;</p></div> */}
+
                 <LoginSignupContainer />
             </div>
             <br></br>
