@@ -6,7 +6,7 @@ function AboutLinks(){
     return(
         <div className="about-links-div">
             <ButtonGroup>
-                <Button href="/">Back</Button>
+                <Button variant="custom" href="/" style={{color: "#fff3e1", background: "black"}}>Back</Button>
             </ButtonGroup>
         </div>
     )

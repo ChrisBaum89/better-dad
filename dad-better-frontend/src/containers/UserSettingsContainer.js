@@ -33,19 +33,19 @@ function UserSettingsContainer() {
 
     const settingsButtonDisplay = () => {
         if (disableSettingsEdit === false) {
-            return <Button variant="primary" type="submit" onClick={() => handleSettingsSubmit(userId, name, email)}>Submit</Button>
+            return <Button variant="custom" style={{color: "#fff3e1", background: "black"}} type="submit" onClick={() => handleSettingsSubmit(userId, name, email)}>Submit</Button>
         }
         else {
-            return <Button onClick={() => setDisableSettingsEdit(false)}>Edit Settings</Button>
+            return <Button variant="custom" style={{color: "#fff3e1", background: "black"}} onClick={() => setDisableSettingsEdit(false)}>Edit Settings</Button>
         }
     }
 
     const passwordButtonDisplay = () => {
         if (disablePasswordEdit === false) {
-            return <Button variant="primary" type="submit" onClick={() => handlePasswordSubmit(userId, existingPassword, newPassword)}>Submit Password</Button>
+            return <Button variant="custom" style={{color: "#fff3e1", background: "black"}} type="submit" onClick={() => handlePasswordSubmit(userId, existingPassword, newPassword)}>Submit Password</Button>
         }
         else {
-            return <Button onClick={() => setDisablePasswordEdit(false)}>Edit Password</Button>
+            return <Button variant="custom" style={{color: "#fff3e1", background: "black"}} onClick={() => setDisablePasswordEdit(false)}>Edit Password</Button>
         }
     }
 

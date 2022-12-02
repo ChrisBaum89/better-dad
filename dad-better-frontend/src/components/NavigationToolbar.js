@@ -5,13 +5,13 @@ import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 
 function NavigationToolbar(props) {
     return (
-        <div>
+        <div className="profile-navigation-div">
             <ButtonToolbar aria-label="Toolbar with button groups">
                 <ButtonGroup className="me-2" aria-label="First group">
-                    <Button onClick={props.handleHistory}>History</Button>
-                    <Button onClick={props.handleFavorites}>Favorites</Button>
-                    <Button onClick={props.handleSettings}>Settings</Button>
-                    <Button onClick={props.handleLogout}>Logout</Button>
+                    <Button variant="custom" style={{color: "#fff3e1", background: "black"}} onClick={props.handleHistory}>History</Button>
+                    <Button variant="custom" style={{color: "#fff3e1", background: "black"}} onClick={props.handleFavorites}>Favorites</Button>
+                    <Button variant="custom" style={{color: "#fff3e1", background: "black"}} onClick={props.handleSettings}>Settings</Button>
+                    <Button variant="custom" style={{color: "#fff3e1", background: "black"}} onClick={props.handleLogout}>Logout</Button>
                 </ButtonGroup>
             </ButtonToolbar>
         </div>
