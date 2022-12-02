@@ -7,9 +7,10 @@
 }
 
 .task-carousel-caption{
-    position: absolute;
-    top: -325%;
+    position: relative;
+    height: 210px;
     width: 100%;
+    top: -0px;
     text-align: center;
     color: black;
     background-color:  #fff3e1;
@@ -18,11 +19,20 @@
     border-radius: 15px;
 }
 
+.task-carousel-content {
+  margin: 10px;
+}
+
 .task-title{
-    text-align: center;
-    top: 30px;
-    bottom: block;
-    font-family: palatino, serif;
+  position: relative;
+  margin-bottom: 10px;
+  text-align: center;
+  font-family: palatino, serif;
+  background-color: #fff3e1;
+  color: black;
+  border-style: solid;
+  border-width: 5px;
+  border-radius: 15px;
 }
 
 .completed-card-body{
@@ -51,13 +61,6 @@
 .checked {
     color: orange;
     font-size: 20px;
-  }
-
-  .offcanvas-body{
-    /* background-image: url('../img/offcanvas-background.jpeg');
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-color: #764835; */
   }
 
   .offcanvas-header{
