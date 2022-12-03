@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import WelcomeContainer from './containers/WelcomeContainer';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
-import Footer from './components/Footer';
 import About from './components/About';
 
 function App() {
@@ -14,7 +13,7 @@ function App() {
   const dispatch = useDispatch()
 
   const jwtPresent = (jwtToken) =>{
-    return jwtToken !== "" ? true: false
+    return (jwtToken !== "") && (jwtToken !== "undefined") ? true: false
   }
 
   const sendLoginToServer = (jwtToken) => {
@@ -66,6 +65,7 @@ function App() {
   return (
     <Router>
       <div className="app">
+        <div>
         <Route exact path="/">
           {loggedin() ? <Redirect to="/profile" /> : <WelcomeContainer />}
         </Route>
@@ -75,10 +75,6 @@ function App() {
         <Route exact path="/about">
           <About />
         </Route>
-        <div className="site-footer">
-          <div className="footer-content">
-            <Footer />
-          </div>
         </div>
       </div>
     </Router>

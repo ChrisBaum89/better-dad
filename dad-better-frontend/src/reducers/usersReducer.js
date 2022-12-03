@@ -1,23 +1,34 @@
-const usersReducer = (state = { user: [], loading: false }, action) => {
+const usersReducer = (state = { user: [], requesting: false }, action) => {
     switch (action.type) {
-        
         case "INITIALIZE":
-            const userArray = {message: "NO USER"}
+            const userArray = { message: "NO USER" }
             localStorage.jwt = ''
             return { ...state, user: [userArray] }
 
         case "UPDATE_USER":
-            return {...state, user: [action.payload]}
+            localStorage.setItem("jwt", action.payload.jwt)
+            return { ...state, user: [action.payload] }
 
         case "LOGIN_USER":
-            return {...state, user: [action.payload]}
+            localStorage.setItem("jwt", action.payload.jwt)
+            return {
+                ...state,
+                user: [action.payload],
+                requesting: false,
+            }
+
+        case "START_USER_REQUEST":   
+        return {
+                ...state, user: [...state.user],
+                requesting: true,
+            }
 
         case "LOGOUT":
             return { ...state, user: [] }
 
         case "CLEAR_MESSAGE":
             state.user[0].message = ""
-            return {...state}
+            return { ...state }
 
         default:
             return state

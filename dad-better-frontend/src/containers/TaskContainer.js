@@ -2,11 +2,11 @@ import React from "react";
 import '../css/Tasks.css'
 import { useSelector, useDispatch } from 'react-redux';
 import TaskList from "../components/TaskList";
+import { fetchUser } from "../actions/userActions";
 
 function TaskContainer() {
     const currentState = useSelector((state) => state)
     const currentUser = currentState.usersReducer.user[0].user
-    const jwtToken = localStorage.jwt
 
     const dispatch = useDispatch()
 
@@ -23,29 +23,28 @@ function TaskContainer() {
         }
 
     }
-
     const updateUserToServer = (user, taskId) => {
-        fetch("http://localhost:3000/updateuser", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `bearer ${jwtToken}`,
-                Accept: "application/json",
-            },
-            body: JSON.stringify({
-                user: {
-                    user_id: user.data.id,
-                    task_id: taskId,
-                    update_type: "task_completed"
-                },
-            }),
-        })
-            .then((r) => r.json())
-            .then((data) => {
-                dispatch({ type: "UPDATE_USER", payload: data })
-            })
+        const [username, password, nameUser, email, existingPassword, newPassword, message] = ''
+        const userId = user.data.id
+        const updateType = 'task_completed'
+        const dispatchType = "UPDATE_USER"
+        const fetchUrl = "http://localhost:3000/updateuser"
+        dispatch(fetchUser(
+            userId, 
+            username, 
+            password, 
+            email, 
+            nameUser, 
+            existingPassword, 
+            newPassword, 
+            message,
+            updateType,
+            taskId,
+            dispatchType,
+            fetchUrl,
+            )
+        )
     }
-
 
     const handleClick = (event, user = currentUser) => {
         const taskId = event.target.attributes.taskid.value

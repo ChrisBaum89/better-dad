@@ -57,7 +57,8 @@ class ApplicationController < ActionController::API
 
   def render_invalid_login_json
     render json: {
-      message: 'Invalid Login'
+      message: 'Invalid Login',
+      jwt: ''
     },
     status: :unauthorized
   end

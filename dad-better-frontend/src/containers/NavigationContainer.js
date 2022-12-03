@@ -27,7 +27,7 @@ function NavigationContainer() {
     }
 
     return (
-        <div>
+        <div className="navigation-container-div">
             <div className='navigation-button-bar'>
                 <NavigationToolbar
                     handleHistory={handleHistoryShow}

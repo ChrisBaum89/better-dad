@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import UserSettings from "../components/UserSettings";
+import { fetchUser } from "../actions/userActions";
 
 function UserSettingsContainer() {
     const currentState = useSelector((state) => state)
@@ -13,11 +14,12 @@ function UserSettingsContainer() {
     const [disableSettingsEdit, setDisableSettingsEdit] = useState(true)
     const [disablePasswordEdit, setDisablePasswordEdit] = useState(true)
     const [name, setName] = useState(currentUser.data.attributes.name)
-    const [email, setEmail] = useState(currentUser.data.attributes.email)
+    const [email] = useState(currentUser.data.attributes.email)
     const [existingPassword, setExistingPassword] = useState("")
     const [newPassword, setNewPassword] = useState("")
-    const [passwordUpdated, setPasswordUpdated] = useState(0)
-    const jwtToken = localStorage.jwt
+    const [updateMessage, setUpdateMessage] = useState(0)
+
+    useEffect(() => {userSettingsMessage(currentState.usersReducer.user[0].message)})
 
     const handleSettingsSubmit = (userId, name, email) => {
         updateUserToServer(userId, name, email)
@@ -31,68 +33,65 @@ function UserSettingsContainer() {
 
     const settingsButtonDisplay = () => {
         if (disableSettingsEdit === false) {
-            return <Button variant="primary" type="submit" onClick={() => handleSettingsSubmit(userId, name, email)}>Submit</Button>
+            return <Button variant="custom" style={{color: "#fff3e1", background: "black"}} type="submit" onClick={() => handleSettingsSubmit(userId, name, email)}>Submit</Button>
         }
         else {
-            return <Button onClick={() => setDisableSettingsEdit(false)}>Edit Settings</Button>
+            return <Button variant="custom" style={{color: "#fff3e1", background: "black"}} onClick={() => setDisableSettingsEdit(false)}>Edit Settings</Button>
         }
     }
 
     const passwordButtonDisplay = () => {
         if (disablePasswordEdit === false) {
-            return <Button variant="primary" type="submit" onClick={() => handlePasswordSubmit(userId, existingPassword, newPassword)}>Submit Password</Button>
+            return <Button variant="custom" style={{color: "#fff3e1", background: "black"}} type="submit" onClick={() => handlePasswordSubmit(userId, existingPassword, newPassword)}>Submit Password</Button>
         }
         else {
-            return <Button onClick={() => setDisablePasswordEdit(false)}>Edit Password</Button>
+            return <Button variant="custom" style={{color: "#fff3e1", background: "black"}} onClick={() => setDisablePasswordEdit(false)}>Edit Password</Button>
         }
     }
 
     const updateUserToServer = (userId, name, email) => {
-        fetch("http://localhost:3000/updateuser", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `bearer ${jwtToken}`,
-                Accept: "application/json",
-            },
-            body: JSON.stringify({
-                user: {
-                    user_id: userId,
-                    email: email,
-                    name: name,
-                    update_type: "update_user_settings",
-                },
-            }),
-        })
-            .then((r) => r.json())
-            .then((data) => {
-                dispatch({ type: "UPDATE_USER", payload: data })
-                userSettingsMessage(data.message)
-            })
+        const [username, password, existingPassword, newPassword, message, taskId] = ''
+        const dispatchType = "UPDATE_USER"
+        const updateType = "update_user_settings"
+        const fetchUrl = "http://localhost:3000/updateuser"
+        dispatch(fetchUser(
+            userId,
+            username,
+            password,
+            email,
+            name,
+            existingPassword,
+            newPassword,
+            message,
+            updateType,
+            taskId,
+            dispatchType,
+            fetchUrl
+        ))
+        // userSettingsMessage(currentState.usersReducer.user[0].message)
     }
 
     const updatePasswordToServer = (userId, existingPassword, newPassword) => {
-        fetch("http://localhost:3000/updateuser", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `bearer ${jwtToken}`,
-                Accept: "application/json",
-            },
-            body: JSON.stringify({
-                user: {
-                    user_id: userId,
-                    existing_password: existingPassword,
-                    new_password: newPassword,
-                    update_type: "update_password",
-                },
-            }),
-        })
-            .then((r) => r.json())
-            .then((data) => {
-                dispatch({ type: "UPDATE_USER", payload: data })
-                userSettingsMessage(data.message)
-            })
+        const [username, password, message, name, email, taskId] = ''
+        const dispatchType = "UPDATE_USER"
+        const updateType = "update_password"
+        const fetchUrl = "http://localhost:3000/updateuser"
+
+        dispatch(fetchUser(
+            userId,
+            username,
+            password,
+            email,
+            name,
+            existingPassword,
+            newPassword,
+            message,
+            updateType,
+            taskId,
+            dispatchType,
+            fetchUrl
+        ))
+        // userSettingsMessage(currentState.usersReducer.user[0].message)
         setExistingPassword('')
         setNewPassword('')
     }
@@ -100,21 +99,20 @@ function UserSettingsContainer() {
     const userSettingsMessage = (message) => {
         switch (message) {
             case 'password updated':
-                setPasswordUpdated(1)
+                setUpdateMessage(1)
                 break;
             case 'password update failed':
-                setPasswordUpdated(2)
+                setUpdateMessage(2)
                 break;
             case 'settings updated':
-                setPasswordUpdated(3)
+                setUpdateMessage(3)
                 break;
             case 'settings update failed':
-                setPasswordUpdated(4)
+                setUpdateMessage(4)
                 break;
             default:
-                setPasswordUpdated(0)
+                setUpdateMessage(0)
         }
-
     }
 
     const passwordControl = () => {
@@ -148,7 +146,7 @@ function UserSettingsContainer() {
     const updateMessaging = () => {
         let message = ''
         let messageColor = 'black'
-        switch (passwordUpdated) {
+        switch (updateMessage) {
             case 1:
                 message = 'Password updated successfully';
                 messageColor = 'green';
@@ -168,7 +166,6 @@ function UserSettingsContainer() {
             default:
                 message = ''
         }
-
         return (
             <div className='user-settings-messaging' style={{ color: messageColor }}>
                 <br></br>
@@ -176,7 +173,6 @@ function UserSettingsContainer() {
             </div>
         )
     }
-
 
     return (
         <div>

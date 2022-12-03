@@ -7,27 +7,41 @@
 }
 
 .task-carousel-caption{
-    position: absolute;
-    top: -325%;
+    position: relative;
+    height: 210px;
     width: 100%;
+    top: -0px;
     text-align: center;
-    color: white;
+    color: black;
+    background-color:  #fff3e1;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 15px;
+}
+
+.task-carousel-content {
+  margin: 10px;
 }
 
 .task-title{
-    text-align: center;
-    top: 30px;
-    bottom: block;
-    font-family: palatino, serif;
+  position: relative;
+  margin-bottom: 10px;
+  text-align: center;
+  font-family: palatino, serif;
+  background-color: #fff3e1;
+  color: black;
+  border-style: solid;
+  border-width: 5px;
+  border-radius: 15px;
 }
 
 .completed-card-body{
     text-align: center;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-left: 30px;
     margin-right: 30px;
+    margin-bottom: 5px;
     font-size: 12px;
-    color: black;
 }
 
 .completed-card-title{
@@ -42,6 +56,7 @@
     top: 0;
     right: 0;
     font-size: 20px;
+    margin-right: 2px;
 }
 
 .checked {
@@ -49,13 +64,13 @@
     font-size: 20px;
   }
 
-  .offcanvas-body{
-    /* background-image: url('../img/offcanvas-background.jpeg');
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-color: #764835; */
+  .offcanvas-header{
+    background-color: #fff3e1;
   }
 
-  .offcanvas-header{
-    background-color: #77cdce;
+  .task-div {
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 15px;
+    background-color: #fff3e1;
   }
