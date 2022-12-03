@@ -6,6 +6,12 @@ import Button from 'react-bootstrap/Button'
 
 function TaskList(props) {
 
+    const checkJoke = (task) => {
+        if (task.attributes.task.category === "joke") {
+            return "Tell this joke to someone:  "
+        }
+    }
+
     const checkIfAssignedTasks = (tasks) => {
         if (tasks.length > 0) {
             return (
@@ -25,11 +31,11 @@ function TaskList(props) {
                                         </div>
                                         <div className="task-carousel-caption">
                                             <div className="task-carousel-content">
-                                            <h6>{task.attributes.task.description}</h6>
-                                            <p>Points: {task.attributes.task.value}</p>
-                                            <Button variant="custom" style={{ color: "#fff3e1", background: "black" }} taskid={task.attributes.task.id} taskvalue={task.attributes.task.value} onClick={props.handleClick}>
-                                                Complete
-                                            </Button>
+                                                <h6>{checkJoke(task)}<br></br>{task.attributes.task.description}</h6>
+                                                <p>Points: {task.attributes.task.value}</p>
+                                                <Button variant="custom" style={{ color: "#fff3e1", background: "black" }} taskid={task.attributes.task.id} taskvalue={task.attributes.task.value} onClick={props.handleClick}>
+                                                    Complete
+                                                </Button>
                                             </div>
                                         </div>
                                     </Carousel.Caption>
@@ -42,9 +48,6 @@ function TaskList(props) {
         }
         else {
             return (<div>
-                <div className="task-title">
-                    <h2>Tasks</h2>
-                </div>
                 <Carousel>
                     <Carousel.Item interval={10000000}>
                         <img
@@ -53,8 +56,11 @@ function TaskList(props) {
                             alt="First slide"
                         />
                         <Carousel.Caption>
+                            <div className="task-title">
+                                <h2>Tasks</h2>
+                            </div>
                             <div className="task-carousel-caption">
-                                <h4>No tasks currently available. Please check back tomorrow</h4>
+                                <h4>You have completed all tasks for today. Please check back tomorrow.</h4>
                             </div>
                         </Carousel.Caption>
                     </Carousel.Item>
