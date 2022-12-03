@@ -13,7 +13,7 @@ function App() {
   const dispatch = useDispatch()
 
   const jwtPresent = (jwtToken) =>{
-    return jwtToken !== "" ? true: false
+    return (jwtToken !== "") && (jwtToken !== "undefined") ? true: false
   }
 
   const sendLoginToServer = (jwtToken) => {
