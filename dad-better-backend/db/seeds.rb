@@ -37,49 +37,86 @@ badge1 = Badge.create(
 )
 
 badge2 = Badge.create(
-    name: "Bud Light",
-    description: "No fancy beer for you. You are a father that doesn't have the time or money for that nonsense.",
+    name: "Beer",
+    description: "Here's a drink to you! Raise your glasses because you've earned it!",
     score_threshold: 300,
-    image: "https://res.cloudinary.com/promenade-prod/image/upload/b_rgb:ffffff,c_pad,d_alcohol:vendor:global:catalog:product:image-placeholder.png,dpr_2.0,f_auto,fl_preserve_transparency,h_450,q_auto,w_450/v1636953021/alcohol/vendor/100055/catalog/product/b/6/b6392f6a4e8d2fe4af193905b2ec7b35_5fbede3684ee9.jpg"
+    image: "https://images.pexels.com/photos/4195603/pexels-photo-4195603.jpeg?auto=compress&cs=tinysrgb&w=800"
 )
+# https://images.pexels.com/photos/573910/pexels-photo-573910.jpeg?auto=compress&cs=tinysrgb&w=800
+
 
 badge3 = Badge.create(
     name: "Dad Glasses",
     description: "You need to see and it needs to be everything.  Can't have the frame impeding your view!",
     score_threshold: 200,
-    image: "https://c.shld.net/rpx/i/s/pi/mp/10160405/prod_9456915432?src=http%3A%2F%2Flyimage.club%2Fimages%2FimageB%2FALVB07KXBMBP2.jpg&d=6bf4e65569f1b27907470137c97431dbe9803a95&hei=468&wid=468&op_sharpen=1"
+    image: "https://images.pexels.com/photos/185769/pexels-photo-185769.jpeg?auto=compress&cs=tinysrgb&w=800"
 )
 
 badge4 = Badge.create(
     name: "Jorts",
     description: "You need something on your legs that is durable but can breath and you have found them!",
     score_threshold: 100,
-    image: "https://pbs.twimg.com/media/Ckm6SllW0AASe7N.jpg",
+    image: "https://images.pexels.com/photos/4910961/pexels-photo-4910961.jpeg?auto=compress&cs=tinysrgb&w=800",
 )
 
 badge5 = Badge.create(
     name: "Lawn Mower",
     description: "Nothing cuts the lawn like that ride-on John Deer.",
     score_threshold: 400,
-    image: "https://d14zyouj9r0hpo.cloudfront.net/wp-content/uploads/2019/09/image.png",
-)
-
-badge6 = Badge.create(
-    name: "Phone Clip",
-    description: "Your about efficiency. You phone must be at the ready to handle the demands of today's world!",
-    score_threshold: 50,
-    image: "https://i.pinimg.com/736x/a3/d4/5d/a3d45d928715e820031d15db64bd5a19.jpg",
+    image: "https://images.pexels.com/photos/12087398/pexels-photo-12087398.jpeg?auto=compress&cs=tinysrgb&w=800",
 )
 
 badge7 = Badge.create(
     name: "Start of Journey",
     description: "Thank you for signing up! You are ready to start your journey to becoming a better dad and role model for your family!",
     score_threshold: 0,
-    image: "https://www.shutterstock.com/image-photo/excited-dedicated-football-fan-triumphing-260nw-1164947800.jpg",
+    image: "https://images.pexels.com/photos/3768724/pexels-photo-3768724.jpeg?auto=compress&cs=tinysrgb&w=800",
+)
+
+task1 = Task.create(
+    description: "Take your significant other on a date. If you are currently single, treat yourself to something since you deserve it.",
+    identifier: rand(1..10000000).to_s,
+    value: 50,
+    category: "goal"
+)
+
+task2 = Task.create(
+    description: "Take out the trash.",
+    identifier: rand(1..10000000).to_s,
+    value: 20,
+    category: "goal"
+)
+
+task3 = Task.create(
+    description: "Do the dishes.",
+    identifier: rand(1..10000000).to_s,
+    value: 20,
+    category: "goal"
 )
 
 task4 = Task.create(
-    description: "Play with children without looking at phone for 30 minutes",
+    description: "Clean the toilet.",
+    identifier: rand(1..10000000).to_s,
+    value: 20,
+    category: "goal"
+)
+
+task5 = Task.create(
+    description: "Play with your children without looking at phone for 30 minutes.",
+    identifier: rand(1..10000000).to_s,
+    value: 30,
+    category: "goal"
+)
+
+task6 = Task.create(
+    description: "Take your children into nature.",
+    identifier: rand(1..10000000).to_s,
+    value: 30,
+    category: "goal"
+)
+
+task7 = Task.create(
+    description: "Tell your significant other that you love them. If you are single, take a minute to love and thank yourself.",
     identifier: rand(1..10000000).to_s,
     value: 30,
     category: "goal"
