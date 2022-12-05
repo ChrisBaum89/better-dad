@@ -26,7 +26,7 @@ export const fetchUser = (
                 message,
                 updateType,
                 taskId,
-                ))
+            ))
             .then((response) => response.json())
             .then((data) => {
                 dispatch({ type: dispatchType, payload: data })
@@ -69,4 +69,28 @@ export const jsonUser = (
                 update_type: updateType
             }),
         })
+}
+
+export const sendLoginToServer = () => {
+    return (dispatch) => {
+        dispatch({ type: "START_USER_REQUEST"})
+        fetch("http://localhost:3000/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `bearer ${localStorage.jwt}`,
+                Accept: "application/json",
+            },
+            body: JSON.stringify({
+                user: {
+                    message: "user login with JWT"
+                },
+            }),
+        })
+            .then((r) => r.json())
+            .then((data) => {
+                localStorage.setItem("jwt", data.jwt)
+                dispatch({ type: "LOGIN_USER", payload: data })
+            })
+    }
 }
