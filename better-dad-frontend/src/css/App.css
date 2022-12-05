@@ -96,6 +96,19 @@ height: 100%;
   color: red;
 }
 
+.loading-div {
+  position: absolute;
+  width: 100%;
+  background-image: url('../img/background_photo.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  min-height: 100%;
+}
+
+.loading-div-content {
+  margin: 20px;
+}
+
 .login-container {
   display: "inline-block";
   text-align: "right";
