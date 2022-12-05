@@ -6,55 +6,40 @@ import WelcomeContainer from './containers/WelcomeContainer';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import About from './components/About';
+import { sendLoginToServer } from './actions/userActions';
 
 function App() {
 
   const currentState = useSelector((state) => state)
   const dispatch = useDispatch()
 
-  const jwtPresent = (jwtToken) =>{
-    return (jwtToken !== "") && (jwtToken !== "undefined") ? true: false
+  const jwtPresent = (jwtToken) => {
+    return (jwtToken !== "") && (jwtToken !== "undefined") ? true : false
   }
 
-  const sendLoginToServer = (jwtToken) => {
-    fetch("http://localhost:3000/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `bearer ${jwtToken}`,
-            Accept: "application/json",
-        },
-        body: JSON.stringify({
-            user: {
-                message: "user login with JWT"
-            },
-        }),
-    })
-        .then((r) => r.json())
-        .then((data) => {
-            localStorage.setItem("jwt", data.jwt)
-            dispatch({ type: "LOGIN_USER", payload: data })
-        })
-}
+  const startFetch = () => {
+    if (currentState.usersReducer.requesting === false) {
+      dispatch(sendLoginToServer(localStorage.jwt))
+    }
+  }
 
   const loggedin = () => {
     const user = currentState.usersReducer.user[0]
     if (user === undefined) {
-      if (jwtPresent(localStorage.jwt)){
-        if (user !== undefined){
-          return true
-        }
-        else{
-          sendLoginToServer(localStorage.jwt)
-          return false
-        }
+      if (jwtPresent(localStorage.jwt)) {
+        startFetch()
+        return true
       }
       else {
-        dispatch({type: "INITIALIZE"})
+        dispatch({ type: "INITIALIZE" })
         return false
       }
     }
     else if ((localStorage.jwt !== '') && (user !== undefined)) {
+      return true
+    }
+
+    else if (user !== undefined && localStorage.jwt !== "") {
       return true
     }
     else {
@@ -62,23 +47,32 @@ function App() {
     }
   }
 
-  return (
-    <Router>
-      <div className="app">
-        <div>
-        <Route exact path="/">
-          {loggedin() ? <Redirect to="/profile" /> : <WelcomeContainer />}
-        </Route>
-        <Route exact path="/profile">
-          {loggedin() ? <ProfileContainer /> : <Redirect to="/" />}
-        </Route>
-        <Route exact path="/about">
-          <About />
-        </Route>
+  if (currentState.usersReducer.requesting === false || currentState.usersReducer.user[0] !== undefined) {
+    return (
+      <Router>
+        <div className="app">
+          <div>
+            <Route exact path="/">
+              {loggedin() ? <Redirect to="/profile" /> : <WelcomeContainer />}
+            </Route>
+            <Route exact path="/profile">
+              {loggedin() ? <ProfileContainer /> : <Redirect to="/" />}
+            </Route>
+            <Route exact path="/about">
+              <About />
+            </Route>
+          </div>
         </div>
+      </Router>
+    )
+  }
+  else {
+    return <div className="loading-div" style={{ color: "#fff3e1", }}>
+      <div className="loading-div-content">
+        <h1>Loading...</h1>
       </div>
-    </Router>
-  )
+    </div>
+  }
 
 }
 
