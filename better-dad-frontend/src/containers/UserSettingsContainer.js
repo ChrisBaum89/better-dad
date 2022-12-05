@@ -166,12 +166,23 @@ function UserSettingsContainer() {
             default:
                 message = ''
         }
+
+        if (currentState.usersReducer.requesting) {
+            return (
+                <div className='user-settings-messaging' >
+                    <br></br>
+                    <p>Submitting....</p>
+                </div>
+            )
+        }
+        else {
         return (
             <div className='user-settings-messaging' style={{ color: messageColor }}>
                 <br></br>
                 <p>{message}</p>
             </div>
         )
+        }
     }
 
     return (
