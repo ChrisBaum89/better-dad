@@ -14,7 +14,7 @@ function UserSettingsContainer() {
     const [disableSettingsEdit, setDisableSettingsEdit] = useState(true)
     const [disablePasswordEdit, setDisablePasswordEdit] = useState(true)
     const [name, setName] = useState(currentUser.data.attributes.name)
-    const [email] = useState(currentUser.data.attributes.email)
+    const [email, setEmail] = useState(currentUser.data.attributes.email)
     const [existingPassword, setExistingPassword] = useState("")
     const [newPassword, setNewPassword] = useState("")
     const [updateMessage, setUpdateMessage] = useState(0)
@@ -180,6 +180,7 @@ function UserSettingsContainer() {
                 disableSettingsEdit={disableSettingsEdit}
                 name={name}
                 email={email}
+                setEmail={setEmail}
                 setName={setName}
                 updateMessaging={updateMessaging}
                 settingsButtonDisplay={settingsButtonDisplay}
