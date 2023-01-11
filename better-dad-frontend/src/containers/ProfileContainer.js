@@ -10,32 +10,34 @@ import Footer from '../components/Footer';
 
 function ProfileContainer() {
     const currentState = useSelector((state) => state)
-    const currentUser = currentState.usersReducer.user[0].user
-    const quote = currentState.usersReducer.user[0].quote
 
-    const username = (currentUser) => {
-        if (currentUser !== undefined) {
-            return currentUser.data.attributes.username
-        }
-        else {
-            return "no user found"
-        }
-    }
+    if (currentState.usersReducer.user[0] != undefined) {
+        const currentUser = currentState.usersReducer.user[0].user
+        const quote = currentState.usersReducer.user[0].quote
 
-    const score = (currentUser) => {
-        if (currentUser !== undefined) {
-            return currentUser.data.attributes.score
+        const username = (currentUser) => {
+            if (currentUser !== undefined) {
+                return currentUser.data.attributes.username
+            }
+            else {
+                return "no user found"
+            }
         }
-        else {
-            return 0
-        }
-    }
 
-    const userCardPicture = (user) => {
-        const earnedBadges = user.included.filter(task => task.type === "earned_badge")
-        const lastBadgeEarned = earnedBadges.pop()
-        return lastBadgeEarned.attributes.badge.image
-    }
+        const score = (currentUser) => {
+            if (currentUser !== undefined) {
+                return currentUser.data.attributes.score
+            }
+            else {
+                return 0
+            }
+        }
+
+        const userCardPicture = (user) => {
+            const earnedBadges = user.included.filter(task => task.type === "earned_badge")
+            const lastBadgeEarned = earnedBadges.pop()
+            return lastBadgeEarned.attributes.badge.image
+        }
 
     return (
 
@@ -55,6 +57,14 @@ function ProfileContainer() {
             </div>
         </div>
     )
+    }
+    else {
+        return <div className="loading-div" style={{ color: "#fff3e1", }}>
+          <div className="loading-div-content">
+            <h1>Loading...</h1>
+          </div>
+        </div>
+      }
 }
 
 export default ProfileContainer
