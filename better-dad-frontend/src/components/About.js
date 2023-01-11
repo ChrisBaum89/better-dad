@@ -32,9 +32,9 @@ function About() {
                                 src="https://embed.ted.com/talks/lang/en/jane_mcgonigal_gaming_can_make_a_better_world"
                                 width="854"
                                 height="480"
-                                frameborder="0"
+                                frameBorder="0"
                                 scrolling="no"
-                                allowfullscreen>
+                                allowFullScreen>
                             </iframe>
                         </div>
                     </div>
