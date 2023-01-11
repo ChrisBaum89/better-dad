@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './css/App.css';
 import ProfileContainer from "./containers/ProfileContainer";
 import { BrowserRouter as Router, Route } from 'react-router-dom'
@@ -12,6 +12,10 @@ function App() {
 
   const currentState = useSelector((state) => state)
   const dispatch = useDispatch()
+
+    useEffect(() => {
+      document.title = "Better Dad";
+    }, [])
 
   const jwtPresent = (jwtToken) => {
     return (jwtToken !== "") && (jwtToken !== "undefined") ? true : false
