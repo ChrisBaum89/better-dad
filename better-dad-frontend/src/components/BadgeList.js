@@ -26,7 +26,7 @@ const BadgeList = (props) => {
                                         </div>
                                     </div>
                                     <div className="badge-carousel-caption">
-                                        <img class='badge-image' src={badge.attributes.badge.image} alt=''></img>
+                                        <img className='badge-image' src={badge.attributes.badge.image} alt=''></img>
                                         <br></br><br></br>
                                         <h6>{badge.attributes.badge.name}</h6>
                                         <p>{badge.attributes.badge.description}</p>
